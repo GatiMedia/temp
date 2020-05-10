@@ -30,6 +30,8 @@ nuke.createNode("Blur")['size'].setValue(80)
 m = nuke.createNode("Blur")
 m['channels'].setValue("rgb")
 m['size'].setValue(50)
+m['mix'].setValue(.5)
+m['label'].setValue("Size: [value size]\nChannels: [value channels]\nMix: [value mix]")
 
 
 nuke.nodes.Blur()
