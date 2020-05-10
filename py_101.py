@@ -11,8 +11,7 @@ print "Hello World!"
 
 
 name = 'Attila'
-hy = 'Hello '
-print hy + name + '!'
+print 'Hello ' + name + '!'
 
 
 ### Create a Node ###
