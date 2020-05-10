@@ -1,20 +1,21 @@
-### Python snippets 101 GBK ###
+### GBK PYTHON SNIPPETS 101 ###
 
 
-### First step ###
+### FIRST STEP ###
 
 
 print "Hello World!"
 
 
-### Using variable ###
+### USING VARIABLE ###
 
 
 name = 'Attila'
-print 'Hello ' + name + '!'
+print ('Hello ' + name + '!')
 
 
-### Create a Node ###
+### CREATE A NODE ###
+## Functions: createNode, setValue ##
 
 
 nuke.createNode("Blur")
@@ -40,7 +41,8 @@ nuke.nodes.Blur()
 nuke.nodes.Blur(mix=.5,size=10)
 
 
-### Asking knob value with .value() and .getValue() ###
+### GETTING KNOB VALUE ###
+## Functions: toNode, value, getValue, knob ###
 
 
 nuke.toNode('Blur1')["channels"].value()
@@ -50,26 +52,30 @@ nuke.toNode('Blur1').knob("channels").value()
 nuke.toNode('Blur1')["filter"].getValue()
 
 
-### Setting knob value ###
+### SETTING KNOB VALUE ###
+## Functions: setValue ##
 
 
 nuke.toNode('Blur1')["size"].setValue(3)
 
 
-### Setting expression as a value ###
+### SETTING EXPRESSION VALUE ###
+## Functions: setExpression ##
 
 nuke.toNode('Blur1')["size"].setExpression('Blur2.size * 2')
 
 nuke.toNode('Transform1')["filter"].setExpression("Transform2.filter")
 
 
-### Remove animation / expression ###
+### REMOVE ANIMATION / EXPRESSION ###
+## Functions: clearAnimated ##
 
 
 nuke.toNode('Transform1')["filter"].clearAnimated()
 
 
-### Create multiple nodes with for loop and range ###
+### CREATE MULTIPLE NODES WITH `FOR LOOP` ###
+## Functions: range ##
 
 
 for i in range(15):
@@ -78,7 +84,18 @@ for i in range(15):
     i["size"].setExpression('Blur1.size')
 
 
-### Formatting values ###
+### CONNECT MULTIPLE NODES TO A SINGLE NODE ###
+## Functions: selectedNodes, setInput ##
+
+t = nuke.toNode('Transform1')
+
+nodes = nuke.selectedNodes()
+for i in nodes:
+    i.setInput(0, t)
+    i.setInput(1, None)
+
+
+### FORMATTING VALUES ###
 
 
 # Interger - int(x)
@@ -107,6 +124,7 @@ print x
 
 
 ### Run on any selected nodes ###
+## Functions: selectedNodes ##
 
 
 nodes = nuke.selectedNodes()
@@ -118,6 +136,7 @@ for node in nodes:
 
 
 ### Run on all nodes in a script ###
+## Functions: allNodes ##
 
 
 nodes = nuke.allNodes()
@@ -181,9 +200,18 @@ nuke.root().end()
 
 nuke.pluginPath()
 
+### NOTES ###
 
-# For checkboxes value can be True or False equals to 1 or 0
+# For checkboxes the value can be True or False that equals to 1 or 0
 
-# For dropdown menu values can be the name of the option or number of the option starting with 0 from the top
+# For dropdown menu values can be the name of the option or the serial number of the option starting with 0 from the top
 
 # To find the Class of the node select it and press `i` over the NodeGraph
+
+"""
+Useful links
+Foundry learn:
+https://learn.foundry.com/nuke/developers/120/pythondevguide/index.html
+Nuke API:
+https://learn.foundry.com/nuke/developers/120/pythonreference/
+"""
