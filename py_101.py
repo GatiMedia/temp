@@ -10,8 +10,9 @@ print "Hello World!"
 ### Using variable ###
 
 
-name = 'Attila'
-print 'Hello ' + name + '!'
+name = 'Mara'
+hy = 'Hello '
+print hy + name + '!'
 
 
 ### Create a Node ###
@@ -19,13 +20,17 @@ print 'Hello ' + name + '!'
 
 nuke.createNode("Blur")
 
+nuke.createNode("Tracker4")
 
-nuke.createNode("Blur")['size'].setValue(10)
+nuke.createNode("Blocky")
+
+
+nuke.createNode("Blur")['size'].setValue(80)
 
 
 m = nuke.createNode("Blur")
 m['channels'].setValue("rgb")
-m['size'].setValue(80)
+m['size'].setValue(50)
 
 
 nuke.nodes.Blur()
@@ -41,34 +46,35 @@ nuke.toNode('Blur1')["channels"].value()
 
 nuke.toNode('Blur1').knob("channels").value()
 
-nuke.toNode('Blur1')["channels"].getValue()
+nuke.toNode('Blur1')["filter"].getValue()
 
 
 ### Setting knob value ###
 
 
-nuke.toNode('Blur1')["size"].setValue(30.8)
+nuke.toNode('Blur1')["size"].setValue(3)
 
 
 ### Setting expression as a value ###
 
+nuke.toNode('Blur1')["size"].setExpression('Blur2.size * 2')
 
-nuke.toNode('Transform1')["scale"].setExpression("Transform2.scale*2")
+nuke.toNode('Transform1')["filter"].setExpression("Transform2.filter")
 
 
 ### Remove animation / expression ###
 
 
-nuke.toNode('Blur1')["size"].clearAnimated()
+nuke.toNode('Transform1')["filter"].clearAnimated()
 
 
 ### Create multiple nodes with for loop and range ###
 
 
-for k in range(5):
-    k = nuke.createNode("Blur")
-    k["channels"].setValue('alpha')
-    k["size"].setExpression('Blur1.size')
+for i in range(15):
+    i = nuke.createNode("Blur")
+    i["channels"].setValue('rgb')
+    i["size"].setExpression('Blur1.size')
 
 
 ### Formatting values ###
@@ -77,6 +83,7 @@ for k in range(5):
 # Interger - int(x)
 
 x = 12.8
+print type(x)
 x = int(x)
 print type(x)
 print x
@@ -84,13 +91,15 @@ print x
 # Float - float(x)
 
 x = 12
+print type(x)
 x = float(x)
 print type(x)
 print x
 
-# Strong - str(x)
+# String - str(x)
 
 x = 12.5
+print type(x)
 x = str(x)
 print type(x)
 print x
@@ -113,7 +122,7 @@ for node in nodes:
 nodes = nuke.allNodes()
 for node in nodes:
     try:
-        node.knob("size").setValue(2)
+        node.knob("size").setValue(20)
     except Exception:
         pass
 
@@ -145,7 +154,7 @@ nodes_classes = ["Read", "PostageStamp", "Constant", "ColorBars", "CheckerBoard2
 for node in nuke.allNodes(group=nuke.root()):
     if node.Class() in nodes_classes:
         try:
-            node["postage_stamp"].setValue(False)
+            node["postage_stamp"].setValue(True)
         except Exception:
             pass
 
