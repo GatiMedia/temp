@@ -10,7 +10,7 @@ print "Hello World!"
 ### Using variable ###
 
 
-name = 'Mara'
+name = 'Attila'
 hy = 'Hello '
 print hy + name + '!'
 
