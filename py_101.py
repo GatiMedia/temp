@@ -123,7 +123,7 @@ print type(x)
 print x
 
 
-### Run on any selected nodes ###
+### RUN ON ANY SELECTED NODES ###
 ## Functions: selectedNodes ##
 
 
@@ -135,7 +135,7 @@ for node in nodes:
         pass
 
 
-### Run on all nodes in a script ###
+### RUN ON ALL NODES IN A SCRIPT ###
 ## Functions: allNodes ##
 
 
@@ -147,7 +147,7 @@ for node in nodes:
         pass
 
 
-### Run an all specified Classes ###
+### RUN AN ALL SPECIFIED CLASSES ###
 
 
 nodes = nuke.allNodes('Merge2')
@@ -155,7 +155,7 @@ for node in nodes:
     node.knob("mix").setValue(.5)
 
 
-### Run an selected specified Classes ###
+### RUN AN SELECTED SPECIFIED CLASSES ###
 
 
 nodes = nuke.selectedNodes('Merge2')
@@ -166,7 +166,7 @@ for node in nodes:
         pass
 
 
-### Run on all multiple Classes ###
+### RUN ON ALL MULTIPLE CLASSES ###
 
 
 nodes_classes = ["Read", "PostageStamp", "Constant", "ColorBars", "CheckerBoard2", "ColorWheel"]
@@ -179,7 +179,7 @@ for node in nuke.allNodes(group=nuke.root()):
             pass
 
 
-### Run on selected multiple Classes ###
+### RUN ON SELECTED MULTIPLE CLASSES ###
 
 
 nuke.root().begin()
@@ -195,7 +195,7 @@ for node in nuke.selectedNodes():
 nuke.root().end()
 
 
-### Path for your nuke folder ###
+### PATH FOR YOUR NUKE FOLDER ###
 
 
 nuke.pluginPath()
