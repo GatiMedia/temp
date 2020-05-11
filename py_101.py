@@ -214,4 +214,6 @@ Foundry learn:
 https://learn.foundry.com/nuke/developers/120/pythondevguide/index.html
 Nuke API:
 https://learn.foundry.com/nuke/developers/120/pythonreference/
+Andrea Geremia Python tips:
+http://www.andreageremia.it/tutorial_python_tcl.html
 """
