@@ -58,8 +58,16 @@ nuke.toNode('Blur1')["filter"].getValue()
 ### SETTING KNOB VALUE ###
 ## Functions: setValue ##
 
-
+# Setting single value
 nuke.toNode('Blur1')["size"].setValue(10)
+
+# Setting multiple values
+b = nuke.toNode('Blur1')
+b["size"].setValue(20)
+b["mix"].setValue(.8)
+b["filter"].setValue(0)
+b["channels"].setValue("rgb")
+
 
 
 ### SETTING EXPRESSION VALUE ###
