@@ -20,23 +20,24 @@ print ('Hello ' + name + '!')
 
 nuke.createNode("Blur")
 
+# Can check node's Class with the `i` hotkey
 nuke.createNode("Tracker4")
 
+# Can call nodes that are removed from GUI
 nuke.createNode("Blocky")
 
-
+# Set a value
 nuke.createNode("Blur")['size'].setValue(80)
 
-
+# Set multiple values using a variable
 m = nuke.createNode("Blur")
 m['channels'].setValue("rgb")
 m['size'].setValue(50)
 m['mix'].setValue(.5)
 m['label'].setValue("Size: [value size]\nChannels: [value channels]\nMix: [value mix]")
 
-
+# Creating node for scripting
 nuke.nodes.Blur()
-
 
 nuke.nodes.Blur(mix=.5,size=10)
 
@@ -45,8 +46,10 @@ nuke.nodes.Blur(mix=.5,size=10)
 ## Functions: toNode, value, getValue, knob ###
 
 
+# Calling knobs as list items
 nuke.toNode('Blur1')["channels"].value()
 
+# Calling knobs with a function
 nuke.toNode('Blur1').knob("channels").value()
 
 nuke.toNode('Blur1')["filter"].getValue()
@@ -56,7 +59,7 @@ nuke.toNode('Blur1')["filter"].getValue()
 ## Functions: setValue ##
 
 
-nuke.toNode('Blur1')["size"].setValue(3)
+nuke.toNode('Blur1')["size"].setValue(10)
 
 
 ### SETTING EXPRESSION VALUE ###
@@ -81,7 +84,7 @@ nuke.toNode('Transform1')["filter"].clearAnimated()
 for i in range(15):
     i = nuke.createNode("Blur")
     i["channels"].setValue('rgb')
-    i["size"].setExpression('Blur1.size')
+    i["size"].setExpression('Blur1.size')\
 
 
 ### CONNECT MULTIPLE NODES TO A SINGLE NODE ###
