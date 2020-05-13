@@ -1,0 +1,1275 @@
+BackdropNode {
+inputs 0
+name BackdropNode27
+label <center>OCIO_COLOR
+note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 21
+selected true
+xpos 5629
+ypos 5524
+bdwidth 342
+bdheight 207
+}
+BackdropNode {
+inputs 0
+name BackdropNode28
+tile_color 0x888888ff
+label "<center>Overlay text"
+note_font_size 42
+selected true
+xpos 4634
+ypos 10734
+bdwidth 1233
+bdheight 683
+}
+BackdropNode {
+inputs 0
+name BackdropNode29
+tile_color 0x740024ff
+label "<center>MASTER\nREFORMAT "
+note_font_size 42
+selected true
+xpos 5589
+ypos 9576
+bdwidth 423
+bdheight 312
+}
+BackdropNode {
+inputs 0
+name BackdropNode31
+tile_color 0x888888ff
+label <center>TIMECODE
+note_font_size 42
+selected true
+xpos 7244
+ypos 8391
+bdwidth 413
+bdheight 234
+}
+BackdropNode {
+inputs 0
+name BackdropNode32
+tile_color 0x846a1dff
+label "<center>Write Slate"
+note_font_size 42
+selected true
+xpos 6355
+ypos 11537
+bdwidth 430
+bdheight 325
+}
+BackdropNode {
+inputs 0
+name BackdropNode33
+label "<center>Thumbnail Zoom"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 31
+selected true
+xpos 6846
+ypos 6532
+bdwidth 328
+bdheight 256
+}
+BackdropNode {
+inputs 0
+name BackdropNode34
+tile_color 0x888888ff
+label "<center>Slate Info"
+note_font_size 42
+selected true
+xpos 7266
+ypos 7780
+bdwidth 809
+bdheight 448
+}
+BackdropNode {
+inputs 0
+name BackdropNode35
+tile_color 0x666666ff
+label <center>OVERLAY
+note_font_size 42
+selected true
+xpos 5672
+ypos 11205
+bdwidth 256
+bdheight 222
+}
+BackdropNode {
+inputs 0
+name BackdropNode36
+tile_color 0x7bd975ff
+label "<center>MASTER\nCONTROLLER\n( for Editorial )\n\n\n- Adjust Overlay Text\n- Adjust Zoom\n- Adjust Thumbnail\n- Adjust Logo"
+note_font_size 62
+selected true
+xpos 4368
+ypos 6428
+bdwidth 884
+bdheight 1039
+}
+BackdropNode {
+inputs 0
+name BackdropNode37
+tile_color 0x888888ff
+label "<center>Copy 'Input/Timecode'"
+note_font_size 42
+selected true
+xpos 5618
+ypos 9199
+bdwidth 364
+bdheight 201
+}
+BackdropNode {
+inputs 0
+name BackdropNode38
+tile_color 0x8e388e00
+label "<center>Input \nFormat\nProxy"
+note_font_size 42
+selected true
+xpos 5670
+ypos 5151
+bdwidth 260
+bdheight 233
+}
+BackdropNode {
+inputs 0
+name BackdropNode39
+tile_color 0x666666ff
+label <center>SLATE
+note_font_size 42
+selected true
+xpos 5672
+ypos 8373
+bdwidth 256
+bdheight 222
+}
+BackdropNode {
+inputs 0
+name BackdropNode40
+tile_color 0x777777ff
+label <center>MERGE_SLATE_INFO
+note_font_size 42
+selected true
+xpos 7284
+ypos 7899
+bdwidth 332
+bdheight 210
+}
+BackdropNode {
+inputs 0
+name BackdropNode41
+tile_color 0x777777ff
+label <center>SLATE_INFO
+note_font_size 42
+selected true
+xpos 7834
+ypos 7899
+bdwidth 332
+bdheight 210
+}
+BackdropNode {
+inputs 0
+name BackdropNode42
+label "<center>Input Zoom"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 31
+selected true
+xpos 5636
+ypos 6532
+bdwidth 328
+bdheight 256
+}
+BackdropNode {
+inputs 0
+name BackdropNode43
+tile_color 0x846a1dff
+label "<center>Write Quicktime"
+note_font_size 42
+selected true
+xpos 5585
+ypos 11537
+bdwidth 430
+bdheight 325
+}
+BackdropNode {
+inputs 0
+name BackdropNode44
+tile_color 0x777777ff
+label "<center>SLATE GREY BG"
+note_font_size 52
+selected true
+xpos 7190
+ypos 9873
+bdwidth 301
+bdheight 293
+}
+BackdropNode {
+inputs 0
+name BackdropNode45
+tile_color 0x777777ff
+label <center>INPUT
+note_font_size 122
+selected true
+xpos 5527
+ypos 4493
+bdwidth 547
+bdheight 493
+}
+BackdropNode {
+inputs 0
+name BackdropNode46
+tile_color 0x777777ff
+label "<center>SLATE BG"
+note_font_size 52
+selected true
+xpos 7303
+ypos 4958
+bdwidth 294
+bdheight 283
+}
+BackdropNode {
+inputs 0
+name BackdropNode47
+tile_color 0x888888ff
+label "<center>Union logo"
+note_font_size 42
+selected true
+xpos 7188
+ypos 5527
+bdwidth 745
+bdheight 730
+}
+BackdropNode {
+inputs 0
+name BackdropNode48
+tile_color 0x888888ff
+label "<center>Thumbnail Strip"
+note_font_size 42
+selected true
+xpos 6672
+ypos 6912
+bdwidth 896
+bdheight 792
+}
+BackdropNode {
+inputs 0
+name Crop_Backdrop
+tile_color 0xaaaaaa00
+note_font_size 42
+selected true
+xpos 5726
+ypos 9952
+bdwidth 148
+bdheight 135
+}
+BackdropNode {
+inputs 0
+name GRADE2
+tile_color 0x890c37ff
+label "SHOT_LUT\n\n\n\n\n\n\n\n\n\n\n\n\n\nSHOW_LUT"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+selected true
+xpos 5674
+ypos 5771
+bdwidth 252
+bdheight 337
+}
+BackdropNode {
+inputs 0
+name BackdropNode49
+tile_color 0x555555ff
+label <center>Top
+note_font_size 42
+selected true
+xpos 4750
+ypos 10996
+bdwidth 341
+bdheight 159
+z_order 1
+}
+BackdropNode {
+inputs 0
+name BackdropNode50
+tile_color 0x555555ff
+label <center>Bottom
+note_font_size 42
+selected true
+xpos 5190
+ypos 10996
+bdwidth 341
+bdheight 159
+z_order 1
+}
+BackdropNode {
+inputs 0
+name BackdropNode51
+tile_color 0x777777ff
+label <center>MERGE_THUMBNAIL
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 42
+selected true
+xpos 7208
+ypos 7444
+bdwidth 484
+bdheight 256
+z_order 1
+}
+BackdropNode {
+inputs 0
+name BackdropNode52
+tile_color 0x777777ff
+label <center>MERGE_LOGO
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 42
+selected true
+xpos 7271
+ypos 5868
+bdwidth 358
+bdheight 239
+z_order 1
+}
+BackdropNode {
+inputs 0
+name BackdropNode53
+tile_color 0x777777ff
+label <center>LOGO
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 42
+selected true
+xpos 7648
+ypos 5635
+bdwidth 264
+bdheight 178
+z_order 1
+}
+Constant {
+inputs 0
+color {0.15 0.15 0.15 0}
+color_panelDropped true
+format "1920 1080 0 0 1920 1080 1 HD_1080"
+name BG_GREY
+selected true
+xpos 7300
+ypos 10035
+}
+Reformat {
+format {{{MASTER_REFORMAT.format}}}
+resize distort
+name Reformat10
+selected true
+xpos 7300
+ypos 10221
+}
+TimeClip {
+time ""
+first {{"\[value INPUT.first]-1"}}
+last {{"\[value INPUT.first]-1"}}
+origset true
+mask_metadata true
+name SLATE_RANGE_GREY_BG
+label "\[value first] - \[value last]"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 21
+selected true
+xpos 6970
+ypos 10211
+}
+set N1fb12cb0 [stack 0]
+Dot {
+name Dot29
+selected true
+xpos 7004
+ypos 10302
+}
+Constant {
+inputs 0
+channels rgb
+color {0 0 0 0}
+color_panelDropped true
+format "1920 1080 0 0 1920 1080 1 HD_1080"
+name BG
+selected true
+xpos 7410
+ypos 5115
+}
+Reformat {
+type "to box"
+box_width {{parent.MAIN_SIZE.box.r}}
+box_height {{parent.MAIN_SIZE.box.t}}
+box_fixed true
+resize fill
+name Reformat_to_BG
+selected true
+xpos 7410
+ypos 5331
+}
+Dot {
+name Dot36
+selected true
+xpos 7444
+ypos 5454
+}
+set N18c5f250 [stack 0]
+Dot {
+name Dot51
+selected true
+xpos 7994
+ypos 5454
+}
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle17
+label "\[value in 1]"
+selected true
+xpos 7960
+ypos 7821
+}
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur orci ut odio finibus tristique. Donec mi lorem, consectetur a auctor consectetur, vehicula pretium orci. Integer tempor nisi quis enim sagittis vehicula. Nullam id orci venenatis, porttitor augue eget, scelerisque magna. Duis semper orci non orci imperdiet lacinia. Sed volutpat sapien dolor, rutrum \nhendrerit erat auctor vitae. Ut eu lectus vel sem posuere tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque maximus sagittis consectetur.\n\n"
+old_message {{76 111 114 101 109 32 105 112 115 117 109 32 100 111 108 111 114 32 115 105 116 32 97 109 101 116 44 32 99 111 110 115 101 99 116 101 116 117 114 32 97 100 105 112 105 115 99 105 110 103 32 101 108 105 116 46 32 85 116 32 99 111 110 115 101 99 116 101 116 117 114 32 111 114 99 105 32 117 116 32 111 100 105 111 32 102 105 110 105 98 117 115 32 116 114 105 115 116 105 113 117 101 46 32 68 111 110 101 99 32 109 105 32 108 111 114 101 109 44 32 99 111 110 115 101 99 116 101 116 117 114 32 97 32 97 117 99 116 111 114 32 99 111 110 115 101 99 116 101 116 117 114 44 32 118 101 104 105 99 117 108 97 32 112 114 101 116 105 117 109 32 111 114 99 105 46 32 73 110 116 101 103 101 114 32 116 101 109 112 111 114 32 110 105 115 105 32 113 117 105 115 32 101 110 105 109 32 115 97 103 105 116 116 105 115 32 118 101 104 105 99 117 108 97 46 32 78 117 108 108 97 109 32 105 100 32 111 114 99 105 32 118 101 110 101 110 97 116 105 115 44 32 112 111 114 116 116 105 116 111 114 32 97 117 103 117 101 32 101 103 101 116 44 32 115 99 101 108 101 114 105 115 113 117 101 32 109 97 103 110 97 46 32 68 117 105 115 32 115 101 109 112 101 114 32 111 114 99 105 32 110 111 110 32 111 114 99 105 32 105 109 112 101 114 100 105 101 116 32 108 97 99 105 110 105 97 46 32 83 101 100 32 118 111 108 117 116 112 97 116 32 115 97 112 105 101 110 32 100 111 108 111 114 44 32 114 117 116 114 117 109 32 10 104 101 110 100 114 101 114 105 116 32 101 114 97 116 32 97 117 99 116 111 114 32 118 105 116 97 101 46 32 85 116 32 101 117 32 108 101 99 116 117 115 32 118 101 108 32 115 101 109 32 112 111 115 117 101 114 101 32 116 101 109 112 117 115 46 32 80 101 108 108 101 110 116 101 115 113 117 101 32 104 97 98 105 116 97 110 116 32 109 111 114 98 105 32 116 114 105 115 116 105 113 117 101 32 115 101 110 101 99 116 117 115 32 101 116 32 110 101 116 117 115 32 101 116 32 109 97 108 101 115 117 97 100 97 32 102 97 109 101 115 32 97 99 32 116 117 114 112 105 115 32 101 103 101 115 116 97 115 46 32 81 117 105 115 113 117 101 32 109 97 120 105 109 117 115 32 115 97 103 105 116 116 105 115 32 99 111 110 115 101 99 116 101 116 117 114 46 10 10}
+  }
+box {{input.width/10} {input.height/10} {(input.width/10)*6} {(input.height/10)*6}}
+xjustify justify
+transforms {{0 2}
+  }
+cursor_position 365
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/8000}}
+center {1024 512}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{40.5 878.5}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 512 0 0 1 1 0 0 0 0}
+  }
+name SLATE_INFO
+selected true
+xpos 7960
+ypos 8043
+}
+Read {
+inputs 0
+file /Volumes/projects/otp/sequences/110_090/110_090_100/comp/publish/renders/110_090_100_pevis_v001/3840x2160/110_090_100_pevis_v001.####.exr
+format "3840 2160 0 0 3840 2160 1 UHD_4K"
+proxy_format "4096 2304 0 0 4096 2304 1 "
+last 5
+origlast 5
+origset true
+raw true
+name INPUT
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 31
+selected true
+xpos 5760
+ypos 4736
+}
+Crop {
+box {0 0 {input.width} {input.height}}
+name MAIN_SIZE
+selected true
+xpos 5760
+ypos 5331
+}
+OCIOColorSpace {
+in_colorspace linear
+out_colorspace linear
+name OCIO_COLOR
+selected true
+xpos 5760
+ypos 5643
+disable true
+}
+OCIOColorSpace {
+in_colorspace linear
+out_colorspace AlexaV3LogC
+name OCIOColorSpace10
+selected true
+xpos 5760
+ypos 5807
+}
+OCIOCDLTransform {
+working_space linear
+read_from_file true
+name SHOT_LUT
+selected true
+xpos 5760
+ypos 5859
+disable true
+}
+OCIOFileTransform {
+file /Volumes/projects/otp/assets/in/luts/AlexaV3_K1S1_LogC2Video_Rec709_EE_nuke3d.cube
+version 3
+working_space linear
+name SHOW_LUT
+selected true
+xpos 5760
+ypos 6003
+}
+Dot {
+name Dot76
+selected true
+xpos 5794
+ypos 6438
+}
+set N8523830 [stack 0]
+Dot {
+name Dot77
+selected true
+xpos 7004
+ypos 6438
+}
+Transform {
+scale {{QT_Maker_Controller.Th_Zo}}
+center {{input.width/2} {input.height/2}}
+name Transform_THUMBNAIL_ZOOM
+label "\[value scale]"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 21
+selected true
+xpos 6970
+ypos 6635
+}
+Crop {
+box {0 0 {input.width} {input.height}}
+name Crop_Thumbnail_Zoom
+selected true
+xpos 6970
+ypos 6723
+}
+Dot {
+name Dot78
+selected true
+xpos 7004
+ypos 7086
+}
+set N2c90eb20 [stack 0]
+FrameHold {
+first_frame {{INPUT.first}}
+name FrameHold_1_5
+selected true
+xpos 6750
+ypos 7221
+}
+push $N2c90eb20
+FrameHold {
+first_frame {{"int(\[value INPUT.first]+(\[value INPUT.last] - \[value INPUT.first]) /5*2)"}}
+name FrameHold_2_5
+selected true
+xpos 6860
+ypos 7221
+}
+Multiply {
+value 0
+name Multiply3
+selected true
+xpos 6885
+ypos 7270
+}
+push $N2c90eb20
+FrameHold {
+first_frame {{"int(\[value INPUT.first] + (\[value INPUT.last] - \[value INPUT.first]) /5*3)"}}
+name FrameHold_3_5
+selected true
+xpos 6970
+ypos 7221
+}
+Multiply {
+value 0
+name Multiply2
+selected true
+xpos 6973
+ypos 7266
+}
+push $N2c90eb20
+FrameHold {
+first_frame {{"int(\[value INPUT.first] + (\[value INPUT.last] - \[value INPUT.first]) /5*4)"}}
+name FrameHold_4_5
+selected true
+xpos 7080
+ypos 7221
+}
+Multiply {
+value 0
+name Multiply1
+selected true
+xpos 7053
+ypos 7259
+}
+Marcie {
+inputs 0 inputs 0
+ name Marcie1
+ selected true
+ xpos 1711
+ ypos 1341
+
+xpos 7202
+ypos 6990
+selected true
+disable false
+}
+FrameHold {
+first_frame {{INPUT.last}}
+name FrameHold_5_5
+selected true
+xpos 7202
+ypos 7222
+}
+ContactSheet {
+inputs 5
+width {{MAIN_SIZE.width x1087 332}}
+height {{MAIN_SIZE.height x1087 720}}
+rows 5
+columns 1
+gap {{parent.MAIN_SIZE.box.t/QT_Maker_Controller.Th_Ga}}
+center true
+startframe 1
+endframe 1
+name THUMBNAIL_CONTROL
+selected true
+xpos 6970
+ypos 7347
+}
+Transform {
+translate {{"(MAIN_SIZE.width/2) - ((MAIN_SIZE.width/10)*2)" x1087 96} 0}
+center {{MAIN_SIZE.width/2} {MAIN_SIZE.height/2}}
+name Transform_Thumbnail
+selected true
+xpos 6970
+ypos 7467
+}
+Transform {
+translate {{parent.QT_Maker_Controller.Th_Tr} {parent.QT_Maker_Controller.Th_Tr}}
+scale {{parent.QT_Maker_Controller.Th_Sc}}
+center {{"(MAIN_SIZE.width/2) + Transform_Thumbnail.translate.x"} {MAIN_SIZE.height/2}}
+name Transform_Thumbnail_Custom
+selected true
+xpos 6970
+ypos 7539
+}
+Dot {
+name Dot79
+selected true
+xpos 7004
+ypos 7590
+}
+Read {
+inputs 0
+file /Volumes/sandbox/rhys/git/qtmaker/Union-Teal-RGB.tif
+localizationPolicy off
+format "2000 501 0 0 2000 501 1 "
+proxy_format "1920 1080 0 0 1920 1080 1 HD_1080"
+origset true
+name LOGO
+selected true
+xpos 7740
+ypos 5727
+}
+Transform {
+translate {{parent.QT_Maker_Controller.Lo_Tr} {parent.QT_Maker_Controller.Lo_Tr}}
+rotate 1
+scale {{parent.QT_Maker_Controller.Lo_Sc}}
+center {{input.width/2} {input.height/2}}
+name Transform_LOGO_Custom
+selected true
+xpos 7740
+ypos 5835
+}
+Reformat {
+type "to box"
+format {{{parent.INPUT.format}}}
+box_width {{parent.MAIN_SIZE.box.r}}
+box_height {{parent.MAIN_SIZE.box.t}}
+box_fixed true
+name Reformat_LOGO
+selected true
+xpos 7740
+ypos 5883
+}
+Transform {
+translate {{"(-(MAIN_SIZE.bbox.w/2)) + (MAIN_SIZE.bbox.w/10)*2"} {"((MAIN_SIZE.bbox.h/2)) - (MAIN_SIZE.bbox.h/10)*2"}}
+scale 0.2
+center {{input.width/2 x1087 1024} {input.height/2}}
+name Transform_LOGO
+selected true
+xpos 7740
+ypos 5979
+}
+Dot {
+name Dot80
+selected true
+xpos 7774
+ypos 6030
+}
+push $N18c5f250
+Merge2 {
+inputs 2
+name MERGE_LOGO
+selected true
+xpos 7410
+ypos 6027
+}
+Merge2 {
+inputs 2
+name MERGE_THUMBNAIL
+selected true
+xpos 7410
+ypos 7587
+}
+Merge2 {
+inputs 2
+name MERGE_SLATE_INFO
+selected true
+xpos 7410
+ypos 8043
+}
+Crop {
+box {0 0 {input.width} {input.height}}
+name Crop_Slate
+selected true
+xpos 7410
+ypos 8307
+}
+AddTimeCode {
+name TIMECODE
+note_font_size 21
+selected true
+xpos 7410
+ypos 8519
+}
+Dot {
+name Dot81
+selected true
+xpos 6564
+ypos 8526
+}
+set N1f1724f0 [stack 0]
+Dot {
+name Dot82
+selected true
+xpos 6564
+ypos 9342
+}
+set N1f177780 [stack 0]
+Merge2 {
+inputs 2
+operation under
+name Merge_Grey_to_Slate
+selected true
+xpos 6530
+ypos 10299
+}
+Write {
+channels all
+raw true
+file_type mov
+mov64_format "mov (QuickTime / MOV)"
+mov64_codec ap4h
+mov64_bitrate 20000
+mov64_bitrate_tolerance 40000000
+mov64_quality_min 2
+mov64_quality_max 31
+mov64_gop_size 12
+mov64_b_frames 0
+create_directories true
+checkHashOnRead false
+version 2
+in_colorspace linear
+out_colorspace linear
+name WRITE_SLATE
+selected true
+xpos 6530
+ypos 11709
+}
+push $N1f177780
+push $N1f1724f0
+TimeClip {
+time ""
+first {{"\[value INPUT.first]-1"}}
+last {{"\[value INPUT.first]-1"}}
+origset true
+mask_metadata true
+name SLATE_RANGE
+label "\[value first] - \[value last]"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 21
+selected true
+xpos 6200
+ypos 8507
+}
+push $N8523830
+Transform {
+scale {{QT_Maker_Controller.In_Zo}}
+center {{input.width/2} {input.height/2}}
+name Transform_INPUT_ZOOM
+label "\[value scale]"
+note_font_size 21
+selected true
+xpos 5760
+ypos 6635
+}
+Crop {
+box {0 0 {input.width} {input.height}}
+name Crop_Input_Zoom
+selected true
+xpos 5760
+ypos 6723
+}
+Shuffle {
+alpha black
+name Shuffle_RGB_to_0
+label "\[value in 1]"
+selected true
+xpos 5760
+ypos 8109
+}
+TimeClip {
+time ""
+first {{INPUT.first}}
+last {{INPUT.last}}
+origset true
+mask_metadata true
+name INPUT_RANGE
+label "\[value first] - \[value last]"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 21
+selected true
+xpos 5760
+ypos 8195
+}
+Merge2 {
+inputs 2
+name SLATE
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 21
+selected true
+xpos 5760
+ypos 8518
+}
+CopyMetaData {
+inputs 2
+metadatafilter input/timecode
+name CopyMetaData_Timecode
+label "\[value metadatafilter]"
+selected true
+xpos 5760
+ypos 9333
+}
+Reformat {
+format "1920 1080 0 0 1920 1080 1 HD_1080"
+black_outside true
+name MASTER_REFORMAT
+tile_color 0xdf00ffff
+label "\[value resize]"
+note_font_size 31
+selected true
+xpos 5760
+ypos 9752
+}
+Crop {
+preset 2.35:1
+box {0 131 1920 949}
+name CROP
+selected true
+xpos 5760
+ypos 10035
+disable true
+}
+Dot {
+name Dot83
+selected true
+xpos 5794
+ypos 10158
+}
+set N1d0f0c20 [stack 0]
+Premult {
+name Premult5
+selected true
+xpos 5650
+ypos 10155
+}
+Dot {
+name Dot84
+selected true
+xpos 5684
+ypos 10302
+}
+push $N1fb12cb0
+push $N1d0f0c20
+Merge2 {
+inputs 2
+name Merge_Grey_to_QT
+selected true
+xpos 5760
+ypos 10227
+}
+Merge2 {
+inputs 2
+name Merge_Grey_to_QT_back
+selected true
+xpos 5760
+ypos 10299
+}
+Dot {
+name Dot85
+selected true
+xpos 5794
+ypos 10902
+}
+set N1d114810 [stack 0]
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle18
+label "RGBA to 0\n"
+selected true
+xpos 5100
+ypos 10893
+}
+set N3405abe0 [stack 0]
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message "THE POPE"
+old_message {{84 72 69 32 80 79 80 69}
+  }
+box {{(input.width/30)*.2 x1086 266.2 1325} {(input.height/20)*18.5 x1087 1023.2} {(input.width/30)*10 x1087 1901} {(input.height/20)*19.9 x1087 1098.8}}
+yjustify center
+transforms {{0 2}
+  }
+cursor_position 8
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/QT_Maker_Controller.Ov_Fo_Si}}
+center {1024 778}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{16.5 1244.5}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+  }
+enable_shadows true
+shadow_opacity 0.8
+shadow_distance 0
+shadow_size 2
+name OVERLAY_A
+selected true
+xpos 4770
+ypos 11091
+}
+push 0
+push $N3405abe0
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message "Union VFX"
+old_message {{85 110 105 111 110 32 86 70 88}
+  }
+box {{(input.width/30)*20} {(input.height/20)*18.5} {(input.width/30)*29.8} {(input.height/20)*19.9}}
+xjustify right
+yjustify center
+transforms {{0 2}
+  }
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/QT_Maker_Controller.Ov_Fo_Si}}
+center {1024 778}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{2076.5 1200.5}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+  }
+enable_shadows true
+shadow_opacity 0.8
+shadow_distance 0
+shadow_size 2
+name OVERLAY_C
+selected true
+xpos 4990
+ypos 11091
+}
+push $N3405abe0
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message Test
+old_message {{84 101 115 116}
+  }
+box {{(input.width/30)*10} {(input.height/20)*18.5} {(input.width/30)*20} {(input.height/20)*19.9}}
+xjustify center
+yjustify center
+transforms {{0 2}
+  }
+cursor_position 4
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/QT_Maker_Controller.Ov_Fo_Si}}
+center {1024 778}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{1181 1176.5}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+  }
+enable_shadows true
+shadow_opacity 0.8
+shadow_distance 0
+shadow_size 2
+name OVERLAY_B
+selected true
+xpos 4880
+ypos 11091
+}
+Merge2 {
+inputs 3+1
+operation plus
+name Merge_OVERLAY_TOP
+selected true
+xpos 4880
+ypos 11187
+}
+Transform {
+translate {0 {QT_Maker_Controller.Ov_Ed}}
+center {{input.width/2} {input.height/2}}
+name Transform_OVERLAY_TOP
+selected true
+xpos 4880
+ypos 11259
+}
+set N340d2790 [stack 0]
+push $N340d2790
+push $N3405abe0
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message s
+old_message {{115}
+  }
+box {{(input.width/30)*.2} {(input.height/20)*1.5} {(input.width/30)*10} {(input.height/20)*.1}}
+yjustify center
+transforms {{0 2}
+  }
+cursor_position 1
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/QT_Maker_Controller.Ov_Fo_Si}}
+center {1024 778}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{61.5 152.5}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+  }
+enable_shadows true
+shadow_opacity 0.8
+shadow_distance 0
+shadow_size 2
+name OVERLAY_D
+selected true
+xpos 5210
+ypos 11091
+}
+push 0
+push $N3405abe0
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message 26
+old_message {{50 54}
+  }
+box {{(input.width/30)*10} {(input.height/20)*1.5} {(input.width/30)*20 x1033 108} {(input.height/20)*.1 x1086 62.9}}
+xjustify center
+yjustify center
+transforms {{0 2}
+  }
+cursor_position 2
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/QT_Maker_Controller.Ov_Fo_Si}}
+center {1024 778}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{1155.5 177.1171875}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+  }
+enable_shadows true
+shadow_opacity 0.8
+shadow_distance 0
+shadow_size 2
+name OVERLAY_E
+selected true
+xpos 5320
+ypos 11091
+}
+push $N3405abe0
+Text2 {
+font_size_toolbar 100
+font_width_toolbar 100
+font_height_toolbar 100
+message 15
+old_message {{49 53}
+  }
+box {{(input.width/30)*20} {(input.height/20)*1.5} {(input.width/30)*29.8} {(input.height/20)*.1}}
+xjustify right
+yjustify center
+transforms {{0 2}
+  }
+cursor_position 2
+font {{ Open Sans : Regular : open-sans/OpenSans-Regular.ttf : 0 }}
+global_font_scale {{input.width/QT_Maker_Controller.Ov_Fo_Si}}
+center {1024 778}
+cursor_initialised true
+autofit_bbox false
+initial_cursor_position {{1944.5 210.5}
+  }
+group_animations {{0} imported: 0 selected: items: "root transform/"}
+animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+  }
+enable_shadows true
+shadow_opacity 0.8
+shadow_distance 0
+shadow_size 2
+name OVERLAY_F
+selected true
+xpos 5430
+ypos 11091
+}
+Merge2 {
+inputs 3+1
+name Merge_OVERLAY_BOTTOM
+selected true
+xpos 5320
+ypos 11187
+}
+Transform {
+translate {0 {-(QT_Maker_Controller.Ov_Ed)}}
+center {960 540}
+name Transform_OVERLAY_BOTTOM
+selected true
+xpos 5320
+ypos 11259
+}
+set N3416c920 [stack 0]
+push $N340d2790
+push 0
+push $N3416c920
+push $N3416c920
+Merge2 {
+inputs 6+1
+operation plus
+name Merge_OVERLAY
+selected true
+xpos 5100
+ypos 11307
+}
+Crop {
+box {0 0 {input.width} {input.height}}
+name Crop1
+selected true
+xpos 5100
+ypos 11355
+}
+TimeClip {
+time ""
+first {{"\[value INPUT.first]"}}
+last {{"\[value INPUT.last]"}}
+origset true
+mask_metadata true
+name OVERLAY_RANGE
+label "\[value first] - \[value last]"
+note_font_size 21
+selected true
+xpos 5430
+ypos 11339
+}
+push $N1d114810
+Merge2 {
+inputs 2
+name OVERLAY
+selected true
+xpos 5760
+ypos 11355
+}
+set N34197c10 [stack 0]
+Write {
+raw true
+file_type mov
+mov64_format "mov (QuickTime / MOV)"
+mov64_codec ap4x
+mov64_write_timecode true
+mov64_bitrate 20000
+mov64_bitrate_tolerance 40000000
+mov64_quality_min 2
+mov64_quality_max 31
+mov64_gop_size 12
+mov64_b_frames 0
+create_directories true
+checkHashOnRead false
+version 2
+in_colorspace linear
+out_colorspace linear
+name WRITE_QUICKTIME
+selected true
+xpos 5760
+ypos 11709
+}
+push $cut_paste_input
+NoOp {
+name QT_Maker_Controller
+tile_color 0x1fff00ff
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 41
+selected true
+xpos 4768
+ypos 7161
+addUserKnob {20 User}
+addUserKnob {26 text l "<b><font color=#0b9b00 size=\"4\" >Adjust Overlay Text</font><b>"}
+addUserKnob {7 Ov_Fo_Si l "Overlay Font Size" R 2000 12000}
+Ov_Fo_Si 7000
+addUserKnob {7 Ov_Ed l "Overlay Text To Edge" R -1000 1000}
+addUserKnob {26 zoom l "<b><font color=#0b9b00  size=\"4\" >Adjust Zoom</font><b>"}
+addUserKnob {7 In_Zo l "Input Zoom" R 0.1 10}
+In_Zo 1
+addUserKnob {26 info1 l "" +STARTLINE T "Not adjusting the zoom of the thumbnail, only the shot`s."}
+addUserKnob {26 Adj_Th l "<b><font color=#0b9b00  size=\"4\" >Adjust Thumbnail</font><b>"}
+addUserKnob {7 Th_Zo l "Thumbnail Zoom" R 0.1 10}
+Th_Zo 1
+addUserKnob {26 info2 l "" +STARTLINE T "Adjusting only the zoom of the thumbnail."}
+addUserKnob {7 Th_Ga l "Thumbnail Gap" R 10 400}
+Th_Ga 80
+addUserKnob {12 Th_Tr l "Thumbnail translate"}
+addUserKnob {7 Th_Sc l "Thumbnail scale" R 0.1 10}
+Th_Sc 0.8
+addUserKnob {26 Ad_Lo l "<b><font color=#0b9b00  size=\"4\" >Adjust Logo</font><b>"}
+addUserKnob {12 Lo_Tr l "Logo translate"}
+addUserKnob {7 Lo_Sc l "Logo scale" R 0.1 10}
+Lo_Sc 1
+addUserKnob {26 ""}
+addUserKnob {26 qt_ma_co l "" +STARTLINE T "<b><font color=#808080 size=\"4\" >QT_Maker_Controller 1.01</font><b>\n<b><font color=#4d4d4d size=\"3\" >by Attila Gasparetz</font><b>"}
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+}
+push $N34197c10
+Viewer {
+frame 1
+frame_range 5-5
+viewerProcess "None (default)"
+name Viewer2
+selected true
+xpos 5760
+ypos 11745
+}
