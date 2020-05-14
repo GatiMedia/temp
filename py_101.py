@@ -1,3 +1,4 @@
+
 ### GBK PYTHON SNIPPETS 101 ###
 
 
@@ -12,6 +13,12 @@ print ("Hello World!")
 
 name = 'Attila'
 print ('Hello ' + name + '!')
+
+name = 'Attila'
+print("Hello %s!" % name)
+
+name = 'Attila'
+print("Hello {}!".format(name))
 
 
 ### CREATE A NODE ###
@@ -210,6 +217,21 @@ nuke.root().end()
 
 
 nuke.pluginPath()
+
+
+### PERFORMANCE TIMER ###
+
+#start
+nuke.startPerformanceTimers()
+
+#reset
+nuke.resetPerformanceTimers()
+
+#stop
+nuke.stopPerformanceTimers()
+
+
+# https://learn.foundry.com/nuke/developers/90/pythondevguide/performance.html
 
 ### NOTES ###
 
