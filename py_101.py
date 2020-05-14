@@ -1,4 +1,3 @@
-
 ### GBK PYTHON SNIPPETS 101 ###
 
 
@@ -190,11 +189,12 @@ for node in nodes:
 nodes_classes = ["Read", "PostageStamp", "Constant", "ColorBars", "CheckerBoard2", "ColorWheel"]
 
 for node in nuke.allNodes(group=nuke.root()):
-    if node.Class() in nodes_classes:
-        try:
-            node["postage_stamp"].setValue(True)
-        except Exception:
-            pass
+    if node.Class() not in nodes_classes:
+        continue
+    try:
+        node["postage_stamp"].setValue(False)
+    except Exception:
+        pass
 
 
 ### RUN ON SELECTED MULTIPLE CLASSES ###
@@ -205,11 +205,12 @@ nuke.root().begin()
 nodes_classes = ["Read", "PostageStamp", "Constant", "ColorBars", "CheckerBoard2", "ColorWheel"]
 
 for node in nuke.selectedNodes():
-    if node.Class() in nodes_classes:
-        try:
-            node["postage_stamp"].setValue(True)
-        except Exception:
-            pass
+    if node.Class() not in nodes_classes:
+        continue
+    try:
+        node["postage_stamp"].setValue(True)
+    except Exception:
+        pass
 nuke.root().end()
 
 
