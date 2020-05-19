@@ -10,15 +10,25 @@ print ("Hello World!")
 ### USING VARIABLE ###
 
 
-name = 'Attila'
-print ('Hello ' + name + '!')
+### USING VARIABLE ###
+
 
 name = 'Attila'
-print("Hello %s!" % name)
+age = '30'
+country = 'Hungary'
+print ('Hello ' + name + '! I am ' + age + '. I am from ' + country)
 
 name = 'Attila'
-print("Hello {}!".format(name))
+age = 30
+country = 'Hungary'
+print("Hello %s! I am %d. I am from %s." % (name, age, country))
 
+# %d will truncate to integer, %s will maintain formatting, %f will print as float and %g is used for generic number
+
+name = 'Attila'
+age = 30
+country = 'Hungary'
+print("Hello {}! I am {}. I am from {}.".format(name, age, country))
 
 ### CREATE A NODE ###
 ## Functions: createNode, setValue ##
