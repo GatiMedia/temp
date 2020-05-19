@@ -10,9 +10,6 @@ print ("Hello World!")
 ### USING VARIABLE ###
 
 
-### USING VARIABLE ###
-
-
 name = 'Attila'
 age = '30'
 country = 'Hungary'
