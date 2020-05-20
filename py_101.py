@@ -119,7 +119,7 @@ for i in nodes:
     i.setInput(1, None)
 
 
-### FORMATTING VALUES ###
+### TYPE CONVERSION ###
 
 
 # Interger - int(x)
