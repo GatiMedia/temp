@@ -27,6 +27,34 @@ age = 30
 country = 'Hungary'
 print("Hello {}! I am {}. I am from {}.".format(name, age, country))
 
+### TYPE CONVERSION ###
+
+
+# Interger - int(x)
+
+x = 12.8
+print type(x)
+x = int(x)
+print type(x)
+print x
+
+# Float - float(x)
+
+x = 12
+print type(x)
+x = float(x)
+print type(x)
+print x
+
+# String - str(x)
+
+x = 12.5
+print type(x)
+x = str(x)
+print type(x)
+print x
+
+
 ### CREATE A NODE ###
 ## Functions: createNode, setValue ##
 
@@ -117,34 +145,6 @@ nodes = nuke.selectedNodes()
 for i in nodes:
     i.setInput(0, t)
     i.setInput(1, None)
-
-
-### TYPE CONVERSION ###
-
-
-# Interger - int(x)
-
-x = 12.8
-print type(x)
-x = int(x)
-print type(x)
-print x
-
-# Float - float(x)
-
-x = 12
-print type(x)
-x = float(x)
-print type(x)
-print x
-
-# String - str(x)
-
-x = 12.5
-print type(x)
-x = str(x)
-print type(x)
-print x
 
 
 ### RUN ON ANY SELECTED NODES ###
