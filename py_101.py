@@ -241,6 +241,16 @@ nuke.stopPerformanceTimers()
 
 # https://learn.foundry.com/nuke/developers/90/pythondevguide/performance.html
 
+### FUN ###
+
+import webbrowser
+
+sel = nuke.selectedNode()
+site = 'https://imgur.com/search/score/?q=cat'
+name = nuke.PyScript_Knob('button', '<font color=pink>Click HERE <font style="font-size:20px; color: orange;">🐈', "webbrowser.open(site)")
+sel.addKnob(name)
+
+
 ### NOTES ###
 
 # For checkboxes the value can be True or False that equals to 1 or 0
