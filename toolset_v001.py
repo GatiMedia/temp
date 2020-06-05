@@ -4,7 +4,7 @@
 
 #### Main Menu ####
 
-xN = nuke.message('Nothing to see here...\n...\n...\n...\n...yet')
+xN = None
 
 gbkMenu = nuke.menu('Nodes').addMenu('gbk_menu', icon="test_010.png")
 
@@ -221,6 +221,15 @@ for g in sorted(Othergizmos):
 ### Template Menu ###
 
 gbkMeTemp.addCommand('GrainSetup', 'xN', icon="Plugin.png")
+
+# TODO add .nk-s to Template as .gizmo-s in SHowMenu
+# script = '/mnt/home/attila.gasparetz/AttilaG/GBKtoolbar_test/Templates/Blur_and_Grade_v001.nk'
+#
+## loads script in current script
+# nuke.nodePaste(script)
+#
+## opens script in new window
+# nuke.scriptOpen(script)
 
 ### Python Menu ###
 
