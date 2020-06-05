@@ -17,49 +17,29 @@ gbkMe3rd = gbkMenu.addMenu('3rdParty', icon="test_009.png")
 
 ## Show Menu ##
 
-# currentShows = ['355' , 'Irr1' , 'BHE1' ]
-#
-# showNodes_355 = ['355_1' , '355_2' , '355_3' ]
-# showNodes_Irr1 = ['Irr1_1' , 'Irr1_2' , 'Irr1_3' ]
-# showNodes_BHE1 = ['BHE1_1' , 'BHE1_2' , 'BHE1_3' ]
-
-
-path = '/mnt/home/attila.gasparetz/AttilaG/GBKtoolbar_test/Shows'
+ShowPath = '/mnt/home/attila.gasparetz/AttilaG/GBKtoolbar_test/Shows'
 
 shows = []
 
+showPathes = []
+
 # r=root, d=directories, f = files
-for r, d, f in os.walk(path):
+
+for r, d, f in os.walk(ShowPath):
     for folder in d:
         shows.append(folder)
+        showNum = (len(shows))
 
-    for show in shows:
-        showMenu = gbkMeShow.addCommand(show, 'xN', icon="Camera.png")
+    for name in d:
+        showPathes.append(os.path.join(r, name + "/"))
 
-    # for name in d:
-    #     showPath.append(os.path.join(r, name + "/"))
-    #
-    # for gizmoPath in showPath:
-    #         if files = os.listdir(gizmoPath):
-    #             for g in sorted(files):
-    #                 menuEntry = g.replace(".gizmo", "")
-    #                 showMenu.addCommand(menuEntry, "nuke.createNode('" + menuEntry + "')", icon="")
-    #         else:
-    #             pass
+for i in showPathes:
+    for ro, di, fi in os.walk(i):
+        showMenu = gbkMeShow.addMenu(ro.split("/")[-2], icon="Camera.png")
+        for Showgizmo in fi:
+            menuEntry = Showgizmo.replace(".gizmo", "")
+            showMenu.addCommand(menuEntry, "nuke.createNode('" + menuEntry + "')", icon="")
 
-
-# showMenu355 = gbkMeShow.addMenu('355', icon="Camera.png")
-# showMenuIrr1 = gbkMeShow.addMenu('Irr1', icon="Camera.png")
-# showMenuBHE1 = gbkMeShow.addMenu('BHE1', icon="Camera.png")
-#
-# for n in showNodes_355:
-#     showMenu355.addCommand(n, 'xN', icon="")
-#
-# for n in showNodes_Irr1:
-#     showMenuIrr1.addCommand(n, 'xN', icon="")
-#
-# for n in showNodes_BHE1:
-#     showMenuBHE1.addCommand(n, 'xN', icon="")
 
 ## Node Menu ##
 
