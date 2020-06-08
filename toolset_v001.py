@@ -35,7 +35,7 @@ for r, d, f in os.walk(ShowPath):
 
 for i in showPathes:
     for ro, di, fi in os.walk(i):
-        showMenu = gbkMeShow.addMenu(ro.split("/")[-2], icon="Camera.png")
+        showMenu = gbkMeShow.addMenu(ro.split("/")[-2], icon="test_022.png")
         for Showgizmo in fi:
             menuEntry = Showgizmo.replace(".gizmo", "")
             showMenu.addCommand(menuEntry, "nuke.createNode('" + menuEntry + "')", icon="")
@@ -220,21 +220,180 @@ for g in sorted(Othergizmos):
 
 ### Template Menu ###
 
-gbkMeTemp.addCommand('GrainSetup', 'xN', icon="Plugin.png")
+tempImage = gbkMeTemp.addMenu('Image', icon="ToolbarImage.png")
+tempDraw = gbkMeTemp.addMenu('Draw', icon="ToolbarDraw.png")
+tempTime = gbkMeTemp.addMenu('Time', icon="ToolbarTime.png")
+tempChannel = gbkMeTemp.addMenu('Channel', icon="ToolbarChannel.png")
+tempColor = gbkMeTemp.addMenu('Color', icon="ToolbarColor.png")
+tempFilter = gbkMeTemp.addMenu('Filter', icon="ToolbarFilter.png")
+tempKeyer = gbkMeTemp.addMenu('Keyer', icon="ToolbarKeyer.png")
+tempTransform = gbkMeTemp.addMenu('Transform', icon="ToolbarTransform.png")
+temp3D = gbkMeTemp.addMenu('3D', icon="Toolbar3D.png")
+tempParticles = gbkMeTemp.addMenu('Particles', icon="ToolbarParticles.png")
+tempDeep = gbkMeTemp.addMenu('Deep', icon="ToolbarDeep.png")
+tempMetadata = gbkMeTemp.addMenu('Metadata', icon="MetaData.png")
+tempOther = gbkMeTemp.addMenu('Other', icon="ToolbarOther.png")
 
-# TODO add .nk-s to Template as .gizmo-s in SHowMenu
-# script = '/mnt/home/attila.gasparetz/AttilaG/GBKtoolbar_test/Templates/Blur_and_Grade_v001.nk'
-#
-## loads script in current script
-# nuke.nodePaste(script)
-#
-## opens script in new window
-# nuke.scriptOpen(script)
+
+Templatepath = '/mnt/home/attila.gasparetz/AttilaG/GBKtoolbar_test/Templates/'
+
+## Template / Image ##
+
+template_folder = Templatepath + 'Image/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempImage.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Draw ##
+
+template_folder = Templatepath + 'Draw/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempDraw.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Time ##
+
+template_folder = Templatepath + 'Time/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempTime.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Channel ##
+
+template_folder = Templatepath + 'Channel/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempChannel.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Color ##
+
+template_folder = Templatepath + 'Color/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempColor.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Filter ##
+
+template_folder = Templatepath + 'Filter/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempFilter.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Keyer ##
+
+template_folder = Templatepath + 'Keyer/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempKeyer.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Transform ##
+
+template_folder = Templatepath + 'Transform/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempTransform.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / 3D ##
+
+template_folder = Templatepath + '3D/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    temp3D.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Particles ##
+
+template_folder = Templatepath + 'Particles/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempParticles.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Deep ##
+
+template_folder = Templatepath + 'Deep/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempDeep.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / MetaData ##
+
+template_folder = Templatepath + 'Metadata/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempMetadata.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+## Template / Other ##
+
+template_folder = Templatepath + 'Other/*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    tempOther.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+
+
+## Template / NKs in root folder ##
+
+template_folder = Templatepath + '*.nk'
+
+templates = glob.glob(template_folder)
+
+for template in sorted(templates):
+    menu_name = format(os.path.basename(template).replace('.nk', ''))
+    gbkMeTemp.addCommand(menu_name, 'nuke.nodePaste("{}")'.format(template), icon="test_019.png")
+
+
 
 ### Python Menu ###
 
-gbkMePy.addCommand('PostageStampDis', 'xN', icon="ToolbarImage.png")
+# gbkMePy.addCommand('PostageStampDis', 'xN', icon="ToolbarImage.png")
+
+gbkMePy.addCommand('CloseWindows', 'close()' , icon="test_023.png")
+
+gbkMePy.addCommand('Disconnect Viewers', 'disconnectViewers()' , icon="test_023.png")
+
+gbkMePy.addCommand('Roto n Blur', 'RotoBlur_Shortcut()' , icon="test_023.png")
 
 ### 3rdParty Menu ###
 
-gbkMe3rd.addCommand('pgBokeh', 'xN', icon="Image.png")
+Plugins = ['3DE4', 'RandomTiles','VideoCopilot','Mocha','HigX Tools','Cryptomatte','KeenTools','Peregrine','Projectionist','Pixelfudger']
+
+for plugin in sorted(Plugins):
+    gbkMe3rd.addCommand(plugin, 'xN', icon="Plugin.png")
