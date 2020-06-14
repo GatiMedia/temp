@@ -169,6 +169,32 @@ def RotoBlur_Shortcut():
 nuke.menu('Nodes').addMenu('Draw').addCommand('Create Roto and Blur node.', 'RotoBlur_Shortcut()', shortcut='o', icon='Roto.png')
 
 
+# based on Ben`s NodeSandwhich: https://github.com/BenMcEwan/nuke_public/blob/master/python/bm_NodeSandwich.py
+
+def SharpenSandwhich():
+    y_offset = 60
+    Lo1 = nuke.createNode('Log2Lin')
+    Lo1['operation'].setValue('lin2log')
+    Lo1.hideControlPanel()
+    ySh = int(Lo1.ypos() + y_offset)
+    yLo = int(Lo1.ypos() + (90+y_offset))
+    Sh = nuke.nodes.Sharpen()
+    Sh['size'].setValue(3)
+    Sh['label'].setValue('Size: [value size]')
+    Sh['xpos'].setValue(Lo1.xpos())
+    Sh['ypos'].setValue(ySh)
+    Sh.setInput(0,Lo1)
+    Lo2 = nuke.nodes.Log2Lin()
+    Lo2['operation'].setValue('log2lin')
+    Lo2['xpos'].setValue(Lo1.xpos())
+    Lo2['ypos'].setValue(yLo)
+    Lo2.setInput(0,Sh)
+    Lo2.hideControlPanel()
+    Sh.showControlPanel()
+
+
+nuke.menu('Nodes').addMenu('Filter').addCommand('SharpenSandwhich', 'SharpenSandwhich()', shortcut='l', icon='Sharpen.png', index=26)
+
 # --------------------------------------------------------------
 #  SHORTCUTS ::::::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
