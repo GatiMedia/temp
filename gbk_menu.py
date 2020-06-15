@@ -24,7 +24,8 @@ import platform
 #  KNOB DEFAULTS  ::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
-### labels ###
+# ----- LABEL ---------------
+
 #image
 nuke.knobDefault('Read.label', "Fr. range: [value first] - [value last]\nRes: [value width] * [value height]")
 nuke.knobDefault('Write.label', "Channels: [string toupper [value channel]]")
@@ -80,7 +81,7 @@ nuke.knobDefault('Scene.label', "Display: [string toupper [value display]]\nRend
 #other
 nuke.knobDefault('nuke_dispatch.label', '''Range: [value framestart] - [value frameend]\nBatch: [value batch]\nLic. Rem.: [if {[value removelicense]==true} {return "On"} {return "Off"}]''')
 
-#######
+# ------------ OTHER KNOBS ------------
 
 #image
 
@@ -122,6 +123,24 @@ nuke.knobDefault('BackdropNode.note_font_size', "72")
 nuke.knobDefault('StickyNote.note_font_size', "22")
 
 # --------------------------------------------------------------
+#  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::
+# --------------------------------------------------------------
+
+# ----- CREATE GM GIZMOS MENU & ASSIGN ITEMS ---------------
+
+GM_Menu = nuke.menu('Nodes').addMenu('GMmenu', icon="gm_icon.png", index=17)
+
+GM_Menu.addCommand('GM_Input_Info', 'nuke.createNode("GM_Input_Info")', icon="")
+GM_Menu.addCommand('GM_Switch_Highlight', 'nuke.createNode("GM_Switch_Highlight")', icon="")
+
+# ----- CREATE UTILITIES MENU & ASSIGN ITEMS -------------------
+
+utilitiesMenu = nuke.menu('Nuke').addMenu('My Menu')
+
+utilitiesMenu.addCommand( 'message', "nuke.message('Yay, it works too')", index=0 )
+
+
+# --------------------------------------------------------------
 #  USEFUL SNIPPETS :::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
@@ -131,7 +150,7 @@ def close():
     for node in nuke.allNodes():
         node.hideControlPanel()
 
-nuke.menu('Nodes').addCommand('close', 'close()' , 'shift+d')
+utilitiesMenu.addCommand('close', 'close()' , 'shift+d', index=1 )
 
 # Tracker ref frame on current frame
 
@@ -148,7 +167,6 @@ def disconnectViewers():
             n['selected'].setValue(True)
 
     nuke.extractSelected()
-
 
 nuke.addOnScriptLoad(disconnectViewers)
 
@@ -194,19 +212,6 @@ def SharpenSandwhich():
 
 
 nuke.menu('Nodes').addMenu('Filter').addCommand('SharpenSandwhich', 'SharpenSandwhich()', shortcut='l', icon='Sharpen.png', index=26)
-
-
-
-# ----- CREATE UTILITIES MENU & ASSIGN ITEMS -------------------
-
-utilitiesMenu = nuke.menu('Nuke').addMenu('GM_Utilities')
-
-utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
-utilitiesMenu.addCommand('File Lister', 'filepathLister.file_lister()')
-utilitiesMenu.addCommand('Create Nodes', 'create_nodes.create_nodes()')
-
-
-nuke.menu('Nuke').addCommand( 'MyMenu/my tool 1.5', "nuke.message('yay, it works too')", index=0 )
 
 # --------------------------------------------------------------
 #  SHORTCUTS ::::::::::::::::::::::::::::::::::::::::::::::::::
