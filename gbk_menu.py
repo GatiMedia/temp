@@ -211,7 +211,7 @@ def SharpenSandwhich():
     Sh.showControlPanel()
 
 
-nuke.menu('Nodes').addMenu('Filter').addCommand('SharpenSandwhich', 'SharpenSandwhich()', shortcut='l', icon='Sharpen.png', index=26)
+nuke.menu('Nodes').addMenu('Filter').addCommand('SharpenSandwhich', 'SharpenSandwhich()', shortcut='ctrl+l', icon='Sharpen.png', index=26)
 
 # --------------------------------------------------------------
 #  SHORTCUTS ::::::::::::::::::::::::::::::::::::::::::::::::::
