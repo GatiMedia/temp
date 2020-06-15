@@ -195,6 +195,19 @@ def SharpenSandwhich():
 
 nuke.menu('Nodes').addMenu('Filter').addCommand('SharpenSandwhich', 'SharpenSandwhich()', shortcut='l', icon='Sharpen.png', index=26)
 
+
+
+# ----- CREATE UTILITIES MENU & ASSIGN ITEMS -------------------
+
+utilitiesMenu = nuke.menu('Nuke').addMenu('GM_Utilities')
+
+utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
+utilitiesMenu.addCommand('File Lister', 'filepathLister.file_lister()')
+utilitiesMenu.addCommand('Create Nodes', 'create_nodes.create_nodes()')
+
+
+nuke.menu('Nuke').addCommand( 'MyMenu/my tool 1.5', "nuke.message('yay, it works too')", index=0 )
+
 # --------------------------------------------------------------
 #  SHORTCUTS ::::::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
