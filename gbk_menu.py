@@ -24,6 +24,8 @@ import platform
 #  KNOB DEFAULTS  ::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
+## https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/setting_default_parameter_values.html
+
 # ----- LABEL ---------------
 
 #image
@@ -126,6 +128,8 @@ nuke.knobDefault('StickyNote.note_font_size', "22")
 #  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
+## https://learn.foundry.com/nuke/developers/113/pythondevguide/custom_ui.html
+
 # ----- CREATE GM GIZMOS MENU & ASSIGN ITEMS ---------------
 
 GM_Menu = nuke.menu('Nodes').addMenu('GMmenu', icon="gm_icon.png", index=17)
@@ -170,7 +174,7 @@ def disconnectViewers():
 
 nuke.addOnScriptLoad(disconnectViewers)
 
-# based on Ben`s Foundry webinar
+# based on Ben`s Foundry webinar: https://app.livestorm.co/foundry/foundry-session-how-to-improve-your-nuke-workflow-with-python-scripting
 
 def RotoBlur_Shortcut():
     y_offset = 60
