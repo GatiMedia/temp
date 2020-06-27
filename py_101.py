@@ -133,7 +133,7 @@ nuke.toNode('Transform1')["filter"].clearAnimated()
 for i in range(15):
     i = nuke.createNode("Blur")
     i["channels"].setValue('rgb')
-    i["size"].setExpression('Blur1.size')\
+    i["size"].setExpression('Blur1.size')
 
 
 ### CONNECT MULTIPLE NODES TO A SINGLE NODE ###
