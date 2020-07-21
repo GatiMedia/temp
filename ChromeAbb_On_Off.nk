@@ -1,0 +1,264 @@
+BackdropNode {
+inputs 0
+name BackdropNode20
+tile_color 0x777777ff
+label "<center><font color=#FFAA99>ChromAbb Off"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 42
+selected true
+xpos -926
+ypos 23046
+bdwidth 540
+bdheight 428
+z_order -231120
+}
+BackdropNode {
+inputs 0
+name BackdropNode21
+tile_color 0x777777ff
+label "<center><font color=#FFAAFF>ChromAbb On"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 42
+selected true
+xpos -926
+ypos 23598
+bdwidth 540
+bdheight 428
+z_order -231120
+}
+push $cut_paste_input
+Dot {
+name Dot68
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+selected true
+xpos -662
+ypos 23158
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+}
+set N3c78aaa0 [stack 0]
+Dot {
+name Dot69
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+selected true
+xpos -772
+ypos 23158
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+tmpKeepInput Dot68
+}
+Shuffle {
+green black
+blue black
+alpha black
+name Shuffle3
+tile_color 0xff0000ff
+label "\[value in]"
+selected true
+xpos -806
+ypos 23245
+}
+Transform {
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform_RED1
+tile_color 0xff0000ff
+selected true
+xpos -806
+ypos 23299
+}
+push 0
+push $N3c78aaa0
+Dot {
+name Dot70
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+selected true
+xpos -552
+ypos 23158
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+tmpKeepInput Dot68
+}
+Shuffle {
+red black
+green black
+alpha black
+name Shuffle4
+tile_color 0x3fffff
+label "\[value in]"
+selected true
+xpos -586
+ypos 23245
+}
+Transform {
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform_BLUE1
+tile_color 0x3fffff
+selected true
+xpos -586
+ypos 23299
+}
+push $N3c78aaa0
+Shuffle {
+red black
+blue black
+alpha black
+name Shuffle5
+tile_color 0x1fff00ff
+label "\[value in]"
+selected true
+xpos -696
+ypos 23245
+}
+Transform {
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform_GREEN1
+tile_color 0x1fff00ff
+selected true
+xpos -696
+ypos 23299
+}
+Merge2 {
+inputs 3+1
+name Merge17
+selected true
+xpos -696
+ypos 23371
+}
+Dot {
+name Dot71
+tile_color 0x949494ff
+label " COMP HERE"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold"
+note_font_size 32
+note_font_color 0xffffffff
+selected true
+xpos -662
+ypos 23542
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+tmpKeepInput Merge17
+}
+Dot {
+name Dot72
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+selected true
+xpos -662
+ypos 23710
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+tmpKeepInput Dot71
+}
+set N12b40560 [stack 0]
+Dot {
+name Dot73
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+selected true
+xpos -772
+ypos 23710
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+tmpKeepInput Dot72
+}
+Shuffle {
+green black
+blue black
+alpha black
+name Shuffle6
+tile_color 0xff0000ff
+label "\[value in]"
+selected true
+xpos -806
+ypos 23797
+}
+Transform {
+scale {{parent.Transform_RED1.scale}}
+center {{parent.Transform_RED1.center.x} {parent.Transform_RED1.center.y}}
+invert_matrix {{!parent.Transform_RED1.invert_matrix}}
+filter {{parent.Transform_RED1.filter}}
+shutteroffset centred
+name Transform_RED_Invert1
+tile_color 0xff0000ff
+selected true
+xpos -806
+ypos 23851
+}
+push 0
+push $N12b40560
+Dot {
+name Dot74
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+selected true
+xpos -552
+ypos 23710
+addUserKnob {20 tmpTab}
+addUserKnob {1 tmpKeepInput}
+tmpKeepInput Dot72
+}
+Shuffle {
+red black
+green black
+alpha black
+name Shuffle7
+tile_color 0x3fffff
+label "\[value in]"
+selected true
+xpos -586
+ypos 23797
+}
+Transform {
+scale {{parent.Transform_BLUE1.scale}}
+center {{parent.Transform_BLUE1.center.x} {parent.Transform_BLUE1.center.y}}
+invert_matrix {{!parent.Transform_BLUE1.invert_matrix}}
+filter {{parent.Transform_BLUE1.filter}}
+shutteroffset centred
+name Transform_BLUE_Invert1
+tile_color 0x3fffff
+selected true
+xpos -586
+ypos 23851
+}
+push $N12b40560
+Shuffle {
+red black
+blue black
+alpha black
+name Shuffle8
+tile_color 0x1fff00ff
+label "\[value in]"
+selected true
+xpos -696
+ypos 23797
+}
+Transform {
+scale {{parent.Transform_GREEN1.scale}}
+center {{input.width/2} {input.height/2}}
+invert_matrix true
+shutteroffset centred
+name Transform_GREEN_invert1
+tile_color 0x1fff00ff
+selected true
+xpos -696
+ypos 23851
+}
+Merge2 {
+inputs 3+1
+name Merge18
+selected true
+xpos -696
+ypos 23923
+}
