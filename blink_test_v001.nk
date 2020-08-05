@@ -1,0 +1,2920 @@
+#! C:/Program Files/Nuke12.2v1/nuke-12.2.1.dll -nx
+version 12.2 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="1917" h="1128" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1254" stretch="1"/>
+            <splitter orientation="2">
+                <split size="638"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="448"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name D:/05_Projects/GIZMOS/Blink_test_v001.nk
+ frame 28
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+BackdropNode {
+ inputs 0
+ name BlinkScript_Knobs
+ tile_color 0x778b9bff
+ label "This example demonstrates all the\nknob types that can be automatically \ncreated for the kernel parameters in\nBlinkScript. \n\nLook at the Kernel Parameters tab\nto see the Nuke knobs that have been \ngenerated for each of the KnobsKernel's\nparameters.\n\nThe KnobsKernel is just intended to \ndemonstrate the knob creation,\nso it does no processing except to\ncopy its input to its output.\n\n"
+ xpos 1553
+ ypos 901
+ bdwidth 194
+ bdheight 166
+}
+Sphere {
+ inputs 0
+ radius 4
+ name Sphere2
+ label "Display: \[string toupper \[value display]]\nRender: \[string toupper \[value render_mode]]"
+ xpos 180
+ ypos 145
+}
+Sphere {
+ inputs 0
+ rows 4
+ columns {{rows}}
+ name Sphere1
+ label "Display: \[string toupper \[value display]]\nRender: \[string toupper \[value render_mode]]"
+ xpos -150
+ ypos 361
+}
+Constant {
+ inputs 0
+ channels rgb
+ name Constant1
+ label "Res: \[value width] * \[value height]"
+ xpos -40
+ ypos 128
+}
+Crop {
+ box {0 0 80 80}
+ reformat true
+ crop false
+ name Crop1
+ label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+ xpos -40
+ ypos 224
+}
+Sparkles {
+ mode Sparkles
+ position {40 40}
+ size 43
+ ray_nb 185
+ ray_thick 1.14
+ spark_falloff 0.076
+ ray_falloff 4
+ brightness 1.75
+ color {0.969999969 0.1799999624 -0.03000003099}
+ vismask_size 1
+ sparkle_crawl true
+ motion 3150
+ fadeTolerance 0
+ broken_affected 32
+ broken_start 0.115
+ name Sparkles1
+ xpos -40
+ ypos 278
+}
+Shuffle {
+ alpha red
+ name Shuffle1
+ label "\[string toupper \[value in]]"
+ xpos -40
+ ypos 320
+}
+Premult {
+ name Premult1
+ xpos -40
+ ypos 374
+}
+Card2 {
+ inputs 0
+ orientation YZ
+ uniform_scale 24
+ control_points {3 3 3 6 
+
+1 {0 -0.5 -0.5} 0 {0 0 0.1666666865} 0 {0 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0 0 0} 
+1 {0 -0.5 0} 0 {0 0 0.1666666716} 0 {0 0 -0.1666666716} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0.5 0 0} 
+1 {0 -0.5 0.5} 0 {0 0 0} 0 {0 0 -0.1666666865} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {1 0 0} 
+1 {0 0 -0.5} 0 {0 0 0.1666666865} 0 {0 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0 0.5 0} 
+1 {0 0 0} 0 {0 0 0.1666666716} 0 {0 0 -0.1666666716} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0.5 0.5 0} 
+1 {0 0 0.5} 0 {0 0 0} 0 {0 0 -0.1666666865} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {1 0.5 0} 
+1 {0 0.5 -0.5} 0 {0 0 0.1666666865} 0 {0 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0 1 0} 
+1 {0 0.5 0} 0 {0 0 0.1666666716} 0 {0 0 -0.1666666716} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0.5 1 0} 
+1 {0 0.5 0.5} 0 {0 0 0} 0 {0 0 -0.1666666865} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {1 1 0} }
+ name Card1
+ label "Display: \[string toupper \[value display]]\nRender: \[string toupper \[value render_mode]]"
+ xpos 180
+ ypos 265
+}
+push 0
+ParticleEmitter {
+ inputs 3
+ emit_from edges
+ selection_threshhold 0.4
+ lifetime 120
+ velocity 0.05
+ size 0.6
+ name ParticleEmitter1
+ xpos 180
+ ypos 374
+}
+set N358ca400 [stack 0]
+ParticleHelixFlow {
+ name ParticleHelixFlow1
+ xpos 400
+ ypos 374
+ geoRotate {3 0 0}
+ geoScale {1 2 1}
+ geoUniformScale 0.12
+ geoRadius 7
+ strength 0.66
+ falloff 0.33
+}
+Group {
+ inputs 0
+ name GM_Repeater
+ tile_color 0xdf7100ff
+ xpos 840
+ ypos 374
+ addUserKnob {20 User}
+ addUserKnob {26 shape l "<b>I N P U T"}
+ addUserKnob {41 translate2 l translate T Trans_COPY1_proxy_2.translate2}
+ addUserKnob {41 rotate2 l rotate T Trans_COPY1_proxy_2.rotate2}
+ addUserKnob {41 scale2 l scale T Trans_COPY1_proxy_2.scale2}
+ addUserKnob {41 skewX2 l skewX T Trans_COPY1_proxy_2.skewX2}
+ addUserKnob {41 skewY2 l skewY T Trans_COPY1_proxy_2.skewY2}
+ addUserKnob {41 skeworder2 l "skew order" T Trans_COPY1_proxy_2.skeworder2}
+ addUserKnob {41 center2 l center T Trans_COPY1_proxy_2.center2}
+ addUserKnob {22 set_center_2 l "Set Center" -STARTLINE T "this_width = nuke.thisGroup().width()\n\nthis_height = nuke.thisGroup().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisGroup().knob(\"center2\").setValue(\[newWidth, newHeight])"}
+ addUserKnob {41 invert2 l invert T Trans_COPY1_proxy_2.invert2}
+ addUserKnob {41 filter2 l filter T Trans_COPY1_proxy_2.filter2}
+ addUserKnob {26 rep1 l "<b>R E P E A T E R"}
+ addUserKnob {41 copies l Copies T PROXY.copies}
+ addUserKnob {41 fadeout1 l "Fade Out" T Trans_COPY1_proxy.fadeout1}
+ addUserKnob {41 fadein1 l "Fade In" T Trans_COPY1_proxy.fadein1}
+ addUserKnob {6 apply_on_copy1 l "Apply Transform on Input Image" +STARTLINE}
+ apply_on_copy1 true
+ addUserKnob {41 operation1 l Operation T Merge_Proxy.operation1}
+ addUserKnob {41 translate1 l translate T Trans_COPY1_proxy.translate1}
+ addUserKnob {41 rotate1 l rotate T Trans_COPY1_proxy.rotate1}
+ addUserKnob {41 scale1 l scale T Trans_COPY1_proxy.scale1}
+ addUserKnob {41 skewX1 l skewX T Trans_COPY1_proxy.skewX1}
+ addUserKnob {41 skewY1 l skewY T Trans_COPY1_proxy.skewY1}
+ addUserKnob {41 skeworder1 l skeworder T Trans_COPY1_proxy.skeworder1}
+ addUserKnob {41 center1 l center T Trans_COPY1_proxy.center1}
+ addUserKnob {22 set_center_center l "Set Center" -STARTLINE T "this_width = nuke.thisGroup().width()\n\nthis_height = nuke.thisGroup().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisGroup().knob(\"center1\").setValue(\[newWidth, newHeight])"}
+ addUserKnob {41 invert1 l invert T Trans_COPY1_proxy.invert1}
+ addUserKnob {41 filter1 l filter T Trans_COPY1_proxy.filter1}
+ addUserKnob {41 motionblur1 l motionblur T Trans_COPY1_proxy.motionblur1}
+ addUserKnob {41 shutter1 l shutter T Trans_COPY1_proxy.shutter1}
+ addUserKnob {26 ""}
+ addUserKnob {6 clamp l Clamp +STARTLINE}
+ clamp true
+ addUserKnob {6 crop l Crop +STARTLINE}
+ crop true
+ addUserKnob {26 ""}
+ addUserKnob {22 tut l Tutorial T "import os\nimport sys\n\ntry:\n    import subprocess\n    def _run(cmd, shell, wait):\n        opener = subprocess.Popen(cmd, shell=shell)\n        if wait:\n            opener.wait()\n        return opener.pid\nexcept ImportError:\n    import popen2\n    def _run(cmd, shell, wait):\n        opener = popen2.Popen3(cmd)\n        if wait:\n            opener.wait()\n        return opener.pid\n\ndef _open(url, wait=0):\n    if sys.platform == \"darwin\":\n        cmd = \[\"open\", url]\n    elif hasattr(os, \"startfile\"):\n        return os.startfile(url)\n    elif os.environ.has_key(\"KDE_FULL_SESSION\") or os.environ.has_key(\"KDE_MULTIHEAD\") or \\\n        os.environ.has_key(\"GNOME_DESKTOP_SESSION_ID\") or os.environ.has_key(\"GNOME_KEYRING_SOCKET\"):\n        cmd = \[\"xdg-open\", url]\n    else:\n        raise OSError, \"Desktop not supported.\"\n\n    return _run(cmd, 0, wait)\n\n_open('https://www.gatimedia.co.uk/repeater')\n" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Repeater© by Attila Gasparetz</font>"}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0xff
+  label "<center><font color=red>DON`T TOUCH\nstatic"
+  note_font "Verdana Bold"
+  note_font_size 42
+  xpos 738
+  ypos 63
+  bdwidth 285
+  bdheight 305
+ }
+ Input {
+  inputs 0
+  name Input
+  label static
+  xpos 510
+  ypos 272
+ }
+ Transform {
+  translate {{Trans_COPY1_proxy_2.translate2} {Trans_COPY1_proxy_2.translate2}}
+  rotate {{Trans_COPY1_proxy_2.rotate2}}
+  scale {{Trans_COPY1_proxy_2.scale2} {Trans_COPY1_proxy_2.scale2}}
+  skewX {{Trans_COPY1_proxy_2.skewX2}}
+  skewY {{Trans_COPY1_proxy_2.skewY2}}
+  skew_order {{Trans_COPY1_proxy_2.skeworder2}}
+  center {{Trans_COPY1_proxy_2.center2} {Trans_COPY1_proxy_2.center2}}
+  invert_matrix {{Trans_COPY1_proxy_2.invert2}}
+  filter {{Trans_COPY1_proxy_2.filter2}}
+  shutteroffset centred
+  name Trans_COPY2
+  label static
+  xpos 510
+  ypos 464
+ }
+set N36cdbc00 [stack 0]
+push $N36cdbc00
+ Transform {
+  translate {{Trans_COPY1_proxy.translate1} {Trans_COPY1_proxy.translate1}}
+  rotate {{Trans_COPY1_proxy.rotate1}}
+  scale {{Trans_COPY1_proxy.scale1} {Trans_COPY1_proxy.scale1}}
+  skewX {{Trans_COPY1_proxy.skewX1}}
+  skewY {{Trans_COPY1_proxy.skewY1}}
+  skew_order {{Trans_COPY1_proxy.skeworder1}}
+  center {{Trans_COPY1_proxy.center1.x} {Trans_COPY1_proxy.center1.y}}
+  invert_matrix {{Trans_COPY1_proxy.invert1}}
+  filter {{Trans_COPY1_proxy.filter1}}
+  motionblur {{Trans_COPY1_proxy.motionblur1}}
+  shutter {{Trans_COPY1_proxy.shutter1}}
+  shutteroffset centred
+  name Trans_COPY1
+  label static
+  xpos 400
+  ypos 632
+ }
+ Switch {
+  inputs 2
+  which {{!apply_on_copy1}}
+  name Switch1
+  label static
+  xpos 510
+  ypos 632
+ }
+set N36cdb400 [stack 0]
+ Dot {
+  name Dot1
+  xpos 544
+  ypos 670
+ }
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t0
+  xpos 510
+  ypos 688
+ }
+set N36cdac00 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t1
+  xpos 620
+  ypos 714
+ }
+set N36cda800 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t2
+  xpos 730
+  ypos 740
+ }
+set N36cda400 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t3
+  xpos 840
+  ypos 766
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_3
+  xpos 840
+  ypos 792
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 4
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_5
+  xpos 840
+  ypos 818
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 4
+ }
+push $N36cda400
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_2
+  xpos 730
+  ypos 766
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 3
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_4
+  xpos 730
+  ypos 792
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 3
+ }
+push $N36cda800
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_1
+  xpos 620
+  ypos 740
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 2
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_3
+  xpos 620
+  ypos 766
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 2
+ }
+push $N36cdac00
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_0
+  xpos 510
+  ypos 714
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 1
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_2
+  xpos 510
+  ypos 753
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 1
+ }
+push $N36cdb400
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_1
+  label static
+  xpos 695
+  ypos 577
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 5
+  addUserKnob {3 ReNum}
+  ReNum 1
+ }
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  also_merge all
+  name m0
+  xpos 695
+  ypos 753
+ }
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  also_merge all
+  name m1
+  xpos 695
+  ypos 779
+ }
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  also_merge all
+  name m2
+  xpos 730
+  ypos 844
+ }
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  also_merge all
+  name m3
+  xpos 840
+  ypos 844
+ }
+ NoOp {
+  name COPIES1_end
+  label static
+  xpos 510
+  ypos 1832
+ }
+ Clamp {
+  name Clamp
+  label static
+  xpos 510
+  ypos 1921
+  disable {{!parent.clamp}}
+ }
+ Crop {
+  box {{input.format.x} {input.format.y} {input.format.r} {input.format.t}}
+  name Crop1
+  label "Box: \[value box]\nstatic"
+  xpos 510
+  ypos 2017
+  disable {{!parent.crop}}
+ }
+ Output {
+  name Output1
+  label static
+  xpos 510
+  ypos 2096
+ }
+ NoOp {
+  inputs 0
+  name Trans_COPY1_proxy_2
+  label static
+  xpos 290
+  ypos 464
+  addUserKnob {20 User}
+  addUserKnob {12 translate2}
+  addUserKnob {7 rotate2 R -180 180}
+  addUserKnob {14 scale2 R 0 100}
+  scale2 1
+  addUserKnob {7 skewX2 R -1 1}
+  addUserKnob {7 skewY2 R -1 1}
+  addUserKnob {4 skeworder2 M {XY YX ""}}
+  addUserKnob {12 center2}
+  center2 {960 540}
+  addUserKnob {6 invert2 +STARTLINE}
+  addUserKnob {4 filter2 M {Impulse Cubic Keys Simon Rifman Mitchell Parzen Notsch Lanczos4 Lanczos6 Sinc4 ""}}
+  filter2 Cubic
+ }
+ NoOp {
+  inputs 0
+  name PROXY
+  knobChanged "\nm = nuke.thisNode()\nkc = nuke.thisKnob()\nif kc.name() in \[\"copies\"]:\n    for n in nuke.allNodes():\n        if \"static\" not in n\['label'].getValue():\n            nuke.delete(n)\n    \n    iRep = m.knob('copies').getValue()\n    iRepeats = int(iRep)-1\n    RepMax = int(iRep)\n    bfirstLoop = True\n    \n    # Main Transform for Copy1\n    w = nuke.toNode('Trans_COPY1')\n    \n    # Last Merge connected to this\n    b = nuke.toNode('COPIES1_end')\n    \n    # Dot would be connected to this and allows toggle between original and modified source \n    s = nuke.toNode('Switch1')\n    \n    nDot = nuke.nodes.Dot()\n    nDot.setInput(0, s)\n\n    nMult = nuke.toNode('mu1t2_1')\n    \n    if (iRepeats+1) >= 2: \n    \n        for i in range(iRepeats):\n            RepNum = int(i)+1\n            RepNum2 = int(i)+2\n            nMult.knob('ReMax').setValue( RepMax )\n            nMult.knob('value').setExpression('((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )')\n            CTrans = nuke.nodes.Transform(name = \"t\" + str(i))\n            CTrans.knob('translate').setExpression('Trans_COPY1.translate')\n            CTrans.knob('rotate').setExpression('Trans_COPY1.rotate')\n            CTrans.knob('scale').setExpression('Trans_COPY1.scale')\n            CTrans.knob('skewX').setExpression('Trans_COPY1.skewX')\n            CTrans.knob('skewY').setExpression('Trans_COPY1.skewY')\n            CTrans.knob('skew_order').setExpression('Trans_COPY1.skew_order')\n            CTrans.knob('center').setExpression('Trans_COPY1.center')\n            CTrans.knob('invert_matrix').setExpression('Trans_COPY1.invert_matrix')\n            CTrans.knob('filter').setExpression('Trans_COPY1.filter')\n            CTrans.knob('motionblur').setExpression('Trans_COPY1.motionblur')\n            CTrans.knob('shutter').setExpression('Trans_COPY1.shutter')\n            CTrans.knob('shutteroffset').setValue(0)\n            CMult1 = nuke.nodes.Multiply(name = \"mu1_\" + str(i))\n            k = nuke.Int_Knob('ReMax', 'ReMax' )\n            k2 = nuke.Int_Knob('ReNum', 'ReNum' )\n            CMult1.addKnob(k)\n            CMult1.addKnob(k2)\n            CMult1.knob('ReMax').setValue( RepMax )\n            CMult1.knob('ReNum').setValue( RepNum )\n            CMult1.knob('value').setExpression('((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )')\n            CMult1.setInput(0, CTrans)\n            CMult2 = nuke.nodes.Multiply(name = \"mu1t2_\" + str(RepNum2))\n            k = nuke.Int_Knob('ReMax', 'ReMax' )\n            k2 = nuke.Int_Knob('ReNum', 'ReNum' )\n            CMult2.addKnob(k)\n            CMult2.addKnob(k2)\n            CMult2.knob('ReMax').setValue( RepMax )\n            CMult2.knob('ReNum').setValue( RepNum )\n            CMult2.knob('value').setExpression('((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )')\n            CMult2.setInput(0, CMult1)\n            nMerge = nuke.nodes.Merge2(name = \"m\" + str(i))\n            nMerge.knob('also_merge').setValue('all')\n            nMerge.knob('operation').setExpression('Merge_Proxy.operation1')\n            nMerge.setInput(1, CMult2)\n            \n            if bfirstLoop:\n                bfirstLoop = False\n                CTrans.setInput(0, nDot)\n                CMult1.setInput(0, CTrans)\n                CMult2.setInput(0, CMult1)\n                nMerge.setInput(0, nMult)\n            else:\n                CTrans.setInput(0, nPrevTrans)\n                CMult1.setInput(0, CTrans)\n                CMult2.setInput(0, CMult1)\n                nMerge.setInput(0, nPrevMerge)\n \n            nPrevMerge = nMerge\n            nPrevTrans = CTrans\n            nPrevMult1 = CMult1\n            nPrevMult2 = CMult2\n        \n        MNum = int(iRepeats) - 1\n        \n        p = nuke.toNode(\"m\" + str(MNum))\n        \n        b.setInput(0, p)\n    else:\n        b.setInput(0, nDot)\n\n"
+  label static
+  xpos 840
+  ypos 272
+  addUserKnob {20 User}
+  addUserKnob {3 copies l Copies}
+  copies 5
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  label static
+  xpos 620
+  ypos 464
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 xor
+ }
+ NoOp {
+  inputs 0
+  name Trans_COPY1_proxy
+  label static
+  xpos 290
+  ypos 632
+  addUserKnob {20 User}
+  addUserKnob {12 translate1}
+  translate1 {50 0}
+  addUserKnob {7 rotate1 R -180 180}
+  addUserKnob {14 scale1 R 0 100}
+  scale1 1
+  addUserKnob {7 skewX1 R -1 1}
+  addUserKnob {7 skewY1 R -1 1}
+  addUserKnob {4 skeworder1 M {XY YX}}
+  addUserKnob {12 center1}
+  center1 {960 540}
+  addUserKnob {6 invert1 +STARTLINE}
+  addUserKnob {4 filter1 M {Impulse Cubic Keys Simon Rifman Mitchell Parzen Notsch Lanczos4 Lanczos6 Sinc4}}
+  filter1 Cubic
+  addUserKnob {7 motionblur1 R 0 4}
+  motionblur1 1
+  addUserKnob {7 shutter1 R 0 2}
+  shutter1 0.5
+  addUserKnob {26 ""}
+  addUserKnob {7 fadeout l "Fade Out"}
+  fadeout {{1-fadeout1}}
+  addUserKnob {7 fadeout1 l "Fade Out"}
+  addUserKnob {7 fadein l "Fade In"}
+  fadein {{1-fadein1}}
+  addUserKnob {7 fadein1 l "Fade In"}
+ }
+end_group
+Group {
+ inputs 0
+ name GM_ShapeRepeater
+ tile_color 0xf25400ff
+ xpos 620
+ ypos 368
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image"}}
+ addUserKnob {26 shape l "<b>S H A P E"}
+ addUserKnob {41 position l Position T Flare.position}
+ addUserKnob {22 set_center_pos l "Set Center" -STARTLINE T "this_width = nuke.thisGroup().width()\n\nthis_height = nuke.thisGroup().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisGroup().knob(\"position\").setValue(\[newWidth, newHeight])"}
+ addUserKnob {41 size_mult l "Size " T Flare.size_mult}
+ addUserKnob {41 anamorph l Anamorph T Flare.anamorph}
+ addUserKnob {41 corners l Points T Flare.corners}
+ addUserKnob {41 flattening l "Edge Flattening" T Flare.flattening}
+ addUserKnob {41 sharpness l "Corner Sharpness" T Flare.sharpness}
+ addUserKnob {41 corners_angle l Angle T Flare.corners_angle}
+ addUserKnob {41 falloff l Falloff T proxy1.falloff}
+ addUserKnob {41 multiply l Color T Grade.multiply}
+ addUserKnob {20 trans_shape l "T r a n s f o r m  S h a p e" n 1}
+ addUserKnob {41 translate2 l translate T Trans_COPY1_proxy_2.translate2}
+ addUserKnob {41 rotate2 l rotate T Trans_COPY1_proxy_2.rotate2}
+ addUserKnob {41 scale2 l scale T Trans_COPY1_proxy_2.scale2}
+ addUserKnob {41 skewX2 l skewX T Trans_COPY1_proxy_2.skewX2}
+ addUserKnob {41 skewY2 l skewY T Trans_COPY1_proxy_2.skewY2}
+ addUserKnob {41 skeworder2 l "skew order" T Trans_COPY1_proxy_2.skeworder2}
+ addUserKnob {41 center2 l center T Trans_COPY1_proxy_2.center2}
+ addUserKnob {22 set_senter_trans_shape l "Set Center" -STARTLINE T "this_width = nuke.thisGroup().width()\n\nthis_height = nuke.thisGroup().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisGroup().knob(\"center2\").setValue(\[newWidth, newHeight])"}
+ addUserKnob {41 invert2 l invert T Trans_COPY1_proxy_2.invert2}
+ addUserKnob {41 filter2 l filter T Trans_COPY1_proxy_2.filter2}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 rep1 l "<b>R E P E A T E R"}
+ addUserKnob {41 copy1 l Copies T PROXY_MAIN1.copy1}
+ addUserKnob {41 fadeout1 l "Fade Out" T Trans_COPY1_proxy.fadeout1}
+ addUserKnob {41 fadein1 l "Fade In" T Trans_COPY1_proxy.fadein1}
+ addUserKnob {6 apply_on_copy1 l "Apply Transform on Original Shape" +STARTLINE}
+ addUserKnob {41 translate1 l translate T Trans_COPY1_proxy.translate1}
+ addUserKnob {41 rotate1 l rotate T Trans_COPY1_proxy.rotate1}
+ addUserKnob {41 scale1 l scale T Trans_COPY1_proxy.scale1}
+ addUserKnob {41 skewX1 l skewX T Trans_COPY1_proxy.skewX1}
+ addUserKnob {41 skewY1 l skewY T Trans_COPY1_proxy.skewY1}
+ addUserKnob {41 skeworder1 l "skew order" T Trans_COPY1_proxy.skeworder1}
+ addUserKnob {41 center1 l center T Trans_COPY1_proxy.center1}
+ addUserKnob {41 invert1 l invert T Trans_COPY1_proxy.invert1}
+ addUserKnob {41 filter1 l filter T Trans_COPY1_proxy.filter1}
+ addUserKnob {41 motionblur1 l motionblur T Trans_COPY1_proxy.motionblur1}
+ addUserKnob {41 shutter1 l shutter T Trans_COPY1_proxy.shutter1}
+ addUserKnob {26 ""}
+ addUserKnob {22 tut l Tutorial T "import os\nimport sys\n\ntry:\n    import subprocess\n    def _run(cmd, shell, wait):\n        opener = subprocess.Popen(cmd, shell=shell)\n        if wait:\n            opener.wait()\n        return opener.pid\nexcept ImportError:\n    import popen2\n    def _run(cmd, shell, wait):\n        opener = popen2.Popen3(cmd)\n        if wait:\n            opener.wait()\n        return opener.pid\n\ndef _open(url, wait=0):\n    if sys.platform == \"darwin\":\n        cmd = \[\"open\", url]\n    elif hasattr(os, \"startfile\"):\n        return os.startfile(url)\n    elif os.environ.has_key(\"KDE_FULL_SESSION\") or os.environ.has_key(\"KDE_MULTIHEAD\") or \\\n        os.environ.has_key(\"GNOME_DESKTOP_SESSION_ID\") or os.environ.has_key(\"GNOME_KEYRING_SOCKET\"):\n        cmd = \[\"xdg-open\", url]\n    else:\n        raise OSError, \"Desktop not supported.\"\n\n    return _run(cmd, 0, wait)\n\n_open('https://www.gatimedia.co.uk/shape-repeater')\n" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_ShapeRepeater© by Attila Gasparetz</font>"}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0xff
+  label "<center><font color=red>DON`T TOUCH\nstatic"
+  note_font "Verdana Bold"
+  note_font_size 42
+  xpos 738
+  ypos 63
+  bdwidth 285
+  bdheight 305
+ }
+ NoOp {
+  inputs 0
+  name proxy1
+  label static
+  xpos 620
+  ypos 248
+  addUserKnob {20 User}
+  addUserKnob {7 falloff l Falloff R 0 100}
+  falloff 5
+ }
+ NoOp {
+  inputs 0
+  name PROXY_MAIN1
+  knobChanged "\nm = nuke.thisNode()\nkc = nuke.thisKnob()\nif kc.name() in \[\"copy1\"]:\n    for n in nuke.allNodes():\n        if \"static\" not in n\['label'].getValue():\n            nuke.delete(n)\n    \n    iRep = m.knob('copy1').getValue()\n    iRepeats = int(iRep)-1\n    RepMax = int(iRep)\n    bfirstLoop = True\n    \n    # Main Transform for Copy1\n    w = nuke.toNode('Trans_COPY1')\n    \n    # Last Merge connected to this\n    b = nuke.toNode('COPIES1_end')\n    \n    # Dot would be connected to this and allows toggle between original and modified source \n    s = nuke.toNode('Switch1')\n    \n    nDot = nuke.nodes.Dot()\n    nDot.setInput(0, s)\n\n    nMult = nuke.toNode('mu1t2_1')\n    \n    if (iRepeats+1) >= 2: \n    \n        for i in range(iRepeats):\n            RepNum = int(i)+1\n            RepNum2 = int(i)+2\n            nMult.knob('ReMax').setValue( RepMax )\n            nMult.knob('value').setExpression('((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )')\n            CTrans = nuke.nodes.Transform(name = \"t\" + str(i))\n            CTrans.knob('translate').setExpression('Trans_COPY1.translate')\n            CTrans.knob('rotate').setExpression('Trans_COPY1.rotate')\n            CTrans.knob('scale').setExpression('Trans_COPY1.scale')\n            CTrans.knob('skewX').setExpression('Trans_COPY1.skewX')\n            CTrans.knob('skewY').setExpression('Trans_COPY1.skewY')\n            CTrans.knob('skew_order').setExpression('Trans_COPY1.skew_order')\n            CTrans.knob('center').setExpression('Trans_COPY1.center')\n            CTrans.knob('invert_matrix').setExpression('Trans_COPY1.invert_matrix')\n            CTrans.knob('filter').setExpression('Trans_COPY1.filter')\n            CTrans.knob('motionblur').setExpression('Trans_COPY1.motionblur')\n            CTrans.knob('shutter').setExpression('Trans_COPY1.shutter')\n            CTrans.knob('shutteroffset').setValue(0)\n            CMult1 = nuke.nodes.Multiply(name = \"mu1_\" + str(i))\n            k = nuke.Int_Knob('ReMax', 'ReMax' )\n            k2 = nuke.Int_Knob('ReNum', 'ReNum' )\n            CMult1.addKnob(k)\n            CMult1.addKnob(k2)\n            CMult1.knob('ReMax').setValue( RepMax )\n            CMult1.knob('ReNum').setValue( RepNum )\n            CMult1.knob('value').setExpression('((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )')\n            CMult1.setInput(0, CTrans)\n            CMult2 = nuke.nodes.Multiply(name = \"mu1t2_\" + str(RepNum2))\n            k = nuke.Int_Knob('ReMax', 'ReMax' )\n            k2 = nuke.Int_Knob('ReNum', 'ReNum' )\n            CMult2.addKnob(k)\n            CMult2.addKnob(k2)\n            CMult2.knob('ReMax').setValue( RepMax )\n            CMult2.knob('ReNum').setValue( RepNum )\n            CMult2.knob('value').setExpression('((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )')\n            CMult2.setInput(0, CMult1)\n            nMerge = nuke.nodes.Merge2(name = \"m\" + str(i))\n            nMerge.knob('also_merge').setValue('all')\n            nMerge.setInput(1, CMult2)\n            \n            if bfirstLoop:\n                bfirstLoop = False\n                CTrans.setInput(0, nDot)\n                CMult1.setInput(0, CTrans)\n                CMult2.setInput(0, CMult1)\n                nMerge.setInput(0, nMult)\n            else:\n                CTrans.setInput(0, nPrevTrans)\n                CMult1.setInput(0, CTrans)\n                CMult2.setInput(0, CMult1)\n                nMerge.setInput(0, nPrevMerge)\n \n            nPrevMerge = nMerge\n            nPrevTrans = CTrans\n            nPrevMult1 = CMult1\n            nPrevMult2 = CMult2\n        \n        MNum = int(iRepeats) - 1\n        \n        p = nuke.toNode(\"m\" + str(MNum))\n        \n        b.setInput(0, p)\n\n\n    else:\n        b.setInput(0, nDot)\n"
+  label static
+  xpos 840
+  ypos 248
+  addUserKnob {20 User}
+  addUserKnob {3 copy1 l Copies1}
+  copy1 11
+ }
+ Input {
+  inputs 0
+  name Input
+  label static
+  xpos 510
+  ypos -16
+ }
+ Dot {
+  name Dot2
+  label static
+  xpos 544
+  ypos 90
+ }
+set N36bf7000 [stack 0]
+ Remove {
+  name Remove
+  label static
+  xpos 510
+  ypos 169
+ }
+ Flare {
+  position {700 296}
+  radius {100 {radius.0} {100+parent.proxy1.falloff}}
+  size_mult 0.5
+  ring_color {1 1 1}
+  inner_color {1 1 1}
+  outer_falloff {1 1 1}
+  inner_falloff {1 1 1}
+  brightness {1 1 1}
+  vis_out 1
+  corners 4
+  flattening 1
+  sharpness 1
+  corners_angle 0.1
+  mult_offset 0
+  name Flare
+  label static
+  xpos 510
+  ypos 248
+ }
+ Shuffle {
+  alpha red
+  name Shuffle1
+  label static
+  xpos 510
+  ypos 320
+ }
+ Clamp {
+  name Clamp
+  label static
+  xpos 510
+  ypos 361
+ }
+ Transform {
+  translate {{Trans_COPY1_proxy_2.translate2} {Trans_COPY1_proxy_2.translate2}}
+  rotate {{Trans_COPY1_proxy_2.rotate2}}
+  scale {{Trans_COPY1_proxy_2.scale2} {Trans_COPY1_proxy_2.scale2}}
+  skewX {{Trans_COPY1_proxy_2.skewX2}}
+  skewY {{Trans_COPY1_proxy_2.skewY2}}
+  skew_order {{Trans_COPY1_proxy_2.skeworder2}}
+  center {{Trans_COPY1_proxy_2.center2} {Trans_COPY1_proxy_2.center2}}
+  invert_matrix {{Trans_COPY1_proxy_2.invert2}}
+  filter {{Trans_COPY1_proxy_2.filter2}}
+  shutteroffset centred
+  name Transform1
+  label static
+  xpos 510
+  ypos 416
+ }
+ Grade {
+  name Grade
+  label static
+  xpos 510
+  ypos 488
+ }
+set N36bf5400 [stack 0]
+push $N36bf5400
+ Transform {
+  translate {{Trans_COPY1_proxy.translate1} {Trans_COPY1_proxy.translate1}}
+  rotate {{Trans_COPY1_proxy.rotate1}}
+  scale {{Trans_COPY1_proxy.scale1} {Trans_COPY1_proxy.scale1}}
+  skewX {{Trans_COPY1_proxy.skewX1}}
+  skewY {{Trans_COPY1_proxy.skewY1}}
+  skew_order {{Trans_COPY1_proxy.skeworder1}}
+  center {{"Flare.position - translate.x + Trans_COPY1_proxy.center1.x"} {"Flare.position- translate.y +  + Trans_COPY1_proxy.center1.y"}}
+  invert_matrix {{Trans_COPY1_proxy.invert1}}
+  filter {{Trans_COPY1_proxy.filter1}}
+  motionblur {{Trans_COPY1_proxy.motionblur1}}
+  shutter {{Trans_COPY1_proxy.shutter1}}
+  shutteroffset centred
+  name Trans_COPY1
+  label static
+  xpos 400
+  ypos 488
+ }
+ Switch {
+  inputs 2
+  which {{!apply_on_copy1}}
+  name Switch1
+  label static
+  xpos 510
+  ypos 608
+ }
+set N36bf4c00 [stack 0]
+ Dot {
+  name Dot1
+  xpos 544
+  ypos 634
+ }
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t0
+  xpos 510
+  ypos 652
+ }
+set N36bf4400 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t1
+  xpos 620
+  ypos 678
+ }
+set N36ba3c00 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t2
+  xpos 840
+  ypos 704
+ }
+set N36ba3800 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t3
+  xpos 950
+  ypos 730
+ }
+set N36ba3400 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t4
+  xpos 1060
+  ypos 756
+ }
+set N36ba3000 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t5
+  xpos 1170
+  ypos 782
+ }
+set N36ba2c00 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t6
+  xpos 1280
+  ypos 808
+ }
+set N36ba2800 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t7
+  xpos 1390
+  ypos 834
+ }
+set N36ba2400 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t8
+  xpos 1500
+  ypos 860
+ }
+set N36ba2000 [stack 0]
+ Transform {
+  translate {{Trans_COPY1.translate} {Trans_COPY1.translate}}
+  rotate {{Trans_COPY1.rotate}}
+  scale {{Trans_COPY1.scale}}
+  skewX {{Trans_COPY1.skewX}}
+  skewY {{Trans_COPY1.skewY}}
+  skew_order {{Trans_COPY1.skew_order}}
+  center {{Trans_COPY1.center} {Trans_COPY1.center}}
+  invert_matrix {{Trans_COPY1.invert_matrix}}
+  filter {{Trans_COPY1.filter}}
+  motionblur {{Trans_COPY1.motionblur}}
+  shutter {{Trans_COPY1.shutter}}
+  shutteroffset centred
+  name t9
+  xpos 1610
+  ypos 886
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_9
+  xpos 1610
+  ypos 912
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 10
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_11
+  xpos 1610
+  ypos 938
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 10
+ }
+push $N36ba2000
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_8
+  xpos 1500
+  ypos 886
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 9
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_10
+  xpos 1500
+  ypos 912
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 9
+ }
+push $N36ba2400
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_7
+  xpos 1390
+  ypos 860
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 8
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_9
+  xpos 1390
+  ypos 886
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 8
+ }
+push $N36ba2800
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_6
+  xpos 1280
+  ypos 834
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 7
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_8
+  xpos 1280
+  ypos 860
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 7
+ }
+push $N36ba2c00
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_5
+  xpos 1170
+  ypos 808
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 6
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_7
+  xpos 1170
+  ypos 834
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 6
+ }
+push $N36ba3000
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_4
+  xpos 1060
+  ypos 782
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 5
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_6
+  xpos 1060
+  ypos 808
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 5
+ }
+push $N36ba3400
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_3
+  xpos 950
+  ypos 756
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 4
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_5
+  xpos 950
+  ypos 782
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 4
+ }
+push $N36ba3800
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_2
+  xpos 840
+  ypos 730
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 3
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_4
+  xpos 840
+  ypos 756
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 3
+ }
+push $N36ba3c00
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_1
+  xpos 620
+  ypos 704
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 2
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_3
+  xpos 620
+  ypos 730
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 2
+ }
+push $N36bf4400
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )"}}
+  name mu1_0
+  xpos 510
+  ypos 678
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 1
+ }
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_2
+  xpos 510
+  ypos 704
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 1
+ }
+push $N36bf4c00
+ Multiply {
+  value {{"((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )"}}
+  name mu1t2_1
+  label static
+  xpos 730
+  ypos 601
+  addUserKnob {20 User}
+  addUserKnob {3 ReMax}
+  ReMax 11
+  addUserKnob {3 ReNum}
+  ReNum 1
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m0
+  xpos 730
+  ypos 704
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m1
+  xpos 730
+  ypos 782
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m2
+  xpos 840
+  ypos 808
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m3
+  xpos 950
+  ypos 834
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m4
+  xpos 1060
+  ypos 860
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m5
+  xpos 1170
+  ypos 886
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m6
+  xpos 1280
+  ypos 912
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m7
+  xpos 1390
+  ypos 938
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m8
+  xpos 1500
+  ypos 964
+ }
+ Merge2 {
+  inputs 2
+  also_merge all
+  name m9
+  xpos 1610
+  ypos 964
+ }
+ NoOp {
+  name COPIES1_end
+  label static
+  xpos 510
+  ypos 2456
+ }
+ Crop {
+  box {{input.format.x} {input.format.y} {input.format.r} {input.format.t}}
+  name Crop1
+  label "Box: \[value box]\nstatic"
+  xpos 510
+  ypos 2593
+ }
+set N36aa9000 [stack 0]
+push $N36bf7000
+ Dot {
+  name Dot4
+  label static
+  xpos 104
+  ypos 2610
+ }
+ Merge2 {
+  inputs 2
+  name Merge1
+  label static
+  xpos 290
+  ypos 2600
+ }
+push $N36aa9000
+ Switch {
+  inputs 2
+  which {{output}}
+  name Switch2
+  label "Which: \[value which]\nstatic"
+  xpos 510
+  ypos 2689
+ }
+ Output {
+  name Output1
+  label static
+  xpos 510
+  ypos 2816
+ }
+ NoOp {
+  inputs 0
+  name Trans_COPY1_proxy_2
+  label static
+  xpos 290
+  ypos 464
+  addUserKnob {20 User}
+  addUserKnob {12 translate2}
+  translate2 {364 -8}
+  addUserKnob {7 rotate2 R -180 180}
+  rotate2 35
+  addUserKnob {14 scale2 R 0 100}
+  scale2 1
+  addUserKnob {7 skewX2 R -1 1}
+  addUserKnob {7 skewY2 R -1 1}
+  addUserKnob {4 skeworder2 M {XY YX ""}}
+  addUserKnob {12 center2}
+  center2 {950 452}
+  addUserKnob {6 invert2 +STARTLINE}
+  addUserKnob {4 filter2 M {Impulse Cubic Keys Simon Rifman Mitchell Parzen Notsch Lanczos4 Lanczos6 Sinc4 ""}}
+  filter2 Cubic
+ }
+ NoOp {
+  inputs 0
+  name Trans_COPY1_proxy
+  label static
+  xpos 180
+  ypos 656
+  addUserKnob {20 User}
+  addUserKnob {12 translate1}
+  translate1 {564 -8}
+  addUserKnob {7 rotate1 R -180 180}
+  rotate1 70
+  addUserKnob {14 scale1 R 0 100}
+  scale1 0.8
+  addUserKnob {7 skewX1 R -1 1}
+  addUserKnob {7 skewY1 R -1 1}
+  addUserKnob {4 skeworder1 M {XY YX}}
+  addUserKnob {12 center1}
+  center1 {364 -8}
+  addUserKnob {6 invert1 +STARTLINE}
+  addUserKnob {4 filter1 M {Impulse Cubic Keys Simon Rifman Mitchell Parzen Notsch Lanczos4 Lanczos6 Sinc4}}
+  filter1 Cubic
+  addUserKnob {7 motionblur1 R 0 4}
+  motionblur1 1
+  addUserKnob {7 shutter1 R 0 2}
+  shutter1 0.5
+  addUserKnob {26 ""}
+  addUserKnob {7 fadeout l "Fade Out"}
+  fadeout {{1-fadeout1}}
+  addUserKnob {7 fadeout1 l "Fade Out 1"}
+  addUserKnob {7 fadein l "Fade In"}
+  fadein {{1-fadein1}}
+  addUserKnob {7 fadein1 l "Fade In"}
+ }
+end_group
+Read {
+ inputs 0
+ file_type png
+ file D:/05_Projects/practice_shots/backpack_001/backpack_001.####.png
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ first 1001
+ last 1121
+ origfirst 1001
+ origlast 1121
+ origset true
+ name Read1
+ label "Fr. range: \[value first] - \[value last]\nRes: \[value width] * \[value height]"
+ xpos 1170
+ ypos 259
+}
+Blur {
+ inputs 0
+ name Blur1
+ label "Size: \[value size]"
+ xpos -260
+ ypos 505
+}
+StickyNote {
+ inputs 0
+ name StickyNote6
+ label "Ballomatic:\nApplies a balloon-like effect to\nits src input. It requires random \naccess to its src and uses bilinear \ninterpolation."
+ xpos 2121
+ ypos 924
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard2
+ xpos 2160
+ ypos 999
+}
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "1 \"Ballomatic\" iterate pixelWise f0154f11f7c26d4c1d0cfc00ee17fcba22fcd6cc955e9069968a47ba2ec6e3f6 2 \"src\" Read Random \"dst\" Write Point 3 \"Power\" Float 1 zcxMvg== \"Size\" Int 1 kAEAAA== \"Centre\" Float 2 AAAgRAAAtEM="
+ kernelSource "// Copyright (c) 2012 The Foundry Visionmongers Ltd.  All Rights Reserved.\n// Example RIP Kernel\n\n\n// BallomaticKernel: does a ball-o-matic effect. Set the power to change the effect.\nkernel Ballomatic : ImageComputationKernel<ePixelWise> \{\n  Image<eRead, eAccessRandom, eEdgeClamped> src;\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  float power;\n  int size;\n  float2 centre;  \n\nlocal:\n  float _sizeInv2;\n\n  void define() \{\n     defineParam(power, \"Power\", -0.2f);\n     defineParam(size, \"Size\", 400);\n     defineParam(centre, \"Centre\", float2(640.0f, 360.0f));\n  \}\n\n  void init() \{\n    _sizeInv2 = size <= 0 ? 0 : 1.0f/size;\n    _sizeInv2 *= _sizeInv2;\n  \}\n\n  void process(int2 pos) \{\n    float dx = float(pos.x) - centre.x;\n    float dy = float(pos.y) - centre.y;\n    float delta = 1.0f - ((dx*dx + dy*dy) * _sizeInv2);\n    if (delta < 0) \{\n      dst() = src(pos.x, pos.y);\n    \}\n    else \{\n      delta = pow(delta, power);\n      float x = centre.x + dx * delta;\n      float y = centre.y + dy * delta;\n      for (int c = 0; c < dst.kComps; c++)\n        dst(c) = bilinear(src, x, y, c);\t\n    \}\n  \}\n\};\n"
+ rebuild ""
+ Ballomatic_Power 0.375
+ Ballomatic_Centre {1164 614}
+ rebuild_finalise ""
+ name BlinkScript2
+ xpos 2160
+ ypos 1088
+}
+StickyNote {
+ inputs 0
+ name StickyNote3
+ label "BoxBlur1D:\nA one-dimensional blur that\naccesses a 1D range from \nits input"
+ xpos 2462
+ ypos 931
+}
+StickyNote {
+ inputs 0
+ name StickyNote2
+ label "BoxBlur2D:\nA two-dimensional blur that\naccesses a 2D range from \nits input"
+ xpos 2793
+ ypos 931
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ label "ConvolutionKernel:\nDoes a weighted blur on its src input,\nwith the weights taken from the\nfilter input. \n\nThis has 2D ranged access to its src input\nand random access to the filter input\n"
+ xpos 3092
+ ypos 905
+}
+StickyNote {
+ inputs 0
+ name StickyNote10
+ label "CurtainKernel:\nA rippling curtain effect with \n1D ranged access"
+ xpos 3562
+ ypos 913
+}
+StickyNote {
+ inputs 0
+ name StickyNote7
+ label "LensFlareKernel:\nThis generates a simple lens flare.\nIt requires no inputs."
+ xpos 3877
+ ypos 913
+}
+StickyNote {
+ inputs 0
+ name StickyNote5
+ label "Median5x5Kernel:\nA median filter that makes use of \nBlink's median function"
+ xpos 4211
+ ypos 913
+}
+StickyNote {
+ inputs 0
+ name StickyNote8
+ label "Swirlomatic:\nWarps part of its input around in a swirl. \nUses random access, trigonometric\nfunctions and bilinear interpolation."
+ xpos 4525
+ ypos 907
+}
+StickyNote {
+ inputs 0
+ name StickyNote11
+ label "ResizeKernel:\nA Blink resize done in two passes, \nhorizontal then vertical.\n\nThe same kernel is used for both \npasses, with different values for the\n\"horizontal\" parameter"
+ xpos 4866
+ ypos 815
+}
+StickyNote {
+ inputs 0
+ name StickyNote9
+ label "WipeKernel:\nA simple transition between two\ninputs."
+ xpos 5313
+ ypos 913
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard1
+ xpos 1830
+ ypos 975
+}
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "1 \"KnobsKernel\" iterate componentWise cde7d8569e331707d59c7ae8032dfafe765dd319855e5038bf6461fbd21ce3de 2 \"src\" Read Point \"dst\" Write Point 11 \"SingleFloat\" Float 1 AACAQA== \"XY\" Float 2 AAAAAAAAAAA= \"XYZ\" Float 3 AAAAAAAAAAAAAAAAAAAAAA== \"AColor\" Float 4 AAAAAAAAAAAAAAAAAAAAAA== \"MultiFloat\" Float 5 AAAAAAAAAAAAAAAAAAAAAAAAAAA= \"Array3x3\" Float 9 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \"Array4x4\" Float 16 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"SingleInt\" Int 1 BAAAAA== \"MultiInt\" Int 4 AAAAAAAAAAAAAAAAAAAAAA== \"DefaultTrue\" Bool 1 AQ== \"DefaultFalse\" Bool 1 AA=="
+ kernelSource "/// Kernel demonstrating RIP knob types\nkernel KnobsKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead> src;\n  Image<eWrite> dst;\n\nparam:\n  float single_float;\n  float2 xy;\n  float3 xyz;\n  float4 acolor;\n  float multi_float\[5];\n  float3x3 array3x3;\n  float4x4 array4x4;\n  int single_int;\n  int multi_int\[4];\n  bool default_true_knob;\n  bool default_false_knob;\n\n\nlocal:\n  void define() \{\n    defineParam(single_float, \"SingleFloat\", 4.0f); //This knob will have a range of 0..8\n    defineParam(xy, \"XY\"); \n    defineParam(xyz, \"XYZ\"); \n    defineParam(acolor, \"AColor\"); \n    defineParam(multi_float, \"MultiFloat\"); \n    defineParam(array3x3, \"Array3x3\"); \n    defineParam(array4x4, \"Array4x4\"); \n    defineParam(single_int, \"SingleInt\", 4); \n    defineParam(multi_int, \"MultiInt\"); \n    defineParam(default_true_knob, \"DefaultTrue\", true); \n    defineParam(default_false_knob, \"DefaultFalse\", false); \n  \}\n\n  void init() \{\n  \}\n\n  void process() \{\n    //Just copy src to dst\n    dst() = src();\n  \}\n\};\n"
+ rebuild ""
+ group_KnobsKernel_Array3x3 1
+ group_KnobsKernel_Array4x4 1
+ rebuild_finalise ""
+ name BlinkScript1
+ xpos 1830
+ ypos 1088
+}
+Group {
+ inputs 0
+ name KELVIN
+ help "13-05-2020\nKelvin v1.0.1\nGuillem Ramisa de Soto"
+ label "\[value K]"
+ xpos 3260
+ ypos 1448
+ addUserKnob {20 KELVIN}
+ addUserKnob {41 "Local GPU: " T BlinkScript2.gpuName}
+ addUserKnob {41 "Use GPU if Available" T BlinkScript2.useGPUIfAvailable}
+ addUserKnob {26 ""}
+ addUserKnob {6 lin +STARTLINE}
+ addUserKnob {7 K R 0 80000}
+ K 32000
+ addUserKnob {26 ""}
+ addUserKnob {26 leg l "" +STARTLINE T "Normalised with kelvin scale. Color temperature.\n\nKelvin v1.0.1\nGuillem Ramisa de Soto"}
+}
+ BlinkScript {
+  inputs 0
+  recompileCount 15
+  ProgramGroup 1
+  KernelDescription "2 \"KELVIN\" iterate pixelWise a8dd576678078a38d1994a7bae3c610b41eb047a3ed802c66b078af236fb19f8 1 \"dst\" Write Point 1 \"k\" Float 1 AECcRg== 1 \"kelvin\" 1 1 0"
+  kernelSource "/// ported from https://gist.github.com/paulkaplan/5184275\n/// by Guillem Ramisa de Soto\n\ninline float Klamp(float x, float lowerlimit, float upperlimit) \{\n  if (x < lowerlimit)\n    x = lowerlimit;\n  if (x > upperlimit)\n    x = upperlimit;\n  return x;\n\}\n\ninline float3 colorTemperatureToRGB(float kelvin)\{\n\n\tfloat temp = kelvin / 100.0f;\n\n\tfloat red, green, blue;\n\tfloat r, g, b;\n\n\tif( temp <= 66.0f )\{ \n\n\t\tred = 255.0f; \n\t\t\n\t\tgreen = temp;\n\t\tgreen = 99.4708025861f * log(green) - 161.1195681661f;\n\n\n\t\tif( temp <= 19.0f)\{\n\n\t\t\tblue = 0.0f;\n\n\t\t\} else \{\n\n\t\t\tblue = temp-10.0f;\n\t\t\tblue = 138.5177312231f * log(blue) - 305.0447927307f;\n\n\t\t\}\n\n\t\} else \{\n\n\t\tred = temp - 60.0f;\n\t\tred = 329.698727446f * pow(red, -0.1332047592f);\n\t\t\n\t\tgreen = temp - 60.0f;\n\t\tgreen = 288.1221695283f * pow(green, -0.0755148492f );\n\n\t\tblue = 255.0f;\n\t\}\n\n\tr = Klamp(red,   0.0f, 255.0f);\n\tg = Klamp(green, 0.0f, 255.0f);\n\tb = Klamp(blue,  0.0f, 255.0f);\n\n\treturn float3(r,g,b);\n\}\n\nkernel KELVIN : ImageComputationKernel<ePixelWise>\n\{\n\tImage<eWrite> dst;\n\n\tparam:\n\t\tfloat kelvin;\n\n\tvoid define()\{\n\t\tdefineParam(kelvin, \"k\", 20000.0f);\n\t\}\n\n\tvoid process() \{\n\t\tfloat3 K;\n\t\tfloat3 KMAX = float3(255.0f,255.0f,255.0f);\n\t\tK = colorTemperatureToRGB(kelvin) / KMAX;\n\n\t\tdst() = float4( K.x , K.y , K.z , 1.0f);\n\t\}\n\};"
+  rebuild ""
+  KELVIN_k {{parent.K}}
+  rebuild_finalise ""
+  name BlinkScript2
+  xpos 180
+  ypos -184
+ }
+ Gamma {
+  channels rgb
+  value 0.4545454545
+  name Gamma1
+  xpos 180
+  ypos -82
+  disable {{parent.lin}}
+ }
+ Output {
+  name Output1
+  xpos 180
+  ypos -10
+ }
+end_group
+ColorWheel {
+ inputs 0
+ gamma 0.45
+ name ColorWheel2
+ xpos 2160
+ ypos 1191
+}
+set N4a01800 [stack 0]
+BlinkScript {
+ recompileCount 1
+ ProgramGroup 1
+ KernelDescription "2 \"My_First_GodRay\" iterate componentWise c2d9538bbc31969c090bb767c9aef6912d4dbe8c40ad440ef3cecc0c43260fec 2 \"src\" Read Random \"dst\" Write Point 3 \"size\" Float 1 AAAAAA== \"center\" Float 2 AAAAAAAAAAA= \"iterations\" Int 1 AAAAAA== 3 \"size\" 1 1 \"center\" 2 1 \"iterations\" 1 1 0"
+ kernelSource "kernel My_First_GodRay : ImageComputationKernel <eComponentWise>\n\{\n  Image<eRead, eAccessRandom, eEdgeClamped> src;\n  Image<eWrite> dst;\n\n  param:\n    float size;\n    float2 center;\n    int iterations;\n\n  void process(int2 pos) \{\n    float2 raypos;\n    float raysize;\n    float total = 0.0;\n\n    for (int i = 0; i < iterations; i++) \{\n      raysize = 1+size*i/iterations;\n      raypos = (float2(pos.x,pos.y)-center)/raysize+center;\n      total += src(raypos.x,raypos.y);\n    \}\n\n    dst() = total/iterations;\n  \}\n\};"
+ rebuild ""
+ My_First_GodRay_size 0.81
+ My_First_GodRay_center {146 950}
+ My_First_GodRay_iterations 70
+ rebuild_finalise ""
+ name BlinkScript19
+ xpos 3040
+ ypos 1208
+}
+BlinkScript {
+ inputs 0
+ recompileCount 5
+ ProgramGroup 1
+ KernelDescription "2 \"SaturationKernel\" iterate pixelWise a10c2ee9fa68b6d8bc94ac9e4472af3541cf7e35bafd37f204fa01cd0b601b2b 2 \"src\" Read Point \"dst\" Write Point 1 \"Saturation\" Float 1 mpmZPw== 1 \"saturation\" 1 1 1 \"coefficients\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA=="
+ kernelSource "\nkernel SaturationKernel : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> src; // the input image\n  Image<eRead, eAccessPoint, eEdgeClamped> displacement; // the input image\n  Image<eWrite> dst; // the output image\n\n  param:\n    float4 constantColor; \n\n  void process(int2 pos)\{\n    float2 samplePosition = float2(pos.x,pos.y);\n    float4 displace = bilinear(displacement,samplePosition.x,samplePosition.y);\n    samplePosition += float2(displace.x,displace.y);\n  dst() = bilinear(src,pos.x+200.5,pos.y)\n  \}\n\};\n"
+ rebuild ""
+ rebuild_finalise ""
+ name BlinkScript21
+ xpos 4360
+ ypos 1328
+}
+push $N4a01800
+Group {
+ name TexTile
+ xpos 3040
+ ypos 1670
+ addUserKnob {20 TexTile}
+ addUserKnob {41 format l "output format" T TexTileFormat.format}
+ addUserKnob {26 ""}
+ addUserKnob {7 tiling t "How many repetitions of the texture should be used - 1 will tile the texture at it's given resolution." R 1 10}
+ tiling 3.88
+ addUserKnob {7 offset t "How far the texture should deviate from default tiling" R -2 2}
+ offset 0.8
+ addUserKnob {41 scale t "Adjusts variation in scale for each sampled cell / tile." T BlinkScript2.TexTile_scale}
+ addUserKnob {41 contrast t "By default, some contrast will be lost in between voronoi cells; increasing contrast will counter this and should be adjusted based on the input image." T BlinkScript2.TexTile_contrast}
+ addUserKnob {20 gpu l GPU}
+ addUserKnob {41 "Local GPU: " T BlinkScript2.gpuName}
+ addUserKnob {41 "Use GPU if Available" T BlinkScript2.useGPUIfAvailable}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos -81
+  ypos -141
+ }
+ BlinkScript {
+  ProgramGroup 1
+  KernelDescription "1 \"TexTile\" iterate pixelWise a835ac838bb293be4510cf5847dec90d8336ce555ff7fb19e89fc04cd1db7693 2 \"src\" Read Random \"dst\" Write Point 6 \"width\" Float 1 AAAAAA== \"height\" Float 1 AAAAAA== \"tiling\" Float 1 AAAAAA== \"offset\" Float 1 AAAAAA== \"scale\" Float 1 AAAAAA== \"contrast\" Float 1 AAAAAA=="
+  kernelSource "inline float4 mix(float4 a, float4 b, float t) \{\n  return (b - a) * clamp(t, 0.0f, 1.0f) + a;\n\}\n\nkernel TexTile: ImageComputationKernel<ePixelWise> \{\n\n    Image<eRead, eAccessRandom, eEdgeClamped> src;\n    Image<eWrite> dst;\n\n    param:\n        float width;\n        float height;\n        float tiling;\n        float offset;\n        float scale;\n        float contrast;\n\n    float4 hash4(float2 p) \{\n        float4 val =  sin(float4(1.0f + dot(p, float2(37.0f, 17.0f)), \n                                 2.0f + dot(p, float2(11.0f, 47.0f)),\n                                 3.0f + dot(p, float2(41.0f, 29.0f)),\n                                 4.0f + dot(p, float2(23.0f, 31.0f)))) * 103.0f;\n        for (int i = 0; i < 4; i++)\n            val\[i] = fmod(val\[i], 1.0f);\n        return (val + 1) * 0.5f;\n    \}\n\n    void process(int2 pos)\n    \{\n        float2 uv = float2(\n            (pos.x + 0.5f) / width,\n            (pos.y + 0.5f) / height\n        );\n\n        uv *= tiling;\n\n        float2 p = floor(uv);\n        float2 f = float2(fmod(uv.x, 1.0f), fmod(uv.y, 1.0f));\n        \n        float4 va = 0;\n        float w1 = 0;\n        float w2 = 0;\n        // Iterate over adjacent voronoi cells\n        for (int j = -1; j <= 1; j++)\n            for (int i = -1; i <= 1; i++)\n            \{\n                // Create a voronoi cell point\n                float2 g = float2(float(i), float(j));                 // Adjacent cell point\n                float4 o = hash4(p + g);                               // Random offset\n                float2 r = float2(g.x - f.x + o.x, g.y - f.y + o.y);   // Resulting co-ordinate\n\n                float d = dot(r, r);                                   // length of offset\n                float w = exp(-5.0f * d);                              // gaussian falloff\n                \n                // Use the offset to pick a pseudo-random point to sample\n                // Using r instead of uv offsets from center of cell, allowing us to scale each individually\n                float randf = (o.x - 0.5f) * scale + 1.0f;\n                float x = r.x * randf + o.z * offset;\n                float y = r.y * randf + o.w * offset;\n\n                // Wrap x and y around image and sample\n                x = fmod(fmod(x, 1.0f) + 1.0f, 1.0f) * width;\n                y = fmod(fmod(y, 1.0f) + 1.0f, 1.0f) * height;\n                float4 c = bilinear(src, x, y);\n                \n                // Accumulate weighted colour\n                va += w * c;\n                w1 += w;\n                w2 += w * w;\n            \}\n        \n        // normal averaging --> lowers contrasts\n        // float4 col = va / w1;\n\n        float4 res = contrast + (va - w1 * contrast) / sqrt(w2);\n        float4 col = mix(va / w1, res, offset);\n\n\n        for (int c = 0; c < 3; c++)\n            dst(c) = col\[c];\n        dst(3) = 1;\n\n    \}\n\};"
+  rebuild ""
+  TexTile_width {{width}}
+  TexTile_height {{height}}
+  TexTile_tiling {{parent.tiling}}
+  TexTile_offset {{parent.offset}}
+  TexTile_scale 0.25
+  TexTile_contrast 0.2
+  format {{{TexTileFormat.format}}}
+  specifiedFormat true
+  rebuild_finalise ""
+  name BlinkScript2
+  xpos -81
+  ypos -66
+ }
+ Output {
+  name Output1
+  xpos -81
+  ypos -1
+ }
+ Reformat {
+  inputs 0
+  name TexTileFormat
+  xpos 42
+  ypos -60
+ }
+end_group
+ColorWheel {
+ inputs 0
+ format "25 25 0 0 25 25 1 small"
+ gamma 0.45
+ name ColorWheel1
+ xpos 3260
+ ypos 1023
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard10
+ xpos 3040
+ ypos 1023
+}
+set N49a2000 [stack 0]
+BlinkScript {
+ inputs 2
+ ProgramGroup 1
+ KernelDescription "1 \"ConvolutionKernel\" iterate pixelWise 9257af65e1a826caf62f836d7a9c65283d9de8be4584d899425eaf92970883e4 3 \"src\" Read Ranged2D \"filter\" Read Random \"dst\" Write Point 0"
+ kernelSource "//Warning: connecting a large image to the filter input will cause the kernel to run very slowly!\n//If running on a GPU connected to a display, this will cause problems if the time taken to \n//execute the kernel is longer than your operating system allows. Use with caution!\nkernel ConvolutionKernel : public ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> src;\n  Image<eRead, eAccessRandom> filter;  \n  Image<eWrite> dst;\n\nlocal:\n  int2 _filterOffset;\n\n  void init()\n  \{\n    //Get the size of the filter input and store the radius.\n    int2 filterRadius(filter.bounds.width()/2, filter.bounds.height()/2); \n\n    //Store the offset of the bottom-left corner of the filter image\n    //from the current pixel:\n    _filterOffset.x = filter.bounds.x1 - filterRadius.x;\n    _filterOffset.y = filter.bounds.y1 - filterRadius.y;\n    \n    //Set up the access for the src image\n    src.setRange(-filterRadius.x, -filterRadius.y, filterRadius.x, filterRadius.y);\n  \}\n\n  void process() \{\n\n    SampleType(src) valueSum(0);\n    ValueType(filter) filterSum(0);\n    \n    //Iterate over the filter image\n    for(int j = filter.bounds.y1; j < filter.bounds.y2; j++) \{\n      for(int i = filter.bounds.x1; i < filter.bounds.x2; i++) \{ \n        //Get the filter value\n        ValueType(filter) filterVal = filter(i, j, 0);\n\n        //Multiply the src value by the corresponding filter weight and accumulate\n        valueSum += filterVal * src(i + _filterOffset.x, j + _filterOffset.y);\n\n        //Update the filter sum with the current filter value\n        filterSum += filterVal;\n      \}\n    \}\n\n    //Normalise the value sum, avoiding division by zero\n    if (filterSum != 0) \n      valueSum /= filterSum;\n    \n    dst() = valueSum;\n  \}\n\};\n"
+ rebuild ""
+ rebuild_finalise ""
+ name BlinkScript12
+ xpos 3150
+ ypos 1112
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard3
+ xpos 3590
+ ypos 975
+}
+BlinkScript {
+ KernelDescription "1 \"CurtainKernel\" iterate componentWise 5bf7fa35ef6e91b8cb3dbf7f8493d620cc80d977819b69e1e30605e2348da970 2 \"src\" Read Ranged1D \"dst\" Write Point 3 \"amplitude\" Float 1 AADIQg== \"phase\" Float 1 2w9JQA== \"period\" Float 1 AAD6Qw=="
+ kernelSource "//Note if line numbers change writing_a_process.rst must be edited.\nkernel CurtainKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged1D, eEdgeConstant> src;\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  float amplitudePixels;\n  float phaseRadians;\n  float periodPixels;\n\nlocal:\n  float angularFrequency;\n\n  void define() \{\n    defineParam(amplitudePixels, \"amplitude\", 100.0f);\n    defineParam(phaseRadians, \"phase\", PI);\n    defineParam(periodPixels, \"period\", 500.0f);\n  \}\n\n  void init() \{\n     src.setRange(-amplitudePixels, amplitudePixels);\n     src.setAxis(eX);\n     angularFrequency = 2.0f*PI/periodPixels;\n  \}\n\n  void process(int3 pos) \{\n    int offset = amplitudePixels * sin( pos.y * angularFrequency + phaseRadians );\n    dst() = src(offset);\n  \}\n\};\n\n"
+ rebuild ""
+ rebuild_finalise ""
+ name BlinkScript3
+ xpos 3590
+ ypos 1088
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard9
+ xpos 2820
+ ypos 999
+}
+BlinkScript {
+ KernelDescription "1 \"BoxBlur2D\" iterate componentWise 4906993d430327c536689cb19ae720fc4c4cac2565c7aa4fb714b5e36b37bb4c 2 \"src\" Read Ranged2D \"dst\" Write Point 2 \"RadiusX\" Int 1 BQAAAA== \"RadiusY\" Int 1 AwAAAA=="
+ kernelSource "kernel BoxBlur2D : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> src;\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  int xRadius;  //The horizontal radius of our box blur\n  int yRadius;  //The vertical radius of our box blur\n\nlocal:\n  int _filterSize;\n\n  void define() \{\n    defineParam(xRadius, \"RadiusX\", 5); \n    defineParam(yRadius, \"RadiusY\", 3); \n  \}\n\n  void init() \{\n    //Set the range we need to access from the source \n    src.setRange(-xRadius, -yRadius, xRadius, yRadius);\n\n    _filterSize = (2 * xRadius + 1) * (2 * yRadius + 1);\n  \}\n\n  void process() \{\n    float sum = 0.0f;\n    for(int j = -yRadius; j <= yRadius; j++)\n      for(int i = -xRadius; i <= xRadius; i++)\n        sum += src(i, j);\n    dst() = sum / (float)_filterSize;\n  \}\n\};\n"
+ rebuild ""
+ BoxBlur2D_RadiusX 20
+ BoxBlur2D_RadiusY 10
+ rebuild_finalise ""
+ name BlinkScript11
+ xpos 2820
+ ypos 1088
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard8
+ xpos 2490
+ ypos 999
+}
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "1 \"BoxBlur1D\" iterate componentWise 3e112ad059d3b7e8782ba1ef1a9e1c6b4ffc7e41942fbac32ee93c028f5176ed 2 \"src\" Read Ranged1D \"dst\" Write Point 1 \"Radius\" Int 1 BQAAAA=="
+ kernelSource "kernel BoxBlur1D : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged1D, eEdgeClamped> src;\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  int radius;  //The radius of our box blur\n\nlocal:\n  int _filterWidth;\n\n  void define() \{\n    //RIP node will identify radius as the apron\n    defineParam(radius, \"Radius\", 5); \n  \}\n\n  void init() \{\n    //Set the range we need to access from the source \n    src.setRange(-radius, radius);\n\n    //Set the axis for the 1D-range to be horizontal\n    src.setAxis(eX);\n\n    _filterWidth = 2 * radius + 1;\n  \}\n\n  void process() \{\n    float sum = 0.0f;\n    for(int i = -radius; i <= radius; i++)\n      sum += src(i);\n    dst() = sum / (float)_filterWidth;\n  \}\n\};\n"
+ rebuild ""
+ BoxBlur1D_Radius 11
+ rebuild_finalise ""
+ name BlinkScript10
+ xpos 2490
+ ypos 1088
+}
+BlinkScript {
+ inputs 0
+ ProgramGroup 1
+ KernelDescription "1 \"LensFlareKernel\" iterate pixelWise 378dc01eb6650469084332891fba57b12073add1e27f1ba69d4baa5721df578f 1 \"dst\" Write Point 7 \"FlareHandle\" Float 2 AABIRAAASEQ= \"Centre\" Float 2 AADIQwAAyEM= \"Size\" Float 1 AAAWQw== \"Spread\" Float 1 mpmZPg== \"Brightness\" Float 1 AACAPw== \"NDots\" Int 1 BQAAAA== \"Seed\" Int 1 AAAAAA=="
+ kernelSource "// Copyright (c) 2012 The Foundry Visionmongers Ltd.  All Rights Reserved.\n// Example RIP Kernel\n\n#define kRandMax 32767\n\n/// Platform-consistent PRNG based on SGI rand().\ninline int RandI(unsigned int seed) \{\n  unsigned int next = seed;\n  int result;\n\n  next *= 1103515245;\n  next += 12345;\n  result = (unsigned int) (next / 65536) % 256;\n\n  next *= 1103515245;\n  next += 12345;\n  result <<= 7;\n  result ^= (unsigned int) (next / 65536) % 256;\n  return result;\n\}\n\ninline float RandF(unsigned int seed)\n\{\n  return float(RandI(seed))/float(kRandMax);\n\}\n\n/// LensFlareKernel: Generates a lens flare on top of the input image.\n/// NOTE that this process does not currently vectorize.\nkernel LensFlareKernel : ImageComputationKernel<ePixelWise>\n\{\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  float2 flareHandle;\n  float2 centre;\n  float  size;\n  float  spread;\n  float  brightness;\n  int    nDots;\n  int    seed;\n\nlocal:\n  static const int kMaxDots = 10;\n  float4 colours\[kMaxDots];\n  float2 dotCentres\[kMaxDots];\n  float  invSizeSqr\[kMaxDots];\n  int actualDots;\n\n  void define() \{\n    defineParam(centre,      \"Centre\", float2(400.0f, 400.0f));\n    defineParam(flareHandle, \"FlareHandle\",  float2(800.0f, 800.0f));\n    defineParam(size,        \"Size\",         150.0f);\n    defineParam(brightness,  \"Brightness\",   1.0f);\n    defineParam(spread,      \"Spread\",   0.3f);\n    defineParam(nDots,       \"NDots\",   5);\n    defineParam(seed,        \"Seed\",   0);\n  \}\n\n  void init() \{\n    actualDots = nDots > kMaxDots ? kMaxDots : nDots;\n    actualDots = actualDots < 0 ? 0 : actualDots;\n    float2 dist = centre - flareHandle;\n    for(int i = 0; i < actualDots; ++i) \{\n      float t = float(i) / float(kMaxDots-1);\n      dotCentres\[i] = flareHandle + dist * spread * RandF(seed + i);\n      float thisSize =  RandF(seed + i + 1000) * size;\n      invSizeSqr\[i] = 1.0f/(thisSize * thisSize);\n      colours\[i] = float4(RandF(seed + i + 2000),\n                          RandF(seed + i + 3000),\n                          RandF(seed + i + 4000),\n                          RandF(seed + i + 5000));\n    \}\n  \}\n\n  float4 flareValue(float2 posf,\n                   int index)\n  \{\n    float2 delta = posf - dotCentres\[index];\n    float dotDelta = dot(delta, delta) * invSizeSqr\[index];\n    float value = clamp(1.0f - dotDelta, 0.0f, 1.0f);\n    value *= value;\n    return colours\[index] * value;\n  \}\n\n  void process(int2 pos) \{\n    float2 posf(pos.x, pos.y);\n\n    SampleType(dst) sample(0.0f);\n\n    float4 value = 0;\n    for(int i = 0; i < actualDots; ++i) \{\n      value += flareValue(posf, i);\n    \}\n\n    sample.x += value.x * brightness;\n    sample.y += value.y * brightness;\n    sample.z += value.z * brightness;\n\n    dst() = sample;\n  \}\n\n\};\n"
+ rebuild ""
+ LensFlareKernel_FlareHandle {466 494}
+ LensFlareKernel_Centre {1462 874}
+ LensFlareKernel_Size 80
+ LensFlareKernel_NDots 9
+ rebuild_finalise ""
+ name BlinkScript14
+ xpos 3920
+ ypos 1016
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard11
+ xpos 4250
+ ypos 975
+}
+Grain2 {
+ name Grain2_2
+ label "Kodak 5248"
+ xpos 4250
+ ypos 1064
+ black {0 0 0}
+ minimum {0 0 0}
+}
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "1 \"Median5x5Kernel\" iterate componentWise 7404135bee08a84417bafabc793d1abe83cffceb445a60576389e4beffaebb24 2 \"imageIn\" Read Ranged2D \"imageOut\" Write Point 0"
+ kernelSource "kernel Median5x5Kernel : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> imageIn; \n  Image<eWrite, eAccessPoint> imageOut;          \n\n  void init()\n  \{\n    imageIn.setRange(-2, -2, 2, 2);\n  \}\n\n  void process(int2 pos)\n  \{\n    float vals\[25];\n\n    for (int j = -2, index = 0; j <= 2; j++) \{\n      for (int i = -2; i <= 2; i++, index++) \{\n        vals\[index] = imageIn(i, j);\n      \}\n    \}\n   \n    //The median function takes an array of floating-point values and an array length.\n    imageOut() = median(vals, 25);\n    \n  \}\n\};\n"
+ rebuild ""
+ rebuild_finalise ""
+ name BlinkScript13
+ xpos 4250
+ ypos 1136
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard5
+ xpos 4580
+ ypos 975
+}
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "1 \"Swirlomatic\" iterate pixelWise 6fd568e2d74ef95ca9432e3cd47bc4cd58c7cdfa37213f0f5a671a915ae9449a 2 \"src\" Read Random \"dst\" Write Point 3 \"Amount\" Float 1 AAA0Qw== \"Size\" Int 1 gAIAAA== \"Centre\" Float 2 AAAgRAAAtEM="
+ kernelSource "// Copyright (c) 2012 The Foundry Visionmongers Ltd.  All Rights Reserved.\n// Example RIP Kernel\n\n/// SwirlomaticKernel: does a nice swirl. Amount is in degrees.\nkernel Swirlomatic : ImageComputationKernel<ePixelWise> \{\n  Image<eRead, eAccessRandom, eEdgeClamped> src;\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  float amount;\n  int size;\n  float2 centre;  \n\nlocal:\n  float _sizeInv;\n  float _cs, _sn;\n\n  void define() \{\n     defineParam(amount, \"Amount\", 180.0f);\n     defineParam(size, \"Size\", 640);\n     defineParam(centre, \"Centre\", float2(640.0f, 360.0f));\n  \}\n\n  void init() \{\n    _sizeInv = size <= 0 ? 0 : 1.0f/size;\n    _sizeInv *= _sizeInv;\n  \}\n\n  void process(int2 pos) \{\n    float dx = float(pos.x) - centre.x;\n    float dy = float(pos.y) - centre.y;\n    float delta = 1.0f - ((dx*dx + dy*dy) * _sizeInv);\n    if (delta < 0) delta = 0;   \n\n    float cs = cos(delta * amount * 3.1415926535f/180.0f);\n    float sn = sin(delta * amount * 3.1415926535f/180.0f);\n    \n    float x = centre.x + dx * cs + dy * sn;\n    float y = centre.y - dx * sn + dy * cs;\n\n    for (int c = 0; c < dst.kComps; c++)\n      dst(c) = bilinear(src, x, y, c);\n    \n  \}\n\};"
+ rebuild ""
+ Swirlomatic_Amount 211
+ Swirlomatic_Size 660
+ Swirlomatic_Centre {944 638}
+ rebuild_finalise ""
+ name BlinkScript7
+ xpos 4580
+ ypos 1064
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard4
+ xpos 4910
+ ypos 951
+}
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "1 \"ResizeKernel\" iterate componentWise 957976cb984ad538a99fd24ff8ffc23d011697020e705c14e8f3dec01ceaf4c6 2 \"src\" Read Random \"dst\" Write Point 2 \"Scale\" Float 1 AAAAPw== \"Horizontal\" Bool 1 AQ=="
+ kernelSource "//ResizeKernel: scale the input horizontally or vertically using a bilinear filter. \nkernel ResizeKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRandom, eEdgeConstant> src; //Output will be black outside the original image\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  float _externalScale;\n  bool _horizontal; \n\nlocal:\n  float _scale;\n\n  void define()\n  \{\n    defineParam(_externalScale, \"Scale\", 0.5f);\n    defineParam(_horizontal, \"Horizontal\", true);\n  \}\n\n  void init()\n  \{\n    _scale = 1.0f/_externalScale;  //invert the scale as we back-map from dst to src\n  \}\n\n  void process(int2 pos)\n  \{\n    //Work out the scaled src position.\n    const float xPos = (_horizontal ? (float)pos.x * _scale : (float)pos.x);\n    const float yPos = (_horizontal ? pos.y : (float)pos.y * _scale);\n\n    //Use a bilinear filter to get the value at that src position.\n    dst() = bilinear(src, xPos, yPos);    \n  \}\n\n\};\n\n"
+ rebuild ""
+ rebuild_finalise ""
+ name BlinkScript5
+ xpos 4910
+ ypos 1040
+}
+BlinkScript {
+ KernelDescription "1 \"ResizeKernel\" iterate componentWise 957976cb984ad538a99fd24ff8ffc23d011697020e705c14e8f3dec01ceaf4c6 2 \"src\" Read Random \"dst\" Write Point 2 \"Scale\" Float 1 AAAAPw== \"Horizontal\" Bool 1 AQ=="
+ kernelSource "//ResizeKernel: scale the input horizontally or vertically using a bilinear filter. \nkernel ResizeKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRandom, eEdgeConstant> src; //Output will be black outside the original image\n  Image<eWrite, eAccessPoint> dst;\n\nparam:\n  float _externalScale;\n  bool _horizontal; \n\nlocal:\n  float _scale;\n\n  void define()\n  \{\n    defineParam(_externalScale, \"Scale\", 0.5f);\n    defineParam(_horizontal, \"Horizontal\", true);\n  \}\n\n  void init()\n  \{\n    _scale = 1.0f/_externalScale;  //invert the scale as we back-map from dst to src\n  \}\n\n  void process(int2 pos)\n  \{\n    //Work out the scaled src position.\n    const float xPos = (_horizontal ? (float)pos.x * _scale : (float)pos.x);\n    const float yPos = (_horizontal ? pos.y : (float)pos.y * _scale);\n\n    //Use a bilinear filter to get the value at that src position.\n    dst() = bilinear(src, xPos, yPos);    \n  \}\n\n\};\n\n"
+ rebuild ""
+ ResizeKernel_Scale 0.63
+ ResizeKernel_Horizontal false
+ rebuild_finalise ""
+ name BlinkScript6
+ xpos 4910
+ ypos 1112
+}
+ColorBars {
+ inputs 0
+ name ColorBars1
+ xpos 5460
+ ypos 975
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard6
+ xpos 5240
+ ypos 975
+}
+BlinkScript {
+ inputs 2
+ ProgramGroup 1
+ KernelDescription "1 \"WipeKernel\" iterate componentWise e64713ed9dfa55a59dc838ebc8b1e3c0884a7a6eefc60943f38b6e7cd2e7f14a 3 \"above\" Read Point \"below\" Read Point \"dst\" Write Point 2 \"Origin\" Float 2 AABIQgAASEI= \"Angle\" Float 1 AAA0Qg=="
+ kernelSource "kernel WipeKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> above;  //image to show above the line\n  Image<eRead, eAccessPoint, eEdgeClamped> below;  //image to show below the line\n  Image<eWrite> dst;  //the output image\n\n  param:\n   float2 origin;\n   float angle;\n\n  local:\n   float2 vec;\n\n  //In define(), parameters can be given labels and default values.\n  void define() \{\n    defineParam(origin, \"Origin\", float2(50.0f, 50.0f));\n    defineParam(angle, \"Angle\", 45.0f);\n  \}\n\n  //The init() function is run before any calls to process().\n  void init() \{\n    vec.x = cos(angle * PI / 180.0f);\n    vec.y = sin(angle * PI / 180.0f);\n  \}\n\n  //The process function is run at every pixel to produce the output.\n  void process(int2 pos) \{\n    float2 posVec; \n    posVec.x = pos.x - origin.x;\n    posVec.y = pos.y - origin.y;\n\n    //Z value of cross product\n    float val = vec.x * posVec.y - vec.y * posVec.x;\n    if(val > 0.0f) \{\n      dst() = above();\n    \}\n    else \{\n      dst() = below();\n    \}\n  \}\n\};\n\n"
+ rebuild ""
+ WipeKernel_Origin {140 50}
+ WipeKernel_Angle 43.2
+ rebuild_finalise ""
+ name BlinkScript4
+ xpos 5350
+ ypos 1064
+}
+push $N4a01800
+BlinkScript {
+ ProgramGroup 1
+ KernelDescription "2 \"SaturationKernel\" iterate pixelWise a10c2ee9fa68b6d8bc94ac9e4472af3541cf7e35bafd37f204fa01cd0b601b2b 2 \"src\" Read Point \"dst\" Write Point 1 \"Saturation\" Float 1 mpmZPw== 1 \"saturation\" 1 1 1 \"coefficients\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA=="
+ kernelSource "\nkernel SaturationKernel : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> src; // the input image\n  Image<eWrite> dst; // the output image\n\n  param:\n    float saturation; // This parameter is made available to the user.\n\n  local:\n    float3 coefficients;  // This local variable is not exposed to the user.\n\n  // In define(), parameters can be given labels and default values.\n  void define() \{\n    defineParam(saturation, \"Saturation\", 1.2f);\n  \}\n\n  // The init() function is run before any calls to process().\n  // Local variables can be initialized here.\n  void init() \{\n    // Initialise coefficients according to rec. 709 standard.\n    coefficients.x = 0.2126f;\n    coefficients.y = 0.7152f;\n    coefficients.z = 0.0722f;\n  \}\n\n  void process() \{\n    // Read the input image\n    SampleType(src) input = src();\n\n    // Isolate the RGB components\n    float3 srcPixel(input.x, input.y, input.z);\n\n    // Calculate luma\n    float luma = srcPixel.x * coefficients.x\n               + srcPixel.y * coefficients.y\n               + srcPixel.z * coefficients.z;\n    // Apply saturation\n    float3 saturatedPixel = (srcPixel - luma) * saturation + luma;\n\n    // Write the result to the output image\n    dst() = float4(saturatedPixel.x, saturatedPixel.y, saturatedPixel.z, input.w);\n  \}\n\};\n"
+ rebuild ""
+ SaturationKernel_Saturation 1.57
+ rebuild_finalise ""
+ name BlinkScript8
+ xpos 2050
+ ypos 1376
+}
+push $N4a01800
+BlinkScript {
+ recompileCount 43
+ ProgramGroup 1
+ KernelDescription "2 \"Rotation\" iterate pixelWise 853f48dd5580a723ef71f545976e59c7971ee88180b7ab0accf7c46b83ded246 2 \"src\" Read Random \"dst\" Write Point 1 \"Angle\" Float 1 AAA0Qw== 1 \"Angle\" 1 1 5 \"cx\" Float 1 1 AAAAAA== \"cy\" Float 1 1 AAAAAA== \"out\" Float 4 1 AAAAAAAAAAAAAAAAAAAAAA== \"Radiants\" Float 1 1 AAAAAA== \"pi\" Float 1 1 AAAAAA=="
+ kernelSource "kernel Rotation : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead,eAccessRandom,eEdgeClamped> src;                        //input image\n  Image<eWrite> dst;                                                  //output image\n\n  param:\n    float Angle;                                                      //Angle parameter\n\n  local:\n    float cx;                                                         //Horizontal center\n    float cy;                                                         //Vertical center\n    float4 out;                                                       //out vectors\n    float Radiants;                                                   //Radiants\n    float pi;                                                         //pi\n\n  void define()\{\n    defineParam(Angle,\"Angle\",180.0f);                                //Angle defaults\n  \}\n\n  void init(int2 pos)\{\n    cx = src.bounds.x2 / 2.0f;                                        //X center from bounds\n    cy = src.bounds.y2 / 2.0f;                                        //Y center from bounds\n\n    pi = 3.14159265359f;                                              //pi constant value\n    Radiants = (Angle-180)*(pi/180.0f);                               //Radiants\n  \}\n\n  void process(int2 pos)\{\n    //output vectors rotated (UV cordinates)\n    out.x = ( (pos.x-cx) * cos(Radiants) ) - ( (pos.y-cy) * sin(Radiants) ) + cx;\n    out.y = ( (pos.x-cx) * sin(Radiants) ) + ( (pos.y-cy) * cos(Radiants) ) + cy;\n\n    dst(0) = bilinear(src, out.x, out.y,0);                           //bilinear function\n    dst(1) = bilinear(src, out.x, out.y,1);                           //bilinear function\n    dst(2) = bilinear(src, out.x, out.y,2);                           //bilinear function\n    dst(3) = 1.0f;\n  \}\n\};"
+ rebuild ""
+ Rotation_Angle 199
+ rebuild_finalise ""
+ name BlinkScript22
+ xpos 1830
+ ypos 1352
+}
+push $N4a01800
+BlinkScript {
+ recompileCount 6
+ ProgramGroup 1
+ KernelDescription "2 \"InvertKernel\" iterate componentWise c103a9509f4b4ec9eb4c3c7b02891f90ae8c4005e4302115f1f2e83aa2a1b659 2 \"src\" Read Point \"dst\" Write Point 1 \"Multiply\" Float 1 AACAPw== 1 \"multiply\" 1 1 1 \"_whiteAccessPoint\" Float 1 1 AAAAAA=="
+ kernelSource "kernel InvertKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> src;  //the input image\n  Image<eWrite> dst;  //the output image\n\n  param:\n    float multiply;  //This parameter is made available to the user.\n\n  local:\n    float _whiteAccessPoint;  //This local variable is not exposed to the user.\n\n  //In define(), parameters can be given labels and default values.\n  void define() \{\n    defineParam(multiply, \"Multiply\", 1.0f);\n  \}\n\n  //The init() function is run before any calls to process().\n  void init() \{\n    _whiteAccessPoint = 1.0f;  //Local variables can be initialised here.\n  \}\n\n  //The process function is run at every pixel to produce the output.\n  void process() \{\n    //Invert the input value from src and multiply:\n    dst() = (_whiteAccessPoint - src()) * multiply;\n   \}\n\};"
+ rebuild ""
+ InvertKernel_Multiply 2
+ rebuild_finalise ""
+ name BlinkScript15
+ xpos 2380
+ ypos 1424
+}
+push $N4a01800
+BlinkScript {
+ recompileCount 1
+ ProgramGroup 1
+ KernelDescription "2 \"InvertKernel\" iterate componentWise c103a9509f4b4ec9eb4c3c7b02891f90ae8c4005e4302115f1f2e83aa2a1b659 2 \"src\" Read Point \"dst\" Write Point 1 \"Multiply\" Float 1 AACAPw== 1 \"multiply\" 1 1 1 \"_whiteAccessPoint\" Float 1 1 AAAAAA=="
+ kernelSource "kernel InvertKernel : ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> src;  //the input image\n  Image<eWrite> dst;  //the output image\n\n  param:\n    float multiply;  //This parameter is made available to the user.\n\n  local:\n    float _whiteAccessPoint;  //This local variable is not exposed to the user.\n\n  //In define(), parameters can be given labels and default values.\n  void define() \{\n    defineParam(multiply, \"Multiply\", 1.0f);\n  \}\n\n  //The init() function is run before any calls to process().\n  void init() \{\n    _whiteAccessPoint = 1.0f;  //Local variables can be initialised here.\n  \}\n\n  //The process function is run at every pixel to produce the output.\n  void process() \{\n    //Invert the input value from src and multiply:\n    dst() = (_whiteAccessPoint - src()) * multiply;\n   \}\n\};"
+ rebuild ""
+ rebuild_finalise ""
+ name BlinkScript9
+ xpos 2270
+ ypos 1376
+}
+Group {
+ inputs 0
+ name Point_Render
+ tile_color 0x434343ff
+ note_font_color 0x7dadf9ff
+ xpos 2166
+ ypos 2260
+ addUserKnob {20 User l "Point Render" t dd}
+ addUserKnob {26 info_header l "" +STARTLINE T "Point Render v1.0"}
+ addUserKnob {26 devider_general l "<b><font color=#7DADF9>General</font><b>"}
+ addUserKnob {4 RenderMode l "Render Mode" t "Some generators support multiple render modes other than just point rendering. This should be considered a experimental feature, but can be used to great effect.\n\nIn the Render Settings tab you can find more controls relating to Wire and Facet rendering modes.\n\nNote that Facet Render can be slow when really close to a object. " M {"Point Render" "Wire Render" "Facet Render (experimental)" "" "" ""}}
+ addUserKnob {7 FocalLength l "Focal Length" t "The point render does not take the focal length from the input camera, so if you want to match it to a camera you should link the focal length from the camera to this." R 0 200}
+ FocalLength 40
+ addUserKnob {7 horizontalApeture l "Horiz Apeture" R 0 100}
+ horizontalApeture 24.576
+ addUserKnob {7 AlphaMultiplier l Exposure t "This is a general exposure modifier that lets you adjust the overall brightness of the render." R 0 2}
+ AlphaMultiplier 1
+ addUserKnob {6 UseOcclusionMap l "Use Occlusion Map" t "Enable the Occlusion map input. This lets you use a depth map as a holdout.\n\nNote:\nThe Red channal should contain the depth (absolute distance, not 1/depth)\nThe Alpha channal must be 1 for the areas that you want to holdout." +STARTLINE}
+ addUserKnob {26 devider_cc l "<b><font color=#7DADF9>Preview</font><b>"}
+ addUserKnob {6 FastPreview l "Fast Preview" t "Reduce the number of points for a quick preview of the final render." +STARTLINE}
+ addUserKnob {6 HighlightCompression l "Hilight Compression" t "Compresses the highlights to make it easier to see bright details." +STARTLINE}
+ addUserKnob {7 HighlightCeiling l "Highlight Ceiling" t "Adjust the cealing for the highlight compression." R 1 10}
+ HighlightCeiling 1.15
+ addUserKnob {7 Compression t "The compression amount." -STARTLINE R 0 5}
+ Compression 1
+ addUserKnob {26 devider_format l "<b><font color=#7DADF9>Format</font><b>"}
+ addUserKnob {41 format l "output format" T Settings_Format.format}
+ addUserKnob {20 WireRender l "Render Settings"}
+ addUserKnob {26 devider_wirerender l "<b><font color=#7DADF9>Wire Rendering</font><b>"}
+ addUserKnob {4 wire_type l "Connection Mode" t "*Normal\nConnect lines between the local neigbours of the 2d position map\n\n*Nearest\nConnect lines to the nearest points (in 3D space). This mode is limited to 100x100 points for performence reasons!" M {Normal Nearest "" "" "" "" "" "" "" ""}}
+ addUserKnob {26 text l "Normal Mode Wires" T " "}
+ addUserKnob {6 connect_x l x t "Connect wires in the (uv) X axis." -STARTLINE}
+ connect_x true
+ addUserKnob {6 connect_xy l xy t "Connect wires in the (uv) XY axis." -STARTLINE}
+ connect_xy true
+ addUserKnob {6 connect_y l y t "Connect wires in the (uv) Y axis." -STARTLINE}
+ connect_y true
+ addUserKnob {6 connect_aux l aux t "If you input a vector map into the Aux input for this node, and enable this option, you will get a wire from each point along that vector." -STARTLINE}
+ addUserKnob {7 wire_maxdistance l "Max Distance" t "The maximum distance that the wires connect." R 0 10}
+ wire_maxdistance 6
+ addUserKnob {7 wire_Threshold l "Distance Threshold" t "Control the max distance threshold" R 0 2}
+ wire_Threshold 0.5
+ addUserKnob {3 wire_connections l "Max Connections" t "The maximum number of connections (Not Yet Implemented)"}
+ wire_connections 4
+ addUserKnob {7 maxSamples l "Max Line Samples" t "The maximum length of a line. Once a line is longer than this, it will start break up. \nThis can also be used as a creative effect if you set it low, try setting it to 10 in wire mode to get dotted lines" R 0 10000}
+ maxSamples 10000
+ addUserKnob {7 lineoffset l "Line Offset" t "Expand or contract the lines."}
+ lineoffset 1
+ addUserKnob {7 inGain l "In Gain" t "Gain the brightness of the in-point of the lines"}
+ inGain 1
+ addUserKnob {7 outGain l "Out Gain" t "Gain the brightness of the out-point of the lines" -STARTLINE}
+ outGain 1
+ addUserKnob {26 devider_facet l "<b><font color=#7DADF9>Facet Rendering</font><b>"}
+ addUserKnob {4 renderMode l "Render Mode" t "Pick the desidered render mode." M {Diffuse "Local ST" Normal "Facing Ratio" UV ST "View Normal" "World Position" "" ""}}
+ addUserKnob {6 facet_flatShading l "Flat Shading" t "Flat shading" +STARTLINE}
+ addUserKnob {6 facet_depth l "Depth Buffer" t "Enable depth sorting to avoid additive surfaces." -STARTLINE}
+ addUserKnob {6 facet_front l "Front Face" t "Render front facing facets" +STARTLINE}
+ facet_front true
+ addUserKnob {6 facet_backface l "Back Face" t "Render backfacing faces" -STARTLINE}
+ facet_backface true
+ addUserKnob {26 _1 l "<b><font color=#7DADF9>Other</font><b>"}
+ addUserKnob {6 CloseX l "Close X" t "On spheres or round objects this closes the loop" +STARTLINE}
+ addUserKnob {6 CloseY l "Close Y" t "On spheres or round objects this closes the loop" -STARTLINE}
+ addUserKnob {20 Fog_1 l Fog}
+ addUserKnob {26 Devider_Fog l "<b><font color=#7DADF9>Fog</font><b>"}
+ addUserKnob {6 Fog t "Fog reduces the brightness of poins far from the camera." +STARTLINE}
+ addUserKnob {7 FogNear l "Fog Near" R 0 200}
+ FogNear 3
+ addUserKnob {7 FogFar l "Fog Far" R 0 200}
+ FogFar 10
+ addUserKnob {7 FogExponent l "Fog Exponent" R 0 8}
+ FogExponent 8
+ addUserKnob {20 DepthOfField l "Depth of Field"}
+ addUserKnob {26 devider_dof l "<b><font color=#7DADF9>Depth Of Field</font><b>"}
+ addUserKnob {6 dof_enable l Enable +STARTLINE}
+ addUserKnob {7 dof_focaldepth l "Focal Depth" R 0 40}
+ dof_focaldepth 5
+ addUserKnob {7 dof_dof l "Depth of Field" R 0 10}
+ dof_dof 2
+ addUserKnob {7 dof_maxSize l "Max Size"}
+ dof_maxSize 0.5
+ addUserKnob {7 dof_Aspect l "Aspect Ratio"}
+ dof_Aspect 1
+ addUserKnob {7 dof_bias l Bias R -3 3}
+ dof_bias -0.2
+ addUserKnob {4 Dof_Quality l Quality M {Low Medium High Extreme}}
+ addUserKnob {20 MotionBlur}
+ addUserKnob {26 devider_MotionBlur l "<b><font color=#7DADF9>Motion Blur</font><b>"}
+ addUserKnob {6 mb_enable l Enable +STARTLINE}
+ addUserKnob {6 Fast l "Fast (Interpolated)" -STARTLINE}
+ Fast true
+ addUserKnob {3 Samples}
+ Samples 4
+ addUserKnob {7 Shutter R 0 2}
+ Shutter 0.5
+ addUserKnob {4 pulldown l "Shutter Offset" M {Centered Start End ""}}
+ addUserKnob {20 preview_3d l "3D Preview"}
+ addUserKnob {6 Enable3DPreview l "Enable 3D Preview" t "Display a preview of the points in the Nuke 3D view." +STARTLINE}
+ Enable3DPreview true
+ addUserKnob {41 pointSize l "point size" T PreviewNode.pointSize}
+ addUserKnob {41 detail l "point detail" T PreviewNode.detail}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x388e8e00
+  label "Output Format Manager"
+  note_font_size 22
+  xpos -1491
+  ypos 149
+  bdwidth 260
+  bdheight 198
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode10
+  tile_color 0x388e8e00
+  label "AUX Input"
+  note_font_size 22
+  xpos -385
+  ypos 178
+  bdwidth 207
+  bdheight 178
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode11
+  tile_color 0x388e8e00
+  label "Point Render"
+  note_font_size 22
+  xpos -96
+  ypos 99
+  bdwidth 198
+  bdheight 135
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode12
+  tile_color 0x388e8e00
+  label "Normal Generator\nFor Vertex Normals"
+  note_font_size 22
+  xpos -616
+  ypos 243
+  bdwidth 191
+  bdheight 122
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode13
+  tile_color 0x388e8e00
+  label "Ensure output format"
+  note_font_size 22
+  xpos -622
+  ypos -41
+  bdwidth 198
+  bdheight 135
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode14
+  tile_color 0x388e8e00
+  label "Motion Blur"
+  note_font_size 22
+  xpos -85
+  ypos 526
+  bdwidth 193
+  bdheight 91
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode15
+  tile_color 0x388e8e00
+  label "Soft Preview"
+  note_font_size 22
+  xpos -83
+  ypos 414
+  bdwidth 191
+  bdheight 94
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode16
+  tile_color 0x388e8e00
+  label "Final format"
+  note_font_size 22
+  xpos -84
+  ypos 295
+  bdwidth 192
+  bdheight 95
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode17
+  tile_color 0x388e8e00
+  label "No Clue =)"
+  note_font_size 22
+  xpos -385
+  ypos -41
+  bdwidth 160
+  bdheight 87
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode2
+  tile_color 0x388e8e00
+  label Motionblur
+  note_font_size 22
+  xpos -672
+  ypos -781
+  bdwidth 260
+  bdheight 198
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode3
+  tile_color 0x388e8e00
+  label "Fast Preview"
+  note_font_size 22
+  xpos -669
+  ypos -971
+  bdwidth 254
+  bdheight 138
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode4
+  tile_color 0x388e8e00
+  label "Nearest Wire Mode Clamp"
+  note_font_size 22
+  xpos -666
+  ypos -1184
+  bdwidth 253
+  bdheight 111
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode5
+  tile_color 0x388e8e00
+  label Occlusion
+  note_font_size 22
+  xpos 208
+  ypos 27
+  bdwidth 260
+  bdheight 198
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode6
+  tile_color 0x388e8e00
+  label "Input Camera Container"
+  note_font_size 22
+  xpos -1215
+  ypos 148
+  bdwidth 260
+  bdheight 198
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode7
+  tile_color 0x388e8e00
+  label "3D Preview"
+  note_font_size 22
+  xpos -88
+  ypos -45
+  bdwidth 207
+  bdheight 102
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode8
+  tile_color 0x388e8e00
+  label "Input Format Manager"
+  note_font_size 22
+  xpos -526
+  ypos -459
+  bdwidth 208
+  bdheight 97
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode9
+  tile_color 0x388e8e00
+  label FOG
+  note_font_size 22
+  xpos -602
+  ypos -253
+  bdwidth 370
+  bdheight 152
+ }
+ Input {
+  inputs 0
+  name InputPointData
+  xpos -584
+  ypos -1321
+ }
+ Dot {
+  name Dot4
+  xpos -550
+  ypos -1234
+ }
+set N33167c00 [stack 0]
+ Reformat {
+  type "to box"
+  box_width 100
+  box_height 100
+  box_fixed true
+  scale 0.1
+  resize fill
+  filter impulse
+  black_outside true
+  name Reformat5
+  xpos -584
+  ypos -906
+  disable {{!parent.FastPreview==1}}
+ }
+ Grade {
+  white 10
+  name Grade2
+  xpos -584
+  ypos -874
+  disable {{!parent.FastPreview}}
+ }
+ Dot {
+  name Dot2
+  xpos -550
+  ypos -712
+ }
+set N33166c00 [stack 0]
+ Group {
+  name FrameHold3
+  tile_color 0xb0a45dff
+  label "(frame \[value first_frames])"
+  xpos -501
+  ypos -719
+  disable {{1-parent.mb_enable}}
+  addUserKnob {20 User}
+  addUserKnob {3 first_frames l "first frame"}
+  first_frames {{frame+1}}
+  addUserKnob {41 increment T FrameHold2.increment}
+  addUserKnob {22 SetCurrentFrame l "Set This Frame" T "nuke.thisNode()\[\"first_frames\"].setValue(nuke.frame())" +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos -7
+   ypos -154
+  }
+  FrameHold {
+   first_frame {{parent.knob.first_frames}}
+   name FrameHold2
+   xpos -7
+   ypos -114
+  }
+  Output {
+   name Output1
+   xpos -7
+   ypos -14
+  }
+ end_group
+ Dot {
+  name Dot6
+  xpos -467
+  ypos -659
+ }
+push $N33166c00
+ Group {
+  name FrameHold2
+  tile_color 0xb0a45dff
+  label "(frame \[value first_frames])"
+  xpos -660
+  ypos -719
+  disable {{1-parent.mb_enable}}
+  addUserKnob {20 User}
+  addUserKnob {3 first_frames l "first frame"}
+  first_frames {{frame}}
+  addUserKnob {41 increment T FrameHold2.increment}
+  addUserKnob {22 SetCurrentFrame l "Set This Frame" T "nuke.thisNode()\[\"first_frames\"].setValue(nuke.frame())" +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos -7
+   ypos -154
+  }
+  FrameHold {
+   first_frame {{parent.knob.first_frames}}
+   name FrameHold2
+   xpos -7
+   ypos -114
+  }
+  Output {
+   name Output1
+   xpos -7
+   ypos -14
+  }
+ end_group
+ Dot {
+  name Dot5
+  xpos -626
+  ypos -659
+ }
+ Dissolve {
+  inputs 2
+  which {{frame-floor(frame)}}
+  name Dissolve1
+  xpos -582
+  ypos -666
+  disable {{1-parent.mb_enable}}
+ }
+push $N33166c00
+ Switch {
+  inputs 2
+  which {{parent.Fast}}
+  name Switch2
+  xpos -582
+  ypos -619
+ }
+ Dot {
+  name DataFetch
+  label "data fetch\t"
+  note_font_color 0xff21ff
+  xpos -550
+  ypos -513
+  addUserKnob {20 User}
+  addUserKnob {3 n_particles l "Number of Particles"}
+  n_particles {{"\[metadata pointrender/n_points]"}}
+  addUserKnob {3 gentype l "Type Of Generator"}
+  gentype {{"\[metadata pointrender/gen_type]"}}
+  addUserKnob {26 info l "" -STARTLINE T "0 = unknown, 1 = Card, 2 = Sphere, 3 = Grid"}
+ }
+set N33164800 [stack 0]
+ Dot {
+  name Dot3
+  xpos -635
+  ypos -513
+ }
+ Dot {
+  name Dot1
+  xpos -635
+  ypos 676
+ }
+ Input {
+  inputs 0
+  name InputOcclusion
+  xpos 238
+  ypos 75
+  number 2
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 1
+  name Empty
+  xpos 371
+  ypos 139
+ }
+ Switch {
+  inputs 2
+  which {{parent.UseOcclusionMap}}
+  name Switch1
+  xpos 238
+  ypos 163
+ }
+ Input {
+  inputs 0
+  name Aux
+  xpos -324
+  ypos 214
+  number 3
+ }
+ Reformat {
+  type "to box"
+  format "1280 720 0 0 1280 720 1 HD_720"
+  box_width {{input.width>Settings_Format.format.width?input.width:Settings_Format.format.width}}
+  box_height {{input.height>Settings_Format.format.height?input.height:Settings_Format.format.height}}
+  box_fixed true
+  resize none
+  center false
+  filter impulse
+  black_outside true
+  name Reformat2
+  xpos -324
+  ypos 238
+ }
+ Crop {
+  box {0 0 {input.width} {input.height}}
+  name Crop1
+  xpos -324
+  ypos 275
+ }
+push $N33164800
+add_layer {pos pos.red pos.green pos.blue pos.alpha}
+ Shuffle {
+  in pos
+  name Shuffle1
+  label "\[value in 1]"
+  xpos -584
+  ypos -192
+ }
+set N350f1c00 [stack 0]
+ Reformat {
+  type "to box"
+  format "1280 720 0 0 1280 720 1 HD_720"
+  box_width {{input.width>Settings_Format.format.width?input.width:Settings_Format.format.width}}
+  box_height {{input.height>Settings_Format.format.height?input.height:Settings_Format.format.height}}
+  box_fixed true
+  resize none
+  center false
+  filter impulse
+  black_outside true
+  name Reformat4
+  xpos -584
+  ypos 18
+ }
+ Crop {
+  box {0 0 {input.width} {input.height}}
+  name Crop2
+  xpos -584
+  ypos 48
+ }
+ Dot {
+  name Dot8
+  xpos -550
+  ypos 166
+ }
+set N350f0c00 [stack 0]
+ Group {
+  name Point_Normal2
+  tile_color 0x434343ff
+  note_font_color 0x55ffffff
+  xpos -584
+  ypos 311
+  disable {{!(renderMode==2&&RenderMode==2)}}
+  addUserKnob {20 User}
+  addUserKnob {26 info l "" +STARTLINE T "Point Normal v1.0"}
+  addUserKnob {26 devider_general l "<b><font color=#7DADF9>General</font><b>"}
+  addUserKnob {26 info_1 l "" +STARTLINE T "well, not much to do here =)"}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos 389
+   ypos 207
+  }
+  Shuffle {
+   in pos
+   name Shuffle1
+   label "\[value in 1]"
+   xpos 389
+   ypos 294
+  }
+  BlinkScript {
+   kernelSourceFile /Users/madshagbarth/Github/Nuke-Private/Blink/PointRender/Modify/BasicLight.cpp
+   recompileCount 69
+   ProgramGroup 1
+   KernelDescription "2 \"PointRender3D\" iterate pixelWise d5452fe7b684561fcfa5182d0c789025a037cc4fe4474c24e065e3fa53fcd8ce 2 \"ppos\" Read Random \"dst\" Write Point 9 \"cam_Matrix\" Float 16 AACAPwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPw== \"focallength\" Float 1 AAA4QQ== \"hapeture\" Float 1 ppvEQQ== \"format\" Int 2 AAgAAAAIAAA= \"Zoom\" Float 1 AACAPw== \"half Lambert\" Bool 1 AQ== \"light Mode\" Int 1 AAAAAA== \"light_position\" Float 3 AAAAAAAAAAAAAAAAAAAAAA== \"light_color\" Float 3 AACAPwAAgD8AAIA/AAAAAA== 9 \"cam_Matrix\" 16 1 \"cam_Focal\" 1 1 \"cam_Hapeture\" 1 1 \"WHformat\" 2 1 \"zoom\" 1 1 \"halfLambert\" 1 1 \"lightMode\" 1 1 \"lightPos\" 3 1 \"lightcolor\" 3 1 10 \"vRaster\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"pRaster\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"tRaster\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"vWorld\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"canvasWidth\" Float 1 1 AAAAAA== \"canvasHeight\" Float 1 1 AAAAAA== \"matrixData\" Float 1 16 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"cameraToWorld\" Float 16 1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"worldToCamera\" Float 16 1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"namount\" Float 1 1 AAAAAA=="
+   kernelSource "inline float Frac(float a_X)\n\{\n    return a_X-floor(a_X);\n\}\n\ninline float Fmax(float a_X,float b_X,float c_X)\n\{\n    return max(c_X,max(a_X,b_X));\n\}\ninline float Fmin(float a_X,float b_X,float c_X)\n\{\n    return min(c_X,min(a_X,b_X));\n\}\n\ninline float saturate(float _in)\n\{\n    return max(0.0f,min(1.0f,_in));\n\}\n\ninline float3 reflect(float3 incidence,float3 normal)\n\{\n  return incidence - 2.f * dot(incidence, normal) * normal;\n\}\n\n//This function is used to multiply a float3 by a matrix4x4\ninline float3 multVecMatrix( float3 src, float4x4 matrix)\n\{\n    float   x,y,z,w;\n    \n    x = src\[0]*matrix\[0]\[0] + src\[1]*matrix\[1]\[0] +\n    src\[2]*matrix\[2]\[0] + matrix\[3]\[0];\n    y = src\[0]*matrix\[0]\[1] + src\[1]*matrix\[1]\[1] +\n    src\[2]*matrix\[2]\[1] + matrix\[3]\[1];\n    z = src\[0]*matrix\[0]\[2] + src\[1]*matrix\[1]\[2] +\n    src\[2]*matrix\[2]\[2] + matrix\[3]\[2];\n    w = src\[0]*matrix\[0]\[3] + src\[1]*matrix\[1]\[3] +\n    src\[2]*matrix\[2]\[3] + matrix\[3]\[3];\n    \n    return float3(x/w, y/w, z/w);\n\}\n\n//This function is used to calculate the screenspace coordinates.\ninline bool computePixelCoordinates( \n    const float3 pWorld, \n    float3 &pRaster, \n    const float4x4 &worldToCamera, \n    const float &canvasWidth, \n    const float &canvasHeight, \n    const int &imageWidth, \n    const int &imageHeight\n) \n\{ \n    float3 pCamera; \n    pCamera = multVecMatrix(pWorld, worldToCamera); \n    float2 pScreen; \n    pScreen.x = pCamera.x / -pCamera.z; \n    pScreen.y = pCamera.y / -pCamera.z; \n    if (fabs(pScreen.x) > canvasWidth || fabs(pScreen.y) > canvasHeight) \n         return false; \n    float2 pNDC; \n    pNDC.x = (pScreen.x + canvasWidth * 0.5f) / canvasWidth; \n    pNDC.y = (pScreen.y + canvasHeight * 0.5f) / canvasHeight; \n    pRaster.x = (pNDC.x * imageWidth); \n    pRaster.y = ((pNDC.y) * imageHeight); \n    pRaster.z = -pCamera.z; \n    if (pRaster.x < 0.0f || pRaster.x > imageWidth || \n       pRaster.y < 0.0f || pRaster.y > imageHeight) \{\n       return false;  \n    \}\n    return true;\n\} \n\n\n\nkernel PointRender3D : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessRandom, eEdgeClamped> ppos;    //The point position map\n  Image<eWrite> dst;                 //the output image\n\n  param: //Parameters available to the user\n    float4x4 cam_Matrix;    //The world matrix of the camera\n    float cam_Focal;        //The focal length of the camera\n    float cam_Hapeture;     //The horizontal apeture of the camera\n    int2 WHformat;          //The format of the output image\n    float zoom;             //A \"post\" zoom function\n    bool halfLambert;\n    int lightMode;\n    float3 lightPos;\n    float3 lightcolor;\n\n\n  local: //Local variables\n    float3 vRaster;\n    float3 pRaster;\n    float3 tRaster;    \n    float3 vWorld;\n    float canvasWidth;\n    float canvasHeight; \n    float matrixData\[4]\[4];\n    float4x4 cameraToWorld;\n    float4x4 worldToCamera;\n    float namount; //dither amount\n\n\n  void define() \{\n    defineParam(cam_Matrix, \"cam_Matrix\", float4x4( 1.0f,0.0f,0.0f,0.0f,\n                                                    0.0f,1.0f,0.0f,0.0f,\n                                                    0.0f,0.0f,1.0f,0.0f,\n                                                    0.0f,0.0f,0.0f,1.0f));\n    defineParam(cam_Focal,      \"focallength\", 11.5f);\n    defineParam(cam_Hapeture,      \"hapeture\", 24.576f);\n    defineParam(WHformat,      \"format\", int2(2048,2048));\n    defineParam(zoom, \"Zoom\", 1.0f);\n    defineParam(halfLambert, \"half Lambert\", true);\n    defineParam(lightMode, \"light Mode\", 0);\n    defineParam(lightPos,      \"light_position\", float3(0,0,0));  \n    defineParam(lightcolor,      \"light_color\", float3(1.0,1.0,1.0)); \n  \}\n\n\n  //The init() function is run before any calls to process().\n  void init() \{\n    canvasWidth = ((cam_Hapeture)/cam_Focal);\n    canvasHeight = ((cam_Hapeture)/cam_Focal)*float(float(WHformat.y)/float(WHformat.x)); \n    float matrixData\[] = \{cam_Matrix\[0]\[0], cam_Matrix\[1]\[0], cam_Matrix\[2]\[0], cam_Matrix\[3]\[0], \n                          cam_Matrix\[0]\[1], cam_Matrix\[1]\[1], cam_Matrix\[2]\[1], cam_Matrix\[3]\[1], \n                          cam_Matrix\[0]\[2], cam_Matrix\[1]\[2], cam_Matrix\[2]\[2], cam_Matrix\[3]\[2], \n                          cam_Matrix\[0]\[3], cam_Matrix\[1]\[3], cam_Matrix\[2]\[3], cam_Matrix\[3]\[3]\};\n    cameraToWorld.setArray(matrixData); //This is a workaround. Due to the buggy matrix implementation, we pass the matrix on from another structure.\n    worldToCamera = cameraToWorld.invert();\n    namount = 0.0001; //dither amount\n  \}\n\n\n\nfloat3 Reconsile3D(float3 _PointPos)\{\n    vWorld = float3(_PointPos.x,_PointPos.y,_PointPos.z)*(zoom);\n    int ret = computePixelCoordinates(vWorld, tRaster, worldToCamera, canvasWidth, canvasHeight, WHformat\[0], WHformat\[1]);\n    return tRaster;\n\}\n\n\n\n//-------------------------------------\n// Facet_Render\n//-------------------------------------\n//This function is used to calculate what triangels to draw\nfloat3 facet_render(int2 pos, float3 _vWorld)\{\n\n    float3 screen_pos = Reconsile3D(_vWorld);\n    bool insideX = ppos.bounds.inside(pos.x+1,pos.y );\n    bool insideY = ppos.bounds.inside(pos.x,pos.y-1 );\n    bool insideYtop = ppos.bounds.inside(pos.x,pos.y+1);\n    float2 fpos = float2(pos.x,pos.y);\n    float3 V1_Pos,V2_Pos,V1_wPos,V2_wPos;\n    float4 V0_Sample,V1_Sample,V2_Sample;\n    float3 normal0,normal1,normal2;\n\n    //for area calculation\n    float area;\n    float3 V0,V1,V2;\n    float3 output = float3(0.0f);\n  if (insideX) \{\n    V2_Sample = ppos(pos.x+1,pos.y);\n    V2_wPos = float3(V2_Sample.x,V2_Sample.y,V2_Sample.z);\n    V2_Pos = Reconsile3D(V2_wPos);\n    if (V2_Sample.w != 0.0f) \{ \n\n      if (insideY) \{\n        V1_Sample = ppos(pos.x+1,pos.y-1);\n        V1_wPos = float3(V1_Sample.x,V1_Sample.y,V1_Sample.z);\n        V1_Pos = Reconsile3D(V1_wPos);\n        if (V1_Sample.w != 0.0f) \{ \n            float3 Normal = CalculateVertexNormals(_vWorld,V2_wPos,V1_wPos);\n\n            //Calculate Area for density:\n            V0 = screen_pos;\n            V1 = V1_Pos;\n            V2 = V2_Pos;\n            V0.z = 1.0f / V0.z, V1.z = 1.0f / V1.z, V2.z = 1.0f / V2.z; \n            area = length(V0-V1)+length(V0-V2)+length(V1-V2);\n\n          //write output\n          output +=  float3(Normal.x,Normal.y,Normal.z);\n        \}\n      \}\n      if (insideYtop) \{\n        V1_Sample = ppos(pos.x,pos.y+1);\n        V1_wPos = float3(V1_Sample.x,V1_Sample.y,V1_Sample.z);\n        V1_Pos = Reconsile3D(V1_wPos);\n        if (V1_Sample.w != 0.0f) \{ \n          float3 Normal = CalculateVertexNormals(_vWorld,V1_wPos,V2_wPos);\n\n            //Calculate Area for density:\n            V0 = screen_pos;\n            V1 = V1_Pos;\n            V2 = V2_Pos;\n            V0.z = 1.0f / V0.z, V1.z = 1.0f / V1.z, V2.z = 1.0f / V2.z; \n            area = length(V0-V1)+length(V0-V2)+length(V1-V2);\n\n          output += float3(Normal.x,Normal.y,Normal.z);\n\n        \}\n      \}\n    \}\n  \}\n  return output;\n\}\n\n\n\nfloat3 CalculateSurfaceNormals(float3 V0, float3 V1, float3 V2)\n\{\n        float3 v0 = V0; \n        float3 v1 = V1; \n        float3 v2 = V2; \n        float3 hitNormal = cross((v1 - v0),(v2 - v0)); \n        return normalize(hitNormal);\n\}\n\nfloat3 CalculateVertexNormals(float3 V0, float3 V1, float3 V2)\n\{\n        float3 hitNormal = cross((V1 - V0),(V2 - V0)); \n        return hitNormal;\n\}\n\n\n\n//-------------------------------------\n// Process\n//-------------------------------------\n  void process(int2 pos) \{\n    float3 output = float3(0.0f);\n    float4 _sample = ppos(pos.x,pos.y); //Get the XYZ Coordinates\n    float3 point_pos = float3(_sample.x,_sample.y,_sample.z);\n    if (_sample.w != 0.0f) \{  //No need to process if there is no data.\n      dst() = float4(0.0f);\n      output+=facet_render(pos,float3(_sample.x,_sample.y,_sample.z))*2.0f;\n      _sample = ppos(pos.x-1,pos.y); //Get the XYZ Coordinates\n      output+=facet_render(int2(pos.x-1,pos.y),float3(_sample.x,_sample.y,_sample.z));\n\n      _sample = ppos(pos.x-1,pos.y+1); //Get the XYZ Coordinates\n      output+=facet_render(int2(pos.x-1,pos.y+1),float3(_sample.x,_sample.y,_sample.z));\n\n      _sample = ppos(pos.x,pos.y-1); //Get the XYZ Coordinates\n      output+=facet_render(int2(pos.x,pos.y-1),float3(_sample.x,_sample.y,_sample.z));\n\n      output = normalize(output);\n      float3 normal = -output;\n\n      \n\n\n      dst() = float4(normal.x,normal.y,normal.z,1.0f);\n    \}\n  \} //----> process\n\};\n"
+   rebuild ""
+   "PointRender3D_half Lambert" false
+   "PointRender3D_light Mode" {{parent.LightFalloff}}
+   PointRender3D_light_position {{parent.Axis1.translate} {parent.Axis1.translate} {parent.Axis1.translate}}
+   PointRender3D_light_color {{parent.LightColor} {parent.LightColor} {parent.LightColor}}
+   rebuild_finalise ""
+   name BlinkScript1
+   xpos 389
+   ypos 344
+  }
+  Grade {
+   multiply 0.5
+   add 0.5
+   black_clamp false
+   name Grade1
+   xpos 389
+   ypos 376
+   disable true
+  }
+  Output {
+   name Output1
+   xpos 389
+   ypos 459
+  }
+  Axis2 {
+   inputs 0
+   translate {0.5 0.5 0.5}
+   name Axis1
+   xpos 661
+   ypos 318
+  }
+ end_group
+ Switch {
+  inputs 2
+  which {{parent.connect_aux}}
+  name Switch3
+  xpos -324
+  ypos 311
+ }
+push $N350f1c00
+ Expression {
+  temp_name0 xd
+  temp_expr0 red-Camera1.world_matrix.3
+  temp_name1 yd
+  temp_expr1 green-Camera1.world_matrix.7
+  temp_name2 zd
+  temp_expr2 blue-Camera1.world_matrix.11
+  temp_name3 Distance
+  temp_expr3 "sqrt(xd*xd + yd*yd + zd*zd)"
+  expr0 Distance
+  expr1 Distance
+  expr2 Distance
+  expr3 Distance
+  name Expression1
+  xpos -456
+  ypos -192
+ }
+ Grade {
+  channels rgba
+  blackpoint {{parent.FogFar}}
+  whitepoint {{parent.FogNear}}
+  gamma {{1/(parent.FogExponent+0.000000001)}}
+  white_clamp true
+  name Grade1
+  xpos -456
+  ypos -168
+ }
+push $N33164800
+ Dot {
+  name Dot7
+  xpos -307
+  ypos -513
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge1
+  xpos -341
+  ypos -168
+  disable {{!parent.Fog}}
+ }
+ Shuffle {
+  name Shuffle3
+  label "\[value in 1]"
+  xpos -341
+  ypos 8
+ }
+set N3509d400 [stack 0]
+push $N350f0c00
+ BlinkScript {
+  inputs 4
+  kernelSourceFile /Users/madshagbarth/Github/Nuke-Private/Blink/PointRender/Render/3D_PointRender_v15.cpp
+  recompileCount 792
+  ProgramGroup 1
+  KernelDescription "2 \"PointRender3D\" iterate pixelWise e0ecbbf4cba39730471d23bc9f9ec846fcae1bbb869971a11b15641cf6fd5620 5 \"ppos\" Read Random \"src\" Read Random \"normals\" Read Random \"occlusion\" Read Random \"dst\" Write Random 48 \"cam_Matrix\" Float 16 AACAPwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPw== \"focallength\" Float 1 AAA4QQ== \"hapeture\" Float 1 ppvEQQ== \"format\" Int 2 AAgAAAAIAAA= \"vertexformat\" Int 2 CgAAAAoAAAA= \"Zoom\" Float 1 AACAPw== \"Filtering Method\" Int 1 AQAAAA== \"_alphaMultiplier\" Float 1 AACAPw== \"_pointRender\" Bool 1 AQ== \"_wireRender\" Bool 1 AQ== \"_facetRender\" Bool 1 AQ== \"_maxLDistance\" Float 1 AACAPw== \"_maxLConnections\" Int 1 AQAAAA== \"_maxPlexType\" Int 1 AAAAAA== \"_plexLinedefXY\" Bool 1 AA== \"_plexLinedefX\" Bool 1 AA== \"_plexLinedefY\" Bool 1 AA== \"_plexLinedefXtoY\" Bool 1 AA== \"_plexLinedefAUX\" Bool 1 AA== \"_plexConnectX\" Bool 1 AA== \"_plexConnectY\" Bool 1 AA== \"_L_gamma\" Float 1 AACAPw== \"Enable Depth of Field\" Bool 1 AA== \"samples\" Int 1 AwAAAA== \"rings\" Int 1 BQAAAA== \"focalDepth\" Float 1 AACAPw== \"_depthOfField\" Float 1 AACAQA== \"_depthMult\" Float 1 zczMPQ== \"_maxDofSize\" Float 1 AAAAQQ== \"dof_aspect\" Float 1 AACAPw== \"dof_threshold\" Float 1 AACAPw== \"dof_gain\" Float 1 AAAAAA== \"dof_bias\" Float 1 AAAAwA== \"dof_fringe\" Float 1 AAAAAA== \"_flatshading\" Bool 1 AQ== \"_backfacing\" Bool 1 AQ== \"_frontfacing\" Bool 1 AQ== \"_vertexMode\" Int 1 AAAAAA== \"_depthBuffer\" Bool 1 AQ== \"_texoffset\" Float 2 AAAAPwAAAD8= \"_pointSize\" Int 1 AQAAAA== \"_gaussigma\" Float 1 AACAPw== \"_depthOcclusion\" Bool 1 AQ== \"depthMultiplier\" Float 1 AACAPw== \"_maxLineSteps\" Float 1 AAB6RQ== \"_lineOffset\" Float 1 AACAPw== \"_lineInMultiplier\" Float 1 AACAPw== \"_lineOutMultiplier\" Float 1 AACAPw== 48 \"cam_Matrix\" 16 1 \"cam_Focal\" 1 1 \"cam_Hapeture\" 1 1 \"WHformat\" 2 1 \"Vformat\" 2 1 \"zoom\" 1 1 \"_filtering\" 1 1 \"_alphaMultiplier\" 1 1 \"_pointRender\" 1 1 \"_wireRender\" 1 1 \"_facetRender\" 1 1 \"_maxPlexDistance\" 1 1 \"_maxPlexConnections\" 1 1 \"_maxPlexType\" 1 1 \"_plexLinedefXY\" 1 1 \"_plexLinedefX\" 1 1 \"_plexLinedefY\" 1 1 \"_plexLinedefXtoY\" 1 1 \"_plexLinedefAUX\" 1 1 \"_plexConnectX\" 1 1 \"_plexConnectY\" 1 1 \"_plex_gamma\" 1 1 \"_dof_enable\" 1 1 \"_dof_samples\" 1 1 \"_dof_rings\" 1 1 \"focalDepth\" 1 1 \"_depthOfField\" 1 1 \"_depthMult\" 1 1 \"_maxDofSize\" 1 1 \"dof_aspect\" 1 1 \"dof_threshold\" 1 1 \"dof_gain\" 1 1 \"dof_bias\" 1 1 \"dof_fringe\" 1 1 \"_flatshading\" 1 1 \"_backfacing\" 1 1 \"_frontfacing\" 1 1 \"_vertexMode\" 1 1 \"_depthBuffer\" 1 1 \"_texoffset\" 2 1 \"_pointSize\" 1 1 \"_gaussigma\" 1 1 \"_depthOcclusion\" 1 1 \"depthMultiplier\" 1 1 \"_maxLineSteps\" 1 1 \"_lineOffset\" 1 1 \"_lineInMultiplier\" 1 1 \"_lineOutMultiplier\" 1 1 10 \"max_line_connections\" Int 1 1 AAAAAA== \"vRaster\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"pRaster\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"tRaster\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"vWorld\" Float 3 1 AAAAAAAAAAAAAAAAAAAAAA== \"canvasWidth\" Float 1 1 AAAAAA== \"canvasHeight\" Float 1 1 AAAAAA== \"matrixData\" Float 1 16 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"cameraToWorld\" Float 16 1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"worldToCamera\" Float 16 1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+  kernelSource "//Some basic generic functions.\ninline float Frac(float a_X)\n\{\n    return a_X-floor(a_X);\n\}\n\ninline float3 Cross(float3 A,float3 B)\n\{\n    return float3(A.y*B.z - A.z*B.y,A.z*B.x - A.x*B.z,A.x*B.y - A.y*B.x);\n\}\n\ninline float Fmax(float a_X,float b_X,float c_X)\n\{\n    return max(c_X,max(a_X,b_X));\n\}\ninline float Fmin(float a_X,float b_X,float c_X)\n\{\n    return min(c_X,min(a_X,b_X));\n\}     \n\ninline float3 mix(float3 _X,float3 _Y,float _A)\{\n  return _X*(1.0f-_A)+_Y*_A;\n\}\ninline float mix(float _X,float _Y,float _A)\{\n  return _X*(1.0f-_A)+_Y*_A;\n\}                                                                                              \n\n//This function is used to multiply a float3 by a matrix4x4\ninline float3 multVecMatrix( float3 src, float4x4 matrix)\n\{\n    float   x,y,z,w;\n\n    x = src\[0]*matrix\[0]\[0] + src\[1]*matrix\[1]\[0] +\n    src\[2]*matrix\[2]\[0] + matrix\[3]\[0];\n    y = src\[0]*matrix\[0]\[1] + src\[1]*matrix\[1]\[1] +\n    src\[2]*matrix\[2]\[1] + matrix\[3]\[1];\n    z = src\[0]*matrix\[0]\[2] + src\[1]*matrix\[1]\[2] +\n    src\[2]*matrix\[2]\[2] + matrix\[3]\[2];\n    w = src\[0]*matrix\[0]\[3] + src\[1]*matrix\[1]\[3] +\n    src\[2]*matrix\[2]\[3] + matrix\[3]\[3];\n    \n    return float3(x/w, y/w, z/w);\n\}\n\n//This function is used to calculate the screenspace coordinates.\ninline bool computePixelCoordinates( \n    const float3 pWorld, \n    float3 &pRaster, \n    const float4x4 &worldToCamera, \n    const float &canvasWidth, \n    const float &canvasHeight, \n    const int &imageWidth, \n    const int &imageHeight\n) \n\{ \n    float3 pCamera; \n    pCamera = multVecMatrix(pWorld, worldToCamera); \n    float2 pScreen; \n    pScreen.x = pCamera.x / -pCamera.z; \n    pScreen.y = pCamera.y / -pCamera.z; \n    float2 pNDC; \n    pNDC.x = (pScreen.x + canvasWidth * 0.5f) / canvasWidth; \n    pNDC.y = (pScreen.y + canvasHeight * 0.5f) / canvasHeight; \n    pRaster.x = (pNDC.x * imageWidth); \n    pRaster.y = ((pNDC.y) * imageHeight); \n    pRaster.z = -pCamera.z; \n    if (pRaster.x < 0.0f || pRaster.x > imageWidth || \n       pRaster.y < 0.0f || pRaster.y > imageHeight || pRaster.z < 0.0f) \{\n       return false;  \n    \}\n    return true;\n\} \n\n\nkernel PointRender3D : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessRandom, eEdgeClamped> ppos;    //The point position map\n  Image<eRead, eAccessRandom, eEdgeClamped> src;     //The texture map\n  Image<eRead, eAccessRandom, eEdgeClamped> normals;     //The texture map  \n  Image<eRead, eAccessRandom, eEdgeClamped> occlusion;     //The texture map \n  Image<eWrite, eAccessRandom> dst;                 //the output image\n\n  param: //Parameters available to the user\n    float4x4 cam_Matrix;    //The world matrix of the camera\n    float cam_Focal;        //The focal length of the camera\n    float cam_Hapeture;     //The horizontal apeture of the camera\n    int2 WHformat,Vformat;          //The format of the output image\n    float zoom;             //A \"post\" zoom function\n    int _filtering;        //Filter method\n    float _alphaMultiplier; //Additive multiplier\n    bool _pointRender,_wireRender,_facetRender;\n    float _maxPlexDistance; //Additive multiplier\n    int _maxPlexConnections;\n    int _maxPlexType; // 0==Grid, -1==Nearest\n    bool _plexLinedefXY,_plexLinedefX,_plexLinedefY,_plexLinedefXtoY,_plexLinedefAUX; // Define what connections NOT to include\n    bool _plexConnectX,_plexConnectY; //Connect from the edge of x to 0, or edge of y to 0, usually for spheres\n    float _plex_gamma; //The threshold making shorter paths bright and longer paths dark\n    bool _dof_enable; // Enable DOF\n    int _dof_samples; // How many samples per DOF ring\n    int _dof_rings; // How many rings \n    float focalDepth,_depthOfField,_depthMult,_maxDofSize; //DOF Settings\n    float dof_aspect; //Pixel aspect ratio\n    float dof_threshold;\n    float dof_gain;\n    float dof_bias; //bokeh edge bias\n    float dof_fringe; //bokeh chromatic aberration/fringing\n    bool _flatshading,_backfacing,_frontfacing; //Vertex rendering settings\n    int _vertexMode;  //The rendering output mode, (think AOV)\n    bool _depthBuffer; //Non-additive, only render front most pixel\n    float2 _texoffset;\n    int _pointSize;\n    float _gaussigma;\n    bool _depthOcclusion;\n    float depthMultiplier;\n    float _maxLineSteps; //cap the line length to avoid process lock\n    float _lineOffset; //Alow you to shrink or extend the lines\n    float _lineInMultiplier,_lineOutMultiplier; //Control the brightness of the wires at the tips.\n\n  local: //Local variables\n    int max_line_connections;\n    float3 vRaster;\n    float3 pRaster;\n    float3 tRaster;    \n    float3 vWorld;\n    float canvasWidth;\n    float canvasHeight; \n    float matrixData\[4]\[4];\n    float4x4 cameraToWorld;\n    float4x4 worldToCamera;\n\n  void define() \{\n    defineParam(cam_Matrix, \"cam_Matrix\", float4x4( 1.0f,0.0f,0.0f,0.0f,\n                                                    0.0f,1.0f,0.0f,0.0f,\n                                                    0.0f,0.0f,1.0f,0.0f,\n                                                    0.0f,0.0f,0.0f,1.0f));\n    defineParam(cam_Focal,      \"focallength\", 11.5f);\n    defineParam(cam_Hapeture,      \"hapeture\", 24.576f);\n    defineParam(WHformat,      \"format\", int2(2048,2048));\n    defineParam(Vformat,      \"vertexformat\", int2(10,10));\n    defineParam(zoom, \"Zoom\", 1.0f);\n    defineParam(_filtering, \"Filtering Method\", 1); \n    defineParam(_alphaMultiplier, \"_alphaMultiplier\", 1.0f);     \n    defineParam(_pointRender, \"_pointRender\", true);  \n    defineParam(_wireRender, \"_wireRender\", true);\n    defineParam(_facetRender, \"_facetRender\", true);\n    defineParam(_maxPlexDistance, \"_maxLDistance\", 1.0f);    \n    defineParam(_maxPlexConnections, \"_maxLConnections\", 1);    \n    defineParam(_maxPlexType, \"_maxPlexType\", 0); \n    defineParam(_plexLinedefXY, \"_plexLinedefXY\", false);      \n    defineParam(_plexLinedefXtoY, \"_plexLinedefXtoY\", false); //NYI\n    defineParam(_plexLinedefAUX, \"_plexLinedefAUX\", false); \n    defineParam(_plexLinedefX, \"_plexLinedefX\", false);  \n    defineParam(_plexLinedefY, \"_plexLinedefY\", false);  \n    defineParam(_plexConnectX, \"_plexConnectX\", false);      \n    defineParam(_plexConnectY, \"_plexConnectY\", false);   \n    defineParam(_plex_gamma, \"_L_gamma\", 1.0f);\n    //DOF SETTINGS   \n    defineParam(_dof_enable, \"Enable Depth of Field\", false);   \n    defineParam(_dof_samples, \"samples\", 3);    \n    defineParam(_dof_rings, \"rings\", 5);   \n    defineParam(focalDepth, \"focalDepth\", 1.0f);  \n    defineParam(_depthOfField, \"_depthOfField\", 4.0f);  \n    defineParam(_depthMult, \"_depthMult\", 0.1f);  \n    defineParam(_maxDofSize, \"_maxDofSize\", 8.0f);  \n    defineParam(dof_aspect, \"dof_aspect\", 1.0f);  \n    defineParam(dof_threshold, \"dof_threshold\", 1.0f);  \n    defineParam(dof_gain, \"dof_gain\", 0.0f);  \n    defineParam(dof_bias, \"dof_bias\", -2.0f);  \n    defineParam(dof_fringe, \"dof_fringe\", 0.0f); \n    //SHADING SETTINGS \n    defineParam(_flatshading, \"_flatshading\", true);  \n    defineParam(_vertexMode, \"_vertexMode\", 0);  \n    defineParam(_backfacing, \"_backfacing\", true);    \n    defineParam(_frontfacing, \"_frontfacing\", true);        \n    defineParam(_depthBuffer, \"_depthBuffer\", true);  \n    defineParam(_texoffset, \"_texoffset\", float2(0.5f,0.5f)); \n    defineParam(_pointSize, \"_pointSize\", 1); \n    defineParam(_gaussigma, \"_gaussigma\", 1.0f); \n    defineParam(_depthOcclusion, \"_depthOcclusion\", true); \n    defineParam(depthMultiplier, \"depthMultiplier\", 1.0f); \n    defineParam(_maxLineSteps, \"_maxLineSteps\", 4000.0f); \n    defineParam(_lineOffset, \"_lineOffset\", 1.0f); \n    defineParam(_lineInMultiplier, \"_lineInMultiplier\", 1.0f);   \n    defineParam(_lineOutMultiplier, \"_lineOutMultiplier\", 1.0f);     \n\n  \}\n\n  //The init() function is run before any calls to process().\n  void init() \{\n    max_line_connections = 80;\n    canvasWidth = ((cam_Hapeture)/cam_Focal);\n    canvasHeight = ((cam_Hapeture)/cam_Focal)*float(float(WHformat.y)/float(WHformat.x)); \n    float matrixData\[] = \{cam_Matrix\[0]\[0], cam_Matrix\[1]\[0], cam_Matrix\[2]\[0], cam_Matrix\[3]\[0], \n                          cam_Matrix\[0]\[1], cam_Matrix\[1]\[1], cam_Matrix\[2]\[1], cam_Matrix\[3]\[1], \n                          cam_Matrix\[0]\[2], cam_Matrix\[1]\[2], cam_Matrix\[2]\[2], cam_Matrix\[3]\[2], \n                          cam_Matrix\[0]\[3], cam_Matrix\[1]\[3], cam_Matrix\[2]\[3], cam_Matrix\[3]\[3]\};\n    cameraToWorld.setArray(matrixData); //This is a workaround. Due to the buggy matrix implementation, we pass the matrix on from another structure.\n    worldToCamera = cameraToWorld.invert();\n  \}\n\n  //Convert a 3d point position into a 2d raster position.\n  float3 Reconsile3D(float3 _PointPos)\{\n      vWorld = float3(_PointPos.x,_PointPos.y,_PointPos.z)*(zoom);\n      int ret = computePixelCoordinates(vWorld, tRaster, worldToCamera, canvasWidth, canvasHeight, WHformat\[0], WHformat\[1]);\n      return tRaster;\n  \}\n\n//------------------------------\n//-------DRAW FUNCTIONS---------\n//------------------------------\n  //Write pixels to output.\n  void writepixel(float posx,float posy, float4 color,int index,float weight=1.0f)\n  \{ \n      if (_depthOcclusion)\{\n        float4 depthSample = occlusion(posx,posy);\n        if (depthSample.x<=vRaster.z && depthSample.w>0.0f)\{\n\n          float depth = (vRaster.z-depthSample.x);\n          color = color*(1.0f-depthSample.w);\n          color = color / (((depth*depth)*depthMultiplier)+1.0f);\n          //return;\n        \}\n      \}\n      float4 finalOutput; //This is used to store the final output\n      float4 dstSample; //This is used to store a sample of the destination\n      if ( dst.bounds.inside( posx, posy ) ) \{ //Test if the pixel written to is inside the output image. \n        if (_depthBuffer) \{\n          dstSample = (float4)dst(posx,posy); //Sample the destination image\n          if ((dstSample.w>color.w)||dstSample.w==0.0f) \{\n            dst(posx,posy) = color;\n          \}\n        \}\n        else \{\n          dstSample = (float4)dst(posx,posy); //Sample the destination image\n          finalOutput = dstSample + (color*_alphaMultiplier*weight);\n          finalOutput.w = dstSample.w + ((color.w*_alphaMultiplier*weight));\n\n          finalOutput.w = (dstSample.w + ((color.w*_alphaMultiplier*weight)))-(dstSample.w * ((color.w*_alphaMultiplier*weight)));\n\n          dst(posx,posy) = finalOutput;\n        \}\n      \} \n  \}\n\n  //Calculate a Bilinear Plot\n  void bilinear_Plot(float2 temppos,float4 color,int index)\n  \{\n    float2 p;\n    p.x=Frac(temppos.x);\n    p.y=Frac(temppos.y);\n    float weights\[] = \{(1.0f-p.x)*(1.0f-p.y), p.x*(1.0f-p.y), (1.0f-p.x)*p.y, p.x*p.y\};\n    int2 _position = int2(floor(temppos.x)-0,floor(temppos.y)-0); \n    writepixel(_position.x,_position.y,color,index,weights\[0]);\n    writepixel(_position.x+1,_position.y,color,index,weights\[1]);\n    writepixel(_position.x,_position.y+1,color,index,weights\[2]);\n    writepixel(_position.x+1,_position.y+1,color,index,weights\[3]);\n  \}\n\n  //NYI, unused!\n  void gaussian(float2 temppos,float4 color,int index)\{\n    float in_x = temppos.x;\n    float in_y = temppos.y;\n    int kernelSize = (_pointSize+1)*2;\n    int subsize = (kernelSize /2)-1;\n    float gKernel\[64]\[64];\n    float sigma = _gaussigma;\n    float intSigma = float(_pointSize);\n    float r, s = intSigma * sigma * sigma;\n\n    float sum = 0.0f;\n\n    // generate 5x5 kernel\n    for (int x = -subsize; x <= subsize; x++)\n    \{\n        for(int y = -subsize; y <= subsize; y++)\n        \{\n            r = float(sqrt(x*x + y*y));\n            gKernel\[x + subsize]\[y + subsize] = (exp(-(r*r)/s))/(3.141592654f * s);\n            sum += gKernel\[x + subsize]\[y + subsize];\n        \}\n    \}\n\n    // normalize the Kernel\n    for (int x = -subsize; x <= subsize; x++)\n    \{\n        for(int y = -subsize; y <= subsize; y++)\n        \{\n            gKernel\[x + subsize]\[y + subsize] /= sum;\n            writepixel(in_x+x,in_y+y,color,index,gKernel\[x + subsize]\[y + subsize]);\n        \}\n    \}\n  \}\n\n//-------------------------------------\n// DrawLine\n// ----------\n// Draw a line between two points, \n// x,y being 2d screenspace pos and z being depth.\n//-------------------------------------\n  void DrawLine(float3 origin, float3 endpoint,float4 _colorA,float4 _colorB) \{\n    float4 _color;\n    float3 delta = origin-endpoint;\n    float3 curPoint = origin;\n    float mag = sqrt(delta.x*delta.x+delta.y*delta.y);\n    mag = min(mag,_maxLineSteps); //Lets not go crazy, we cap it at 10.000 to avoid insane unwated processing time \n    for( float a = 0; a < mag*_lineOffset; a = a + 1.0f )\{\n      curPoint -= (delta/mag);\n      _color = (_colorA*(1.0f-(a/mag*1.0f)))+(_colorB*(a/mag*1.00f));\n      if (_dof_enable)\{\n        Bokeh(curPoint,_color);\n      \}\n      else \{\n        bilinear_Plot(float2(curPoint.x,curPoint.y),_color,1);\n      \}\n      \n    \}\n  \}\n\n//-------------------------------------\n// Point_Render\n//-------------------------------------\nvoid point_render(int2 pos, float3 screen_pos)\{\n  float4 color = src(pos.x,pos.y);\n\n  if (_filtering == 1)\{\n      if (_dof_enable)\{\n        Bokeh(screen_pos,color);\n      \}\n      else \{\n        bilinear_Plot(float2(screen_pos.x,screen_pos.y),color,1);\n      \}\n  \}\n  /*\n  //THIS PART NEEDS TO BE RE-WRITTEN.\n  else if (_filtering == 2)\{ \n      if (_dof_enable)\{\n        Bokeh(screen_pos,color);\n      \}\n      else \{\n        gaussian(float2(screen_pos.x,screen_pos.y),color,1);\n      \}\n  \}\n  */\n  else \{\n      int2 _position = int2(floor(screen_pos.x),floor(screen_pos.y)); \n      if (_depthBuffer) \{color.w = screen_pos.z;\}\n      writepixel(_position.x,_position.y, color,1,1.0f); //OutputSample\n  \}\n\n\}\n\n//-------------------------------------\n// Facet_Render\n//-------------------------------------\n//This function is used to calculate what triangels to draw\nvoid facet_render(int2 pos, float3 _vWorld)\{\n\n    float3 screen_pos = Reconsile3D(_vWorld);\n\n    bool insideX = ppos.bounds.inside(pos.x+1,pos.y );\n    bool insideY = ppos.bounds.inside(pos.x+1,pos.y-1 );\n    bool insideYtop = ppos.bounds.inside(pos.x,pos.y+1);\n    float2 fpos = float2(pos.x,pos.y);\n    float3 V1_Pos,V2_Pos,V1_wPos,V2_wPos,V0_N,V1_N,V2_N;\n    float2 V0_ST,V1_ST,V2_ST;\n    float4 V1_Sample,V2_Sample;\n    float4 _tn;\n    float3 normal0,normal1,normal2;\n    float2 UV_Format = float2(Vformat.x,Vformat.y);\n\n\n    int2 P0 = int2(pos.x-1,pos.y-1);\n    int2 P1 = int2(pos.x+1,pos.y+1);\n    if (_plexConnectX && pos.x == int(Vformat.x))\{\n      insideX == true;\n      P1 = int2(0.0f,pos.y+1);\n    \}\n    if (_plexConnectY && pos.y == int(Vformat.y))\{\n      insideYtop == true;\n      P1 = int2(pos.x+1,0);\n    \} \n\n    if (_plexConnectY && pos.y == 0)\{\n      insideY == true;\n      P0 = int2(pos.x-1,int(UV_Format.y));\n    \} \n\n    if (!_flatshading) \{\n      _tn = normals(pos.x,pos.y);\n      V0_N =float3(_tn.x,_tn.y,_tn.z);\n    \}\n    V0_ST = float2(pos.x,pos.y)/UV_Format;\n\n  if (insideX) \{\n    V2_Sample = ppos(P1.x,pos.y);\n    V2_ST = float2(P1.x,pos.y)/UV_Format;\n    V2_wPos = float3(V2_Sample.x,V2_Sample.y,V2_Sample.z);\n    V2_Pos = Reconsile3D(V2_wPos);\n    if (!_flatshading) \{\n      _tn = normals(P1.x,pos.y);\n      V2_N =float3(_tn.x,_tn.y,_tn.z);\n    \}\n        \n\n    if (V2_Sample.w != 0.0f) \{ \n\n      if (insideY) \{\n        V1_Sample = ppos(P1.x,P0.y);\n        V1_ST = float2(P1.x,P0.y)/UV_Format;\n        V1_wPos = float3(V1_Sample.x,V1_Sample.y,V1_Sample.z);\n        V1_Pos = Reconsile3D(V1_wPos);\n        if (!_flatshading) \{\n          _tn = normals(P1.x,P0.y);\n          V1_N =float3(_tn.x,_tn.y,_tn.z);\n        \}\n        if (V1_Sample.w != 0.0f) \{ \n          DrawTriangle(screen_pos,V2_Pos,V1_Pos,_vWorld,V2_wPos,V1_wPos,V0_N,V2_N,V1_N,V0_ST,V2_ST,V1_ST);\n        \}\n      \}\n      if (insideYtop) \{\n        V1_Sample = ppos(pos.x,P1.y);\n        V1_ST = float2(pos.x,P1.y)/UV_Format;        \n        V1_wPos = float3(V1_Sample.x,V1_Sample.y,V1_Sample.z);\n        V1_Pos = Reconsile3D(V1_wPos);\n        if (!_flatshading) \{\n          _tn = normals(pos.x,P1.y);\n          V1_N =float3(_tn.x,_tn.y,_tn.z);\n        \}        \n        if (V1_Sample.w != 0.0f) \{ \n          DrawTriangle(screen_pos,V1_Pos,V2_Pos,_vWorld,V1_wPos,V2_wPos,V0_N,V1_N,V2_N,V0_ST,V1_ST,V2_ST);\n        \}\n      \}\n    \}\n  \}\n\}\n\n\n\n//This function will calculate if pixel C is inside the triangle\nfloat edgeFunction(float3 a, float3 b, float3 c) \n\{ \n    return ((c.x - a.x) * (b.y - a.y) - (c.y - a.y) * (b.x - a.x)); \n\} \n\nfloat3 CalculateSurfaceNormals(float3 V0, float3 V1, float3 V2)\n\{\n        float3 v0 = V0; \n        float3 v1 = V1; \n        float3 v2 = V2; \n        float3 hitNormal = cross((v1 - v0),(v2 - v0)); \n        return normalize(hitNormal);\n\}\n\nfloat3 CalculateVertexNormals(float3 V0, float3 V1, float3 V2)\n\{\n        float3 v0 = V0; \n        float3 v1 = V1; \n        float3 v2 = V2; \n        float3 hitNormal = cross((v1 - v0),(v2 - v0)); \n        return normalize(hitNormal);\n\}\n\nfloat Distance(float3 _a,float3 _b)\n\{\n          float xd = _a.x - _b.x;\n          float yd = _a.y - _b.y;\n          float zd = _a.z - _b.z;\n          return sqrt(xd*xd + yd*yd + zd*zd);\n\}\n\nvoid DrawTriangle(float3 V0, float3 V1, float3 V2,float3 WP0, float3 WP1, float3 WP2,float3 N0, float3 N1, float3 N2, float2 st0,float2 st1,float2 st2) \{\n\n  // Precompute reciprocal of vertex z-coordinate \n  V0.z = 1.0f / V0.z, V1.z = 1.0f / V1.z, V2.z = 1.0f / V2.z; \n\n  float2 st0n = st0 * V0.z;\n  float2 st1n = st1 * V1.z; \n  float2 st2n = st2 * V2.z; //Normal version of ST\n\n  bool inside; \n  float X0 = Fmin(V0.x,V1.x,V2.x)-1.0f;\n  float X1 = Fmax(V0.x,V1.x,V2.x)+1.0f;\n  float Y0 = Fmin(V0.y,V1.y,V2.y)-1.0f;\n  float Y1 = Fmax(V0.y,V1.y,V2.y)+1.0f;\n  float area = edgeFunction(V2, V1, V0);\n\n\n  float2 sampos = float2(st0.x*float(Vformat.x),st0.y*float(Vformat.y));\n  float4 text0 = src(sampos.x,sampos.y);\n  sampos = float2(st1.x*float(Vformat.x),st1.y*float(Vformat.y));\n  float4 text1 = src(sampos.x,sampos.y);\n  sampos = float2(st2.x*float(Vformat.x),st2.y*float(Vformat.y));  //Why do we have to do this? =(\n  float4 text2 = src(sampos.x,sampos.y);\n  sampos = float2(min(min(st0.x,st1.x),st2.x)*float(Vformat.x),min(min(st0.y,st1.y),st2.y)*float(Vformat.y));\n  float4 text3 = src(sampos.x,sampos.y);\n\n\n  for( int x = X0; x < X1 ; x++) \{\n    for( int y = Y0; y < Y1 ; y++) \{\n      float3 pixelSample(x + _texoffset.x, y + _texoffset.y,0.0f); \n\n      //This is the part where we test if the current pixel is inside the triangle\n      //We check both for front facing and back faing options\n      float w0 = edgeFunction(V1, V0, pixelSample); //Front Facing\n      float w1 = edgeFunction(V2, V1, pixelSample); \n      float w2 = edgeFunction(V0, V2, pixelSample); \n      float w3 = edgeFunction(V0, V1, pixelSample); //Back Facing\n      float w4 = edgeFunction(V1, V2, pixelSample); \n      float w5 = edgeFunction(V2, V0, pixelSample);\n\n      //writepixel(x,y, float4(w1),1,1.0f);\n      if ((w0 >= 0 && w1 >= 0 && w2 >= 0 && _frontfacing) || (w3 >= 0 && w4 >= 0 && w5 >= 0 && _backfacing)) \{ //The curent pixel is inside the triangle\n\n       // calculate vectors from point f to vertices p1, p2 and p3:\n       float3 f1 = V0-pixelSample;\n       float3 f2 = V1-pixelSample;\n       float3 f3 = V2-pixelSample;\n       // calculate the areas and factors (order of parameters doesn't matter):\n       float a = length(cross(V0-V1,V0-V2 )); // main triangle area a\n       area = length(V0-V1)+length(V0-V2)+length(V1-V2);\n\n        w0 /= area; \n        w1 /= area; \n        w2 /= area; \n\n        w3 /= area; \n        w4 /= area; \n        w5 /= area; \n\n       float a1 = length(cross(f2, f3)) / a; // p1's triangle area / a\n       float a2 = length(cross(f3, f1)) / a; // p2's triangle area / a \n       float a3 = length(cross(f1, f2)) / a; // p3's triangle area / a\n       float a_magnitude = a1+a2+a3;\n       a1 = a1/a_magnitude;\n       a2 = a2/a_magnitude;\n       a3 = a3/a_magnitude;\n       float z = 1.0f / (V0.z * a1 + V1.z * a2 + V2.z * a3); \n\n\n        // find the uv corresponding to point f (uv1/uv2/uv3 are associated to p1/p2/p3):\n        float2 uv = st0 * a1 + st1 * a2 + st2 * a3;\n        float2 st = st0 * w0 + st1 * w1 + st2 * w2; \n        st *= z;      \n\n\n        //Calculate normals. Eighter we have flat shading, else we calculate a normal per pixel\n        float3 normalB;\n        if (_flatshading) \{\n          normalB = CalculateSurfaceNormals(WP0,WP1,WP2);\n\n        \}\n        else \{\n          float3 c0 = N2/float3(V0.z); \n          float3 c1 = N0/float3(V1.z); \n          float3 c2 = N1/float3(V2.z);  \n\n          normalB.x = w0 * c0.x + w1 * c1.x + w2 * c2.x; \n          normalB.y = w0 * c0.y + w1 * c1.y + w2 * c2.y; \n          normalB.z = w0 * c0.z + w1 * c1.z + w2 * c2.z; \n\n          normalB.x *= z, normalB.y *= z, normalB.z *= z; \n        \}\n        normalB = normalize(normalB);\n\n        //CALCULATE THE OBJECT TEXTURE COORDINATES\n        float zn = 1.0f / (V0.z * w0 + V1.z * w1 + V2.z * w2); \n        st = st0n * w0 + st1n * w1 + st2n * w2; \n        st *= zn;   \n        //--END \n\n        float3 Wpos = WP0*a1 + WP1*a2 + WP2*a3; //World Position.\n        float3 ViewNormal = normalize(float3(cameraToWorld\[3]\[0],cameraToWorld\[3]\[1],cameraToWorld\[3]\[2])-Wpos);\n\n        float nDotView =  dot(normalB,ViewNormal);\n        nDotView = 1.0f-fabs(nDotView); //make sure that the view normal ramps back around when doing backface\n        float4 tempout;\n\n        //Flatshading or regular?\n        if (!_flatshading) \{\n          tempout = text0 * a1 + text1 * a2 + text2 * a3; \n        \}\n        else\{\n          tempout = text3;\n        \}\n\n        //Additional Render Modes\n        if (_vertexMode == 1)\{\n          tempout = float4(a1,a2,a3,1.0f);\n        \}\n        else if (_vertexMode == 2)\{\n          tempout = float4(normalB.x,normalB.y,normalB.z,1.0f);\n        \}\n        else if (_vertexMode == 3)\{\n          tempout = float4(nDotView,nDotView,nDotView,1.0f);\n        \}\n        else if (_vertexMode == 4)\{\n          tempout = float4(uv.x,uv.y,0.0f,1.0f);\n        \}       \n        else if (_vertexMode == 5)\{\n          tempout = float4(st.x,st.y,0.0f,1.0f);\n        \}               \n        else if (_vertexMode == 6)\{\n          tempout = float4(ViewNormal.x,ViewNormal.y,ViewNormal.z,1.0f);\n        \}             \n        else if (_vertexMode == 7)\{\n          tempout = float4(Wpos.x,Wpos.y,Wpos.z,1.0f);\n        \}   \n\n        if (_depthBuffer)\{\n          writepixel(x,y, float4(tempout.x,tempout.y,tempout.z,z),1,1.0f);  \n        \}\n        else \{\n          if (_dof_enable)\{\n            Bokeh(float3(x,y,z),float4(tempout.x,tempout.y,tempout.z,z));\n          \}\n          else \{\n            bilinear_Plot(float2(x,y),float4(tempout.x,tempout.y,tempout.z,z),1);\n          \}\n        \}\n\n      \}  \n\n    \}\n  \}\n\}\n\n//-------------------------------------\n// Wire_Render\n//-------------------------------------\nvoid wire_render(int2 pos) \{\n  float4 temp = float4(0.0f,0.0f,0.0f,FLT_MAX);\n  float4 wire_ref_sample;\n  int2 tempXY = int2(0,0);\n  float4 plexlist\[11] = \{temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp\}; \n  int2 plexlistXY\[11] = \{tempXY,tempXY,tempXY,tempXY,tempXY,tempXY,tempXY,tempXY,tempXY,tempXY,tempXY\};\n  int plex_count = 0; //We use this to figure how many points that should connect.\n  float plex_dist;\n  float3 plex_position,plex_position_b;\n  float4 temp_pos, temp_pos_b; //Temporary Position Containers\n  if (_maxPlexType == -1) \{ //Used for random connection types\n    for( int x = 0; x < max_line_connections ; x++)\{ //THIS 80 NUMBER IS THE LIMIT TO AVOID TOO SLOW PROCESSING!\n      for( int y = 0; y < max_line_connections ; y++)\{\n        wire_ref_sample = ppos(x,y);\n        if (wire_ref_sample.w != 0.0f && pos.x!=x && pos.y != y) \{ \n          plex_position = float3(wire_ref_sample.x,wire_ref_sample.y,wire_ref_sample.z)*(zoom);\n          float xd = plex_position.x - vWorld.x;\n          float yd = plex_position.y - vWorld.y;\n          float zd = plex_position.z - vWorld.z;\n          float plex_dist = sqrt(xd*xd + yd*yd + zd*zd);\n          if (plex_dist<_maxPlexDistance)\{\n            plex_count = min(10,plex_count+1); //Add one to the count\n            for( int h = 0; h < plex_count+1 ; h++) \{ //Loop thought all the points. If the distance is shorter then insert it into the array and push the rest of the array down\n              if (plex_dist < plexlist\[h].w) \{                  \n                for( int i = plex_count+1; i > h ; i--) \{\n                  plexlist\[i] = plexlist\[i-1];\n                  plexlistXY\[i] = plexlistXY\[i-1];\n                \}\n                plexlist\[h] = float4(plex_position.x,plex_position.y,plex_position.z,plex_dist);\n                plexlistXY\[h] = int2(x,y);\n                break;        \n              \}\n            \}\n          \} \n        \}\n      \}\n    \}\n  \}\n  else\{ //Used for standard connection types\n    float4 temp_pos;\n    bool insideX = !(Vformat.x < pos.x+1);\n    bool insideY = !(Vformat.y < pos.y+1);\n\n\n    if (!_plexLinedefAUX)\{\n      temp_pos = normals(pos.x,pos.y);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,vWorld+plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n\n    if ( insideX && !_plexLinedefX) \{\n      temp_pos = ppos(pos.x+1,pos.y );\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n    else if ( _plexConnectX && !_plexLinedefX) \{\n      temp_pos = ppos(0,pos.y);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n\n    if ( insideY && !_plexLinedefY) \{\n      temp_pos = ppos(pos.x,pos.y+1);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\}                          \n    \}\n    else if ( _plexConnectY  && !_plexLinedefY) \{\n      temp_pos = ppos(pos.x,0);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n\n    //_plexConnect\n    if ( insideX && insideY && !_plexLinedefXY) \{              \n      temp_pos = ppos(pos.x+1,pos.y+1);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n    else if ( _plexConnectX && _plexConnectY && !_plexLinedefXY) \{\n      temp_pos = ppos((pos.x+1)*insideX,(pos.y+1)*insideY);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n    else if ( _plexConnectX && insideY && !_plexLinedefXY) \{\n      temp_pos = ppos((pos.x+1)*insideX,(pos.y+1)*insideY);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n    else if ( _plexConnectY && insideX && !_plexLinedefXY) \{\n      temp_pos = ppos((pos.x+1)*insideX,(pos.y+1)*insideY);\n      plex_position = float3(temp_pos.x,temp_pos.y,temp_pos.z)*(zoom);\n      if (temp_pos.w != 0) \{wire_connection(vWorld,plex_position, plexlist,plexlistXY,plex_count,pos);\} \n    \}\n  \}   \n\n  //now that all the connections have been sorted by distance then we connect the dots.\n  for( int x = 0; x < min(_maxPlexConnections,plex_count) ; x++)\{\n    plex_position = float3(plexlist\[x].x,plexlist\[x].y,plexlist\[x].z);\n    plex_dist = plexlist\[x].w;\n\n\n    float plex_distribution = 1.0f-((plexlist\[x].w-plexlist\[0].w)/((plexlist\[min(_maxPlexConnections,plex_count)].w-plexlist\[0].w)+0.00001f)); //Where does it lie between the best and the worst distance?\n    //plexlistXY\n\n    float4 plex_col = float4(pow(1.0f-(plex_dist/_maxPlexDistance),1.0f/_plex_gamma))*float4(plex_distribution); //This one is quite cool aswell, but does leave the center ones a bit too focused \n    float4 plex_colorA = src(pos.x,pos.y);\n    float4 plex_colorB = src( plexlistXY\[x].x,plexlistXY\[x].y);\n    plex_col *= 0.1f;\n\n    computePixelCoordinates(plex_position, pRaster, worldToCamera, canvasWidth, canvasHeight, WHformat\[0], WHformat\[1]);\n    if (dst.bounds.inside(int(vRaster.x),int(vRaster.y)) || dst.bounds.inside(int(pRaster.x),int(pRaster.y)))\{\n        DrawLine(vRaster,pRaster,(plex_colorA*plex_col)*_lineInMultiplier,(plex_colorB*plex_col)*_lineOutMultiplier);\n    \}\n  \}\n\}\n\nvoid wire_connection(float3 p_source,float3 p_target, float4 (&p_plexlist)\[11], int2 (&p_plexlistXY)\[11],int &p_plexcount,int2 position) \{\n  float xd = p_target.x - p_source.x;\n  float yd = p_target.y - p_source.y;\n  float zd = p_target.z - p_source.z;\n  float plex_dist = sqrt(xd*xd + yd*yd + zd*zd);\n  if (plex_dist<_maxPlexDistance)\{\n    p_plexcount = min(11,p_plexcount+1); //Add one to the count\n    for( int h = 0; h < p_plexcount+1 ; h++) \{ //Loop thought all the points. If the distance is shorter then insert it into the array and push the rest of the array down\n      if (plex_dist < p_plexlist\[h].w) \{                  \n        for( int i = p_plexcount+1; i > h ; i--) \{\n          p_plexlist\[i] = p_plexlist\[i-1];\n          p_plexlistXY\[i] = p_plexlistXY\[i-1];\n        \}\n        p_plexlist\[h] = float4(p_target.x,p_target.y,p_target.z,plex_dist);\n        p_plexlistXY\[h] = int2(position.x,position.y);\n        break;        \n      \}\n    \}  \n  \}\n\}\n//-------END OF WIRE RENDER FUNCTIONS---------\n\n\n\n\n//-------------------------------\n//-------BOKEH FUNCTIONS---------\n//thanks to: http://devlog-martinsh.blogspot.dk/2011/11/glsl-depth-of-field-with-bokeh-v21.html\nfloat2 rand(float2 coord) //generating noise/pattern texture for dithering\n\{\n  float noiseX = ((Frac(1.0-coord.x*(WHformat\[0]/2.0))*0.25)+(Frac(coord.y*(WHformat\[1]/2.0))*0.75))*2.0-1.0;\n  float noiseY = ((Frac(1.0-coord.x*(WHformat\[0]/2.0))*0.75)+(Frac(coord.y*(WHformat\[1]/2.0))*0.25))*2.0-1.0;\n  noiseX = clamp(Frac(sin(dot(coord ,float2(12.9898f,78.233f))) * 43758.5453f),0.0f,1.0f)*2.0f-1.0f;\n  noiseY = clamp(Frac(sin(dot(coord ,float2(12.9898f,78.233f)*2.0f)) * 43758.5453f),0.0f,1.0f)*2.0-1.0f;\n  return float2(noiseX,noiseY);\n\}\n//-------------------------------------\n// Bokeh\n//-------------------------------------\nvoid Bokeh(float3 pos,float4 color)\{\n  float blur = 0.0;\n  blur = clamp((fabs(pos.z - focalDepth)/_depthOfField)*100.0f,-_maxDofSize,_maxDofSize);\n  \n  float w = (1.0/WHformat.x)*blur;//+noise.x;\n  float h = (1.0/(WHformat.x*dof_aspect))*blur;//+noise.y;\n  float3 v3_col = float3(color.x,color.y,color.z);\n  int ringsamples;\n  float s = 1.0;  \n\n  for (int i = 1; i <= _dof_rings; i += 1)\n  \{   \n    ringsamples = i * _dof_samples; \n    for (int j = 0 ; j < ringsamples ; j += 1)  \n    \{ \n      s += (1.0f*mix(1.0f,(float(i))/(float(_dof_rings)),dof_bias)*1.0f); //No need to do this in the loop\n    \}\n  \}\n\n  for (int i = 1; i <= _dof_rings; i += 1)\n  \{   \n    ringsamples = i * _dof_samples;\n     \n    for (int j = 0 ; j < ringsamples ; j += 1)   \n    \{\n      float step = PI*2.0 / float(ringsamples);\n      float pw = (cos(float(j)*step)*(float(i)/_dof_rings));\n      float ph = (sin(float(j)*step)*(float(i)/_dof_rings));\n      float p = 1.0;\n\n      float posx = pos.x+((pw*w)*blur);\n      float posy = pos.y+((ph*h)*blur);\n\n\n      float3 lumcoeff = float3(0.299,0.587,0.114);\n      float lum = dot(v3_col, lumcoeff);\n      float thresh = max((lum-dof_threshold)*dof_gain, 0.0f);\n      v3_col+mix(float3(0.0),v3_col,thresh*blur);\n\n      float3 col = (v3_col*mix(1.0,(float(i))/(float(_dof_rings)),dof_bias)*p)/s; \n      bilinear_Plot(float2(posx,posy),float4(col.x,col.y,col.z,color.w/(_dof_rings*_dof_rings)),1);\n    \}\n  \}\n\}\n//-------END OF BOKEH FUNCTIONS---------\n\n\n\n//-------------------------------------\n// Process\n//-------------------------------------\n  void process(int2 pos) \{\n    float4 _sample = ppos(pos.x,pos.y); //Get the XYZ Coordinates\n    float2 posf = float2(pos.x,pos.y);\n\n    if (_sample.w != 0.0f) \{  //No need to process if there is no data.\n\n      //Convert worldspace coordinates to screenspcace coordinates.\n      vWorld = float3(_sample.x,_sample.y,_sample.z)*(zoom);\n      int ret = computePixelCoordinates(vWorld, vRaster, worldToCamera, canvasWidth, canvasHeight, WHformat\[0], WHformat\[1]);\n      if (ret) \{ //Only create points that are visible on screen\n        if (_pointRender)\{\n          point_render(pos,vRaster);\n        \}\n      \} //Pointrender over\n\n      if (_wireRender && _maxPlexConnections>=1) \{\n        if (max(pos.x,pos.y)<=max_line_connections || (_maxPlexType==0))\{ // Don't process more wires than allowed in nearest mode.\n          wire_render(pos);\n        \}\n      \} //WireRender over\n\n      if (_facetRender) \{\n        facet_render(pos,float3(_sample.x,_sample.y,_sample.z));\n      \}  //FacetRender over\n      \n    \}\n  \} //----> process\n\};\n"
+  useGPUIfAvailable false
+  rebuild ""
+  PointRender3D_cam_Matrix {
+      {{parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix}}
+      {{parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix}}
+      {{parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix}}
+      {{parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix} {parent.Camera1.world_matrix}}
+    }
+  PointRender3D_focallength {{parent.Camera1.focal}}
+  PointRender3D_hapeture {{parent.Camera1.haperture}}
+  PointRender3D_format {{Settings_Format.width} {Settings_Format.height}}
+  PointRender3D_vertexformat {{parent.InputFormat.box.r-1} {parent.InputFormat.box.t-1}}
+  PointRender3D__alphaMultiplier {{parent.AlphaMultiplier}}
+  PointRender3D__pointRender {{parent.RenderMode==0}}
+  PointRender3D__wireRender {{parent.RenderMode==1}}
+  PointRender3D__facetRender {{parent.RenderMode==2}}
+  PointRender3D__maxLDistance {{parent.wire_maxdistance}}
+  PointRender3D__maxLConnections {{parent.wire_connections}}
+  PointRender3D__maxPlexType {{-parent.wire_type}}
+  PointRender3D__plexLinedefXY {{!parent.connect_xy}}
+  PointRender3D__plexLinedefX {{!parent.connect_x}}
+  PointRender3D__plexLinedefY {{!parent.connect_y}}
+  PointRender3D__plexLinedefAUX {{!connect_aux}}
+  PointRender3D__plexConnectX {{parent.CloseX}}
+  PointRender3D__plexConnectY {{parent.CloseY}}
+  PointRender3D__L_gamma {{parent.wire_Threshold}}
+  "PointRender3D_Enable Depth of Field" {{parent.dof_enable}}
+  PointRender3D_samples {{3*(parent.Dof_Quality*parent.Dof_Quality+1)}}
+  PointRender3D_rings {{3*(parent.Dof_Quality*parent.Dof_Quality+1)}}
+  PointRender3D_focalDepth {{parent.dof_focaldepth}}
+  PointRender3D__depthOfField {{parent.dof_dof}}
+  PointRender3D__depthMult {{parent.DofMultiplier}}
+  PointRender3D__maxDofSize {{parent.dof_maxSize*400}}
+  PointRender3D_dof_aspect {{parent.dof_Aspect}}
+  PointRender3D_dof_bias {{parent.dof_bias}}
+  PointRender3D__flatshading {{parent.facet_flatShading}}
+  PointRender3D__backfacing {{parent.facet_backface}}
+  PointRender3D__frontfacing {{parent.facet_front}}
+  PointRender3D__vertexMode {{parent.renderMode}}
+  PointRender3D__depthBuffer {{parent.facet_depth}}
+  PointRender3D__texoffset {-0.5 0.5}
+  PointRender3D__pointSize 0
+  PointRender3D__depthOcclusion {{parent.UseOcclusionMap}}
+  PointRender3D__maxLineSteps {{parent.maxSamples}}
+  PointRender3D__lineOffset {{parent.lineoffset}}
+  PointRender3D__lineInMultiplier {{parent.inGain}}
+  PointRender3D__lineOutMultiplier {{parent.outGain}}
+  format "1280 720 0 0 1280 720 1 HD_720"
+  rebuild_finalise ""
+  name BlinkScript1
+  selected true
+  xpos -27
+  ypos 159
+ }
+ Reformat {
+  format {{{Settings_Format.format}}}
+  resize none
+  center false
+  name Reformat1
+  xpos -27
+  ypos 343
+ }
+ Group {
+  name SoftLook
+  xpos -27
+  ypos 460
+  disable {{!parent.HighlightCompression}}
+  addUserKnob {20 User}
+  addUserKnob {26 ""}
+  addUserKnob {7 Add R 0 4}
+  Add {{parent.HighlightCeiling}}
+  addUserKnob {7 Offset R 0 4}
+  Offset {{parent.Compression}}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos -248
+   ypos 500
+  }
+set N3509c400 [stack 0]
+  Expression {
+   expr0 r/(r+parent.Offset)*parent.Add
+   expr1 g/(g+parent.Offset)*parent.Add
+   expr2 b/(b+parent.Offset)*parent.Add
+   expr3 a/(a+parent.Offset)*parent.Add
+   name Expression1
+   xpos -339
+   ypos 576
+  }
+push $N3509c400
+  ShuffleCopy {
+   inputs 2
+   red red
+   green green
+   blue blue
+   alpha alpha2
+   name ShuffleCopy1
+   xpos -248
+   ypos 576
+  }
+  Output {
+   name Output1
+   xpos -248
+   ypos 651
+  }
+ end_group
+ TimeBlur {
+  divisions {{parent.Samples}}
+  shutter {{parent.Shutter}}
+  shutteroffset centred
+  shuttercustomoffset 0
+  name MotionBlur
+  xpos -27
+  ypos 581
+  disable {{1-parent.mb_enable x89 0}}
+ }
+ ShuffleCopy {
+  inputs 2
+  in pos
+  red red
+  green green
+  blue blue
+  out pos
+  name ShuffleCopy1
+  xpos -27
+  ypos 673
+  disable true
+ }
+ Output {
+  name Output1
+  xpos -27
+  ypos 710
+ }
+ Input {
+  inputs 0
+  name InputCamera
+  xpos -1129
+  ypos 116
+  number 1
+ }
+ Camera2 {
+  focal {{parent.FocalLength}}
+  haperture {{parent.horizontalApeture}}
+  name Camera1
+  xpos -1119
+  ypos 223
+  addUserKnob {20 union_tab l Union}
+  addUserKnob {6 proj l "create Projection" -STARTLINE}
+  addUserKnob {3 frame l "Project from Frame"}
+  frame 15
+ }
+ Reformat {
+  inputs 0
+  format "1280 720 0 0 1280 720 1 HD_720"
+  resize none
+  center false
+  name Settings_Format
+  xpos -1404
+  ypos 241
+ }
+push $N3509d400
+ PositionToPoints2 {
+  display textured
+  render_mode textured
+  P_channel pos
+  detail 0.25
+  pointSize 0.6
+  name PreviewNode
+  xpos -22
+  ypos 8
+  disable {{!parent.Enable3DPreview}}
+ }
+push $N33167c00
+ Reformat {
+  type "to box"
+  box_width 100
+  box_height 100
+  box_fixed true
+  scale 0.1
+  resize none
+  filter impulse
+  black_outside true
+  name Reformat3
+  xpos -633
+  ypos -1109
+  disable {{!wire_type==1}}
+ }
+push $N33164800
+ Crop {
+  box {0 0 {width} {height}}
+  reformat true
+  crop false
+  name InputFormat
+  xpos -456
+  ypos -402
+ }
+end_group
+push $N49a2000
+BlinkScript {
+ recompileCount 9
+ ProgramGroup 1
+ KernelDescription "2 \"For_Loop2\" iterate pixelWise 5ee11b402f21c1197564cd7af1dc1a1b6fa18d75fc009affe51edaaafbd4930a 2 \"src\" Read Random \"dst\" Write Point 3 \"trigger\" Int 1 CgAAAA== \"increments\" Int 1 AgAAAA== \"amount\" Int 1 ZAAAAA== 3 \"trigger\" 1 1 \"increments\" 1 1 \"amount\" 1 1 0"
+ kernelSource "kernel For_Loop2 : ImageComputationKernel <ePixelWise>\n\{\n  Image<eRead,eAccessRandom,eEdgeClamped> src;                        //input image\n  Image<eWrite> dst;                                                  //output image\n\n  param:\n    int trigger;\n    int increments;                                                   //increment param\n    int amount;                                                       //amount param\n\n  void define()\{\n    defineParam(trigger,\"trigger\",10);                                //loop trigger\n    defineParam(increments,\"increments\", 2);                          //increment default\n    defineParam(amount,\"amount\",100);                                 //amount default\n  \}\n\n  void process(int2 pos) \{\n    int total = 0;                                                    //total initial value\n\n    for (int i = trigger; i < increments; i++) \{                     //loop\n      total += amount;                                                //loop sum\n    \}\n\n    dst() = src((pos.x+total),pos.y);                                 //out\n  \}\n\};"
+ rebuild ""
+ For_Loop2_trigger 30
+ For_Loop2_increments 10
+ For_Loop2_amount 900
+ rebuild_finalise ""
+ name BlinkScript20
+ xpos 3150
+ ypos 1328
+}
+push $N4a01800
+BlinkScript {
+ recompileCount 1
+ ProgramGroup 1
+ KernelDescription "2 \"For_Loop\" iterate pixelWise 3e243b3172e65ed7470a3f1e1897fc57bf3ae278b6b0e95be97bc10bbbf78049 2 \"src\" Read Random \"dst\" Write Point 2 \"increments\" Int 1 AQAAAA== \"amount\" Int 1 MgAAAA== 2 \"increments\" 1 1 \"amount\" 1 1 0"
+ kernelSource "kernel For_Loop : ImageComputationKernel <ePixelWise>\n\{\n  Image<eRead,eAccessRandom,eEdgeClamped> src;                        //input image\n  Image<eWrite> dst;                                                  //output image\n\n  param:\n    int increments;                                                   //increment param\n    int amount;                                                       //amount param\n\n  void define()\{\n    defineParam(increments,\"increments\", 1);                          //increment default\n    defineParam(amount,\"amount\",50);                                  //amount default\n  \}\n\n  void process(int2 pos) \{\n    int total = 0;                                                    //total initial value\n\n    for (int i = 0; i < increments; i++) \{                            //loop\n      total += amount;                                                //loop sum\n    \}\n\n    dst() = src((pos.x + total), pos.y);                              //out\n  \}\n\};"
+ rebuild ""
+ For_Loop_increments 5
+ For_Loop_amount 90
+ rebuild_finalise ""
+ name BlinkScript18
+ xpos 2930
+ ypos 1280
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard7
+ xpos 2380
+ ypos 1143
+}
+set N35851800 [stack 0]
+BlinkScript {
+ recompileCount 42
+ ProgramGroup 1
+ KernelDescription "2 \"Rotation\" iterate pixelWise 853f48dd5580a723ef71f545976e59c7971ee88180b7ab0accf7c46b83ded246 2 \"src\" Read Random \"dst\" Write Point 1 \"Angle\" Float 1 AAA0Qw== 1 \"Angle\" 1 1 5 \"cx\" Float 1 1 AAAAAA== \"cy\" Float 1 1 AAAAAA== \"out\" Float 4 1 AAAAAAAAAAAAAAAAAAAAAA== \"Radiants\" Float 1 1 AAAAAA== \"pi\" Float 1 1 AAAAAA=="
+ kernelSource "kernel Rotation : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead,eAccessRandom,eEdgeClamped> src;                        //input image\n  Image<eWrite> dst;                                                  //output image\n\n  param:\n    float Angle;                                                      //Angle parameter\n\n  local:\n    float cx;                                                         //Horizontal center\n    float cy;                                                         //Vertical center\n    float4 out;                                                       //out vectors\n    float Radiants;                                                   //Radiants\n    float pi;                                                         //pi\n\n  void define()\{\n    defineParam(Angle,\"Angle\",180.0f);                                //Angle defaults\n  \}\n\n  void init(int2 pos)\{\n    cx = src.bounds.x2 / 2.0f;                                        //X center from bounds\n    cy = src.bounds.y2 / 2.0f;                                        //Y center from bounds\n\n    pi = 3.14159265359f;                                              //pi constant value\n    Radiants = (Angle-180)*(pi/180.0f);                               //Radiants\n  \}\n\n  void process(int2 pos)\{\n    //output vectors rotated (UV cordinates)\n    out.x = ( (pos.x-cx) * cos(Radiants) ) - ( (pos.y-cy) * sin(Radiants) ) + cx;\n    out.y = ( (pos.x-cx) * sin(Radiants) ) + ( (pos.y-cy) * cos(Radiants) ) + cy;\n\n    dst(0) = bilinear(src, out.x, out.y,0);                           //bilinear function\n    dst(1) = bilinear(src, out.x, out.y,1);                           //bilinear function\n    dst(2) = bilinear(src, out.x, out.y,2);                           //bilinear function\n    dst(3) = 1.0f;\n  \}\n\};"
+ rebuild ""
+ Rotation_Angle 209
+ rebuild_finalise ""
+ name BlinkScript16
+ xpos 2600
+ ypos 1352
+}
+push $N35851800
+BlinkScript {
+ recompileCount 2
+ ProgramGroup 1
+ KernelDescription "2 \"Radial_2\" iterate pixelWise ba4dcfa8b4648193750d48d48ee2522a72ec0a0b3ce61198c4ea193eaa2f3c84 2 \"src\" Read Random \"dst\" Write Point 2 \"gamma\" Float 1 AACAPw== \"invert\" Bool 1 AA== 2 \"gamma\" 1 1 \"invert\" 1 1 9 \"xt\" Float 1 1 AAAAAA== \"yt\" Float 1 1 AAAAAA== \"position\" Float 2 1 AAAAAAAAAAA= \"direction\" Float 2 1 AAAAAAAAAAA= \"center\" Float 2 1 AAAAAAAAAAA= \"distance\" Float 1 1 AAAAAA== \"MaxDist\" Float 1 1 AAAAAA== \"distanceNorm\" Float 1 1 AAAAAA== \"out\" Float 1 1 AAAAAA=="
+ kernelSource "kernel Radial_2 : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead,eAccessRandom,eEdgeClamped> src;                        //input image\n  Image<eWrite> dst;                                                  //output image\n\n  param:\n    float gamma;                                                      //gamma param\n    bool invert;                                                      //invert bool\n\n  local:\n    float xt;                                                         //width\n    float yt;                                                         //height\n    float2 position;                                                  //UV coordinates\n    float2 direction;                                                 //normalized UVs\n    float2 center;                                                    //center image\n    float distance;                                                   //center distance from bounds\n    float MaxDist;                                                    //vector from center to bounds\n    float distanceNorm;                                               //normalized distance\n    float out;\n\n  void define()\{\n    defineParam(gamma,\"gamma\",1.0f);                                  //gamma default\n    defineParam(invert,\"invert\", false);                              //invert default\n  \}\n\n  void init(int2 pos)\{\n    xt = src.bounds.x2;                                               //bounds X\n    yt = src.bounds.y2;                                               //bounds Y\n    center = float2(xt/2 , yt/2);                                     //center image as float2\n    MaxDist = length(center);                                         //vector from center to bounds\n  \}\n\n  void process(int2 pos)\{\n    float2 position = float2 (pos.x, pos.y);                          //pixels positions X and Y\n    float2 direction = position - center;                             //offset position / new coordinates\n    float distance = length(direction);                               //distance of each pixel to bounds\n    float distanceNorm = distance / MaxDist;                          //normalized distance\n    float out = invert == true ? distanceNorm : 1.0f / distance;      //invert conditional\n\n    dst() = pow(out,gamma);\n  \}\n\};"
+ rebuild ""
+ Radial_2_gamma 0.635
+ Radial_2_invert true
+ rebuild_finalise ""
+ name BlinkScript17
+ xpos 2820
+ ypos 1352
+}
+Group {
+ inputs 0
+ name GM_Camera_Around
+ tile_color 0xea6827ff
+ xpos -40
+ ypos 638
+ addUserKnob {20 User l Settings}
+ addUserKnob {41 translate l Center t "Allows you to adjust the center point." T ca1.translate}
+ addUserKnob {7 dis_cam l Distance t "Allows you to adjust the camera`s distance from the center point." R 0 100}
+ dis_cam 42
+ addUserKnob {7 hei_cam l Height t "Allows you to adjust the camera`s height on the Y-axis." R -50 50}
+ hei_cam 2
+ addUserKnob {7 spe_cam l Speed t "Allows you to adjust the velocity of the rotation." R -50 50}
+ spe_cam 2
+ addUserKnob {7 cam_tilt l Tilt t "Allows you to tilt the camera." R -90 90}
+ addUserKnob {7 offset l Offset t "Allows you to offset the camera. " R 0 360}
+ addUserKnob {26 ""}
+ addUserKnob {7 ang_cam l Angle t "Allows you to adjust the camera`s angle." R -90 90}
+ addUserKnob {26 ang_info l "" +STARTLINE T "You can adjust the camera here when the `Disable Look` is on."}
+ addUserKnob {26 ""}
+ addUserKnob {41 translate_1 l Look t "Allows you to define where the camera is facing. " T ca_look.translate}
+ addUserKnob {41 disable_1 l "Disable Look" t "Allows you to disable the use of `Look` and change where the camera`s facing with the `Angle`. " T ca_look.disable}
+ addUserKnob {26 ""}
+ addUserKnob {26 info l "" +STARTLINE T "Connect the Camera`s Axis input to the node\nto get your Camera rotate around the Center point."}
+ addUserKnob {26 ""}
+ addUserKnob {22 tut l Tutorial t "Opens the relevant tutorial from my site in your browser. " -STARTLINE T "import os\nimport sys\n\ntry:\n    import subprocess\n    def _run(cmd, shell, wait):\n        opener = subprocess.Popen(cmd, shell=shell)\n        if wait:\n            opener.wait()\n        return opener.pid\nexcept ImportError:\n    import popen2\n    def _run(cmd, shell, wait):\n        opener = popen2.Popen3(cmd)\n        if wait:\n            opener.wait()\n        return opener.pid\n\ndef _open(url, wait=0):\n    if sys.platform == \"darwin\":\n        cmd = \[\"open\", url]\n    elif hasattr(os, \"startfile\"):\n        return os.startfile(url)\n    elif os.environ.has_key(\"KDE_FULL_SESSION\") or os.environ.has_key(\"KDE_MULTIHEAD\") or \\\n        os.environ.has_key(\"GNOME_DESKTOP_SESSION_ID\") or os.environ.has_key(\"GNOME_KEYRING_SOCKET\"):\n        cmd = \[\"xdg-open\", url]\n    else:\n        raise OSError, \"Desktop not supported.\"\n\n    return _run(cmd, 0, wait)\n\n_open('https://www.gatimedia.co.uk/camera-around')\n"}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Camera Around© by Attila Gasparetz</font>"}
+}
+ Axis2 {
+  inputs 0
+  name ca_look
+  selected true
+  xpos 300
+  ypos 546
+ }
+ Axis2 {
+  inputs 0
+  rotate {0 {parent.offset} 0}
+  name ca1
+  xpos 410
+  ypos 258
+ }
+ Axis2 {
+  translate {{parent.dis_cam} 0 0}
+  rotate {0 {frame*ca0.slid01} 0}
+  pivot {{-(translate.x)} 0 0}
+  name ca2
+  xpos 410
+  ypos 354
+ }
+set N36a39800 [stack 0]
+push $N36a39800
+ Axis2 {
+  inputs 2
+  translate {0 {hei_cam} 0}
+  rotate {{ang_cam} 90 0}
+  look_rotate_x false
+  look_rotate_y false
+  name ca3
+  xpos 410
+  ypos 450
+ }
+ Axis2 {
+  inputs 2
+  name ca5
+  xpos 410
+  ypos 546
+  disable {{ca_look.disable}}
+ }
+ Axis2 {
+  rotate {0 180 0}
+  name ca6
+  xpos 410
+  ypos 642
+  disable {{ca_look.disable}}
+ }
+ Axis2 {
+  rotate {0 0 {parent.cam_tilt}}
+  name ca7
+  xpos 410
+  ypos 738
+ }
+ Output {
+  name ca4
+  xpos 400
+  ypos 902
+ }
+ NoOp {
+  inputs 0
+  name ca0
+  xpos 620
+  ypos 374
+  addUserKnob {20 User}
+  addUserKnob {7 slid01 l slider01 R 0 50}
+  slid01 {{spe_cam}}
+ }
+end_group
+Camera2 {
+ name Camera1
+ label "File: \[file tail \[value file]]"
+ xpos -30
+ ypos 762
+}
+push $N358ca400
+ParticleBlinkScript {
+ kernelSourceGroup 1
+ kernelSource "kernel ParticleExampleKernel : ImageComputationKernel<ePixelWise>\n\{\n  // Declare the particle attributes as Images:\n  Image<eReadWrite> p_velocity;\n\n  // Declare our parameter storage\n  param:\n    float _amount;\n    float _dt;\n\n  // Define the parameters to the outside world\n  void define() \{\n    defineParam(_amount, \"paAmount\", 3.0f);\n    defineParam(_dt, \"_dt\", 1.0f);\n  \}\n\n  // Process the particle attributes\n  void process() \{\n    p_velocity() *= (1.0f-_amount*_dt);\n  \}\n\};\n"
+ min_age 2
+ name ParticleBlinkScript1
+ xpos 180
+ ypos 464
+ addUserKnob {20 User}
+ addUserKnob {7 paAmount l amount}
+ paAmount 1
+}
+push 0
+ScanlineRender {
+ inputs 3
+ conservative_shader_sampling false
+ shutteroffset centred
+ motion_vectors_type distance
+ name ScanlineRender1
+ xpos 180
+ ypos 782
+}
+Viewer {
+ frame 28
+ frame_range 1-100
+ name Viewer1
+ selected true
+ xpos 1910
+ ypos 1574
+}
