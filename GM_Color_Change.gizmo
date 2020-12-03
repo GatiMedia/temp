@@ -1,0 +1,5169 @@
+Group {
+inputs 2
+name GM_Color_Change
+tile_color 0xff55d4ff
+selected true
+xpos 47040
+ypos -3706
+addUserKnob {20 User}
+addUserKnob {41 center T Transform_proxy.center}
+addUserKnob {41 x_offset l "X Offset" T Transform_proxy.x_offset}
+addUserKnob {41 y_offset l "Y Offset" T Transform_proxy.y_offset}
+addUserKnob {41 wavelength l "Wave Length" T HSVTool_Wave_MAIN.wavelength}
+addUserKnob {41 offset l Offset T PROXY_OFFSET14.offset}
+addUserKnob {26 dontuse l "<big><b>DON'T USE"}
+addUserKnob {41 translate T Transform_proxy.translate}
+}
+NoOp {
+inputs 0
+name PROXY_OFFSET14
+label "offset: \[value offset]"
+xpos 840
+ypos -160
+addUserKnob {20 User}
+addUserKnob {7 offset R 0 500}
+offset 118
+}
+Input {
+inputs 0
+name mask
+xpos -920
+ypos -322
+number 1
+}
+Dot {
+name Dot825
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos -78
+}
+set Nc438f900 [stack 0]
+Dot {
+name Dot842
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 186
+}
+set Nc438f200 [stack 0]
+Dot {
+name Dot845
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 450
+}
+set Nc438eb00 [stack 0]
+Dot {
+name Dot826
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 666
+}
+set Nc438e400 [stack 0]
+Dot {
+name Dot848
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 882
+}
+set Nc438dd00 [stack 0]
+Dot {
+name Dot851
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 1146
+}
+set Nc438d600 [stack 0]
+Dot {
+name Dot827
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 1410
+}
+set Nc438cf00 [stack 0]
+Dot {
+name Dot854
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 1698
+}
+set Nc438c800 [stack 0]
+Dot {
+name Dot828
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 2010
+}
+set Nc438c100 [stack 0]
+Dot {
+name Dot857
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 2322
+}
+set Nc4383900 [stack 0]
+Dot {
+name Dot829
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 2658
+}
+set Nc4383200 [stack 0]
+Dot {
+name Dot860
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 2970
+}
+set Nc4382b00 [stack 0]
+Dot {
+name Dot830
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 3258
+}
+set Nc4382400 [stack 0]
+Dot {
+name Dot863
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 3570
+}
+set Nc4381d00 [stack 0]
+Dot {
+name Dot831
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 3906
+}
+set Nc4381600 [stack 0]
+Dot {
+name Dot866
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 4194
+}
+set Nc4380f00 [stack 0]
+Dot {
+name Dot832
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 4482
+}
+set Nc4380800 [stack 0]
+Dot {
+name Dot869
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 4746
+}
+set Nc4380100 [stack 0]
+Dot {
+name Dot870
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+selected true
+xpos -886
+ypos 5034
+}
+set Nc435f900 [stack 0]
+Dot {
+name Dot875
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -886
+ypos 5322
+}
+Transform {
+scale 0.05
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform190
+label "Scale: \[value scale]"
+xpos -700
+ypos 5312
+}
+Input {
+inputs 0
+name image
+xpos 510
+ypos -514
+}
+Dot {
+name Dot814
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 544
+ypos -318
+}
+set Nc60ce400 [stack 0]
+Dot {
+name Dot815
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos -318
+}
+Dot {
+name Dot816
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos -246
+}
+set Nc60cd600 [stack 0]
+Dot {
+name Dot843
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 18
+}
+set Nc60ccf00 [stack 0]
+Dot {
+name Dot846
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 282
+}
+set Nc60cc800 [stack 0]
+Dot {
+name Dot817
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 498
+}
+set Nc60cc100 [stack 0]
+Dot {
+name Dot849
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 714
+}
+set Nc46ab900 [stack 0]
+Dot {
+name Dot852
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 954
+}
+set Nc46ab200 [stack 0]
+Dot {
+name Dot818
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 1218
+}
+set Nc46aab00 [stack 0]
+Dot {
+name Dot855
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 1506
+}
+set Nc46aa400 [stack 0]
+Dot {
+name Dot819
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 1818
+}
+set Nc46a9d00 [stack 0]
+Dot {
+name Dot858
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 2130
+}
+set Nc46a9600 [stack 0]
+Dot {
+name Dot820
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 2466
+}
+set Nc46a8f00 [stack 0]
+Dot {
+name Dot861
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 2778
+}
+set Nc46a8800 [stack 0]
+Dot {
+name Dot821
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 3066
+}
+set Nc46a8100 [stack 0]
+Dot {
+name Dot864
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 3378
+}
+set Nc43a7900 [stack 0]
+Dot {
+name Dot822
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 3714
+}
+set Nc43a7200 [stack 0]
+Dot {
+name Dot867
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 4002
+}
+set Nc43a6b00 [stack 0]
+Dot {
+name Dot823
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 4290
+}
+set Nc43a6400 [stack 0]
+Dot {
+name Dot871
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 4554
+}
+set Nc43a5d00 [stack 0]
+Dot {
+name Dot872
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 4842
+}
+set Nc43a5600 [stack 0]
+Dot {
+name Dot876
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 5130
+}
+set Nc43a4f00 [stack 0]
+Dot {
+name Dot877
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 5130
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave164
+label "Offset: \[value offset]"
+xpos 620
+ypos 5210
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{35+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker159
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 5288
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc433ab00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc4339d00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc4339d00
+push $Nc433ab00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc4338f00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc4339d00
+push $Nc4338f00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc4339d00
+push $Nc4338f00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc433ab00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc433ab00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset 35
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc435f900
+Transform {
+scale 0.1
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform188
+label "Scale: \[value scale]"
+selected true
+xpos -700
+ypos 5024
+}
+push $Nc43a5600
+Dot {
+name Dot873
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 4842
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave162
+label "Offset: \[value offset]"
+xpos 620
+ypos 4922
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{35+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker157
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 5000
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc44b0800 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc4487900 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc4487900
+push $Nc44b0800
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc4486b00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc4487900
+push $Nc4486b00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc4487900
+push $Nc4486b00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc44b0800
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc44b0800
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset 35
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4380100
+Transform {
+scale 0.15
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform189
+label "Scale: \[value scale]"
+xpos -700
+ypos 4736
+}
+push $Nc43a5d00
+Dot {
+name Dot874
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 4554
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave163
+label "Offset: \[value offset]"
+xpos 620
+ypos 4634
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{85+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker158
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 4712
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc440a400 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc4409600 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc4409600
+push $Nc440a400
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc4408800 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc4409600
+push $Nc4408800
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc4409600
+push $Nc4408800
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc440a400
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc440a400
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave163.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4380800
+Transform {
+scale 0.2
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform176
+label "Scale: \[value scale]"
+xpos -700
+ypos 4472
+}
+push $Nc43a6400
+Dot {
+name Dot833
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 4290
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave145
+label "Offset: \[value offset]"
+xpos 620
+ypos 4370
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{80+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker140
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 4448
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc4578100 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc4557200 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc4557200
+push $Nc4578100
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc4556400 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc4557200
+push $Nc4556400
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc4557200
+push $Nc4556400
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc4578100
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc4578100
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave145.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4380f00
+Transform {
+scale 0.25
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform187
+label "Scale: \[value scale]"
+xpos -700
+ypos 4184
+}
+push $Nc43a6b00
+Dot {
+name Dot868
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 4002
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave161
+label "Offset: \[value offset]"
+xpos 620
+ypos 4082
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{75+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker156
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 4160
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc44d5d00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc44d4f00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc44d4f00
+push $Nc44d5d00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc44d4100 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc44d4f00
+push $Nc44d4100
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc44d4f00
+push $Nc44d4100
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc44d5d00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc44d5d00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave161.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4381600
+Transform {
+scale 0.3
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform177
+label "Scale: \[value scale]"
+xpos -700
+ypos 3896
+}
+push $Nc43a7200
+Dot {
+name Dot834
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 3714
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave146
+label "Offset: \[value offset]"
+xpos 620
+ypos 3794
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{70+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker141
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 3872
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc425b900 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc425ab00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc425ab00
+push $Nc425b900
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc4259d00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc425ab00
+push $Nc4259d00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc425ab00
+push $Nc4259d00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc425b900
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc425b900
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave146.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4381d00
+Transform {
+scale 0.35
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform186
+label "Scale: \[value scale]"
+xpos -700
+ypos 3560
+}
+push $Nc43a7900
+Dot {
+name Dot865
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 3378
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave160
+label "Offset: \[value offset]"
+xpos 620
+ypos 3458
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{65+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker155
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 3536
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc41d9600 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc41d8800 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc41d8800
+push $Nc41d9600
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfeeb900 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc41d8800
+push $Nbfeeb900
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc41d8800
+push $Nbfeeb900
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc41d9600
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc41d9600
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave160.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4382400
+Transform {
+scale 0.4
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform178
+label "Scale: \[value scale]"
+xpos -700
+ypos 3248
+}
+push $Nc46a8100
+Dot {
+name Dot835
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 3066
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave147
+label "Offset: \[value offset]"
+xpos 620
+ypos 3146
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{60+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker142
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 3224
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfe6b200 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfe6a400 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfe6a400
+push $Nbfe6b200
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfe69600 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfe6a400
+push $Nbfe69600
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfe6a400
+push $Nbfe69600
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfe6b200
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfe6b200
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave147.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4382b00
+Transform {
+scale 0.45
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform185
+label "Scale: \[value scale]"
+xpos -700
+ypos 2960
+}
+push $Nc46a8800
+Dot {
+name Dot862
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 2778
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave159
+label "Offset: \[value offset]"
+xpos 620
+ypos 2858
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{55+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker154
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 2936
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbffe0f00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbffe0100 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbffe0100
+push $Nbffe0f00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbffb7200 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbffe0100
+push $Nbffb7200
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbffe0100
+push $Nbffb7200
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbffe0f00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbffe0f00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave159.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4383200
+Transform {
+scale 0.5
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform179
+label "Scale: \[value scale]"
+xpos -700
+ypos 2648
+}
+push $Nc46a8f00
+Dot {
+name Dot836
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 2466
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave148
+label "Offset: \[value offset]"
+xpos 620
+ypos 2546
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{50+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker143
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 2624
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbff2eb00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbff2dd00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbff2dd00
+push $Nbff2eb00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbff2cf00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbff2dd00
+push $Nbff2cf00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbff2dd00
+push $Nbff2cf00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbff2eb00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbff2eb00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave148.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc4383900
+Transform {
+scale 0.55
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform184
+label "Scale: \[value scale]"
+xpos -700
+ypos 2312
+}
+push $Nc46a9600
+Dot {
+name Dot859
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 2130
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave158
+label "Offset: \[value offset]"
+xpos 620
+ypos 2210
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{45+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker153
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 2288
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc4164800 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc4147900 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc4147900
+push $Nc4164800
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc4146b00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc4147900
+push $Nc4146b00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc4147900
+push $Nc4146b00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc4164800
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc4164800
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave158.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438c100
+Transform {
+scale 0.6
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform180
+label "Scale: \[value scale]"
+xpos -700
+ypos 2000
+}
+push $Nc46a9d00
+Dot {
+name Dot837
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 1818
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave149
+label "Offset: \[value offset]"
+xpos 620
+ypos 1898
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{40+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker144
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 1976
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nc40c6400 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nc40c5600 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nc40c5600
+push $Nc40c6400
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nc40c4800 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nc40c5600
+push $Nc40c4800
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nc40c5600
+push $Nc40c4800
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nc40c6400
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nc40c6400
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave149.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438c800
+Transform {
+scale 0.65
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform183
+label "Scale: \[value scale]"
+xpos -700
+ypos 1688
+}
+push $Nc46aa400
+Dot {
+name Dot856
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 1506
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave157
+label "Offset: \[value offset]"
+xpos 620
+ypos 1586
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{35+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker152
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 1664
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfd78100 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfd5b200 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfd5b200
+push $Nbfd78100
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfd5a400 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfd5b200
+push $Nbfd5a400
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfd5b200
+push $Nbfd5a400
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfd78100
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfd78100
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave157.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438cf00
+Transform {
+scale 0.7
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform181
+label "Scale: \[value scale]"
+xpos -700
+ypos 1400
+}
+push $Nc46aab00
+Dot {
+name Dot838
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 1218
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave150
+label "Offset: \[value offset]"
+xpos 620
+ypos 1298
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{30+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker145
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 1376
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfad1d00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfad0f00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfad0f00
+push $Nbfad1d00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfad0100 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfad0f00
+push $Nbfad0100
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfad0f00
+push $Nbfad0100
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfad1d00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfad1d00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave150.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438d600
+Transform {
+scale 0.75
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform182
+label "Scale: \[value scale]"
+xpos -700
+ypos 1136
+}
+push $Nc46ab200
+Dot {
+name Dot853
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 954
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave156
+label "Offset: \[value offset]"
+xpos 620
+ypos 1034
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{25+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker151
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 1112
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfa27900 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfa26b00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfa26b00
+push $Nbfa27900
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfa25d00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfa26b00
+push $Nbfa25d00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfa26b00
+push $Nbfa25d00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfa27900
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfa27900
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave156.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438dd00
+Transform {
+scale 0.8
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform_MAIN15
+label "Scale: \[value scale]"
+xpos -700
+ypos 872
+}
+push $Nc46ab900
+Dot {
+name Dot850
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 714
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave155
+label "Offset: \[value offset]"
+xpos 620
+ypos 794
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{20+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker150
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 872
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfba1600 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfba0800 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfba0800
+push $Nbfba1600
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfb73900 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfba0800
+push $Nbfb73900
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfba0800
+push $Nbfb73900
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfba1600
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfba1600
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave155.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438e400
+Transform {
+scale 0.85
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform_MAIN12
+label "Scale: \[value scale]"
+xpos -700
+ypos 656
+}
+push $Nc60cc100
+Dot {
+name Dot839
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 498
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave151
+label "Offset: \[value offset]"
+xpos 620
+ypos 578
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{15+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker146
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 656
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfce7200 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfce6400 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfce6400
+push $Nbfce7200
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfce5600 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfce6400
+push $Nbfce5600
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfce6400
+push $Nbfce5600
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfce7200
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfce7200
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave151.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438eb00
+Transform {
+scale 0.9
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform_MAIN14
+label "Scale: \[value scale]"
+xpos -700
+ypos 440
+}
+push $Nc60cc800
+Dot {
+name Dot847
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 282
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave154
+label "Offset: \[value offset]"
+xpos 620
+ypos 362
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{10+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker149
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 440
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbfc64f00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbfc64100 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbfc64100
+push $Nbfc64f00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbfc43200 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbfc64100
+push $Nbfc43200
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbfc64100
+push $Nbfc43200
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbfc64f00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbfc64f00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave154.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438f200
+Transform {
+scale 0.95
+center {{Transform_MAIN.center} {Transform_MAIN.center}}
+shutteroffset centred
+name Transform_MAIN13
+label "Scale: \[value scale]"
+xpos -700
+ypos 176
+}
+push $Nc60ccf00
+Dot {
+name Dot844
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos 18
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave153
+label "Offset: \[value offset]"
+xpos 620
+ypos 98
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{5+PROXY_OFFSET14.offset x1143 5}}
+}
+Group {
+name GM_Color_Flicker148
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos 176
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbf9aeb00 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbf9add00 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbf9add00
+push $Nbf9aeb00
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbf9acf00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbf9add00
+push $Nbf9acf00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbf9add00
+push $Nbf9acf00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbf9aeb00
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbf9aeb00
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave153.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc438f900
+Transform {
+center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
+shutteroffset centred
+name Transform_MAIN
+label "Scale: \[value scale]"
+xpos -700
+ypos -88
+}
+push $Nc60cd600
+Dot {
+name Dot840
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 654
+ypos -246
+}
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave_MAIN
+label "Offset: \[value offset]"
+xpos 620
+ypos -166
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength 40
+addUserKnob {7 offset l Offset R 0 100}
+offset {{curve+PROXY_OFFSET14.offset}}
+}
+Group {
+name GM_Color_Flicker147
+tile_color 0xffbf00ff
+label "Offset: \[value offset]"
+xpos 620
+ypos -88
+addUserKnob {20 User l "Color Flicker"}
+addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
+addUserKnob {41 freq l "Wave Length " T proxy.freq}
+addUserKnob {41 maxVal l Max T proxy.maxVal}
+addUserKnob {41 minVal l Min T proxy.minVal}
+addUserKnob {41 offset l Offset T proxy.offset}
+addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
+addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
+addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
+addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
+addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
+addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
+addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
+addUserKnob {41 which l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode7
+tile_color 0x181818ff
+label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
+note_font_size 42
+xpos -328
+ypos -113
+bdwidth 1537
+bdheight 658
+}
+Input {
+inputs 0
+name Mask
+xpos -1470
+ypos 135
+number 1
+}
+Input {
+inputs 0
+name Input
+xpos -1030
+ypos -57
+}
+Dot {
+name Dot1
+xpos -996
+ypos 66
+}
+set Nbf92c800 [stack 0]
+Expression {
+channel3 alpha
+expr3 1
+name Expression
+xpos -1250
+ypos 63
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge
+tile_color 0xff
+xpos -1250
+ypos 123
+disable {{"!\[exists parent.input1]"}}
+}
+set Nbf907900 [stack 0]
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos -1216
+ypos 378
+}
+push $Nbf907900
+push $Nbf92c800
+Dot {
+name Dot3
+xpos -666
+ypos 66
+}
+set Nbf906b00 [stack 0]
+Grade {
+multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
+name Grade_B
+xpos -700
+ypos 279
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_blue
+tile_color 0x777777ff
+xpos -920
+ypos 279
+}
+push $Nbf907900
+push $Nbf906b00
+Grade {
+multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_G
+xpos -700
+ypos 207
+}
+Clamp {
+channels rgb
+minimum {{Clamp_red.minimum}}
+maximum {{Clamp_red.maximum}}
+mix {{Grade_RED.mix}}
+name Clamp_green
+tile_color 0x777777ff
+xpos -920
+ypos 207
+}
+push $Nbf907900
+push $Nbf906b00
+Grade {
+multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
+name Grade_R
+xpos -700
+ypos 135
+}
+Clamp {
+channels rgb
+mix {{Grade_RED.mix}}
+name Clamp_red
+tile_color 0x777777ff
+xpos -920
+ypos 135
+}
+push $Nbf92c800
+Copy {
+inputs 2+1
+from0 rgba.red
+to0 rgba.red
+name Copy_RED
+tile_color 0xff0000ff
+xpos -1030
+ypos 129
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.green
+to0 rgba.green
+name Copy_GREEN
+tile_color 0x1fff00ff
+xpos -1030
+ypos 201
+disable {{"!\[exists parent.input0]"}}
+}
+Copy {
+inputs 2+1
+from0 rgba.blue
+to0 rgba.blue
+name Copy_BLUE
+tile_color 0x3fffff
+xpos -1030
+ypos 273
+disable {{"!\[exists parent.input0]"}}
+}
+push $Nbf92c800
+Dissolve {
+inputs 2+1
+which 1
+name Dissolve1
+label "Which: \[value which]"
+xpos -1030
+ypos 363
+}
+Output {
+name Output1
+xpos -1030
+ypos 543
+}
+NoOp {
+inputs 0
+name proxy
+tile_color 0xff
+xpos -480
+ypos 207
+addUserKnob {20 User}
+addUserKnob {7 freq l Frequency R 0 10}
+freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{parent.parent.HSVTool_Wave_MAIN.offset}}
+addUserKnob {7 maxVal l Max R 0 20}
+maxVal 2.5
+addUserKnob {7 minVal l Min R 0 20}
+minVal 1
+}
+end_group
+push $Nc60ce400
+Keymix {
+inputs 3
+name Keymix149
+xpos 510
+ypos -88
+}
+Keymix {
+inputs 3
+name Keymix157
+xpos 510
+ypos 176
+}
+Keymix {
+inputs 3
+name Keymix158
+xpos 510
+ypos 440
+}
+Keymix {
+inputs 3
+name Keymix150
+xpos 510
+ypos 656
+}
+Keymix {
+inputs 3
+name Keymix159
+xpos 510
+ypos 872
+}
+Keymix {
+inputs 3
+name Keymix160
+xpos 510
+ypos 1112
+}
+Keymix {
+inputs 3
+name Keymix151
+xpos 510
+ypos 1376
+}
+Keymix {
+inputs 3
+name Keymix161
+xpos 510
+ypos 1664
+}
+Keymix {
+inputs 3
+name Keymix152
+xpos 510
+ypos 1976
+}
+Keymix {
+inputs 3
+name Keymix162
+xpos 510
+ypos 2288
+}
+Keymix {
+inputs 3
+name Keymix153
+xpos 510
+ypos 2624
+}
+Keymix {
+inputs 3
+name Keymix163
+xpos 510
+ypos 2936
+}
+Keymix {
+inputs 3
+name Keymix154
+xpos 510
+ypos 3224
+}
+Keymix {
+inputs 3
+name Keymix164
+xpos 510
+ypos 3536
+}
+Keymix {
+inputs 3
+name Keymix155
+xpos 510
+ypos 3872
+}
+Keymix {
+inputs 3
+name Keymix165
+xpos 510
+ypos 4160
+}
+Keymix {
+inputs 3
+name Keymix156
+xpos 510
+ypos 4448
+}
+Keymix {
+inputs 3
+name Keymix166
+xpos 510
+ypos 4712
+}
+Keymix {
+inputs 3
+name Keymix167
+xpos 510
+ypos 5000
+}
+Keymix {
+inputs 3
+name Keymix168
+xpos 510
+ypos 5288
+}
+push $Nc43a4f00
+Dot {
+name Dot824
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 764
+ypos 5562
+}
+Dissolve {
+inputs 2
+which 1
+name Dissolve32
+label "Which: \[value which]"
+xpos 510
+ypos 5546
+}
+Output {
+name Output1
+xpos 510
+ypos 5798
+}
+Transform {
+inputs 0
+center {2944 1548}
+shutteroffset centred
+name Transform_proxy
+xpos -700
+ypos -250
+addUserKnob {20 User}
+addUserKnob {7 x_offset l "X Offset" R -5000 5000}
+addUserKnob {7 y_offset l "Y Offset" R -5000 5000}
+}
+end_group
