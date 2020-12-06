@@ -1,0 +1,190 @@
+set cut_paste_input [stack 0]
+version 12.2 v1
+push $cut_paste_input
+NoOp {
+ name NoOp2
+ selected true
+ xpos 8760
+ ypos -2098
+ addUserKnob {20 User}
+ addUserKnob {1 knob_1}
+ addUserKnob {7 knob_2 l knob_7}
+}
+NoOp {
+ inputs 0
+ name NoOp5
+ selected true
+ xpos 8760
+ ypos -2026
+ addUserKnob {20 User}
+ addUserKnob {1 knob_1}
+ addUserKnob {7 knob_2 l knob_7}
+}
+NoOp {
+ inputs 0
+ name Nuke_Knobs_ORDER
+ selected true
+ xpos 8870
+ ypos -2266
+ addUserKnob {20 User}
+ addUserKnob {0 obsolate +INVISIBLE}
+ addUserKnob {1 text l 1_Text}
+ addUserKnob {2 filename l 2_File}
+ addUserKnob {3 int l 3_Integer}
+ addUserKnob {4 pulldown l 4_Pulldown M {A B C D}}
+ addUserKnob {6 check l 6_Check +STARTLINE}
+ addUserKnob {7 float l 7_Float}
+ addUserKnob {12 twoD l 12_2D}
+ addUserKnob {13 threeD l 13_3D}
+ addUserKnob {14 w_h l 14_W/H R 0 100}
+ addUserKnob {15 bounding l 15_Bounding}
+ addUserKnob {16 size l 16_Size}
+ addUserKnob {18 rgb l 18_RGB}
+ rgb {0 0 0}
+ addUserKnob {6 rgb_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {19 rgba l 19_RGBA}
+ rgba {0 0 0 0}
+ addUserKnob {6 rgba_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {20 group l 20_Group n 1}
+ group 0
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {22 py_script l "22_Py Script" T "nuke.message('This is a python script knob')\n" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {26 text_1 l 26_Text T ""}
+ addUserKnob {30 uv l 30_UV}
+ addUserKnob {32 tcl l 32_TCL +STARTLINE}
+ addUserKnob {35 command l 35_Command M {thing/A "python nuke.message('A')" thing/B "python nuke.message('B')" thing/C "python nuke.message('C')"}}
+ addUserKnob {52 py_cust l "52_Py Custom" +STARTLINE}
+ addUserKnob {68 cascading_pulldown l "68_Cascading Pulldown" M {A/1 A/2 A/3 B C D}}
+}
+NoOp {
+ inputs 0
+ name Nuke_Knobs
+ selected true
+ xpos 8760
+ ypos -2338
+ addUserKnob {20 User}
+ addUserKnob {7 float l Float}
+ addUserKnob {12 twoD l 2D}
+ addUserKnob {13 threeD l 3D}
+ addUserKnob {14 w_h l W/H R 0 100}
+ addUserKnob {15 bounding l Bounding}
+ addUserKnob {16 size l Size}
+ addUserKnob {30 uv l UV}
+ addUserKnob {3 int l Integer}
+ addUserKnob {26 ""}
+ addUserKnob {18 rgb l RGB}
+ rgb {0 0 0}
+ addUserKnob {6 rgb_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {19 rgba l RGBA}
+ rgba {0 0 0 0}
+ addUserKnob {6 rgba_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {26 ""}
+ addUserKnob {6 check l Check +STARTLINE}
+ addUserKnob {32 tcl l TCL +STARTLINE}
+ addUserKnob {22 py_script l "Py Script" T "nuke.message('This is a python script knob')\n" +STARTLINE}
+ addUserKnob {52 py_cust l "Py Custom" +STARTLINE}
+ addUserKnob {4 pulldown l Pulldown M {""}}
+ addUserKnob {68 cascading_pulldown l "Cascading Pulldown" M {""}}
+ addUserKnob {35 command l Command M {thing/A "python nuke.message('A')" thing/B "python nuke.message('B')" thing/C "python nuke.message('C')"}}
+ addUserKnob {1 text l Text}
+ addUserKnob {2 filename l File}
+ addUserKnob {26 ""}
+ addUserKnob {20 group l Group n 1}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 text_1 l Text T ""}
+ addUserKnob {0 obsolate +INVISIBLE}
+}
+NoOp {
+ inputs 0
+ name NoOp4
+ selected true
+ xpos 8870
+ ypos -2026
+ addUserKnob {20 User}
+ addUserKnob {1 slider l Slider}
+ slider value_this
+ addUserKnob {7 slider2 l Slider}
+}
+NoOp {
+ inputs 0
+ name NoOp3
+ selected true
+ xpos 8870
+ ypos -2098
+ addUserKnob {20 UI l ui}
+ addUserKnob {35 functions M {stuff/A "python nuke.thisNode().knob('secondmenu').setValues(('a', 'b'))" stuff/B "python nuke.message('B')" stuff/C "python nuke.message('C')" "" "" ""}}
+ addUserKnob {4 secondmenu M {a b}}
+ secondmenu b
+ addUserKnob {4 element M {Shapes Strokes}}
+ addUserKnob {3 pointNumber l "Point Number"}
+ addUserKnob {43 info l Found}
+ addUserKnob {26 warning l "<span style=\"color:red\">invalid index</span>"}
+ addUserKnob {1 fRange l "Track Range"}
+ addUserKnob {22 update l Update -STARTLINE}
+ addUserKnob {7 scale l Scale}
+ addUserKnob {6 name l label -STARTLINE}
+ addUserKnob {41 custom l Custom T root.Blur7.size}
+ addUserKnob {78 mult n 1}
+ addUserKnob {19 mult1}
+ mult1 {0 0 0 0}
+ addUserKnob {15 bbox}
+ addUserKnob {31 box3 l Box3}
+ addUserKnob {11 box3 l Box3}
+ addUserKnob {10 ""}
+ addUserKnob {10 channelMask l 10_ChannelMask}
+ addUserKnob {40 channelMask l 10_ChannelMask -STARTLINE}
+ addUserKnob {19 ColorChip l 10_ColorChip}
+ ColorChip {0 0 0 0}
+ addUserKnob {78 Array l 78_Array n 1}
+ addUserKnob {0 Axis}
+ addUserKnob {0 Axis}
+ addUserKnob {15 BBox l 15_BBox}
+ addUserKnob {7 Double l 14_Double}
+ addUserKnob {31 Box3}
+ addUserKnob {11 Channel}
+}
+NoOp {
+ inputs 0
+ name Nuke_Knobs_ORDER_ALL
+ selected true
+ xpos 8980
+ ypos -2338
+ addUserKnob {20 User}
+ addUserKnob {0 obsolate +INVISIBLE}
+ addUserKnob {1 text l 1_Text}
+ addUserKnob {2 filename l 2_File}
+ addUserKnob {3 int l 3_Integer}
+ addUserKnob {4 pulldown l 4_Pulldown M {A B C D}}
+ addUserKnob {6 check l 6_Check +STARTLINE}
+ addUserKnob {7 float l 7_Float}
+ addUserKnob {10 channelMask l 10_ChannelMask}
+ addUserKnob {11 channel l 11_Channel}
+ addUserKnob {12 twoD l 12_2D}
+ addUserKnob {13 threeD l 13_3D}
+ addUserKnob {14 w_h l 14_W/H R 0 100}
+ addUserKnob {15 bounding l 15_Bounding}
+ addUserKnob {16 size l 16_Size}
+ addUserKnob {18 rgb l 18_RGB}
+ rgb {0 0 0}
+ addUserKnob {6 rgb_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {19 AColor l 19_AColor}
+ AColor {0 0 0 0}
+ addUserKnob {6 AColor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {20 group l 20_Group n 1}
+ group 0
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {22 py_script l "22_Py Script" T "nuke.message('This is a python script knob')\n" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {26 text_1 l 26_Text T ""}
+ addUserKnob {30 uv l 30_UV}
+ addUserKnob {31 box3 l 31_Box3}
+ addUserKnob {32 tcl l 32_TCL +STARTLINE}
+ addUserKnob {35 command l 35_Command M {thing/A "python nuke.message('A')" thing/B "python nuke.message('B')" thing/C "python nuke.message('C')"}}
+ addUserKnob {40 colorChip l 40_ColorChip}
+ addUserKnob {41 link l 41_Link}
+ addUserKnob {43 multi_line l 43_MultiLine}
+ addUserKnob {52 py_cust l "52_Py Custom" +STARTLINE}
+ addUserKnob {68 cascading_pulldown l "68_Cascading Pulldown" M {A/1 A/2 A/3 B C D}}
+ addUserKnob {78 array l 78_Array n 1}
+}
