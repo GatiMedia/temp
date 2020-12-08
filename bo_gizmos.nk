@@ -1,15 +1,15 @@
 BackdropNode {
 inputs 0
-name Backdrop_Adjust31
+name Backdrop_Adjust9
 tile_color 0x3f597fff
 label "<center><font color=\[value note_color]>\[value note]"
 note_font "Bitstream Vera Sans Bold Bold Bold"
 note_font_size 42
 selected true
 xpos 1840
-ypos -1048
+ypos -1047
 bdwidth 500
-bdheight 320
+bdheight 318
 addUserKnob {20 User}
 addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
 addUserKnob {26 label_1 l <b>Label}
@@ -20,30 +20,6 @@ note_color Fuchsia
 addUserKnob {26 font_size l "Note size"}
 addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
 addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
-addUserKnob {26 resize l "<b>Re Size"}
-addUserKnob {26 y l Height}
-addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
-addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
-addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
-addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
-addUserKnob {26 x l Width}
-addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
-addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
-addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
-addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
-addUserKnob {26 node_color l "<b>Node Color"}
-addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
-addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
-addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
-addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
-addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
-addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
-addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
-addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
-addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
-addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
-addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
-addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
 addUserKnob {26 tasks l <b>Tasks}
 addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
 addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
@@ -59,6 +35,31 @@ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# le
 addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
 addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
 addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+addUserKnob {26 node_color l "<b>Node Color"}
+addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+addUserKnob {20 re_size l "Re Size" n 1}
+addUserKnob {26 y l Height}
+addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+addUserKnob {26 x l Width}
+addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+addUserKnob {20 endGroup n -1}
 addUserKnob {26 ""}
 addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
 addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
@@ -104,7 +105,7 @@ xpos -920
 ypos -322
 number 1
 }
-set N5d233560 [stack 0]
+set N6f1a13b0 [stack 0]
 Dot {
 name Dot1
 tile_color 0x949494ff
@@ -113,7 +114,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 5490
 }
-push $N5d233560
+push $N6f1a13b0
 Dot {
 name Dot825
 tile_color 0x949494ff
@@ -122,7 +123,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos -78
 }
-set N5d23c520 [stack 0]
+set N7887f650 [stack 0]
 Dot {
 name Dot842
 tile_color 0x949494ff
@@ -131,7 +132,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 186
 }
-set N5d240dd0 [stack 0]
+set N6f289030 [stack 0]
 Dot {
 name Dot845
 tile_color 0x949494ff
@@ -140,7 +141,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 450
 }
-set N5d245630 [stack 0]
+set N6f28d8d0 [stack 0]
 Dot {
 name Dot826
 tile_color 0x949494ff
@@ -149,7 +150,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 666
 }
-set N5d249ee0 [stack 0]
+set N6f292180 [stack 0]
 Dot {
 name Dot848
 tile_color 0x949494ff
@@ -158,7 +159,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 882
 }
-set N5d24e750 [stack 0]
+set N6f2969f0 [stack 0]
 Dot {
 name Dot851
 tile_color 0x949494ff
@@ -167,7 +168,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1146
 }
-set N5d252ff0 [stack 0]
+set N787fa450 [stack 0]
 Dot {
 name Dot827
 tile_color 0x949494ff
@@ -176,7 +177,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1410
 }
-set N5d257870 [stack 0]
+set N787fecd0 [stack 0]
 Dot {
 name Dot854
 tile_color 0x949494ff
@@ -185,7 +186,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1698
 }
-set N5d25c160 [stack 0]
+set N788035c0 [stack 0]
 Dot {
 name Dot828
 tile_color 0x949494ff
@@ -194,7 +195,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2010
 }
-set N5d2609c0 [stack 0]
+set N7888cda0 [stack 0]
 Dot {
 name Dot857
 tile_color 0x949494ff
@@ -203,7 +204,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2322
 }
-set N5d265240 [stack 0]
+set N78891620 [stack 0]
 Dot {
 name Dot829
 tile_color 0x949494ff
@@ -212,7 +213,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2658
 }
-set N5d269ac0 [stack 0]
+set N78895ea0 [stack 0]
 Dot {
 name Dot860
 tile_color 0x949494ff
@@ -221,7 +222,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2970
 }
-set N5d26e340 [stack 0]
+set N7889a720 [stack 0]
 Dot {
 name Dot830
 tile_color 0x949494ff
@@ -230,7 +231,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3258
 }
-set N5d272bc0 [stack 0]
+set N7889efa0 [stack 0]
 Dot {
 name Dot863
 tile_color 0x949494ff
@@ -239,7 +240,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3570
 }
-set N5d277440 [stack 0]
+set N7884a5e0 [stack 0]
 Dot {
 name Dot831
 tile_color 0x949494ff
@@ -248,7 +249,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3906
 }
-set N5d27bcc0 [stack 0]
+set N7884ee60 [stack 0]
 Dot {
 name Dot866
 tile_color 0x949494ff
@@ -257,7 +258,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4194
 }
-set N5d280680 [stack 0]
+set N78853820 [stack 0]
 Dot {
 name Dot832
 tile_color 0x949494ff
@@ -266,7 +267,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4482
 }
-set N5d284e30 [stack 0]
+set N78857fd0 [stack 0]
 Dot {
 name Dot869
 tile_color 0x949494ff
@@ -275,7 +276,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4746
 }
-set N5d2896b0 [stack 0]
+set N7885c850 [stack 0]
 Dot {
 name Dot870
 tile_color 0x949494ff
@@ -284,7 +285,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 5034
 }
-set N5d28df30 [stack 0]
+set N6f0ae600 [stack 0]
 Dot {
 name Dot875
 tile_color 0x949494ff
@@ -324,7 +325,7 @@ note_font_color 0xffffffff
 xpos 544
 ypos -318
 }
-set N5d2b6b20 [stack 0]
+set N6f0d71e0 [stack 0]
 Dot {
 name Dot815
 tile_color 0x949494ff
@@ -341,7 +342,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos -246
 }
-set N5d2bfe10 [stack 0]
+set N6f0e04f0 [stack 0]
 Dot {
 name Dot843
 tile_color 0x949494ff
@@ -350,7 +351,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 18
 }
-set N5d2c4480 [stack 0]
+set N6f0e4b90 [stack 0]
 Dot {
 name Dot846
 tile_color 0x949494ff
@@ -359,7 +360,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 282
 }
-set N5d2c8d00 [stack 0]
+set N6f0e9410 [stack 0]
 Dot {
 name Dot817
 tile_color 0x949494ff
@@ -368,7 +369,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 498
 }
-set N5d2cdbf0 [stack 0]
+set N6f0edeb0 [stack 0]
 Dot {
 name Dot849
 tile_color 0x949494ff
@@ -377,7 +378,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 714
 }
-set N5d2d24d0 [stack 0]
+set N6f0f2780 [stack 0]
 Dot {
 name Dot852
 tile_color 0x949494ff
@@ -386,7 +387,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 954
 }
-set N5d2d6b00 [stack 0]
+set N6f0f6df0 [stack 0]
 Dot {
 name Dot818
 tile_color 0x949494ff
@@ -395,7 +396,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 1218
 }
-set N5d2db5c0 [stack 0]
+set N6f0fb8b0 [stack 0]
 Dot {
 name Dot855
 tile_color 0x949494ff
@@ -404,7 +405,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 1506
 }
-set N5d2dffb0 [stack 0]
+set N6f100280 [stack 0]
 Dot {
 name Dot819
 tile_color 0x949494ff
@@ -413,7 +414,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 1818
 }
-set N5d2e45c0 [stack 0]
+set N6f1048d0 [stack 0]
 Dot {
 name Dot858
 tile_color 0x949494ff
@@ -422,7 +423,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 2130
 }
-set N5d2e9100 [stack 0]
+set N6f1093d0 [stack 0]
 Dot {
 name Dot820
 tile_color 0x949494ff
@@ -431,7 +432,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 2466
 }
-set N5d2ed9d0 [stack 0]
+set N6f10dca0 [stack 0]
 Dot {
 name Dot861
 tile_color 0x949494ff
@@ -440,7 +441,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 2778
 }
-set N5d2f1f30 [stack 0]
+set N6f1122c0 [stack 0]
 Dot {
 name Dot821
 tile_color 0x949494ff
@@ -449,7 +450,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 3066
 }
-set N5d2f6810 [stack 0]
+set N6f116b40 [stack 0]
 Dot {
 name Dot864
 tile_color 0x949494ff
@@ -458,7 +459,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 3378
 }
-set N5d2fb3a0 [stack 0]
+set N6f11b690 [stack 0]
 Dot {
 name Dot822
 tile_color 0x949494ff
@@ -467,7 +468,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 3714
 }
-set N5d2ff8d0 [stack 0]
+set N6f11fc60 [stack 0]
 Dot {
 name Dot867
 tile_color 0x949494ff
@@ -476,7 +477,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 4002
 }
-set N5d3044f0 [stack 0]
+set N6f1247e0 [stack 0]
 Dot {
 name Dot823
 tile_color 0x949494ff
@@ -485,7 +486,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 4290
 }
-set N5d308a50 [stack 0]
+set N6f128d90 [stack 0]
 Dot {
 name Dot871
 tile_color 0x949494ff
@@ -494,7 +495,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 4554
 }
-set N5d30d2e0 [stack 0]
+set N6f12d610 [stack 0]
 Dot {
 name Dot872
 tile_color 0x949494ff
@@ -503,7 +504,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 4842
 }
-set N5d311ee0 [stack 0]
+set N6f1321d0 [stack 0]
 Dot {
 name Dot876
 tile_color 0x949494ff
@@ -512,7 +513,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 5130
 }
-set N5d3163d0 [stack 0]
+set N6f136750 [stack 0]
 Dot {
 name Dot877
 tile_color 0x949494ff
@@ -588,7 +589,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d347ad0 [stack 0]
+set N6f1674c0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -605,7 +606,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d35a5e0 [stack 0]
+set N6f1797c0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -614,14 +615,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d35a5e0
-push $N5d347ad0
+push $N6f1797c0
+push $N6f1674c0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d36b380 [stack 0]
+set N6f18a440 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -638,8 +639,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d35a5e0
-push $N5d36b380
+push $N6f1797c0
+push $N6f18a440
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -656,8 +657,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d35a5e0
-push $N5d36b380
+push $N6f1797c0
+push $N6f18a440
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -672,7 +673,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d347ad0
+push $N6f1674c0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -703,7 +704,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d347ad0
+push $N6f1674c0
 Dissolve {
 inputs 2+1
 which 1
@@ -734,7 +735,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d28df30
+push $N6f0ae600
 Transform {
 scale 0.1
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -751,7 +752,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 5018
 }
-push $N5d311ee0
+push $N6f1321d0
 Dot {
 name Dot873
 tile_color 0x949494ff
@@ -827,7 +828,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d452bd0 [stack 0]
+set N6f06ff30 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -844,7 +845,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d464df0 [stack 0]
+set N6f082230 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -853,14 +854,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d464df0
-push $N5d452bd0
+push $N6f082230
+push $N6f06ff30
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d475ab0 [stack 0]
+set N6f092eb0 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -877,8 +878,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d464df0
-push $N5d475ab0
+push $N6f082230
+push $N6f092eb0
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -895,8 +896,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d464df0
-push $N5d475ab0
+push $N6f082230
+push $N6f092eb0
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -911,7 +912,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d452bd0
+push $N6f06ff30
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -943,7 +944,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d452bd0
+push $N6f06ff30
 Dissolve {
 inputs 2+1
 which 1
@@ -974,7 +975,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d2896b0
+push $N7885c850
 Transform {
 scale 0.15
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -992,7 +993,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 4730
 }
-push $N5d30d2e0
+push $N6f12d610
 Dot {
 name Dot874
 tile_color 0x949494ff
@@ -1068,7 +1069,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d55b7b0 [stack 0]
+set N6ef78c40 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -1085,7 +1086,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d56da60 [stack 0]
+set N6ef8af40 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -1094,14 +1095,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d56da60
-push $N5d55b7b0
+push $N6ef8af40
+push $N6ef78c40
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d57e720 [stack 0]
+set N6ed9bbe0 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -1118,8 +1119,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d56da60
-push $N5d57e720
+push $N6ef8af40
+push $N6ed9bbe0
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -1136,8 +1137,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d56da60
-push $N5d57e720
+push $N6ef8af40
+push $N6ed9bbe0
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -1152,7 +1153,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d55b7b0
+push $N6ef78c40
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -1183,7 +1184,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d55b7b0
+push $N6ef78c40
 Dissolve {
 inputs 2+1
 which 1
@@ -1214,7 +1215,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d284e30
+push $N78857fd0
 Transform {
 scale 0.2
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1231,7 +1232,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 4466
 }
-push $N5d308a50
+push $N6f128d90
 Dot {
 name Dot833
 tile_color 0x949494ff
@@ -1307,7 +1308,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d664580 [stack 0]
+set N6ee81aa0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -1324,7 +1325,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d676830 [stack 0]
+set N6ee93da0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -1333,14 +1334,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d676830
-push $N5d664580
+push $N6ee93da0
+push $N6ee81aa0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d6874f0 [stack 0]
+set N6eca4a60 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -1357,8 +1358,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d676830
-push $N5d6874f0
+push $N6ee93da0
+push $N6eca4a60
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -1375,8 +1376,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d676830
-push $N5d6874f0
+push $N6ee93da0
+push $N6eca4a60
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -1391,7 +1392,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d664580
+push $N6ee81aa0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -1422,7 +1423,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d664580
+push $N6ee81aa0
 Dissolve {
 inputs 2+1
 which 1
@@ -1453,7 +1454,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d280680
+push $N78853820
 Transform {
 scale 0.25
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1471,7 +1472,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 4178
 }
-push $N5d3044f0
+push $N6f1247e0
 Dot {
 name Dot868
 tile_color 0x949494ff
@@ -1547,7 +1548,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d76d480 [stack 0]
+set N6ed8aa00 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -1564,7 +1565,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d77f730 [stack 0]
+set N6eb9cd20 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -1573,14 +1574,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d77f730
-push $N5d76d480
+push $N6eb9cd20
+push $N6ed8aa00
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d7903f0 [stack 0]
+set N6ebad9a0 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -1597,8 +1598,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d77f730
-push $N5d7903f0
+push $N6eb9cd20
+push $N6ebad9a0
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -1615,8 +1616,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d77f730
-push $N5d7903f0
+push $N6eb9cd20
+push $N6ebad9a0
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -1631,7 +1632,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d76d480
+push $N6ed8aa00
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -1662,7 +1663,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d76d480
+push $N6ed8aa00
 Dissolve {
 inputs 2+1
 which 1
@@ -1693,7 +1694,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d27bcc0
+push $N7884ee60
 Transform {
 scale 0.3
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1710,7 +1711,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 3890
 }
-push $N5d2ff8d0
+push $N6f11fc60
 Dot {
 name Dot834
 tile_color 0x949494ff
@@ -1786,7 +1787,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d876870 [stack 0]
+set N6ec93670 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -1803,7 +1804,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d888b20 [stack 0]
+set N6eaa5990 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -1812,14 +1813,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d888b20
-push $N5d876870
+push $N6eaa5990
+push $N6ec93670
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d8997e0 [stack 0]
+set N6eab6610 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -1836,8 +1837,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d888b20
-push $N5d8997e0
+push $N6eaa5990
+push $N6eab6610
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -1854,8 +1855,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d888b20
-push $N5d8997e0
+push $N6eaa5990
+push $N6eab6610
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -1870,7 +1871,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d876870
+push $N6ec93670
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -1901,7 +1902,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d876870
+push $N6ec93670
 Dissolve {
 inputs 2+1
 which 1
@@ -1932,7 +1933,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d277440
+push $N7884a5e0
 Transform {
 scale 0.35
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1950,7 +1951,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 3554
 }
-push $N5d2fb3a0
+push $N6f11b690
 Dot {
 name Dot865
 tile_color 0x949494ff
@@ -2026,7 +2027,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d97f760 [stack 0]
+set N6e99c580 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -2043,7 +2044,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d991a10 [stack 0]
+set N6e9ae880 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -2052,14 +2053,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d991a10
-push $N5d97f760
+push $N6e9ae880
+push $N6e99c580
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d9a26d0 [stack 0]
+set N6e9bf500 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -2076,8 +2077,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d991a10
-push $N5d9a26d0
+push $N6e9ae880
+push $N6e9bf500
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -2094,8 +2095,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d991a10
-push $N5d9a26d0
+push $N6e9ae880
+push $N6e9bf500
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -2110,7 +2111,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d97f760
+push $N6e99c580
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -2141,7 +2142,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d97f760
+push $N6e99c580
 Dissolve {
 inputs 2+1
 which 1
@@ -2172,7 +2173,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d272bc0
+push $N7889efa0
 Transform {
 scale 0.4
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2189,7 +2190,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 3242
 }
-push $N5d2f6810
+push $N6f116b40
 Dot {
 name Dot835
 tile_color 0x949494ff
@@ -2265,7 +2266,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5da883e0 [stack 0]
+set N6e8a5240 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -2282,7 +2283,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5da9a690 [stack 0]
+set N6e8b7540 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -2291,14 +2292,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5da9a690
-push $N5da883e0
+push $N6e8b7540
+push $N6e8a5240
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5daab350 [stack 0]
+set N6e8c81c0 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -2315,8 +2316,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5da9a690
-push $N5daab350
+push $N6e8b7540
+push $N6e8c81c0
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -2333,8 +2334,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5da9a690
-push $N5daab350
+push $N6e8b7540
+push $N6e8c81c0
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -2349,7 +2350,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5da883e0
+push $N6e8a5240
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -2380,7 +2381,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5da883e0
+push $N6e8a5240
 Dissolve {
 inputs 2+1
 which 1
@@ -2411,7 +2412,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d26e340
+push $N7889a720
 Transform {
 scale 0.45
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2429,7 +2430,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 2954
 }
-push $N5d2f1f30
+push $N6f1122c0
 Dot {
 name Dot862
 tile_color 0x949494ff
@@ -2505,7 +2506,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5db91240 [stack 0]
+set N6e7ae100 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -2522,7 +2523,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5dba34f0 [stack 0]
+set N6e7c0400 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -2531,14 +2532,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5dba34f0
-push $N5db91240
+push $N6e7c0400
+push $N6e7ae100
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5dbb41b0 [stack 0]
+set N6e7d1080 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -2555,8 +2556,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5dba34f0
-push $N5dbb41b0
+push $N6e7c0400
+push $N6e7d1080
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -2573,8 +2574,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5dba34f0
-push $N5dbb41b0
+push $N6e7c0400
+push $N6e7d1080
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -2589,7 +2590,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5db91240
+push $N6e7ae100
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -2620,7 +2621,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5db91240
+push $N6e7ae100
 Dissolve {
 inputs 2+1
 which 1
@@ -2651,7 +2652,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d269ac0
+push $N78895ea0
 Transform {
 scale 0.5
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2668,7 +2669,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 2642
 }
-push $N5d2ed9d0
+push $N6f10dca0
 Dot {
 name Dot836
 tile_color 0x949494ff
@@ -2744,7 +2745,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5dc99ea0 [stack 0]
+set N6e6b6de0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -2761,7 +2762,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5dcac150 [stack 0]
+set N6e6c90e0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -2770,14 +2771,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5dcac150
-push $N5dc99ea0
+push $N6e6c90e0
+push $N6e6b6de0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5dcbce10 [stack 0]
+set N6e6d9d60 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -2794,8 +2795,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5dcac150
-push $N5dcbce10
+push $N6e6c90e0
+push $N6e6d9d60
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -2812,8 +2813,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5dcac150
-push $N5dcbce10
+push $N6e6c90e0
+push $N6e6d9d60
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -2828,7 +2829,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5dc99ea0
+push $N6e6b6de0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -2859,7 +2860,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5dc99ea0
+push $N6e6b6de0
 Dissolve {
 inputs 2+1
 which 1
@@ -2890,7 +2891,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d265240
+push $N78891620
 Transform {
 scale 0.55
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2908,7 +2909,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 2306
 }
-push $N5d2e9100
+push $N6f1093d0
 Dot {
 name Dot859
 tile_color 0x949494ff
@@ -2984,7 +2985,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5dda2d80 [stack 0]
+set N6e5bfda0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -3001,7 +3002,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5ddb5030 [stack 0]
+set N6e5d20a0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -3010,14 +3011,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5ddb5030
-push $N5dda2d80
+push $N6e5d20a0
+push $N6e5bfda0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5ddc5cf0 [stack 0]
+set N6e5e2d20 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -3034,8 +3035,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5ddb5030
-push $N5ddc5cf0
+push $N6e5d20a0
+push $N6e5e2d20
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -3052,8 +3053,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5ddb5030
-push $N5ddc5cf0
+push $N6e5d20a0
+push $N6e5e2d20
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -3068,7 +3069,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5dda2d80
+push $N6e5bfda0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -3099,7 +3100,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5dda2d80
+push $N6e5bfda0
 Dissolve {
 inputs 2+1
 which 1
@@ -3130,7 +3131,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d2609c0
+push $N7888cda0
 Transform {
 scale 0.6
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -3147,7 +3148,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1994
 }
-push $N5d2e45c0
+push $N6f1048d0
 Dot {
 name Dot837
 tile_color 0x949494ff
@@ -3223,7 +3224,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N94150960 [stack 0]
+set N6e4c89d0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -3240,7 +3241,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N94162c10 [stack 0]
+set N6e4dacd0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -3249,14 +3250,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N94162c10
-push $N94150960
+push $N6e4dacd0
+push $N6e4c89d0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N941738d0 [stack 0]
+set N6e4eb950 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -3273,8 +3274,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N94162c10
-push $N941738d0
+push $N6e4dacd0
+push $N6e4eb950
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -3291,8 +3292,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N94162c10
-push $N941738d0
+push $N6e4dacd0
+push $N6e4eb950
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -3307,7 +3308,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N94150960
+push $N6e4c89d0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -3338,7 +3339,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N94150960
+push $N6e4c89d0
 Dissolve {
 inputs 2+1
 which 1
@@ -3369,7 +3370,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d25c160
+push $N788035c0
 Transform {
 scale 0.65
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -3387,7 +3388,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1682
 }
-push $N5d2dffb0
+push $N6f100280
 Dot {
 name Dot856
 tile_color 0x949494ff
@@ -3463,7 +3464,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N943597f0 [stack 0]
+set N6e3d18e0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -3480,7 +3481,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N9436baa0 [stack 0]
+set N6e3e3be0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -3489,14 +3490,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N9436baa0
-push $N943597f0
+push $N6e3e3be0
+push $N6e3d18e0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N9437c760 [stack 0]
+set N6e3f4860 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -3513,8 +3514,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N9436baa0
-push $N9437c760
+push $N6e3e3be0
+push $N6e3f4860
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -3531,8 +3532,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N9436baa0
-push $N9437c760
+push $N6e3e3be0
+push $N6e3f4860
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -3547,7 +3548,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N943597f0
+push $N6e3d18e0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -3578,7 +3579,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N943597f0
+push $N6e3d18e0
 Dissolve {
 inputs 2+1
 which 1
@@ -3609,7 +3610,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d257870
+push $N787fecd0
 Transform {
 scale 0.7
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -3626,7 +3627,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1394
 }
-push $N5d2db5c0
+push $N6f0fb8b0
 Dot {
 name Dot838
 tile_color 0x949494ff
@@ -3702,7 +3703,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5cfbd420 [stack 0]
+set N6e2da5f0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -3719,7 +3720,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5cfcf6d0 [stack 0]
+set N6e2ec8f0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -3728,14 +3729,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5cfcf6d0
-push $N5cfbd420
+push $N6e2ec8f0
+push $N6e2da5f0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5cfe0390 [stack 0]
+set N6e2fd570 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -3752,8 +3753,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5cfcf6d0
-push $N5cfe0390
+push $N6e2ec8f0
+push $N6e2fd570
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -3770,8 +3771,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5cfcf6d0
-push $N5cfe0390
+push $N6e2ec8f0
+push $N6e2fd570
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -3786,7 +3787,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5cfbd420
+push $N6e2da5f0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -3817,7 +3818,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5cfbd420
+push $N6e2da5f0
 Dissolve {
 inputs 2+1
 which 1
@@ -3848,7 +3849,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d252ff0
+push $N787fa450
 Transform {
 scale 0.75
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -3866,7 +3867,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1130
 }
-push $N5d2d6b00
+push $N6f0f6df0
 Dot {
 name Dot853
 tile_color 0x949494ff
@@ -3942,7 +3943,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set N5d0c62a0 [stack 0]
+set N6e1e34f0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -3959,7 +3960,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set N5d0d8550 [stack 0]
+set N6e1f57f0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -3968,14 +3969,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $N5d0d8550
-push $N5d0c62a0
+push $N6e1f57f0
+push $N6e1e34f0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set N5d0e9210 [stack 0]
+set N6e206470 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -3992,8 +3993,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $N5d0d8550
-push $N5d0e9210
+push $N6e1f57f0
+push $N6e206470
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -4010,8 +4011,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $N5d0d8550
-push $N5d0e9210
+push $N6e1f57f0
+push $N6e206470
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -4026,7 +4027,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $N5d0c62a0
+push $N6e1e34f0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -4057,7 +4058,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $N5d0c62a0
+push $N6e1e34f0
 Dissolve {
 inputs 2+1
 which 1
@@ -4088,7 +4089,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d24e750
+push $N6f2969f0
 Transform {
 scale 0.8
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -4105,7 +4106,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 866
 }
-push $N5d2d24d0
+push $N6f0f2780
 Dot {
 name Dot850
 tile_color 0x949494ff
@@ -4181,7 +4182,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set Nac3f0460 [stack 0]
+set N6e0ec1e0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -4198,7 +4199,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set Nac402710 [stack 0]
+set N6e0fe4e0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -4207,14 +4208,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $Nac402710
-push $Nac3f0460
+push $N6e0fe4e0
+push $N6e0ec1e0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set Nac4133d0 [stack 0]
+set N6e10f160 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -4231,8 +4232,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $Nac402710
-push $Nac4133d0
+push $N6e0fe4e0
+push $N6e10f160
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -4249,8 +4250,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $Nac402710
-push $Nac4133d0
+push $N6e0fe4e0
+push $N6e10f160
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -4265,7 +4266,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $Nac3f0460
+push $N6e0ec1e0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -4296,7 +4297,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $Nac3f0460
+push $N6e0ec1e0
 Dissolve {
 inputs 2+1
 which 1
@@ -4327,7 +4328,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d249ee0
+push $N6f292180
 Transform {
 scale 0.85
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -4345,7 +4346,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 650
 }
-push $N5d2cdbf0
+push $N6f0edeb0
 Dot {
 name Dot839
 tile_color 0x949494ff
@@ -4421,7 +4422,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set Nac5411c0 [stack 0]
+set N6dff5530 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -4438,7 +4439,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set Nac553470 [stack 0]
+set N6e007830 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -4447,14 +4448,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $Nac553470
-push $Nac5411c0
+push $N6e007830
+push $N6dff5530
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set Nac564130 [stack 0]
+set N6e0184b0 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -4471,8 +4472,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $Nac553470
-push $Nac564130
+push $N6e007830
+push $N6e0184b0
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -4489,8 +4490,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $Nac553470
-push $Nac564130
+push $N6e007830
+push $N6e0184b0
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -4505,7 +4506,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $Nac5411c0
+push $N6dff5530
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -4536,7 +4537,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $Nac5411c0
+push $N6dff5530
 Dissolve {
 inputs 2+1
 which 1
@@ -4567,7 +4568,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d245630
+push $N6f28d8d0
 Transform {
 scale 0.9
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -4584,7 +4585,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 434
 }
-push $N5d2c8d00
+push $N6f0e9410
 Dot {
 name Dot847
 tile_color 0x949494ff
@@ -4660,7 +4661,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set Nac649dd0 [stack 0]
+set N6defe200 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -4677,7 +4678,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set Nac65c080 [stack 0]
+set N6df10500 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -4686,14 +4687,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $Nac65c080
-push $Nac649dd0
+push $N6df10500
+push $N6defe200
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set Nac66cd40 [stack 0]
+set N6df21180 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -4710,8 +4711,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $Nac65c080
-push $Nac66cd40
+push $N6df10500
+push $N6df21180
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -4728,8 +4729,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $Nac65c080
-push $Nac66cd40
+push $N6df10500
+push $N6df21180
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -4744,7 +4745,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $Nac649dd0
+push $N6defe200
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -4776,7 +4777,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $Nac649dd0
+push $N6defe200
 Dissolve {
 inputs 2+1
 which 1
@@ -4807,7 +4808,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d240dd0
+push $N6f289030
 Transform {
 scale 0.95
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -4825,7 +4826,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 170
 }
-push $N5d2c4480
+push $N6f0e4b90
 Dot {
 name Dot844
 tile_color 0x949494ff
@@ -4901,7 +4902,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set Nd422fd60 [stack 0]
+set N6de07210 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -4918,7 +4919,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set Nd4242010 [stack 0]
+set N6de19510 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -4927,14 +4928,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $Nd4242010
-push $Nd422fd60
+push $N6de19510
+push $N6de07210
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set Nd4252cd0 [stack 0]
+set N6de2a190 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -4951,8 +4952,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $Nd4242010
-push $Nd4252cd0
+push $N6de19510
+push $N6de2a190
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -4969,8 +4970,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $Nd4242010
-push $Nd4252cd0
+push $N6de19510
+push $N6de2a190
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -4985,7 +4986,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $Nd422fd60
+push $N6de07210
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -5016,7 +5017,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $Nd422fd60
+push $N6de07210
 Dissolve {
 inputs 2+1
 which 1
@@ -5047,7 +5048,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d23c520
+push $N7887f650
 Transform {
 center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
 shutteroffset centred
@@ -5063,7 +5064,7 @@ label "Size: \[value size]"
 xpos -480
 ypos -94
 }
-push $N5d2bfe10
+push $N6f0e04f0
 Dot {
 name Dot840
 tile_color 0x949494ff
@@ -5139,7 +5140,7 @@ name Dot1
 xpos -996
 ypos 66
 }
-set Nd45595a0 [stack 0]
+set N6dd0fab0 [stack 0]
 Expression {
 channel3 alpha
 expr3 1
@@ -5156,7 +5157,7 @@ xpos -1250
 ypos 123
 disable {{"!\[exists parent.input1]"}}
 }
-set Nd456b850 [stack 0]
+set N6dd21db0 [stack 0]
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -5165,14 +5166,14 @@ note_font_color 0xffffffff
 xpos -1216
 ypos 378
 }
-push $Nd456b850
-push $Nd45595a0
+push $N6dd21db0
+push $N6dd0fab0
 Dot {
 name Dot3
 xpos -666
 ypos 66
 }
-set Nd457c510 [stack 0]
+set N6dd32a30 [stack 0]
 Grade {
 multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
 name Grade_B
@@ -5189,8 +5190,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 279
 }
-push $Nd456b850
-push $Nd457c510
+push $N6dd21db0
+push $N6dd32a30
 Grade {
 multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_G
@@ -5207,8 +5208,8 @@ tile_color 0x777777ff
 xpos -920
 ypos 207
 }
-push $Nd456b850
-push $Nd457c510
+push $N6dd21db0
+push $N6dd32a30
 Grade {
 multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
 name Grade_R
@@ -5223,7 +5224,7 @@ tile_color 0x777777ff
 xpos -920
 ypos 135
 }
-push $Nd45595a0
+push $N6dd0fab0
 Copy {
 inputs 2+1
 from0 rgba.red
@@ -5255,7 +5256,7 @@ xpos -1030
 ypos 273
 disable {{"!\[exists parent.parent.input0]"}}
 }
-push $Nd45595a0
+push $N6dd0fab0
 Dissolve {
 inputs 2+1
 which 1
@@ -5286,7 +5287,7 @@ addUserKnob {7 minVal l Min R 0 20}
 minVal 1
 }
 end_group
-push $N5d2b6b20
+push $N6f0d71e0
 Keymix {
 inputs 3
 name Keymix149
@@ -5430,7 +5431,7 @@ name Premult1
 xpos 510
 ypos 5558
 }
-push $N5d3163d0
+push $N6f136750
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -5439,7 +5440,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 5682
 }
-set Nd46e2370 [stack 0]
+set N6da97e70 [stack 0]
 Merge2 {
 inputs 2
 also_merge all
@@ -5447,7 +5448,7 @@ name Merge1
 xpos 510
 ypos 5678
 }
-push $Nd46e2370
+push $N6da97e70
 Dot {
 name Dot824
 tile_color 0x949494ff
@@ -5547,7 +5548,7 @@ addUserKnob {7 minVal R -100 100}
 minVal {{-maxVal}}
 addUserKnob {7 offset l Offset R 0 100}
 addUserKnob {26 ""}
-addUserKnob {22 enable_random_translate l "<font color=#cccccc>Enable Random Translate" T "#Enable Random Translate\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_random_translate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Random Translate\":\n    def toggleLabel():\n        options = \[\"\"\"<font color=#cccccc>Enable Random Translate\"\"\", \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#cccccc>Random Translate Disabled\"\"\", \"\"\"<font color=#e38764>Disable Random Translate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    mShift.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n\n    trans1\['translate'].setExpression(\"random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2\", 0)\n    trans1\['translate'].setExpression(\"random((frame+offset2+1000)/waveLength2) * (maxVal2-minVal2) + minVal2\", 1)\n\n    mShift.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is already Enabled!\"\"\")" +STARTLINE}
+addUserKnob {22 enable_random_translate l "<font color=#cccccc>Enable Random Translate" T "#Enable Random Translate\nmShift = nuke.thisGroup()\nknob1 = mShift\['enable_random_translate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Random Translate\":\n    def toggleLabel():\n        options = \[\"\"\"<font color=#cccccc>Enable Random Translate\"\"\", \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#cccccc>Random Translate Disabled\"\"\", \"\"\"<font color=#e38764>Disable Random Translate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    mShift.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n\n    trans1\['translate'].setExpression(\"random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2\", 0)\n    trans1\['translate'].setExpression(\"random((frame+offset2+1000)/waveLength2) * (maxVal2-minVal2) + minVal2\", 1)\n\n    mShift.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is already Enabled!\"\"\")" +STARTLINE}
 addUserKnob {22 dis_rand_trans l "<font color=#cccccc>Random Translate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_random_translate']\n\nval1 = \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\", \"<font color=#cccccc>Enable Random Translate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#e38764>Disable Random Translate\"\"\", \"<font color=#cccccc>Random Translate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['translate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is not Enabled!\"\"\")"}
 addUserKnob {7 waveLength2 l "Wave Length" R 0 100}
 waveLength2 10
@@ -5574,7 +5575,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos -438
 }
-set Nd40f2a00 [stack 0]
+set N6dafafe0 [stack 0]
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5686,7 +5687,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -438
 }
-set Nd46e83c0 [stack 0]
+set N6db7fc50 [stack 0]
 Dot {
 name Dot831
 tile_color 0x949494ff
@@ -5695,7 +5696,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -318
 }
-set Nd46ecac0 [stack 0]
+set N6db84420 [stack 0]
 Dot {
 name Dot832
 tile_color 0x949494ff
@@ -5704,7 +5705,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -198
 }
-set Nd46f1320 [stack 0]
+set N6db88ca0 [stack 0]
 Dot {
 name Dot833
 tile_color 0x949494ff
@@ -5713,7 +5714,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -78
 }
-set Nd46f5ba0 [stack 0]
+set N6db8d5e0 [stack 0]
 Dot {
 name Dot834
 tile_color 0x949494ff
@@ -5722,7 +5723,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 42
 }
-set Nd473c190 [stack 0]
+set N6db91de0 [stack 0]
 Dot {
 name Dot816
 tile_color 0x949494ff
@@ -5731,7 +5732,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 186
 }
-set Nd4740a10 [stack 0]
+set N6db96660 [stack 0]
 Dot {
 name Dot815
 tile_color 0x949494ff
@@ -5740,7 +5741,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 306
 }
-set Nd4745290 [stack 0]
+set N6d99af80 [stack 0]
 Dot {
 name Dot817
 tile_color 0x949494ff
@@ -5749,7 +5750,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 426
 }
-set Nd4749b10 [stack 0]
+set N6d99f780 [stack 0]
 Dot {
 name Dot818
 tile_color 0x949494ff
@@ -5785,7 +5786,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 585
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5804,7 +5805,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 458
 }
-push $Nd4749b10
+push $N6d99f780
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5832,7 +5833,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 465
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5851,7 +5852,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 338
 }
-push $Nd4745290
+push $N6d99af80
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5879,7 +5880,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 345
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5898,7 +5899,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 218
 }
-push $Nd4740a10
+push $N6db96660
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5926,7 +5927,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 225
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5945,7 +5946,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 74
 }
-push $Nd473c190
+push $N6db91de0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5973,7 +5974,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 81
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5992,7 +5993,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos -46
 }
-push $Nd46f5ba0
+push $N6db8d5e0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6020,7 +6021,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos -39
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6039,7 +6040,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos -166
 }
-push $Nd46f1320
+push $N6db88ca0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6067,7 +6068,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos -159
 }
-push $Nd40f2a00
+push $N6dafafe0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6078,7 +6079,7 @@ label "scale: \[value scale]"
 xpos 1170
 ypos -351
 }
-set Naf5e01c0 [stack 0]
+set N6d8f7f20 [stack 0]
 Blur {
 size 100
 name Blur_MAIN
@@ -6086,7 +6087,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos -286
 }
-push $Nd46ecac0
+push $N6db84420
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6115,8 +6116,8 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos -279
 }
-push $Naf5e01c0
-push $Nd46e83c0
+push $N6d8f7f20
+push $N6db7fc50
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6229,7 +6230,7 @@ note_font_color 0xffffffff
 xpos 1864
 ypos 906
 }
-set N5d1dfae0 [stack 0]
+set N6d7dfd00 [stack 0]
 STMap {
 inputs 2
 uv rgb
@@ -6245,7 +6246,7 @@ name Premult32
 xpos 1610
 ypos 1023
 }
-push $N5d1dfae0
+push $N6d7dfd00
 Merge2 {
 inputs 2
 also_merge all
