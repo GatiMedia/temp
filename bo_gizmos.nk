@@ -1,9 +1,9 @@
 BackdropNode {
 inputs 0
-name Backdrop_Adjust9
+name Backdrop_Adjust
 tile_color 0x3f597fff
 label "<center><font color=\[value note_color]>\[value note]"
-note_font "Bitstream Vera Sans Bold Bold Bold"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold"
 note_font_size 42
 selected true
 xpos 1840
@@ -69,24 +69,27 @@ Group {
 name GM_ColorWave
 tile_color 0xff00d6ff
 selected true
-xpos 1940
-ypos -849
+xpos 1936
+ypos -860
 addUserKnob {20 User}
+addUserKnob {26 waveanim l "<h3><font color=#e665eb>Wave Anim"}
 addUserKnob {41 translate_1 l Center T Transform1.translate}
 addUserKnob {22 setcenter l "Set Center" -STARTLINE T "this_width = nuke.thisNode().width()\n\nthis_height = nuke.thisNode().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisNode().knob(\"translate_1\").setValue(\[newWidth, newHeight])"}
 addUserKnob {41 x_offset l "X Offset" +INVISIBLE T Transform_proxy.x_offset}
 addUserKnob {41 y_offset l "Y Offset" +INVISIBLE T Transform_proxy.y_offset}
 addUserKnob {41 wavelength l "Wave Length" T HSVTool_Wave_MAIN.wavelength}
-addUserKnob {41 offset l "Wave Offset" T PROXY_OFFSET14.offset}
-addUserKnob {41 maxVal l "Flicker Max Val" T GM_Color_Flicker_MAIN.maxVal}
+addUserKnob {41 offset l "Wave Offset" T PROXY_OFFSET.offset}
+addUserKnob {26 wave_size l "<h3><font color=#e665eb>Wave Size"}
+addUserKnob {41 size_offset l "Wave Size Offset" T PROXY_OFFSET.size_offset}
+addUserKnob {22 halfStripes l "<font color=#888888>Half Stripes OFF" T "## HALF STRIPES ###\ncWave = nuke.thisGroup()\nknobThis = nuke.thisKnob()\n\n# entering the Group\ncWave.begin()\n\n# toggle disabling every second Keymix via proxy knob\nknob1 = nuke.toNode('PROXY_OFFSET')\['half_stripes'].value()\nif knob1 == True:\n    nuke.toNode('PROXY_OFFSET')\['half_stripes'].setValue(False)\nelse:\n    nuke.toNode('PROXY_OFFSET')\['half_stripes'].setValue(True)\n\n# toggle values in every HSVTools\nnodes = nuke.allNodes('HSVTool')\n\nif nuke.toNode('HSVTool_WaveTEST')\['offset'].animation(0).expression()\[0:3] == \"20.\":\n    for node in nodes:\n        try:\n            currOffset = node\['offset'].animation(0).expression().split('+')\[0]\n            node\['offset'].setExpression(str(float(currOffset) / 2) + \" + PROXY_OFFSET.offset\")\n        except Exception:\n            pass\nelse:\n    for node in nodes:\n        try:\n            currOffset = node\['offset'].animation(0).expression().split('+')\[0]\n            node\['offset'].setExpression(str(float(currOffset) * 2) + \" + PROXY_OFFSET.offset\")\n        except Exception:\n            pass\n\n# leaving the Group\ncWave.end()\n\n\n# toggle between ON/OFF labels\ndef toggleLabel():\n    options = \[\"\"\"<font color=#dddddd>Half Stripes ON\"\"\", \"<font color=#888888>Half Stripes OFF\"]\n    knobThis.setLabel(options\[int(knobThis.label() == options\[0])])\ntoggleLabel()\n" +STARTLINE}
 addUserKnob {41 size l "Blur size" T Blur_MAIN.size}
+addUserKnob {26 wavegrade l "<h3><font color=#e665eb>Wave Grade"}
+addUserKnob {41 multiply l Brightness T Grade1.multiply}
+addUserKnob {41 saturation l Saturation T Saturation1.saturation}
 addUserKnob {26 ""}
-addUserKnob {41 dis_hsv l "Disable HSV" T PROXY_OFFSET14.dis_hsv}
-addUserKnob {41 dis_flick l "Disable Flicker" T PROXY_OFFSET14.dis_flick}
-addUserKnob {41 half_stripes l "Half Stripes" T PROXY_OFFSET14.half_stripes}
 addUserKnob {20 offset_center l "Offset Center" n 1}
 offset_center 0
-addUserKnob {26 instr l "" +STARTLINE T " \n            This part is created for cases when you\n            want to animate the center with linking \n            with an existing animation curve. \n            Instructions:\n              1. Do the linking\n              2. Click 'Enable Offset'\n              3. You are good to use the sliders!"}
+addUserKnob {26 instr l "" +STARTLINE T " \n          This part is created for cases when you\n          want to animate the center with linking \n          to an existing animation curve. \n          Instructions:\n              1. Do the linking\n              2. Click 'Enable Offset'\n              3. You are good to use the sliders!"}
 addUserKnob {26 empty l "" +STARTLINE T " "}
 addUserKnob {22 enable_offset l "<font color=#cccccc>Enable Offset" T "#Enable Offset\ncWave = nuke.thisGroup()\ncWave.begin()\n\ntrans1 = nuke.toNode('Transform1')\nif trans1\['translate'].hasExpression():\n    x_val = trans1\['translate'].animation(0).expression()\n    y_val = trans1\['translate'].animation(1).expression()\n\n    trans1\['translate'].setExpression(x_val + \" + Transform1.x_offset\", 0)\n    trans1\['translate'].setExpression(y_val + \" + Transform1.y_offset\", 1)\n\n    cWave.end()\n    def toggleLabel():\n        knob1 = cWave\['enable_offset']\n        options = \[\"\"\"<font color=#20bd2b>Offset Enabled\"\"\", \"<font color=#cccccc>Enable Offset\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['rem_anim']\n        options2 = \[\"\"\"<font color=#e38764>Remove Expression\"\"\", \"<font color=#cccccc>No Expression\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>The value has no expression.\\nTherefore no need to offset!\\n\\n<a href=\"https://learn.foundry.com/nuke/8.0/content/user_guide/expressions/linking_expressions.html\"><font color=yellow><u>Learn how to link animation!\\n\"\"\")\n\ncWave.end()" +STARTLINE}
 addUserKnob {22 rem_anim l "<font color=#cccccc>No Expression" -STARTLINE T "#Remove Animation\ncWave = nuke.thisGroup()\ncWave.begin()\n\ntrans1 = nuke.toNode('Transform1')\nif trans1\['translate'].hasExpression():\n    trans1\['translate'].clearAnimated()\n    cWave.end()\n    def toggleLabel():\n        knob1 = cWave\['enable_offset']\n        options = \[\"\"\"<font color=#20bd2b>Offset Enabled\"\"\", \"<font color=#cccccc>Enable Offset\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['rem_anim']\n        options2 = \[\"\"\"<font color=#e38764>Remove Expression\"\"\", \"<font color=#cccccc>No Expression\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>There is no expression to be removed\"\"\")\n\ncWave.end()"}
@@ -102,19 +105,19 @@ Input {
 inputs 0
 name mask
 xpos -920
-ypos -322
+ypos -321
 number 1
 }
-set N6f1a13b0 [stack 0]
+set N237e6a00 [stack 0]
 Dot {
 name Dot1
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
 xpos -886
-ypos 5490
+ypos 5658
 }
-push $N6f1a13b0
+push $N237e6a00
 Dot {
 name Dot825
 tile_color 0x949494ff
@@ -123,7 +126,419 @@ note_font_color 0xffffffff
 xpos -886
 ypos -78
 }
-set N7887f650 [stack 0]
+set N20461590 [stack 0]
+Dot {
+name Dot3
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 42
+}
+set N689ea960 [stack 0]
+Dot {
+name Dot4
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 306
+}
+set N70ef2750 [stack 0]
+Dot {
+name Dot5
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 570
+}
+set N1c68cc50 [stack 0]
+Dot {
+name Dot6
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 786
+}
+set N60a6d1e0 [stack 0]
+Dot {
+name Dot7
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 1002
+}
+set N8cfd4fc0 [stack 0]
+Dot {
+name Dot8
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 1266
+}
+set N692d7020 [stack 0]
+Dot {
+name Dot9
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 1530
+}
+set N747f6890 [stack 0]
+Dot {
+name Dot10
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 1818
+}
+set Na44e1b20 [stack 0]
+Dot {
+name Dot11
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 2130
+}
+set N1482cec0 [stack 0]
+Dot {
+name Dot12
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 2442
+}
+set N1a5f7ee0 [stack 0]
+Dot {
+name Dot13
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 2778
+}
+set Nc1c943d0 [stack 0]
+Dot {
+name Dot14
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 3090
+}
+set N8f4ded30 [stack 0]
+Dot {
+name Dot15
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 3378
+}
+set Ne2fc4da0 [stack 0]
+Dot {
+name Dot16
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 3690
+}
+set Nc1f87260 [stack 0]
+Dot {
+name Dot17
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 4026
+}
+set Nfb33990 [stack 0]
+Dot {
+name Dot18
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 4314
+}
+set N1e368a00 [stack 0]
+Dot {
+name Dot19
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 4602
+}
+set Nc297da10 [stack 0]
+Dot {
+name Dot20
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 4866
+}
+set N7462cc50 [stack 0]
+Dot {
+name Dot21
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 5154
+}
+set N8f4a32c0 [stack 0]
+Dot {
+name Dot22
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos -776
+ypos 5442
+}
+Transform {
+scale {{"0.025 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform2
+label "Scale: \[value scale]"
+xpos -590
+ypos 5433
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur20
+label "Size: \[value size]"
+xpos -370
+ypos 5426
+}
+Input {
+inputs 0
+name image
+xpos 510
+ypos -513
+}
+Dot {
+name Dot814
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 544
+ypos -222
+}
+set N20c7d730 [stack 0]
+Dot {
+name Dot815
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 874
+ypos -222
+}
+set Nc299f220 [stack 0]
+Dot {
+name Dot23
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 42
+}
+set Nc2aac200 [stack 0]
+Dot {
+name Dot24
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 306
+}
+set N8e816900 [stack 0]
+Dot {
+name Dot25
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 570
+}
+set N692c57a0 [stack 0]
+Dot {
+name Dot26
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 786
+}
+set N14700ab0 [stack 0]
+Dot {
+name Dot27
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 1002
+}
+set Nc1a72b30 [stack 0]
+Dot {
+name Dot28
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 1266
+}
+set N13950e50 [stack 0]
+Dot {
+name Dot29
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 1530
+}
+set N2186d200 [stack 0]
+Dot {
+name Dot30
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 1818
+}
+set Nc1989040 [stack 0]
+Dot {
+name Dot31
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 2130
+}
+set N6610200 [stack 0]
+Dot {
+name Dot32
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 2442
+}
+set N8f4c9260 [stack 0]
+Dot {
+name Dot33
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 2778
+}
+set N688a91c0 [stack 0]
+Dot {
+name Dot34
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 3090
+}
+set N692c2e70 [stack 0]
+Dot {
+name Dot35
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 3378
+}
+set N7425c910 [stack 0]
+Dot {
+name Dot36
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 3690
+}
+set Nc1f6d970 [stack 0]
+Dot {
+name Dot37
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 4026
+}
+set N10035550 [stack 0]
+Dot {
+name Dot38
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 4314
+}
+set N8cff3140 [stack 0]
+Dot {
+name Dot39
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 4602
+}
+set N68810a90 [stack 0]
+Dot {
+name Dot40
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 4866
+}
+set N8e80f4c0 [stack 0]
+Dot {
+name Dot41
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 5154
+}
+set Nc193e430 [stack 0]
+Dot {
+name Dot42
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1204
+ypos 5442
+}
+set Nc294ea80 [stack 0]
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave1
+label "Offset: \[value offset]"
+xpos 1060
+ypos 5426
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"195.0 + PROXY_OFFSET.offset"}}
+}
+push $N20461590
 Dot {
 name Dot842
 tile_color 0x949494ff
@@ -132,7 +547,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 186
 }
-set N6f289030 [stack 0]
+set N7657af0 [stack 0]
 Dot {
 name Dot845
 tile_color 0x949494ff
@@ -141,7 +556,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 450
 }
-set N6f28d8d0 [stack 0]
+set N1c885b90 [stack 0]
 Dot {
 name Dot826
 tile_color 0x949494ff
@@ -150,7 +565,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 666
 }
-set N6f292180 [stack 0]
+set N692d9840 [stack 0]
 Dot {
 name Dot848
 tile_color 0x949494ff
@@ -159,7 +574,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 882
 }
-set N6f2969f0 [stack 0]
+set Nc2a652d0 [stack 0]
 Dot {
 name Dot851
 tile_color 0x949494ff
@@ -168,7 +583,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1146
 }
-set N787fa450 [stack 0]
+set N8ca86f30 [stack 0]
 Dot {
 name Dot827
 tile_color 0x949494ff
@@ -177,7 +592,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1410
 }
-set N787fecd0 [stack 0]
+set N13f578d0 [stack 0]
 Dot {
 name Dot854
 tile_color 0x949494ff
@@ -186,7 +601,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1698
 }
-set N788035c0 [stack 0]
+set N54232c50 [stack 0]
 Dot {
 name Dot828
 tile_color 0x949494ff
@@ -195,7 +610,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2010
 }
-set N7888cda0 [stack 0]
+set N24962df0 [stack 0]
 Dot {
 name Dot857
 tile_color 0x949494ff
@@ -204,7 +619,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2322
 }
-set N78891620 [stack 0]
+set N45df4640 [stack 0]
 Dot {
 name Dot829
 tile_color 0x949494ff
@@ -213,7 +628,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2658
 }
-set N78895ea0 [stack 0]
+set N4477f560 [stack 0]
 Dot {
 name Dot860
 tile_color 0x949494ff
@@ -222,7 +637,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2970
 }
-set N7889a720 [stack 0]
+set N20c7ce50 [stack 0]
 Dot {
 name Dot830
 tile_color 0x949494ff
@@ -231,7 +646,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3258
 }
-set N7889efa0 [stack 0]
+set N8e548130 [stack 0]
 Dot {
 name Dot863
 tile_color 0x949494ff
@@ -240,7 +655,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3570
 }
-set N7884a5e0 [stack 0]
+set Nc1a94260 [stack 0]
 Dot {
 name Dot831
 tile_color 0x949494ff
@@ -249,7 +664,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3906
 }
-set N7884ee60 [stack 0]
+set N7c3cfe60 [stack 0]
 Dot {
 name Dot866
 tile_color 0x949494ff
@@ -258,7 +673,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4194
 }
-set N78853820 [stack 0]
+set N66693e0 [stack 0]
 Dot {
 name Dot832
 tile_color 0x949494ff
@@ -267,7 +682,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4482
 }
-set N78857fd0 [stack 0]
+set N44790290 [stack 0]
 Dot {
 name Dot869
 tile_color 0x949494ff
@@ -276,7 +691,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4746
 }
-set N7885c850 [stack 0]
+set N8e8191f0 [stack 0]
 Dot {
 name Dot870
 tile_color 0x949494ff
@@ -285,7 +700,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 5034
 }
-set N6f0ae600 [stack 0]
+set Nc1c86100 [stack 0]
 Dot {
 name Dot875
 tile_color 0x949494ff
@@ -295,14 +710,13 @@ xpos -886
 ypos 5322
 }
 Transform {
-scale 0.05
+scale {{"0.05 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform190
 label "Scale: \[value scale]"
 xpos -700
-ypos 5312
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 5313
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -311,439 +725,237 @@ label "Size: \[value size]"
 xpos -480
 ypos 5306
 }
-Input {
-inputs 0
-name image
-xpos 510
-ypos -514
-}
-Dot {
-name Dot814
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 544
-ypos -318
-}
-set N6f0d71e0 [stack 0]
-Dot {
-name Dot815
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 764
-ypos -318
-}
+push $Nc299f220
 Dot {
 name Dot816
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos -246
+xpos 874
+ypos -78
 }
-set N6f0e04f0 [stack 0]
+set N8e825140 [stack 0]
 Dot {
 name Dot843
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 18
+xpos 874
+ypos 186
 }
-set N6f0e4b90 [stack 0]
+set N7e740a0 [stack 0]
 Dot {
 name Dot846
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 282
+xpos 874
+ypos 450
 }
-set N6f0e9410 [stack 0]
+set N1482ca60 [stack 0]
 Dot {
 name Dot817
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 498
+xpos 874
+ypos 666
 }
-set N6f0edeb0 [stack 0]
+set N747e5fa0 [stack 0]
 Dot {
 name Dot849
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 714
+xpos 874
+ypos 882
 }
-set N6f0f2780 [stack 0]
+set N8ca50570 [stack 0]
 Dot {
 name Dot852
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 954
+xpos 874
+ypos 1146
 }
-set N6f0f6df0 [stack 0]
+set N8cfe4c60 [stack 0]
 Dot {
 name Dot818
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 1218
+xpos 874
+ypos 1410
 }
-set N6f0fb8b0 [stack 0]
+set N7fb929a0 [stack 0]
 Dot {
 name Dot855
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 1506
+xpos 874
+ypos 1698
 }
-set N6f100280 [stack 0]
+set Naab8c9d0 [stack 0]
 Dot {
 name Dot819
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 1818
+xpos 874
+ypos 2010
 }
-set N6f1048d0 [stack 0]
+set Nb3f91c80 [stack 0]
 Dot {
 name Dot858
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 2130
+xpos 874
+ypos 2322
 }
-set N6f1093d0 [stack 0]
+set N8f4a3710 [stack 0]
 Dot {
 name Dot820
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 2466
+xpos 874
+ypos 2658
 }
-set N6f10dca0 [stack 0]
+set Nc1f88330 [stack 0]
 Dot {
 name Dot861
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 2778
+xpos 874
+ypos 2970
 }
-set N6f1122c0 [stack 0]
+set Nc198da80 [stack 0]
 Dot {
 name Dot821
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 3066
+xpos 874
+ypos 3258
 }
-set N6f116b40 [stack 0]
+set N8cfc1870 [stack 0]
 Dot {
 name Dot864
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 3378
+xpos 874
+ypos 3570
 }
-set N6f11b690 [stack 0]
+set N692c3490 [stack 0]
 Dot {
 name Dot822
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 3714
+xpos 874
+ypos 3906
 }
-set N6f11fc60 [stack 0]
+set N8e8197f0 [stack 0]
 Dot {
 name Dot867
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 4002
+xpos 874
+ypos 4194
 }
-set N6f1247e0 [stack 0]
+set N688abef0 [stack 0]
 Dot {
 name Dot823
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 4290
+xpos 874
+ypos 4482
 }
-set N6f128d90 [stack 0]
+set Nc2dd45c0 [stack 0]
 Dot {
 name Dot871
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 4554
+xpos 874
+ypos 4746
 }
-set N6f12d610 [stack 0]
+set N10466920 [stack 0]
 Dot {
 name Dot872
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 4842
+xpos 874
+ypos 5034
 }
-set N6f1321d0 [stack 0]
+set N1f18c9c0 [stack 0]
 Dot {
 name Dot876
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 764
-ypos 5130
-}
-set N6f136750 [stack 0]
-Dot {
-name Dot877
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 5130
+xpos 874
+ypos 5322
 }
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave164
 label "Offset: \[value offset]"
-xpos 620
-ypos 5210
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 5306
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{35+PROXY_OFFSET14.offset}}
+offset {{"190.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker159
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 5288
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6f1674c0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6f1797c0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6f1797c0
-push $N6f1674c0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6f18a440 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6f1797c0
-push $N6f18a440
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6f1797c0
-push $N6f18a440
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6f1674c0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6f1674c0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset 35
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N6f0ae600
+push $N8f4a32c0
 Transform {
-scale 0.1
+scale {{"0.075 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform3
+label "Scale: \[value scale]"
+xpos -590
+ypos 5145
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur21
+label "Size: \[value size]"
+xpos -370
+ypos 5138
+}
+push $Nc193e430
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave2
+label "Offset: \[value offset]"
+xpos 1060
+ypos 5138
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"185.0 + PROXY_OFFSET.offset"}}
+}
+push $Nc1c86100
+Transform {
+scale {{"0.1 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform188
 label "Scale: \[value scale]"
 xpos -700
-ypos 5024
+ypos 5025
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -752,239 +964,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 5018
 }
-push $N6f1321d0
-Dot {
-name Dot873
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 4842
-}
+push $N1f18c9c0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave162
 label "Offset: \[value offset]"
-xpos 620
-ypos 4922
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 5018
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{35+PROXY_OFFSET14.offset}}
+offset {{"180.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker157
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 5000
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6f06ff30 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6f082230 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6f082230
-push $N6f06ff30
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6f092eb0 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6f082230
-push $N6f092eb0
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6f082230
-push $N6f092eb0
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6f06ff30
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-selected true
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6f06ff30
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset 35
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7885c850
+push $N7462cc50
 Transform {
-scale 0.15
+scale {{"0.125 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform4
+label "Scale: \[value scale]"
+xpos -590
+ypos 4857
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur22
+label "Size: \[value size]"
+xpos -370
+ypos 4850
+}
+push $N8e80f4c0
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave3
+label "Offset: \[value offset]"
+xpos 1060
+ypos 4850
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"175.0 + PROXY_OFFSET.offset"}}
+}
+push $N8e8191f0
+Transform {
+scale {{"0.15 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform189
 label "Scale: \[value scale]"
 xpos -700
-ypos 4736
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 4737
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -993,237 +1024,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 4730
 }
-push $N6f12d610
-Dot {
-name Dot874
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 4554
-}
+push $N10466920
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave163
 label "Offset: \[value offset]"
-xpos 620
-ypos 4634
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 4730
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{85+PROXY_OFFSET14.offset}}
+offset {{"170.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker158
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 4712
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6ef78c40 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6ef8af40 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6ef8af40
-push $N6ef78c40
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6ed9bbe0 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6ef8af40
-push $N6ed9bbe0
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6ef8af40
-push $N6ed9bbe0
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6ef78c40
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6ef78c40
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave163.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N78857fd0
+push $Nc297da10
 Transform {
-scale 0.2
+scale {{"0.175 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform5
+label "Scale: \[value scale]"
+xpos -590
+ypos 4593
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur23
+label "Size: \[value size]"
+xpos -370
+ypos 4586
+}
+push $N68810a90
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave4
+label "Offset: \[value offset]"
+xpos 1060
+ypos 4586
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"165.0 + PROXY_OFFSET.offset"}}
+}
+push $N44790290
+Transform {
+scale {{"0.2 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform176
 label "Scale: \[value scale]"
 xpos -700
-ypos 4472
+ypos 4473
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -1232,238 +1084,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 4466
 }
-push $N6f128d90
-Dot {
-name Dot833
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 4290
-}
+push $Nc2dd45c0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave145
 label "Offset: \[value offset]"
-xpos 620
-ypos 4370
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 4466
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{80+PROXY_OFFSET14.offset}}
+offset {{"160.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker140
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 4448
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6ee81aa0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6ee93da0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6ee93da0
-push $N6ee81aa0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6eca4a60 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6ee93da0
-push $N6eca4a60
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6ee93da0
-push $N6eca4a60
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6ee81aa0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6ee81aa0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave145.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N78853820
+push $N1e368a00
 Transform {
-scale 0.25
+scale {{"0.225 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform6
+label "Scale: \[value scale]"
+xpos -590
+ypos 4305
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur24
+label "Size: \[value size]"
+xpos -370
+ypos 4298
+}
+push $N8cff3140
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave5
+label "Offset: \[value offset]"
+xpos 1060
+ypos 4298
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"155.0 + PROXY_OFFSET.offset"}}
+}
+push $N66693e0
+Transform {
+scale {{"0.25 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform187
 label "Scale: \[value scale]"
 xpos -700
-ypos 4184
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 4185
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -1472,237 +1144,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 4178
 }
-push $N6f1247e0
-Dot {
-name Dot868
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 4002
-}
+push $N688abef0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave161
 label "Offset: \[value offset]"
-xpos 620
-ypos 4082
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 4178
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{75+PROXY_OFFSET14.offset}}
+offset {{"150.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker156
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 4160
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6ed8aa00 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6eb9cd20 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6eb9cd20
-push $N6ed8aa00
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6ebad9a0 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6eb9cd20
-push $N6ebad9a0
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6eb9cd20
-push $N6ebad9a0
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6ed8aa00
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6ed8aa00
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave161.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7884ee60
+push $Nfb33990
 Transform {
-scale 0.3
+scale {{"0.275 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform7
+label "Scale: \[value scale]"
+xpos -590
+ypos 4017
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur25
+label "Size: \[value size]"
+xpos -370
+ypos 4010
+}
+push $N10035550
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave6
+label "Offset: \[value offset]"
+xpos 1060
+ypos 4010
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"145.0 + PROXY_OFFSET.offset"}}
+}
+push $N7c3cfe60
+Transform {
+scale {{"0.3 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform177
 label "Scale: \[value scale]"
 xpos -700
-ypos 3896
+ypos 3897
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -1711,238 +1204,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 3890
 }
-push $N6f11fc60
-Dot {
-name Dot834
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 3714
-}
+push $N8e8197f0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave146
 label "Offset: \[value offset]"
-xpos 620
-ypos 3794
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 3890
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{70+PROXY_OFFSET14.offset}}
+offset {{"140.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker141
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 3872
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6ec93670 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6eaa5990 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6eaa5990
-push $N6ec93670
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6eab6610 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6eaa5990
-push $N6eab6610
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6eaa5990
-push $N6eab6610
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6ec93670
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6ec93670
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave146.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7884a5e0
+push $Nc1f87260
 Transform {
-scale 0.35
+scale {{"0.325 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform8
+label "Scale: \[value scale]"
+xpos -590
+ypos 3681
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur26
+label "Size: \[value size]"
+xpos -370
+ypos 3674
+}
+push $Nc1f6d970
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave7
+label "Offset: \[value offset]"
+xpos 1060
+ypos 3674
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"135.0 + PROXY_OFFSET.offset"}}
+}
+push $Nc1a94260
+Transform {
+scale {{"0.35 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform186
 label "Scale: \[value scale]"
 xpos -700
-ypos 3560
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 3561
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -1951,237 +1264,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 3554
 }
-push $N6f11b690
-Dot {
-name Dot865
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 3378
-}
+push $N692c3490
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave160
 label "Offset: \[value offset]"
-xpos 620
-ypos 3458
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 3554
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{65+PROXY_OFFSET14.offset}}
+offset {{"130.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker155
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 3536
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e99c580 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e9ae880 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e9ae880
-push $N6e99c580
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e9bf500 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e9ae880
-push $N6e9bf500
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e9ae880
-push $N6e9bf500
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e99c580
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e99c580
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave160.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7889efa0
+push $Ne2fc4da0
 Transform {
-scale 0.4
+scale {{"0.375 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform9
+label "Scale: \[value scale]"
+xpos -590
+ypos 3369
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur27
+label "Size: \[value size]"
+xpos -370
+ypos 3362
+}
+push $N7425c910
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave8
+label "Offset: \[value offset]"
+xpos 1060
+ypos 3362
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"125.0 + PROXY_OFFSET.offset"}}
+}
+push $N8e548130
+Transform {
+scale {{"0.4 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform178
 label "Scale: \[value scale]"
 xpos -700
-ypos 3248
+ypos 3249
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -2190,238 +1324,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 3242
 }
-push $N6f116b40
-Dot {
-name Dot835
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 3066
-}
+push $N8cfc1870
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave147
 label "Offset: \[value offset]"
-xpos 620
-ypos 3146
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 3242
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{60+PROXY_OFFSET14.offset}}
+offset {{"120.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker142
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 3224
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e8a5240 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e8b7540 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e8b7540
-push $N6e8a5240
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e8c81c0 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e8b7540
-push $N6e8c81c0
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e8b7540
-push $N6e8c81c0
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e8a5240
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e8a5240
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave147.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7889a720
+push $N8f4ded30
 Transform {
-scale 0.45
+scale {{"0.425 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform10
+label "Scale: \[value scale]"
+xpos -590
+ypos 3081
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur28
+label "Size: \[value size]"
+xpos -370
+ypos 3074
+}
+push $N692c2e70
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave9
+label "Offset: \[value offset]"
+xpos 1060
+ypos 3074
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"115.0 + PROXY_OFFSET.offset"}}
+}
+push $N20c7ce50
+Transform {
+scale {{"0.45 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform185
 label "Scale: \[value scale]"
 xpos -700
-ypos 2960
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 2961
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -2430,237 +1384,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 2954
 }
-push $N6f1122c0
-Dot {
-name Dot862
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 2778
-}
+push $Nc198da80
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave159
 label "Offset: \[value offset]"
-xpos 620
-ypos 2858
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 2954
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{55+PROXY_OFFSET14.offset}}
+offset {{"110.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker154
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 2936
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e7ae100 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e7c0400 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e7c0400
-push $N6e7ae100
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e7d1080 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e7c0400
-push $N6e7d1080
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e7c0400
-push $N6e7d1080
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e7ae100
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e7ae100
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave159.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N78895ea0
+push $Nc1c943d0
 Transform {
-scale 0.5
+scale {{"0.475 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform11
+label "Scale: \[value scale]"
+xpos -590
+ypos 2769
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur29
+label "Size: \[value size]"
+xpos -370
+ypos 2762
+}
+push $N688a91c0
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave10
+label "Offset: \[value offset]"
+xpos 1060
+ypos 2762
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"105.0 + PROXY_OFFSET.offset"}}
+}
+push $N4477f560
+Transform {
+scale {{"0.5 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform179
 label "Scale: \[value scale]"
 xpos -700
-ypos 2648
+ypos 2649
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -2669,238 +1444,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 2642
 }
-push $N6f10dca0
-Dot {
-name Dot836
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 2466
-}
+push $Nc1f88330
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave148
 label "Offset: \[value offset]"
-xpos 620
-ypos 2546
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 2642
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{50+PROXY_OFFSET14.offset}}
+offset {{"100.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker143
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 2624
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e6b6de0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e6c90e0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e6c90e0
-push $N6e6b6de0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e6d9d60 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e6c90e0
-push $N6e6d9d60
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e6c90e0
-push $N6e6d9d60
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e6b6de0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e6b6de0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave148.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N78891620
+push $N1a5f7ee0
 Transform {
-scale 0.55
+scale {{"0.525 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform12
+label "Scale: \[value scale]"
+xpos -590
+ypos 2433
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur30
+label "Size: \[value size]"
+xpos -370
+ypos 2426
+}
+push $N8f4c9260
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave11
+label "Offset: \[value offset]"
+xpos 1060
+ypos 2426
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"95.0 + PROXY_OFFSET.offset"}}
+}
+push $N45df4640
+Transform {
+scale {{"0.55 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform184
 label "Scale: \[value scale]"
 xpos -700
-ypos 2312
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 2313
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -2909,237 +1504,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 2306
 }
-push $N6f1093d0
-Dot {
-name Dot859
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 2130
-}
+push $N8f4a3710
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave158
 label "Offset: \[value offset]"
-xpos 620
-ypos 2210
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 2306
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{45+PROXY_OFFSET14.offset}}
+offset {{"90.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker153
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 2288
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e5bfda0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e5d20a0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e5d20a0
-push $N6e5bfda0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e5e2d20 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e5d20a0
-push $N6e5e2d20
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e5d20a0
-push $N6e5e2d20
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e5bfda0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e5bfda0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave158.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7888cda0
+push $N1482cec0
 Transform {
-scale 0.6
+scale {{"0.575 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform13
+label "Scale: \[value scale]"
+xpos -590
+ypos 2121
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur31
+label "Size: \[value size]"
+xpos -370
+ypos 2114
+}
+push $N6610200
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave12
+label "Offset: \[value offset]"
+xpos 1060
+ypos 2114
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"85.0 + PROXY_OFFSET.offset"}}
+}
+push $N24962df0
+Transform {
+scale {{"0.6 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform180
 label "Scale: \[value scale]"
 xpos -700
-ypos 2000
+ypos 2001
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -3148,238 +1564,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 1994
 }
-push $N6f1048d0
-Dot {
-name Dot837
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 1818
-}
+push $Nb3f91c80
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave149
 label "Offset: \[value offset]"
-xpos 620
-ypos 1898
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 1994
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{40+PROXY_OFFSET14.offset}}
+offset {{"80.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker144
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 1976
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e4c89d0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e4dacd0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e4dacd0
-push $N6e4c89d0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e4eb950 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e4dacd0
-push $N6e4eb950
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e4dacd0
-push $N6e4eb950
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e4c89d0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e4c89d0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave149.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N788035c0
+push $Na44e1b20
 Transform {
-scale 0.65
+scale {{"0.625 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform14
+label "Scale: \[value scale]"
+xpos -590
+ypos 1809
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur32
+label "Size: \[value size]"
+xpos -370
+ypos 1802
+}
+push $Nc1989040
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave13
+label "Offset: \[value offset]"
+xpos 1060
+ypos 1802
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"75.0 + PROXY_OFFSET.offset"}}
+}
+push $N54232c50
+Transform {
+scale {{"0.65 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform183
 label "Scale: \[value scale]"
 xpos -700
-ypos 1688
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 1689
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -3388,237 +1624,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 1682
 }
-push $N6f100280
-Dot {
-name Dot856
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 1506
-}
+push $Naab8c9d0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave157
 label "Offset: \[value offset]"
-xpos 620
-ypos 1586
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 1682
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{35+PROXY_OFFSET14.offset}}
+offset {{"70.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker152
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 1664
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e3d18e0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e3e3be0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e3e3be0
-push $N6e3d18e0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e3f4860 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e3e3be0
-push $N6e3f4860
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e3e3be0
-push $N6e3f4860
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e3d18e0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e3d18e0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave157.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N787fecd0
+push $N747f6890
 Transform {
-scale 0.7
+scale {{"0.675 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform15
+label "Scale: \[value scale]"
+xpos -590
+ypos 1521
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur33
+label "Size: \[value size]"
+xpos -370
+ypos 1514
+}
+push $N2186d200
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave14
+label "Offset: \[value offset]"
+xpos 1060
+ypos 1514
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"65.0 + PROXY_OFFSET.offset"}}
+}
+push $N13f578d0
+Transform {
+scale {{"0.7 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform181
 label "Scale: \[value scale]"
 xpos -700
-ypos 1400
+ypos 1401
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -3627,238 +1684,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 1394
 }
-push $N6f0fb8b0
-Dot {
-name Dot838
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 1218
-}
+push $N7fb929a0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave150
 label "Offset: \[value offset]"
-xpos 620
-ypos 1298
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 1394
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{30+PROXY_OFFSET14.offset}}
+offset {{"60.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker145
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 1376
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e2da5f0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e2ec8f0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e2ec8f0
-push $N6e2da5f0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e2fd570 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e2ec8f0
-push $N6e2fd570
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e2ec8f0
-push $N6e2fd570
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e2da5f0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e2da5f0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave150.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N787fa450
+push $N692d7020
 Transform {
-scale 0.75
+scale {{"0.725 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform16
+label "Scale: \[value scale]"
+xpos -590
+ypos 1257
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur34
+label "Size: \[value size]"
+xpos -370
+ypos 1250
+}
+push $N13950e50
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave15
+label "Offset: \[value offset]"
+xpos 1060
+ypos 1250
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"55.0 + PROXY_OFFSET.offset"}}
+}
+push $N8ca86f30
+Transform {
+scale {{"0.75 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform182
 label "Scale: \[value scale]"
 xpos -700
-ypos 1136
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 1137
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -3867,237 +1744,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 1130
 }
-push $N6f0f6df0
-Dot {
-name Dot853
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 954
-}
+push $N8cfe4c60
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave156
 label "Offset: \[value offset]"
-xpos 620
-ypos 1034
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 1130
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{25+PROXY_OFFSET14.offset}}
+offset {{"50.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker151
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 1112
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e1e34f0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e1f57f0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e1f57f0
-push $N6e1e34f0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e206470 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e1f57f0
-push $N6e206470
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e1f57f0
-push $N6e206470
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e1e34f0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e1e34f0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave156.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N6f2969f0
+push $N8cfd4fc0
 Transform {
-scale 0.8
+scale {{"0.775 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform_MAIN1
+label "Scale: \[value scale]"
+xpos -590
+ypos 993
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur35
+label "Size: \[value size]"
+xpos -370
+ypos 986
+}
+push $Nc1a72b30
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave16
+label "Offset: \[value offset]"
+xpos 1060
+ypos 986
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"45.0 + PROXY_OFFSET.offset"}}
+}
+push $Nc2a652d0
+Transform {
+scale {{"0.8 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform_MAIN15
 label "Scale: \[value scale]"
 xpos -700
-ypos 872
+ypos 873
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -4106,238 +1804,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 866
 }
-push $N6f0f2780
-Dot {
-name Dot850
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 714
-}
+push $N8ca50570
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave155
 label "Offset: \[value offset]"
-xpos 620
-ypos 794
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 866
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{20+PROXY_OFFSET14.offset}}
+offset {{"40.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker150
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 872
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6e0ec1e0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e0fe4e0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e0fe4e0
-push $N6e0ec1e0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e10f160 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e0fe4e0
-push $N6e10f160
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e0fe4e0
-push $N6e10f160
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6e0ec1e0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6e0ec1e0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave155.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N6f292180
+push $N60a6d1e0
 Transform {
-scale 0.85
+scale {{"0.825 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform_MAIN2
+label "Scale: \[value scale]"
+xpos -590
+ypos 777
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur36
+label "Size: \[value size]"
+xpos -370
+ypos 770
+}
+push $N14700ab0
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave17
+label "Offset: \[value offset]"
+xpos 1060
+ypos 770
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"35.0 + PROXY_OFFSET.offset"}}
+}
+push $N692d9840
+Transform {
+scale {{"0.85 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform_MAIN12
 label "Scale: \[value scale]"
 xpos -700
-ypos 656
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 657
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -4346,237 +1864,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 650
 }
-push $N6f0edeb0
-Dot {
-name Dot839
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 498
-}
+push $N747e5fa0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave151
 label "Offset: \[value offset]"
-xpos 620
-ypos 578
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 650
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{15+PROXY_OFFSET14.offset}}
+offset {{"30.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker146
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 656
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6dff5530 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6e007830 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6e007830
-push $N6dff5530
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6e0184b0 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6e007830
-push $N6e0184b0
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6e007830
-push $N6e0184b0
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6dff5530
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6dff5530
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave151.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N6f28d8d0
+push $N1c68cc50
 Transform {
-scale 0.9
+scale {{"0.875 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform_MAIN3
+label "Scale: \[value scale]"
+xpos -590
+ypos 561
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur37
+label "Size: \[value size]"
+xpos -370
+ypos 554
+}
+push $N692c57a0
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave18
+label "Offset: \[value offset]"
+xpos 1060
+ypos 554
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"25.0 + PROXY_OFFSET.offset"}}
+}
+push $N1c885b90
+Transform {
+scale {{"0.9 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform_MAIN14
 label "Scale: \[value scale]"
 xpos -700
-ypos 440
+ypos 441
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -4585,239 +1924,58 @@ label "Size: \[value size]"
 xpos -480
 ypos 434
 }
-push $N6f0e9410
-Dot {
-name Dot847
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 282
-}
+push $N1482ca60
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
-name HSVTool_Wave154
+name HSVTool_WaveTEST
 label "Offset: \[value offset]"
-xpos 620
-ypos 362
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 434
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{10+PROXY_OFFSET14.offset}}
+offset {{"20.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker149
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 440
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6defe200 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6df10500 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6df10500
-push $N6defe200
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6df21180 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6df10500
-push $N6df21180
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6df10500
-push $N6df21180
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6defe200
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-selected true
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6defe200
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave154.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N6f289030
+push $N70ef2750
 Transform {
-scale 0.95
+scale {{"0.925 * PROXY_OFFSET.size_offset"}}
+center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
+shutteroffset centred
+name Transform_MAIN4
+label "Scale: \[value scale]"
+xpos -590
+ypos 297
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur38
+label "Size: \[value size]"
+xpos -370
+ypos 290
+}
+push $N8e816900
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave19
+label "Offset: \[value offset]"
+xpos 1060
+ypos 290
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"15.0 + PROXY_OFFSET.offset"}}
+}
+push $N7657af0
+Transform {
+scale {{"0.95 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
 shutteroffset centred
 name Transform_MAIN13
 label "Scale: \[value scale]"
 xpos -700
-ypos 176
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 177
 }
 Blur {
 size {{Blur_MAIN.size}}
@@ -4826,597 +1984,350 @@ label "Size: \[value size]"
 xpos -480
 ypos 170
 }
-push $N6f0e4b90
-Dot {
-name Dot844
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos 18
-}
+push $N7e740a0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
-name HSVTool_Wave153
+name HSVTool_Wave243
 label "Offset: \[value offset]"
-xpos 620
-ypos 98
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos 170
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength {{parent.HSVTool_Wave_MAIN.wavelength}}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
-offset {{5+PROXY_OFFSET14.offset x1143 5}}
+offset {{"10.0 + PROXY_OFFSET.offset"}}
 }
-Group {
-name GM_Color_Flicker148
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos 176
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6de07210 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6de19510 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6de19510
-push $N6de07210
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6de2a190 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6de19510
-push $N6de2a190
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6de19510
-push $N6de2a190
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6de07210
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6de07210
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave153.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal {{parent.parent.GM_Color_Flicker_MAIN.proxy.maxVal}}
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N7887f650
+push $N689ea960
 Transform {
+scale {{"0.975 * PROXY_OFFSET.size_offset"}}
+center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
+shutteroffset centred
+name Transform_MAIN5
+label "Scale: \[value scale]"
+xpos -590
+ypos 33
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur_MAIN1
+label "Size: \[value size]"
+xpos -370
+ypos 26
+}
+push $Nc2aac200
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name HSVTool_Wave_MAIN1
+label "Offset: \[value offset]"
+xpos 1060
+ypos 26
+addUserKnob {20 User}
+addUserKnob {7 wavelength l "Wave Length" R 1 100}
+wavelength {{HSVTool_Wave_MAIN.wavelength}}
+addUserKnob {7 offset l Offset R 0 100}
+offset {{"5.0 + PROXY_OFFSET.offset"}}
+}
+push $N20461590
+Transform {
+scale {{"1 * PROXY_OFFSET.size_offset"}}
 center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
 shutteroffset centred
 name Transform_MAIN
 label "Scale: \[value scale]"
 xpos -700
-ypos -88
+ypos -87
 }
 Blur {
-size 20
+size 10
 name Blur_MAIN
 label "Size: \[value size]"
 xpos -480
 ypos -94
 }
-push $N6f0e04f0
-Dot {
-name Dot840
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 654
-ypos -246
-}
+push $N8e825140
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave_MAIN
 label "Offset: \[value offset]"
-xpos 620
-ypos -166
-disable {{PROXY_OFFSET14.dis_hsv}}
+xpos 730
+ypos -94
 addUserKnob {20 User}
 addUserKnob {7 wavelength l "Wave Length" R 1 100}
-wavelength 40
+wavelength 15
 addUserKnob {7 offset l Offset R 0 100}
-offset {{curve+PROXY_OFFSET14.offset}}
+offset {{PROXY_OFFSET.offset}}
 }
-Group {
-name GM_Color_Flicker_MAIN
-tile_color 0xffbf00ff
-label "Offset: \[value offset]"
-xpos 620
-ypos -88
-disable {{PROXY_OFFSET14.dis_flick}}
-addUserKnob {20 User l "Color Flicker"}
-addUserKnob {26 wa_co l "<font color=yellow size=\"4\"><b>Wave Control</b></font>"}
-addUserKnob {41 freq l "Wave Length " T proxy.freq}
-addUserKnob {41 maxVal l Max T proxy.maxVal}
-addUserKnob {41 minVal l Min T proxy.minVal}
-addUserKnob {41 offset l Offset T proxy.offset}
-addUserKnob {26 clamp l "<font color=yellow size=\"4\"><b>Clamp"}
-addUserKnob {41 minimum l Minimum T Clamp_red.minimum}
-addUserKnob {41 maximum l Maximum T Clamp_red.maximum}
-addUserKnob {26 mix_4 l "<font color=yellow size=\"4\"><b>Mix "}
-addUserKnob {41 mix_1 l "Red mix" T Copy_RED.mix}
-addUserKnob {41 mix_2 l "Green Mix" T Copy_GREEN.mix}
-addUserKnob {41 mix_3 l "Blue Mix" T Copy_BLUE.mix}
-addUserKnob {41 which l Mix T Dissolve1.which}
-addUserKnob {26 ""}
-addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
-addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Color Flicker© by Attila Gasparetz</font>"}
-}
-BackdropNode {
-inputs 0
-name BackdropNode7
-tile_color 0x181818ff
-label "<center><font color=red>\nRED\nrandom((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=green>\nGREEN\nrandom((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n<font color=blue>\nBLUE\nrandom((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"
-note_font_size 42
-xpos -328
-ypos -113
-bdwidth 1537
-bdheight 658
-}
-Input {
-inputs 0
-name Mask
-xpos -1470
-ypos 135
-number 1
-}
-Input {
-inputs 0
-name Input
-xpos -1030
-ypos -57
-}
-Dot {
-name Dot1
-xpos -996
-ypos 66
-}
-set N6dd0fab0 [stack 0]
-Expression {
-channel3 alpha
-expr3 1
-name Expression
-xpos -1250
-ypos 63
-}
-ChannelMerge {
-inputs 2
-operation multiply
-name ChannelMerge
-tile_color 0xff
-xpos -1250
-ypos 123
-disable {{"!\[exists parent.input1]"}}
-}
-set N6dd21db0 [stack 0]
-Dot {
-name Dot2
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos -1216
-ypos 378
-}
-push $N6dd21db0
-push $N6dd0fab0
-Dot {
-name Dot3
-xpos -666
-ypos 66
-}
-set N6dd32a30 [stack 0]
-Grade {
-multiply {{"random((frame+proxy.offset+5)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal"}}
-name Grade_B
-xpos -700
-ypos 279
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_blue
-tile_color 0x777777ff
-xpos -920
-ypos 279
-}
-push $N6dd21db0
-push $N6dd32a30
-Grade {
-multiply {{"random((frame+proxy.offset+3)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_G
-xpos -700
-ypos 207
-}
-Clamp {
-channels rgb
-minimum {{Clamp_red.minimum}}
-maximum {{Clamp_red.maximum}}
-mix {{Grade_RED.mix}}
-name Clamp_green
-tile_color 0x777777ff
-xpos -920
-ypos 207
-}
-push $N6dd21db0
-push $N6dd32a30
-Grade {
-multiply {{"random((frame+proxy.offset+1)/(proxy.freq)) * (proxy.maxVal-proxy.minVal) + proxy.minVal\n"}}
-name Grade_R
-xpos -700
-ypos 135
-}
-Clamp {
-channels rgb
-mix {{Grade_RED.mix}}
-name Clamp_red
-tile_color 0x777777ff
-xpos -920
-ypos 135
-}
-push $N6dd0fab0
-Copy {
-inputs 2+1
-from0 rgba.red
-to0 rgba.red
-name Copy_RED
-tile_color 0xff0000ff
-xpos -1030
-ypos 129
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.green
-to0 rgba.green
-name Copy_GREEN
-tile_color 0x1fff00ff
-xpos -1030
-ypos 201
-disable {{"!\[exists parent.parent.input0]"}}
-}
-Copy {
-inputs 2+1
-from0 rgba.blue
-to0 rgba.blue
-name Copy_BLUE
-tile_color 0x3fffff
-selected true
-xpos -1030
-ypos 273
-disable {{"!\[exists parent.parent.input0]"}}
-}
-push $N6dd0fab0
-Dissolve {
-inputs 2+1
-which 1
-name Dissolve1
-label "Which: \[value which]"
-xpos -1030
-ypos 363
-}
-Output {
-name Output1
-xpos -1030
-ypos 543
-}
-NoOp {
-inputs 0
-name proxy
-tile_color 0xff
-xpos -480
-ypos 207
-addUserKnob {20 User}
-addUserKnob {7 freq l Frequency R 0 10}
-freq {{parent.parent.HSVTool_Wave_MAIN.wavelength}}
-addUserKnob {7 offset l Offset R 0 100}
-offset {{parent.parent.HSVTool_Wave_MAIN.offset}}
-addUserKnob {7 maxVal l Max R 0 20}
-maxVal 2.5
-addUserKnob {7 minVal l Min R 0 20}
-minVal 1
-}
-end_group
-push $N6f0d71e0
+push $N20c7d730
 Keymix {
 inputs 3
 name Keymix149
 xpos 510
-ypos -88
+ypos -87
+}
+Keymix {
+inputs 3
+name Keymix1
+xpos 950
+ypos 33
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix157
 xpos 510
-ypos 176
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 177
+}
+Keymix {
+inputs 3
+name Keymix2
+xpos 950
+ypos 297
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix158
 xpos 510
-ypos 440
+ypos 441
+}
+Keymix {
+inputs 3
+name Keymix3
+xpos 950
+ypos 561
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix150
 xpos 510
-ypos 656
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 657
+}
+Keymix {
+inputs 3
+name Keymix4
+xpos 950
+ypos 777
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix159
 xpos 510
-ypos 872
+ypos 873
+}
+Keymix {
+inputs 3
+name Keymix5
+xpos 950
+ypos 993
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix160
 xpos 510
-ypos 1112
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 1137
+}
+Keymix {
+inputs 3
+name Keymix6
+xpos 950
+ypos 1257
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix151
 xpos 510
-ypos 1376
+ypos 1401
+}
+Keymix {
+inputs 3
+name Keymix7
+xpos 950
+ypos 1521
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix161
 xpos 510
-ypos 1664
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 1689
+}
+Keymix {
+inputs 3
+name Keymix8
+xpos 950
+ypos 1809
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix152
 xpos 510
-ypos 1976
+ypos 2001
+}
+Keymix {
+inputs 3
+name Keymix9
+xpos 950
+ypos 2121
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix162
 xpos 510
-ypos 2288
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 2313
+}
+Keymix {
+inputs 3
+name Keymix10
+xpos 950
+ypos 2433
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix153
 xpos 510
-ypos 2624
+ypos 2649
+}
+Keymix {
+inputs 3
+name Keymix11
+xpos 950
+ypos 2769
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix163
 xpos 510
-ypos 2936
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 2961
+}
+Keymix {
+inputs 3
+name Keymix12
+xpos 950
+ypos 3081
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix154
 xpos 510
-ypos 3224
+ypos 3249
+}
+Keymix {
+inputs 3
+name Keymix13
+xpos 950
+ypos 3369
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix164
 xpos 510
-ypos 3536
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 3561
+}
+Keymix {
+inputs 3
+name Keymix14
+xpos 950
+ypos 3681
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix155
 xpos 510
-ypos 3872
+ypos 3897
+}
+Keymix {
+inputs 3
+name Keymix15
+xpos 950
+ypos 4017
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix165
 xpos 510
-ypos 4160
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 4185
+}
+Keymix {
+inputs 3
+name Keymix16
+xpos 950
+ypos 4305
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix156
 xpos 510
-ypos 4448
+ypos 4473
+}
+Keymix {
+inputs 3
+name Keymix17
+xpos 950
+ypos 4593
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix166
 xpos 510
-ypos 4712
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 4737
+}
+Keymix {
+inputs 3
+name Keymix18
+xpos 950
+ypos 4857
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix167
 xpos 510
-ypos 5000
+ypos 5025
+}
+Keymix {
+inputs 3
+name Keymix19
+xpos 950
+ypos 5145
+disable {{PROXY_OFFSET.half_stripes}}
 }
 Keymix {
 inputs 3
 name Keymix168
 xpos 510
-ypos 5288
-disable {{PROXY_OFFSET14.half_stripes}}
+ypos 5313
+}
+Keymix {
+inputs 3
+name Keymix20
+xpos 950
+ypos 5433
+disable {{PROXY_OFFSET.half_stripes}}
+}
+Saturation {
+name Saturation1
+label "Value: \[value saturation]"
+xpos 510
+ypos 5505
+}
+Grade {
+name Grade1
+xpos 510
+ypos 5583
 }
 Copy {
 inputs 2
@@ -5424,38 +2335,38 @@ from0 rgba.alpha
 to0 rgba.alpha
 name Copy1
 xpos 510
-ypos 5456
+ypos 5649
 }
 Premult {
 name Premult1
 xpos 510
-ypos 5558
+ypos 5775
 }
-push $N6f136750
+push $Nc294ea80
 Dot {
 name Dot2
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
 xpos 764
-ypos 5682
+ypos 5874
 }
-set N6da97e70 [stack 0]
+set N6058f290 [stack 0]
 Merge2 {
 inputs 2
 also_merge all
 name Merge1
 xpos 510
-ypos 5678
+ypos 5871
 }
-push $N6da97e70
+push $N6058f290
 Dot {
 name Dot824
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
 xpos 764
-ypos 5874
+ypos 6066
 }
 Dissolve {
 inputs 2
@@ -5463,24 +2374,12 @@ which 1
 name Dissolve32
 label "Which: \[value which]"
 xpos 510
-ypos 5858
+ypos 6050
 }
 Output {
 name Output1
 xpos 510
-ypos 6110
-}
-NoOp {
-inputs 0
-name PROXY_OFFSET14
-label "offset: \[value offset]"
-xpos 840
-ypos -160
-addUserKnob {20 User}
-addUserKnob {7 offset R 0 500}
-addUserKnob {6 dis_hsv l "Disable HSV" +STARTLINE}
-addUserKnob {6 dis_flick l "Disable Flicker" +STARTLINE}
-addUserKnob {6 half_stripes l "Half Stripes" +STARTLINE}
+ypos 6303
 }
 Transform {
 inputs 0
@@ -5488,7 +2387,7 @@ center {{parent.Transform1.translate} {parent.Transform1.translate}}
 shutteroffset centred
 name Transform_proxy
 xpos -700
-ypos -250
+ypos -249
 addUserKnob {20 User}
 addUserKnob {7 x_offset l "X Offset" R -5000 5000}
 addUserKnob {7 y_offset l "Y Offset" R -5000 5000}
@@ -5499,10 +2398,22 @@ translate {2224 1548}
 shutteroffset centred
 name Transform1
 xpos -480
-ypos -250
+ypos -249
 addUserKnob {20 User}
 addUserKnob {7 x_offset l "X Offset" R -5000 5000}
 addUserKnob {7 y_offset l "Y Offset" R -5000 5000}
+}
+NoOp {
+inputs 0
+name PROXY_OFFSET
+label "offset: \[value offset]"
+xpos -1250
+ypos 225
+addUserKnob {20 User}
+addUserKnob {7 offset R 0 500}
+addUserKnob {6 half_stripes l "Half Stripes" +STARTLINE}
+addUserKnob {7 size_offset l "Wave Size Offset" R 1 10}
+size_offset 1
 }
 end_group
 push $cut_paste_input
@@ -5575,7 +2486,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos -438
 }
-set N6dafafe0 [stack 0]
+set N4cd6c800 [stack 0]
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5687,7 +2598,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -438
 }
-set N6db7fc50 [stack 0]
+set N4cbf1490 [stack 0]
 Dot {
 name Dot831
 tile_color 0x949494ff
@@ -5696,7 +2607,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -318
 }
-set N6db84420 [stack 0]
+set N4cbf5c60 [stack 0]
 Dot {
 name Dot832
 tile_color 0x949494ff
@@ -5705,7 +2616,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -198
 }
-set N6db88ca0 [stack 0]
+set N4cbfa4e0 [stack 0]
 Dot {
 name Dot833
 tile_color 0x949494ff
@@ -5714,7 +2625,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -78
 }
-set N6db8d5e0 [stack 0]
+set N4cbfee20 [stack 0]
 Dot {
 name Dot834
 tile_color 0x949494ff
@@ -5723,7 +2634,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 42
 }
-set N6db91de0 [stack 0]
+set N4cc03620 [stack 0]
 Dot {
 name Dot816
 tile_color 0x949494ff
@@ -5732,7 +2643,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 186
 }
-set N6db96660 [stack 0]
+set N4cc07ea0 [stack 0]
 Dot {
 name Dot815
 tile_color 0x949494ff
@@ -5741,7 +2652,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 306
 }
-set N6d99af80 [stack 0]
+set N4cc0c720 [stack 0]
 Dot {
 name Dot817
 tile_color 0x949494ff
@@ -5750,7 +2661,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 426
 }
-set N6d99f780 [stack 0]
+set N4cc10fa0 [stack 0]
 Dot {
 name Dot818
 tile_color 0x949494ff
@@ -5786,7 +2697,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 585
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5805,7 +2716,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 458
 }
-push $N6d99f780
+push $N4cc10fa0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5833,7 +2744,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 465
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5852,7 +2763,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 338
 }
-push $N6d99af80
+push $N4cc0c720
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5880,7 +2791,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 345
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5899,7 +2810,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 218
 }
-push $N6db96660
+push $N4cc07ea0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5927,7 +2838,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 225
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5946,7 +2857,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos 74
 }
-push $N6db91de0
+push $N4cc03620
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5974,7 +2885,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos 81
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -5993,7 +2904,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos -46
 }
-push $N6db8d5e0
+push $N4cbfee20
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6021,7 +2932,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos -39
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6040,7 +2951,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos -166
 }
-push $N6db88ca0
+push $N4cbfa4e0
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6068,7 +2979,7 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos -159
 }
-push $N6dafafe0
+push $N4cd6c800
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6079,7 +2990,7 @@ label "scale: \[value scale]"
 xpos 1170
 ypos -351
 }
-set N6d8f7f20 [stack 0]
+set N4cb696e0 [stack 0]
 Blur {
 size 100
 name Blur_MAIN
@@ -6087,7 +2998,7 @@ label "Size: \[value size]"
 xpos 1280
 ypos -286
 }
-push $N6db84420
+push $N4cbf5c60
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6116,8 +3027,8 @@ label "Value: \[value time_offset]"
 xpos 950
 ypos -279
 }
-push $N6d8f7f20
-push $N6db7fc50
+push $N4cb696e0
+push $N4cbf1490
 Transform {
 translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
 rotate {{Transform1_ANIM1.rotate}}
@@ -6230,7 +3141,7 @@ note_font_color 0xffffffff
 xpos 1864
 ypos 906
 }
-set N6d7dfd00 [stack 0]
+set N4ca514c0 [stack 0]
 STMap {
 inputs 2
 uv rgb
@@ -6246,7 +3157,7 @@ name Premult32
 xpos 1610
 ypos 1023
 }
-push $N6d7dfd00
+push $N4ca514c0
 Merge2 {
 inputs 2
 also_merge all
