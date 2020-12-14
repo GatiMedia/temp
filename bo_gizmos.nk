@@ -3,13 +3,14 @@ inputs 0
 name Backdrop_Adjust
 tile_color 0x3f597fff
 label "<center><font color=\[value note_color]>\[value note]"
-note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold"
+note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold"
 note_font_size 42
 selected true
-xpos 1840
-ypos -1047
-bdwidth 500
+xpos 1630
+ypos -831
+bdwidth 700
 bdheight 318
+z_order -222600
 addUserKnob {20 User}
 addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
 addUserKnob {26 label_1 l <b>Label}
@@ -66,11 +67,1621 @@ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Back
 }
 push $cut_paste_input
 Group {
+name WiggleTransform
+tile_color 0xce75daff
+selected true
+xpos 1940
+ypos -633
+addUserKnob {20 User}
+addUserKnob {26 transform l "<h3><font color=#bd7eb9>Transform"}
+addUserKnob {41 translate T Transform1_ANIM1.translate}
+addUserKnob {41 rotate T Transform1_ANIM1.rotate}
+addUserKnob {41 scale T Transform1_ANIM1.scale}
+addUserKnob {41 skewX l "skew X" T Transform1_ANIM1.skewX}
+addUserKnob {41 skewY l "skew Y" T Transform1_ANIM1.skewY}
+addUserKnob {41 skew_order l "skew order" T Transform1_ANIM1.skew_order}
+addUserKnob {41 center T Transform1_ANIM1.center}
+addUserKnob {22 setCenter l "Set Center" -STARTLINE T "this_width = nuke.thisNode().width()\n\nthis_height = nuke.thisNode().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisNode().knob(\"center\").setValue(\[newWidth, newHeight])"}
+addUserKnob {41 invert_matrix l invert T Transform1_ANIM1.invert_matrix}
+addUserKnob {41 filter T Transform1_ANIM1.filter}
+addUserKnob {41 clamp -STARTLINE T Transform1_ANIM1.clamp}
+addUserKnob {41 black_outside l "black outside" -STARTLINE T Transform1_ANIM1.black_outside}
+addUserKnob {41 motionblur T Transform1_ANIM1.motionblur}
+addUserKnob {41 shutter T Transform1_ANIM1.shutter}
+addUserKnob {41 shutteroffset l "shutter offset" T Transform1_ANIM1.shutteroffset}
+addUserKnob {41 shuttercustomoffset l "" -STARTLINE T Transform1_ANIM1.shuttercustomoffset}
+addUserKnob {26 layers l "<h3><font color=#bd7eb9>Layers"}
+addUserKnob {41 layer_num l "layer number" T PROXY.layer_num}
+addUserKnob {41 lin_offset l "linear offset" T PROXY.lin_offset}
+addUserKnob {41 exp_offset l "exponential offset" T PROXY.exp_offset}
+addUserKnob {41 layer_scale l "layer scale" T PROXY.layer_scale}
+addUserKnob {41 size l "layer blur" T Blur_MAIN.size}
+addUserKnob {20 WaveAnim}
+addUserKnob {26 WARN l "" +STARTLINE T "<h1><center><font color=#FF5555><font style=\"background-color:#364c87;\">☢ WARNING ☢ </h1>\n \n\n"}
+addUserKnob {26 warn2 l "" +STARTLINE T "<center><font color=#DD7777><b><font style=\"background-color:#364c87;\">If you enable any WaveAnim functions it overwrites your current values!\n"}
+addUserKnob {26 warn3 l "" +STARTLINE T "<center><font color=#DD7777><font style=\"background-color:#364c87;\">\n<b>By disabling them the current values stay static."}
+addUserKnob {26 ""}
+addUserKnob {22 enable_wave_rotate l "<font color=#cccccc>Enable Wave Rotate" T "# Enable Wave Rotate\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_wave_rotate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Wave Rotate\":\n    def toggleLabel():\n        options = \[\"<font color=#cccccc>Enable Wave Rotate\", \"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['remove_anim']\n        options2 = \[\"<font color=#cccccc>Wave Rotate Disabled\", \"\"\"<font color=#e38764>Disable Wave Rotate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n    x_val = trans1\['rotate'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\n    cWave.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Wave Rotate is already Enabled!\"\"\")" +STARTLINE}
+addUserKnob {22 remove_anim l "<font color=#cccccc>Wave Rotate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_wave_rotate']\n\nval1 = \"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\", \"<font color=#cccccc>Enable Wave Rotate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['remove_anim']\n        options2 = \[\"\"\"<font color=#e38764>Disable Wave Rotate\"\"\", \"<font color=#cccccc>Wave Rotate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['rotate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Wave Rotate is not Enabled!\"\"\")"}
+addUserKnob {7 waveLength l "Wave Length" R 0 100}
+waveLength 10
+addUserKnob {7 maxVal R -100 100}
+maxVal 30
+addUserKnob {7 minVal R -100 100}
+minVal {{-maxVal}}
+addUserKnob {7 offset l Offset R 0 100}
+offset 30
+addUserKnob {26 ""}
+addUserKnob {22 enable_random_translate l "<font color=#cccccc>Enable Random Translate" T "#Enable Random Translate\nmShift = nuke.thisGroup()\nknob1 = mShift\['enable_random_translate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Random Translate\":\n    def toggleLabel():\n        options = \[\"\"\"<font color=#cccccc>Enable Random Translate\"\"\", \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#cccccc>Random Translate Disabled\"\"\", \"\"\"<font color=#e38764>Disable Random Translate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    mShift.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n\n    trans1\['translate'].setExpression(\"random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2\", 0)\n    trans1\['translate'].setExpression(\"random((frame+offset2+1000)/waveLength2) * (maxVal2-minVal2) + minVal2\", 1)\n\n    mShift.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is already Enabled!\"\"\")" +STARTLINE}
+addUserKnob {22 dis_rand_trans l "<font color=#cccccc>Random Translate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_random_translate']\n\nval1 = \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\", \"<font color=#cccccc>Enable Random Translate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#e38764>Disable Random Translate\"\"\", \"<font color=#cccccc>Random Translate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['translate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is not Enabled!\"\"\")"}
+addUserKnob {7 waveLength2 l "Wave Length" R 0 100}
+waveLength2 10
+addUserKnob {7 maxVal2 l maxVal R -100 100}
+maxVal2 30
+addUserKnob {7 minVal2 l minVal R -100 100}
+minVal2 {{-maxVal2}}
+addUserKnob {7 offset2 l Offset R 0 100}
+addUserKnob {20 info l Info}
+addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>\nWiggleTransform<font color=#777777> by Jason M. Halverson and Attila Gasparetz, 2020"}
+}
+Input {
+inputs 0
+name mask
+xpos 1390
+ypos -2937
+number 1
+}
+Dot {
+name Dot3
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -2766
+}
+set N2e80bd50 [stack 0]
+Dot {
+name Dot11
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -2550
+}
+set N67d865b0 [stack 0]
+Dot {
+name Dot4
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -2382
+}
+set Nff625df0 [stack 0]
+Dot {
+name Dot13
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -2214
+}
+set N649d7290 [stack 0]
+Dot {
+name Dot5
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -2046
+}
+set N91bc00c0 [stack 0]
+Dot {
+name Dot15
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -1878
+}
+set Na9c802d0 [stack 0]
+Dot {
+name Dot6
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -1710
+}
+set N6bca0780 [stack 0]
+Dot {
+name Dot17
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -1542
+}
+set N649a6d40 [stack 0]
+Dot {
+name Dot7
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -1374
+}
+set N6617fa50 [stack 0]
+Dot {
+name Dot19
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -1182
+}
+set Ne809acb0 [stack 0]
+Dot {
+name Dot8
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -990
+}
+set Nf641b4d0 [stack 0]
+Dot {
+name Dot21
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -798
+}
+set Nae996440 [stack 0]
+Dot {
+name Dot9
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -606
+}
+set N73775ad0 [stack 0]
+Dot {
+name Dot23
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -414
+}
+set Nd05c43f0 [stack 0]
+Dot {
+name Dot10
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -222
+}
+set N5da7bc50 [stack 0]
+Dot {
+name Dot25
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos -30
+}
+set N6ceb6c70 [stack 0]
+Dot {
+name Dot27
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos 162
+}
+set Na2a5b10 [stack 0]
+Dot {
+name Dot29
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1424
+ypos 354
+}
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.05 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform10
+label "scale: \[value scale]"
+xpos 1280
+ypos 345
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur17
+label "Size: \[value size]"
+xpos 1280
+ypos 434
+}
+Group {
+inputs 0
+name STMap_Extend25
+xpos 840
+ypos -2937
+addUserKnob {20 User}
+addUserKnob {41 scale l Format_Extend t "How many times do u want to extend the border of the STMap" T STmap_Ctrl.scale}
+addUserKnob {26 ""}
+addUserKnob {26 han l "" +STARTLINE T "Made by HanCao\nbe friends https://www.linkedin.com/in/hancaofx/\n\nProxy bug fixed by Jason M. Halverson"}
+}
+Input {
+inputs 0
+name Format
+xpos 620
+ypos 470
+}
+Crop {
+box {0 0 {input.width*STmap_Ctrl.scale} {input.height*STmap_Ctrl.scale}}
+reformat true
+crop false
+name Crop2
+xpos 620
+ypos 518
+}
+Ramp {
+output {-rgba.red rgba.green -rgba.blue -rgba.alpha}
+p0 {0 0}
+p1 {0 {parent.Crop2.box.t}}
+name Ramp_GREEN
+label "in Y"
+xpos 620
+ypos 560
+}
+Ramp {
+output {rgba.red -rgba.green -rgba.blue -rgba.alpha}
+p0 {0 0}
+p1 {{parent.Crop2.box.r} 0}
+name Ramp_RED
+label "in X"
+xpos 620
+ypos 608
+}
+Expression {
+temp_name0 offset
+temp_expr0 (1-STmap_Ctrl.scale)/(2*STmap_Ctrl.scale)
+temp_name1 gain
+temp_expr1 STmap_Ctrl.scale
+expr0 (red+offset)*gain
+expr1 (green+offset)*gain
+expr2 0
+name Expression1
+selected true
+xpos 620
+ypos 662
+}
+Reformat {
+format {{{parent.input.format}}}
+resize none
+pbb true
+name Reformat1
+xpos 620
+ypos 710
+}
+Output {
+name Output1
+xpos 620
+ypos 758
+}
+NoOp {
+inputs 0
+name STmap_Ctrl
+xpos 400
+ypos 518
+addUserKnob {20 User}
+addUserKnob {7 scale R 1 10}
+scale 1.45
+}
+end_group
+Dot {
+name Dot830
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -2838
+}
+set N748b8450 [stack 0]
+Dot {
+name Dot831
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -2694
+}
+set Nfc660c90 [stack 0]
+Dot {
+name Dot12
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -2526
+}
+set Ndc7bb5d0 [stack 0]
+Dot {
+name Dot832
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -2358
+}
+set N6afc49f0 [stack 0]
+Dot {
+name Dot14
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -2190
+}
+set N76ac6d50 [stack 0]
+Dot {
+name Dot833
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -2022
+}
+set N6b4c5460 [stack 0]
+Dot {
+name Dot16
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -1854
+}
+set Nedb65930 [stack 0]
+Dot {
+name Dot834
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -1686
+}
+set Nb3ee4b40 [stack 0]
+Dot {
+name Dot18
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -1518
+}
+set N60d81c40 [stack 0]
+Dot {
+name Dot816
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -1326
+}
+set N6c173840 [stack 0]
+Dot {
+name Dot20
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -1134
+}
+set N74bdd7c0 [stack 0]
+Dot {
+name Dot815
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -942
+}
+set N748975c0 [stack 0]
+Dot {
+name Dot22
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -750
+}
+set N7d6a3b50 [stack 0]
+Dot {
+name Dot817
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -558
+}
+set N6ced1bc0 [stack 0]
+Dot {
+name Dot24
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -366
+}
+set N2e833650 [stack 0]
+Dot {
+name Dot818
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos -174
+}
+set N5ebd76c0 [stack 0]
+Dot {
+name Dot26
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos 18
+}
+set N402dd420 [stack 0]
+Dot {
+name Dot28
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos 210
+}
+set N661dbc70 [stack 0]
+Dot {
+name Dot30
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 874
+ypos 402
+}
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked11
+xpos 950
+ypos 399
+}
+TimeOffset {
+time_offset {{"(18.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset10
+label "Value: \[value time_offset]"
+xpos 950
+ypos 441
+}
+push $Na2a5b10
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.1 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform9
+label "scale: \[value scale]"
+xpos 1280
+ypos 153
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur16
+label "Size: \[value size]"
+xpos 1280
+ypos 242
+}
+push $N661dbc70
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked10
+xpos 950
+ypos 207
+}
+TimeOffset {
+time_offset {{"(17.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset9
+label "Value: \[value time_offset]"
+xpos 950
+ypos 249
+}
+push $N6ceb6c70
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.15 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform8
+label "scale: \[value scale]"
+xpos 1280
+ypos -39
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur15
+label "Size: \[value size]"
+xpos 1280
+ypos 50
+}
+push $N402dd420
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked9
+xpos 950
+ypos 15
+}
+TimeOffset {
+time_offset {{"(16.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset8
+label "Value: \[value time_offset]"
+xpos 950
+ypos 57
+}
+push $N5da7bc50
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.2 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform183
+label "scale: \[value scale]"
+xpos 1280
+ypos -231
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur7
+label "Size: \[value size]"
+xpos 1280
+ypos -142
+}
+push $N5ebd76c0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked4
+xpos 950
+ypos -177
+}
+TimeOffset {
+time_offset {{"(15.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset68
+label "Value: \[value time_offset]"
+xpos 950
+ypos -135
+}
+push $Nd05c43f0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.25 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform7
+label "scale: \[value scale]"
+xpos 1280
+ypos -423
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur14
+label "Size: \[value size]"
+xpos 1280
+ypos -334
+}
+push $N2e833650
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked8
+xpos 950
+ypos -369
+}
+TimeOffset {
+time_offset {{"(14.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset7
+label "Value: \[value time_offset]"
+xpos 950
+ypos -327
+}
+push $N73775ad0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.3 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform179
+label "scale: \[value scale]"
+xpos 1280
+ypos -615
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur6
+label "Size: \[value size]"
+xpos 1280
+ypos -526
+}
+push $N6ced1bc0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked3
+xpos 950
+ypos -561
+}
+TimeOffset {
+time_offset {{"(13.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset67
+label "Value: \[value time_offset]"
+xpos 950
+ypos -519
+}
+push $Nae996440
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.35 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform6
+label "scale: \[value scale]"
+xpos 1280
+ypos -807
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur13
+label "Size: \[value size]"
+xpos 1280
+ypos -718
+}
+push $N7d6a3b50
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked7
+xpos 950
+ypos -753
+}
+TimeOffset {
+time_offset {{"(12.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset6
+label "Value: \[value time_offset]"
+xpos 950
+ypos -711
+}
+push $Nf641b4d0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.4 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform178
+label "scale: \[value scale]"
+xpos 1280
+ypos -999
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur5
+label "Size: \[value size]"
+xpos 1280
+ypos -910
+}
+push $N748975c0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked2
+xpos 950
+ypos -945
+}
+TimeOffset {
+time_offset {{"(11.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset66
+label "Value: \[value time_offset]"
+xpos 950
+ypos -903
+}
+push $Ne809acb0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.45 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform5
+label "scale: \[value scale]"
+xpos 1280
+ypos -1191
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur12
+label "Size: \[value size]"
+xpos 1280
+ypos -1102
+}
+push $N74bdd7c0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked6
+xpos 950
+ypos -1137
+}
+TimeOffset {
+time_offset {{"(10.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset5
+label "Value: \[value time_offset]"
+xpos 950
+ypos -1095
+}
+push $N6617fa50
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.5 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform177
+label "scale: \[value scale]"
+xpos 1280
+ypos -1383
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur4
+label "Size: \[value size]"
+xpos 1280
+ypos -1294
+}
+push $N6c173840
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked1
+xpos 950
+ypos -1329
+}
+TimeOffset {
+time_offset {{"(9.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset65
+label "Value: \[value time_offset]"
+xpos 950
+ypos -1287
+}
+push $N649a6d40
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.65 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform4
+label "scale: \[value scale]"
+xpos 1280
+ypos -1551
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur11
+label "Size: \[value size]"
+xpos 1280
+ypos -1486
+}
+push $N60d81c40
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked5
+xpos 950
+ypos -1521
+}
+TimeOffset {
+time_offset {{"(8.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset4
+label "Value: \[value time_offset]"
+xpos 950
+ypos -1479
+}
+push $N6bca0780
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.7 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform182
+label "scale: \[value scale]"
+xpos 1280
+ypos -1719
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur3
+label "Size: \[value size]"
+xpos 1280
+ypos -1654
+}
+push $Nb3ee4b40
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform9_linked
+xpos 950
+ypos -1689
+}
+TimeOffset {
+time_offset {{"(7.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset69
+label "Value: \[value time_offset]"
+xpos 950
+ypos -1647
+}
+push $Na9c802d0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.75 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform3
+label "scale: \[value scale]"
+xpos 1280
+ypos -1887
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur10
+label "Size: \[value size]"
+xpos 1280
+ypos -1822
+}
+push $Nedb65930
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform8_linked1
+xpos 950
+ypos -1857
+}
+TimeOffset {
+time_offset {{"(6.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset3
+label "Value: \[value time_offset]"
+xpos 950
+ypos -1815
+}
+push $N91bc00c0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.8 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform181
+label "scale: \[value scale]"
+xpos 1280
+ypos -2055
+}
+Blur {
+size {{Blur_MAIN.size}}
+name Blur2
+label "Size: \[value size]"
+xpos 1280
+ypos -1990
+}
+push $N6b4c5460
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform8_linked
+xpos 950
+ypos -2025
+}
+TimeOffset {
+time_offset {{"(5.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset70
+label "Value: \[value time_offset]"
+xpos 950
+ypos -1983
+}
+push $N649d7290
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.85 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform2
+label "scale: \[value scale]"
+xpos 1280
+ypos -2223
+}
+Blur {
+size {{Blur_MAIN.size i}}
+name Blur9
+label "Size: \[value size]"
+xpos 1280
+ypos -2158
+}
+push $N76ac6d50
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform7_linked2
+xpos 950
+ypos -2193
+}
+TimeOffset {
+time_offset {{"(4.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset2
+label "Value: \[value time_offset]"
+xpos 950
+ypos -2151
+}
+push $Nff625df0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.9 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform180
+label "scale: \[value scale]"
+xpos 1280
+ypos -2391
+}
+Blur {
+size {{Blur_MAIN.size i}}
+name Blur1
+label "Size: \[value size]"
+xpos 1280
+ypos -2326
+}
+push $N6afc49f0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform7_linked
+xpos 950
+ypos -2361
+}
+TimeOffset {
+time_offset {{"(3.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset71
+label "Value: \[value time_offset]"
+xpos 950
+ypos -2319
+}
+push $N67d865b0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"0.95 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform1
+label "scale: \[value scale]"
+xpos 1280
+ypos -2559
+}
+Blur {
+size {{Blur_MAIN.size i}}
+name Blur8
+label "Size: \[value size]"
+xpos 1280
+ypos -2494
+}
+push $Ndc7bb5d0
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform7_linked1
+xpos 950
+ypos -2529
+}
+TimeOffset {
+time_offset {{"(2.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset1
+label "Value: \[value time_offset]"
+xpos 950
+ypos -2487
+}
+push $N2e80bd50
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{"1.0 * PROXY.layer_scale"}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+shutteroffset centred
+name Transform2_linked
+label "scale: \[value scale]"
+xpos 1280
+ypos -2775
+}
+set N63cc1f70 [stack 0]
+Blur {
+size 40
+name Blur_MAIN
+label "Size: \[value size]"
+xpos 1280
+ypos -2662
+}
+push $Nfc660c90
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+filter {{Transform1_ANIM1.filter}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform6_linked
+xpos 950
+ypos -2697
+}
+TimeOffset {
+time_offset {{"(1.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+time ""
+name TimeOffset72
+label "Value: \[value time_offset]"
+xpos 950
+ypos -2655
+}
+push $N63cc1f70
+push $N748b8450
+Transform {
+translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+rotate {{Transform1_ANIM1.rotate}}
+scale {{Transform1_ANIM1.scale}}
+skewX {{Transform1_ANIM1.skewX}}
+skewY {{Transform1_ANIM1.skewY}}
+skew_order {{Transform1_ANIM1.skew_order}}
+center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+invert_matrix {{Transform1_ANIM1.invert_matrix}}
+clamp {{Transform1_ANIM1.clamp}}
+black_outside {{Transform1_ANIM1.black_outside}}
+motionblur {{Transform1_ANIM1.motionblur}}
+shutter {{Transform1_ANIM1.shutter}}
+shutteroffset {{Transform1_ANIM1.shutteroffset}}
+shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+name Transform6_linked1
+xpos 950
+ypos -2841
+}
+Dot {
+name Dot835
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 1094
+ypos -2838
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy1
+xpos 1060
+ypos -2775
+}
+Merge2 {
+inputs 2+1
+name Layer1
+xpos 1060
+ypos -2649
+disable {{"\[if \{\[value PROXY.layer_num] < 1\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer2
+xpos 1060
+ypos -2481
+disable {{"\[if \{\[value PROXY.layer_num] < 2\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer3
+xpos 1060
+ypos -2313
+disable {{"\[if \{\[value PROXY.layer_num] < 3\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer4
+xpos 1060
+ypos -2145
+disable {{"\[if \{\[value PROXY.layer_num] < 4\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer5
+xpos 1060
+ypos -1977
+disable {{"\[if \{\[value PROXY.layer_num] < 5\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer6
+xpos 1060
+ypos -1809
+disable {{"\[if \{\[value PROXY.layer_num] < 6\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer7
+xpos 1060
+ypos -1641
+disable {{"\[if \{\[value PROXY.layer_num] < 7\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer8
+xpos 1060
+ypos -1473
+disable {{"\[if \{\[value PROXY.layer_num] < 8\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer9
+xpos 1060
+ypos -1281
+disable {{"\[if \{\[value PROXY.layer_num] < 9\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer10
+xpos 1060
+ypos -1089
+disable {{"\[if \{\[value PROXY.layer_num] < 10\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer11
+xpos 1060
+ypos -897
+disable {{"\[if \{\[value PROXY.layer_num] < 11\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer12
+xpos 1060
+ypos -705
+disable {{"\[if \{\[value PROXY.layer_num] < 12\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer13
+xpos 1060
+ypos -513
+disable {{"\[if \{\[value PROXY.layer_num] < 13\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer14
+xpos 1060
+ypos -321
+disable {{"\[if \{\[value PROXY.layer_num] < 14\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer15
+xpos 1060
+ypos -129
+disable {{"\[if \{\[value PROXY.layer_num] < 15\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer16
+xpos 1060
+ypos 63
+disable {{"\[if \{\[value PROXY.layer_num] < 16\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer17
+xpos 1060
+ypos 255
+disable {{"\[if \{\[value PROXY.layer_num] < 17\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Merge2 {
+inputs 2+1
+name Layer18
+xpos 1060
+ypos 447
+disable {{"\[if \{\[value PROXY.layer_num] < 18\}  \{return \"1\"\} \{return \"0\"\}]"}}
+}
+Crop {
+box {{CropPROXY.box} {CropPROXY.box} {CropPROXY.box} {CropPROXY.box}}
+name Crop1
+label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+xpos 1060
+ypos 609
+}
+Dot {
+name Dot836
+tile_color 0x949494ff
+note_font_size 22
+note_font_color 0xffffffff
+xpos 1094
+ypos 906
+}
+Dot {
+name Dot1
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1534
+ypos 906
+}
+set N66184d70 [stack 0]
+push $N66184d70
+Input {
+inputs 0
+name image
+xpos 1830
+ypos -2961
+}
+Dot {
+name Dot2
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1864
+ypos -2886
+}
+set N8a839170 [stack 0]
+Dot {
+name Dot821
+tile_color 0x949494ff
+note_font_size 72
+note_font_color 0xffffffff
+xpos 1864
+ypos 906
+}
+set Nd35187b0 [stack 0]
+STMap {
+inputs 2
+uv rgb
+blur_scale 3
+filter Lanczos4
+name STMap23
+label "UV: \[value uv]"
+xpos 1610
+ypos 890
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy2
+xpos 1610
+ypos 969
+}
+Premult {
+name Premult32
+xpos 1610
+ypos 1023
+}
+push $Nd35187b0
+Merge2 {
+inputs 2
+also_merge all
+name Merge207
+xpos 1830
+ypos 1023
+}
+Output {
+name Output1
+xpos 1830
+ypos 1239
+}
+Transform {
+inputs 0
+center {2224 1548}
+shutteroffset centred
+name Transform1_ANIM1
+xpos 510
+ypos 399
+}
+push $N8a839170
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle1
+label "\[string toupper \[value in]]"
+xpos 1720
+ypos -2895
+}
+Crop {
+box {{input.format.x} {input.format.y} {input.format.r} {input.format.t}}
+name CropPROXY
+label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+xpos 1610
+ypos -2895
+}
+NoOp {
+inputs 0
+name PROXY
+xpos 510
+ypos -2769
+addUserKnob {20 User}
+addUserKnob {7 layer_num l "layer number" R 1 18}
+layer_num 18
+addUserKnob {7 lin_offset l "linear offset" R -5 5}
+addUserKnob {7 exp_offset l "exponential offset" R -3 3}
+exp_offset 1
+addUserKnob {7 layer_scale l "layer scale" R 0 2}
+layer_scale 1
+}
+end_group
+push $cut_paste_input
+Group {
 name GM_ColorWave
 tile_color 0xff00d6ff
 selected true
-xpos 1936
-ypos -860
+xpos 1720
+ypos -633
 addUserKnob {20 User}
 addUserKnob {26 waveanim l "<h3><font color=#e665eb>Wave Anim"}
 addUserKnob {41 translate_1 l Center T Transform1.translate}
@@ -108,7 +1719,7 @@ xpos -920
 ypos -321
 number 1
 }
-set N237e6a00 [stack 0]
+set N8b4e9c0 [stack 0]
 Dot {
 name Dot1
 tile_color 0x949494ff
@@ -117,7 +1728,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 5658
 }
-push $N237e6a00
+push $N8b4e9c0
 Dot {
 name Dot825
 tile_color 0x949494ff
@@ -126,7 +1737,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos -78
 }
-set N20461590 [stack 0]
+set N8b579b0 [stack 0]
 Dot {
 name Dot3
 tile_color 0x949494ff
@@ -135,7 +1746,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 42
 }
-set N689ea960 [stack 0]
+set N8b5c2a0 [stack 0]
 Dot {
 name Dot4
 tile_color 0x949494ff
@@ -144,7 +1755,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 306
 }
-set N70ef2750 [stack 0]
+set N8b60ad0 [stack 0]
 Dot {
 name Dot5
 tile_color 0x949494ff
@@ -153,7 +1764,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 570
 }
-set N1c68cc50 [stack 0]
+set N8b65380 [stack 0]
 Dot {
 name Dot6
 tile_color 0x949494ff
@@ -162,7 +1773,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 786
 }
-set N60a6d1e0 [stack 0]
+set N8b69c00 [stack 0]
 Dot {
 name Dot7
 tile_color 0x949494ff
@@ -171,7 +1782,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 1002
 }
-set N8cfd4fc0 [stack 0]
+set N8b6e480 [stack 0]
 Dot {
 name Dot8
 tile_color 0x949494ff
@@ -180,7 +1791,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 1266
 }
-set N692d7020 [stack 0]
+set N8b72d00 [stack 0]
 Dot {
 name Dot9
 tile_color 0x949494ff
@@ -189,7 +1800,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 1530
 }
-set N747f6890 [stack 0]
+set N8b77640 [stack 0]
 Dot {
 name Dot10
 tile_color 0x949494ff
@@ -198,7 +1809,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 1818
 }
-set Na44e1b20 [stack 0]
+set N8b7be40 [stack 0]
 Dot {
 name Dot11
 tile_color 0x949494ff
@@ -207,7 +1818,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 2130
 }
-set N1482cec0 [stack 0]
+set N8b806c0 [stack 0]
 Dot {
 name Dot12
 tile_color 0x949494ff
@@ -216,7 +1827,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 2442
 }
-set N1a5f7ee0 [stack 0]
+set N8b84f40 [stack 0]
 Dot {
 name Dot13
 tile_color 0x949494ff
@@ -225,7 +1836,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 2778
 }
-set Nc1c943d0 [stack 0]
+set N8b897c0 [stack 0]
 Dot {
 name Dot14
 tile_color 0x949494ff
@@ -234,7 +1845,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 3090
 }
-set N8f4ded30 [stack 0]
+set N8b8e040 [stack 0]
 Dot {
 name Dot15
 tile_color 0x949494ff
@@ -243,7 +1854,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 3378
 }
-set Ne2fc4da0 [stack 0]
+set N8b928c0 [stack 0]
 Dot {
 name Dot16
 tile_color 0x949494ff
@@ -252,7 +1863,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 3690
 }
-set Nc1f87260 [stack 0]
+set N8b97140 [stack 0]
 Dot {
 name Dot17
 tile_color 0x949494ff
@@ -261,7 +1872,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 4026
 }
-set Nfb33990 [stack 0]
+set N8b9bb00 [stack 0]
 Dot {
 name Dot18
 tile_color 0x949494ff
@@ -270,7 +1881,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 4314
 }
-set N1e368a00 [stack 0]
+set N8ba02c0 [stack 0]
 Dot {
 name Dot19
 tile_color 0x949494ff
@@ -279,7 +1890,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 4602
 }
-set Nc297da10 [stack 0]
+set N8ba4b40 [stack 0]
 Dot {
 name Dot20
 tile_color 0x949494ff
@@ -288,7 +1899,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 4866
 }
-set N7462cc50 [stack 0]
+set N8ba93c0 [stack 0]
 Dot {
 name Dot21
 tile_color 0x949494ff
@@ -297,7 +1908,7 @@ note_font_color 0xffffffff
 xpos -776
 ypos 5154
 }
-set N8f4a32c0 [stack 0]
+set N8baddd0 [stack 0]
 Dot {
 name Dot22
 tile_color 0x949494ff
@@ -336,7 +1947,7 @@ note_font_color 0xffffffff
 xpos 544
 ypos -222
 }
-set N20c7d730 [stack 0]
+set N8bd6890 [stack 0]
 Dot {
 name Dot815
 tile_color 0x949494ff
@@ -345,7 +1956,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -222
 }
-set Nc299f220 [stack 0]
+set N8bdb2d0 [stack 0]
 Dot {
 name Dot23
 tile_color 0x949494ff
@@ -354,7 +1965,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 42
 }
-set Nc2aac200 [stack 0]
+set N8bdf970 [stack 0]
 Dot {
 name Dot24
 tile_color 0x949494ff
@@ -363,7 +1974,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 306
 }
-set N8e816900 [stack 0]
+set N8be41f0 [stack 0]
 Dot {
 name Dot25
 tile_color 0x949494ff
@@ -372,7 +1983,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 570
 }
-set N692c57a0 [stack 0]
+set N8be8c90 [stack 0]
 Dot {
 name Dot26
 tile_color 0x949494ff
@@ -381,7 +1992,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 786
 }
-set N14700ab0 [stack 0]
+set N8bed560 [stack 0]
 Dot {
 name Dot27
 tile_color 0x949494ff
@@ -390,7 +2001,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 1002
 }
-set Nc1a72b30 [stack 0]
+set N8bf1bd0 [stack 0]
 Dot {
 name Dot28
 tile_color 0x949494ff
@@ -399,7 +2010,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 1266
 }
-set N13950e50 [stack 0]
+set N8bf6690 [stack 0]
 Dot {
 name Dot29
 tile_color 0x949494ff
@@ -408,7 +2019,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 1530
 }
-set N2186d200 [stack 0]
+set N8bfb060 [stack 0]
 Dot {
 name Dot30
 tile_color 0x949494ff
@@ -417,7 +2028,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 1818
 }
-set Nc1989040 [stack 0]
+set N8bff6b0 [stack 0]
 Dot {
 name Dot31
 tile_color 0x949494ff
@@ -426,7 +2037,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 2130
 }
-set N6610200 [stack 0]
+set N8c041b0 [stack 0]
 Dot {
 name Dot32
 tile_color 0x949494ff
@@ -435,7 +2046,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 2442
 }
-set N8f4c9260 [stack 0]
+set N8a08a90 [stack 0]
 Dot {
 name Dot33
 tile_color 0x949494ff
@@ -444,7 +2055,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 2778
 }
-set N688a91c0 [stack 0]
+set N8a0d0d0 [stack 0]
 Dot {
 name Dot34
 tile_color 0x949494ff
@@ -453,7 +2064,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 3090
 }
-set N692c2e70 [stack 0]
+set N8a11950 [stack 0]
 Dot {
 name Dot35
 tile_color 0x949494ff
@@ -462,7 +2073,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 3378
 }
-set N7425c910 [stack 0]
+set N8a164a0 [stack 0]
 Dot {
 name Dot36
 tile_color 0x949494ff
@@ -471,7 +2082,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 3690
 }
-set Nc1f6d970 [stack 0]
+set N8a1aa70 [stack 0]
 Dot {
 name Dot37
 tile_color 0x949494ff
@@ -480,7 +2091,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 4026
 }
-set N10035550 [stack 0]
+set N8a1f5f0 [stack 0]
 Dot {
 name Dot38
 tile_color 0x949494ff
@@ -489,7 +2100,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 4314
 }
-set N8cff3140 [stack 0]
+set N8a23ba0 [stack 0]
 Dot {
 name Dot39
 tile_color 0x949494ff
@@ -498,7 +2109,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 4602
 }
-set N68810a90 [stack 0]
+set N8a28420 [stack 0]
 Dot {
 name Dot40
 tile_color 0x949494ff
@@ -507,7 +2118,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 4866
 }
-set N8e80f4c0 [stack 0]
+set N8a2cfe0 [stack 0]
 Dot {
 name Dot41
 tile_color 0x949494ff
@@ -516,7 +2127,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 5154
 }
-set Nc193e430 [stack 0]
+set N8a31560 [stack 0]
 Dot {
 name Dot42
 tile_color 0x949494ff
@@ -525,7 +2136,7 @@ note_font_color 0xffffffff
 xpos 1204
 ypos 5442
 }
-set Nc294ea80 [stack 0]
+set N8a35de0 [stack 0]
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave1
@@ -538,7 +2149,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"195.0 + PROXY_OFFSET.offset"}}
 }
-push $N20461590
+push $N8b579b0
 Dot {
 name Dot842
 tile_color 0x949494ff
@@ -547,7 +2158,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 186
 }
-set N7657af0 [stack 0]
+set N8a49f60 [stack 0]
 Dot {
 name Dot845
 tile_color 0x949494ff
@@ -556,7 +2167,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 450
 }
-set N1c885b90 [stack 0]
+set N8a4e7e0 [stack 0]
 Dot {
 name Dot826
 tile_color 0x949494ff
@@ -565,7 +2176,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 666
 }
-set N692d9840 [stack 0]
+set N8a533d0 [stack 0]
 Dot {
 name Dot848
 tile_color 0x949494ff
@@ -574,7 +2185,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 882
 }
-set Nc2a652d0 [stack 0]
+set N8a57c80 [stack 0]
 Dot {
 name Dot851
 tile_color 0x949494ff
@@ -583,7 +2194,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1146
 }
-set N8ca86f30 [stack 0]
+set N8a5c190 [stack 0]
 Dot {
 name Dot827
 tile_color 0x949494ff
@@ -592,7 +2203,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1410
 }
-set N13f578d0 [stack 0]
+set N8a60db0 [stack 0]
 Dot {
 name Dot854
 tile_color 0x949494ff
@@ -601,7 +2212,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 1698
 }
-set N54232c50 [stack 0]
+set N8a65660 [stack 0]
 Dot {
 name Dot828
 tile_color 0x949494ff
@@ -610,7 +2221,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2010
 }
-set N24962df0 [stack 0]
+set N8a69b50 [stack 0]
 Dot {
 name Dot857
 tile_color 0x949494ff
@@ -619,7 +2230,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2322
 }
-set N45df4640 [stack 0]
+set N8a6e7d0 [stack 0]
 Dot {
 name Dot829
 tile_color 0x949494ff
@@ -628,7 +2239,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2658
 }
-set N4477f560 [stack 0]
+set N8a72cc0 [stack 0]
 Dot {
 name Dot860
 tile_color 0x949494ff
@@ -637,7 +2248,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 2970
 }
-set N20c7ce50 [stack 0]
+set N8a77540 [stack 0]
 Dot {
 name Dot830
 tile_color 0x949494ff
@@ -646,7 +2257,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3258
 }
-set N8e548130 [stack 0]
+set N8a7bdc0 [stack 0]
 Dot {
 name Dot863
 tile_color 0x949494ff
@@ -655,7 +2266,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3570
 }
-set Nc1a94260 [stack 0]
+set N8a80640 [stack 0]
 Dot {
 name Dot831
 tile_color 0x949494ff
@@ -664,7 +2275,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 3906
 }
-set N7c3cfe60 [stack 0]
+set N8a84ec0 [stack 0]
 Dot {
 name Dot866
 tile_color 0x949494ff
@@ -673,7 +2284,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4194
 }
-set N66693e0 [stack 0]
+set N8a89740 [stack 0]
 Dot {
 name Dot832
 tile_color 0x949494ff
@@ -682,7 +2293,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4482
 }
-set N44790290 [stack 0]
+set N8a8e3e0 [stack 0]
 Dot {
 name Dot869
 tile_color 0x949494ff
@@ -691,7 +2302,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 4746
 }
-set N8e8191f0 [stack 0]
+set N8a92c70 [stack 0]
 Dot {
 name Dot870
 tile_color 0x949494ff
@@ -700,7 +2311,7 @@ note_font_color 0xffffffff
 xpos -886
 ypos 5034
 }
-set Nc1c86100 [stack 0]
+set N8a8dfc0 [stack 0]
 Dot {
 name Dot875
 tile_color 0x949494ff
@@ -725,7 +2336,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 5306
 }
-push $Nc299f220
+push $N8bdb2d0
 Dot {
 name Dot816
 tile_color 0x949494ff
@@ -734,7 +2345,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos -78
 }
-set N8e825140 [stack 0]
+set N8abb9c0 [stack 0]
 Dot {
 name Dot843
 tile_color 0x949494ff
@@ -743,7 +2354,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 186
 }
-set N7e740a0 [stack 0]
+set N8abffb0 [stack 0]
 Dot {
 name Dot846
 tile_color 0x949494ff
@@ -752,7 +2363,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 450
 }
-set N1482ca60 [stack 0]
+set N8ac4880 [stack 0]
 Dot {
 name Dot817
 tile_color 0x949494ff
@@ -761,7 +2372,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 666
 }
-set N747e5fa0 [stack 0]
+set N8ac9100 [stack 0]
 Dot {
 name Dot849
 tile_color 0x949494ff
@@ -770,7 +2381,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 882
 }
-set N8ca50570 [stack 0]
+set N8acd980 [stack 0]
 Dot {
 name Dot852
 tile_color 0x949494ff
@@ -779,7 +2390,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 1146
 }
-set N8cfe4c60 [stack 0]
+set N8abb510 [stack 0]
 Dot {
 name Dot818
 tile_color 0x949494ff
@@ -788,7 +2399,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 1410
 }
-set N7fb929a0 [stack 0]
+set N8ad2200 [stack 0]
 Dot {
 name Dot855
 tile_color 0x949494ff
@@ -797,7 +2408,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 1698
 }
-set Naab8c9d0 [stack 0]
+set N8adb350 [stack 0]
 Dot {
 name Dot819
 tile_color 0x949494ff
@@ -806,7 +2417,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 2010
 }
-set Nb3f91c80 [stack 0]
+set N8adfbd0 [stack 0]
 Dot {
 name Dot858
 tile_color 0x949494ff
@@ -815,7 +2426,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 2322
 }
-set N8f4a3710 [stack 0]
+set N8ad6a90 [stack 0]
 Dot {
 name Dot820
 tile_color 0x949494ff
@@ -824,7 +2435,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 2658
 }
-set Nc1f88330 [stack 0]
+set N8ae8d10 [stack 0]
 Dot {
 name Dot861
 tile_color 0x949494ff
@@ -833,7 +2444,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 2970
 }
-set Nc198da80 [stack 0]
+set N8aed590 [stack 0]
 Dot {
 name Dot821
 tile_color 0x949494ff
@@ -842,7 +2453,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 3258
 }
-set N8cfc1870 [stack 0]
+set N8ae4450 [stack 0]
 Dot {
 name Dot864
 tile_color 0x949494ff
@@ -851,7 +2462,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 3570
 }
-set N692c3490 [stack 0]
+set N8af66c0 [stack 0]
 Dot {
 name Dot822
 tile_color 0x949494ff
@@ -860,7 +2471,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 3906
 }
-set N8e8197f0 [stack 0]
+set N8af1e10 [stack 0]
 Dot {
 name Dot867
 tile_color 0x949494ff
@@ -869,7 +2480,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 4194
 }
-set N688abef0 [stack 0]
+set N8aff800 [stack 0]
 Dot {
 name Dot823
 tile_color 0x949494ff
@@ -878,7 +2489,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 4482
 }
-set Nc2dd45c0 [stack 0]
+set N8b04080 [stack 0]
 Dot {
 name Dot871
 tile_color 0x949494ff
@@ -887,7 +2498,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 4746
 }
-set N10466920 [stack 0]
+set N8afaf40 [stack 0]
 Dot {
 name Dot872
 tile_color 0x949494ff
@@ -896,7 +2507,7 @@ note_font_color 0xffffffff
 xpos 874
 ypos 5034
 }
-set N1f18c9c0 [stack 0]
+set N890d1e0 [stack 0]
 Dot {
 name Dot876
 tile_color 0x949494ff
@@ -917,7 +2528,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"190.0 + PROXY_OFFSET.offset"}}
 }
-push $N8f4a32c0
+push $N8baddd0
 Transform {
 scale {{"0.075 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -934,7 +2545,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 5138
 }
-push $Nc193e430
+push $N8a31560
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave2
@@ -947,7 +2558,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"185.0 + PROXY_OFFSET.offset"}}
 }
-push $Nc1c86100
+push $N8a8dfc0
 Transform {
 scale {{"0.1 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -964,7 +2575,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 5018
 }
-push $N1f18c9c0
+push $N890d1e0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave162
@@ -977,7 +2588,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"180.0 + PROXY_OFFSET.offset"}}
 }
-push $N7462cc50
+push $N8ba93c0
 Transform {
 scale {{"0.125 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -994,7 +2605,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 4850
 }
-push $N8e80f4c0
+push $N8a2cfe0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave3
@@ -1007,7 +2618,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"175.0 + PROXY_OFFSET.offset"}}
 }
-push $N8e8191f0
+push $N8a92c70
 Transform {
 scale {{"0.15 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1024,7 +2635,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 4730
 }
-push $N10466920
+push $N8afaf40
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave163
@@ -1037,7 +2648,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"170.0 + PROXY_OFFSET.offset"}}
 }
-push $Nc297da10
+push $N8ba4b40
 Transform {
 scale {{"0.175 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1054,7 +2665,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 4586
 }
-push $N68810a90
+push $N8a28420
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave4
@@ -1067,7 +2678,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"165.0 + PROXY_OFFSET.offset"}}
 }
-push $N44790290
+push $N8a8e3e0
 Transform {
 scale {{"0.2 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1084,7 +2695,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 4466
 }
-push $Nc2dd45c0
+push $N8b04080
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave145
@@ -1097,7 +2708,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"160.0 + PROXY_OFFSET.offset"}}
 }
-push $N1e368a00
+push $N8ba02c0
 Transform {
 scale {{"0.225 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1114,7 +2725,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 4298
 }
-push $N8cff3140
+push $N8a23ba0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave5
@@ -1127,7 +2738,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"155.0 + PROXY_OFFSET.offset"}}
 }
-push $N66693e0
+push $N8a89740
 Transform {
 scale {{"0.25 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1144,7 +2755,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 4178
 }
-push $N688abef0
+push $N8aff800
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave161
@@ -1157,7 +2768,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"150.0 + PROXY_OFFSET.offset"}}
 }
-push $Nfb33990
+push $N8b9bb00
 Transform {
 scale {{"0.275 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1174,7 +2785,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 4010
 }
-push $N10035550
+push $N8a1f5f0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave6
@@ -1187,7 +2798,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"145.0 + PROXY_OFFSET.offset"}}
 }
-push $N7c3cfe60
+push $N8a84ec0
 Transform {
 scale {{"0.3 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1204,7 +2815,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 3890
 }
-push $N8e8197f0
+push $N8af1e10
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave146
@@ -1217,7 +2828,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"140.0 + PROXY_OFFSET.offset"}}
 }
-push $Nc1f87260
+push $N8b97140
 Transform {
 scale {{"0.325 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1234,7 +2845,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 3674
 }
-push $Nc1f6d970
+push $N8a1aa70
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave7
@@ -1247,7 +2858,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"135.0 + PROXY_OFFSET.offset"}}
 }
-push $Nc1a94260
+push $N8a80640
 Transform {
 scale {{"0.35 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1264,7 +2875,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 3554
 }
-push $N692c3490
+push $N8af66c0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave160
@@ -1277,7 +2888,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"130.0 + PROXY_OFFSET.offset"}}
 }
-push $Ne2fc4da0
+push $N8b928c0
 Transform {
 scale {{"0.375 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1294,7 +2905,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 3362
 }
-push $N7425c910
+push $N8a164a0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave8
@@ -1307,7 +2918,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"125.0 + PROXY_OFFSET.offset"}}
 }
-push $N8e548130
+push $N8a7bdc0
 Transform {
 scale {{"0.4 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1324,7 +2935,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 3242
 }
-push $N8cfc1870
+push $N8ae4450
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave147
@@ -1337,7 +2948,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"120.0 + PROXY_OFFSET.offset"}}
 }
-push $N8f4ded30
+push $N8b8e040
 Transform {
 scale {{"0.425 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1354,7 +2965,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 3074
 }
-push $N692c2e70
+push $N8a11950
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave9
@@ -1367,7 +2978,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"115.0 + PROXY_OFFSET.offset"}}
 }
-push $N20c7ce50
+push $N8a77540
 Transform {
 scale {{"0.45 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1384,7 +2995,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 2954
 }
-push $Nc198da80
+push $N8aed590
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave159
@@ -1397,7 +3008,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"110.0 + PROXY_OFFSET.offset"}}
 }
-push $Nc1c943d0
+push $N8b897c0
 Transform {
 scale {{"0.475 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1414,7 +3025,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 2762
 }
-push $N688a91c0
+push $N8a0d0d0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave10
@@ -1427,7 +3038,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"105.0 + PROXY_OFFSET.offset"}}
 }
-push $N4477f560
+push $N8a72cc0
 Transform {
 scale {{"0.5 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1444,7 +3055,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 2642
 }
-push $Nc1f88330
+push $N8ae8d10
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave148
@@ -1457,7 +3068,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"100.0 + PROXY_OFFSET.offset"}}
 }
-push $N1a5f7ee0
+push $N8b84f40
 Transform {
 scale {{"0.525 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1474,7 +3085,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 2426
 }
-push $N8f4c9260
+push $N8a08a90
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave11
@@ -1487,7 +3098,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"95.0 + PROXY_OFFSET.offset"}}
 }
-push $N45df4640
+push $N8a6e7d0
 Transform {
 scale {{"0.55 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1504,7 +3115,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 2306
 }
-push $N8f4a3710
+push $N8ad6a90
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave158
@@ -1517,7 +3128,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"90.0 + PROXY_OFFSET.offset"}}
 }
-push $N1482cec0
+push $N8b806c0
 Transform {
 scale {{"0.575 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1534,7 +3145,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 2114
 }
-push $N6610200
+push $N8c041b0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave12
@@ -1547,7 +3158,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"85.0 + PROXY_OFFSET.offset"}}
 }
-push $N24962df0
+push $N8a69b50
 Transform {
 scale {{"0.6 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1564,7 +3175,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1994
 }
-push $Nb3f91c80
+push $N8adfbd0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave149
@@ -1577,7 +3188,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"80.0 + PROXY_OFFSET.offset"}}
 }
-push $Na44e1b20
+push $N8b7be40
 Transform {
 scale {{"0.625 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1594,7 +3205,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 1802
 }
-push $Nc1989040
+push $N8bff6b0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave13
@@ -1607,7 +3218,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"75.0 + PROXY_OFFSET.offset"}}
 }
-push $N54232c50
+push $N8a65660
 Transform {
 scale {{"0.65 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1624,7 +3235,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1682
 }
-push $Naab8c9d0
+push $N8adb350
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave157
@@ -1637,7 +3248,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"70.0 + PROXY_OFFSET.offset"}}
 }
-push $N747f6890
+push $N8b77640
 Transform {
 scale {{"0.675 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1654,7 +3265,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 1514
 }
-push $N2186d200
+push $N8bfb060
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave14
@@ -1667,7 +3278,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"65.0 + PROXY_OFFSET.offset"}}
 }
-push $N13f578d0
+push $N8a60db0
 Transform {
 scale {{"0.7 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1684,7 +3295,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1394
 }
-push $N7fb929a0
+push $N8ad2200
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave150
@@ -1697,7 +3308,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"60.0 + PROXY_OFFSET.offset"}}
 }
-push $N692d7020
+push $N8b72d00
 Transform {
 scale {{"0.725 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1714,7 +3325,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 1250
 }
-push $N13950e50
+push $N8bf6690
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave15
@@ -1727,7 +3338,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"55.0 + PROXY_OFFSET.offset"}}
 }
-push $N8ca86f30
+push $N8a5c190
 Transform {
 scale {{"0.75 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1744,7 +3355,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 1130
 }
-push $N8cfe4c60
+push $N8abb510
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave156
@@ -1757,7 +3368,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"50.0 + PROXY_OFFSET.offset"}}
 }
-push $N8cfd4fc0
+push $N8b6e480
 Transform {
 scale {{"0.775 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1774,7 +3385,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 986
 }
-push $Nc1a72b30
+push $N8bf1bd0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave16
@@ -1787,7 +3398,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"45.0 + PROXY_OFFSET.offset"}}
 }
-push $Nc2a652d0
+push $N8a57c80
 Transform {
 scale {{"0.8 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1804,7 +3415,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 866
 }
-push $N8ca50570
+push $N8acd980
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave155
@@ -1817,7 +3428,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"40.0 + PROXY_OFFSET.offset"}}
 }
-push $N60a6d1e0
+push $N8b69c00
 Transform {
 scale {{"0.825 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1834,7 +3445,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 770
 }
-push $N14700ab0
+push $N8bed560
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave17
@@ -1847,7 +3458,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"35.0 + PROXY_OFFSET.offset"}}
 }
-push $N692d9840
+push $N8a533d0
 Transform {
 scale {{"0.85 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1864,7 +3475,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 650
 }
-push $N747e5fa0
+push $N8ac9100
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave151
@@ -1877,7 +3488,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"30.0 + PROXY_OFFSET.offset"}}
 }
-push $N1c68cc50
+push $N8b65380
 Transform {
 scale {{"0.875 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1894,7 +3505,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 554
 }
-push $N692c57a0
+push $N8be8c90
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave18
@@ -1907,7 +3518,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"25.0 + PROXY_OFFSET.offset"}}
 }
-push $N1c885b90
+push $N8a4e7e0
 Transform {
 scale {{"0.9 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1924,7 +3535,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 434
 }
-push $N1482ca60
+push $N8ac4880
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_WaveTEST
@@ -1937,7 +3548,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"20.0 + PROXY_OFFSET.offset"}}
 }
-push $N70ef2750
+push $N8b60ad0
 Transform {
 scale {{"0.925 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1954,7 +3565,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 290
 }
-push $N8e816900
+push $N8be41f0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave19
@@ -1967,7 +3578,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"15.0 + PROXY_OFFSET.offset"}}
 }
-push $N7657af0
+push $N8a49f60
 Transform {
 scale {{"0.95 * PROXY_OFFSET.size_offset"}}
 center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1984,7 +3595,7 @@ label "Size: \[value size]"
 xpos -480
 ypos 170
 }
-push $N7e740a0
+push $N8abffb0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave243
@@ -1997,7 +3608,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"10.0 + PROXY_OFFSET.offset"}}
 }
-push $N689ea960
+push $N8b5c2a0
 Transform {
 scale {{"0.975 * PROXY_OFFSET.size_offset"}}
 center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
@@ -2014,7 +3625,7 @@ label "Size: \[value size]"
 xpos -370
 ypos 26
 }
-push $Nc2aac200
+push $N8bdf970
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave_MAIN1
@@ -2027,7 +3638,7 @@ wavelength {{HSVTool_Wave_MAIN.wavelength}}
 addUserKnob {7 offset l Offset R 0 100}
 offset {{"5.0 + PROXY_OFFSET.offset"}}
 }
-push $N20461590
+push $N8b579b0
 Transform {
 scale {{"1 * PROXY_OFFSET.size_offset"}}
 center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
@@ -2044,7 +3655,7 @@ label "Size: \[value size]"
 xpos -480
 ypos -94
 }
-push $N8e825140
+push $N8abb9c0
 HSVTool {
 huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
 name HSVTool_Wave_MAIN
@@ -2057,7 +3668,7 @@ wavelength 15
 addUserKnob {7 offset l Offset R 0 100}
 offset {{PROXY_OFFSET.offset}}
 }
-push $N20c7d730
+push $N8bd6890
 Keymix {
 inputs 3
 name Keymix149
@@ -2342,7 +3953,7 @@ name Premult1
 xpos 510
 ypos 5775
 }
-push $Nc294ea80
+push $N8a35de0
 Dot {
 name Dot2
 tile_color 0x949494ff
@@ -2351,7 +3962,7 @@ note_font_color 0xffffffff
 xpos 764
 ypos 5874
 }
-set N6058f290 [stack 0]
+set N8111e30 [stack 0]
 Merge2 {
 inputs 2
 also_merge all
@@ -2359,7 +3970,7 @@ name Merge1
 xpos 510
 ypos 5871
 }
-push $N6058f290
+push $N8111e30
 Dot {
 name Dot824
 tile_color 0x949494ff
@@ -2418,764 +4029,294 @@ size_offset 1
 end_group
 push $cut_paste_input
 Group {
-name WiggleTransform
-tile_color 0xce75daff
+name GM_ColorIterate
+tile_color 0x6a55ffff
 selected true
 xpos 2160
-ypos -849
+ypos -633
 addUserKnob {20 User}
-addUserKnob {41 translate T Transform1_ANIM1.translate}
-addUserKnob {41 rotate T Transform1_ANIM1.rotate}
-addUserKnob {41 scale T Transform1_ANIM1.scale}
-addUserKnob {41 skewX l "skew X" T Transform1_ANIM1.skewX}
-addUserKnob {41 skewY l "skew Y" T Transform1_ANIM1.skewY}
-addUserKnob {41 skew_order l "skew order" T Transform1_ANIM1.skew_order}
-addUserKnob {41 center T Transform1_ANIM1.center}
-addUserKnob {22 setCenter l "Set Center" -STARTLINE T "this_width = nuke.thisNode().width()\n\nthis_height = nuke.thisNode().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisNode().knob(\"center\").setValue(\[newWidth, newHeight])"}
-addUserKnob {41 invert_matrix l invert T Transform1_ANIM1.invert_matrix}
-addUserKnob {41 filter T Transform1_ANIM1.filter}
-addUserKnob {41 clamp -STARTLINE T Transform1_ANIM1.clamp}
-addUserKnob {41 black_outside l "black outside" -STARTLINE T Transform1_ANIM1.black_outside}
-addUserKnob {41 motionblur T Transform1_ANIM1.motionblur}
-addUserKnob {41 shutter T Transform1_ANIM1.shutter}
-addUserKnob {41 shutteroffset l "shutter offset" T Transform1_ANIM1.shutteroffset}
-addUserKnob {41 shuttercustomoffset l "" -STARTLINE T Transform1_ANIM1.shuttercustomoffset}
-addUserKnob {26 ""}
-addUserKnob {41 size l "blur size" T Blur_MAIN.size}
-addUserKnob {26 ""}
-addUserKnob {41 format l "output format" T Reformat_MAIN.format}
-addUserKnob {20 WaveAnim}
-addUserKnob {26 WARN l "" +STARTLINE T "<h1><center><font color=#FF5555><font style=\"background-color:#364c87;\">☢ WARNING ☢ </h1>\n \n\n"}
-addUserKnob {26 warn2 l "" +STARTLINE T "<center><font color=#DD7777><b><font style=\"background-color:#364c87;\">If you enable any WaveAnim functions it overwrites your current values!\n"}
-addUserKnob {26 warn3 l "" +STARTLINE T "<center><font color=#DD7777><font style=\"background-color:#364c87;\">\n<b>By disabling them the current values stay static."}
-addUserKnob {26 ""}
-addUserKnob {22 enable_wave_rotate l "<font color=#cccccc>Enable Wave Rotate" T "# Enable Wave Rotate\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_wave_rotate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Wave Rotate\":\n    def toggleLabel():\n        options = \[\"<font color=#cccccc>Enable Wave Rotate\", \"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['remove_anim']\n        options2 = \[\"<font color=#cccccc>Wave Rotate Disabled\", \"\"\"<font color=#e38764>Disable Wave Rotate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n    x_val = trans1\['rotate'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\n    cWave.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Wave Rotate is already Enabled!\"\"\")" +STARTLINE}
-addUserKnob {22 remove_anim l "<font color=#cccccc>Wave Rotate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_wave_rotate']\n\nval1 = \"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\", \"<font color=#cccccc>Enable Wave Rotate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['remove_anim']\n        options2 = \[\"\"\"<font color=#e38764>Disable Wave Rotate\"\"\", \"<font color=#cccccc>Wave Rotate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['rotate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Wave Rotate is not Enabled!\"\"\")"}
-addUserKnob {7 waveLength l "Wave Length" R 0 100}
-waveLength 10
-addUserKnob {7 maxVal R -100 100}
-maxVal 20
-addUserKnob {7 minVal R -100 100}
-minVal {{-maxVal}}
-addUserKnob {7 offset l Offset R 0 100}
-addUserKnob {26 ""}
-addUserKnob {22 enable_random_translate l "<font color=#cccccc>Enable Random Translate" T "#Enable Random Translate\nmShift = nuke.thisGroup()\nknob1 = mShift\['enable_random_translate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Random Translate\":\n    def toggleLabel():\n        options = \[\"\"\"<font color=#cccccc>Enable Random Translate\"\"\", \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#cccccc>Random Translate Disabled\"\"\", \"\"\"<font color=#e38764>Disable Random Translate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    mShift.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n\n    trans1\['translate'].setExpression(\"random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2\", 0)\n    trans1\['translate'].setExpression(\"random((frame+offset2+1000)/waveLength2) * (maxVal2-minVal2) + minVal2\", 1)\n\n    mShift.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is already Enabled!\"\"\")" +STARTLINE}
-addUserKnob {22 dis_rand_trans l "<font color=#cccccc>Random Translate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_random_translate']\n\nval1 = \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\", \"<font color=#cccccc>Enable Random Translate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#e38764>Disable Random Translate\"\"\", \"<font color=#cccccc>Random Translate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['translate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is not Enabled!\"\"\")"}
-addUserKnob {7 waveLength2 l "Wave Length" R 0 100}
-waveLength2 10
-addUserKnob {7 maxVal2 l maxVal R -100 100}
-maxVal2 30
-addUserKnob {7 minVal2 l minVal R -100 100}
-minVal2 {{-maxVal2}}
-addUserKnob {7 offset2 l Offset R 0 100}
+addUserKnob {4 colors_1 l "<h3><font color=#da5d5d>Co<font color=#87da5d>lo<font color=#5db0da>rs" M {RGB RG RB "GB " "" ""}}
+addUserKnob {26 waves l "<h3><font color=#7c6fde>Waves"}
+addUserKnob {41 waveLength l WaveLength T DissolveCI_RGB.waveLength}
+addUserKnob {41 offset l Offset T DissolveCI_RGB.offset}
+addUserKnob {26 colors l "<h3><font color=#7c6fde>Brightness"}
+addUserKnob {41 multiply l Red T GradeRED.multiply}
+addUserKnob {41 multiply_1 l Green T GradeGREEN.multiply}
+addUserKnob {41 multiply_2 l Blue T GradeBLUE.multiply}
+addUserKnob {26 saturation l "<h3><font color=#7c6fde>Saturation"}
+addUserKnob {41 saturation_1 l Red T SaturationRED.saturation}
+addUserKnob {41 saturation_2 l Green T SaturationGREEN.saturation}
+addUserKnob {41 saturation_3 l Blue T SaturationBLUE.saturation}
+addUserKnob {26 mix l "<h3><font color=#7c6fde>Mix"}
+addUserKnob {41 operation T MergeCI.operation}
+addUserKnob {41 mix_1 l mix T MergeCI.mix}
 addUserKnob {20 info l Info}
-addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>\nWiggleTransform<font color=#777777> by Jason Halverson and Attila Gasparetz, 2020"}
+addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>GM_ColorIterate<font color=#777777> by Attil Gasparetz\n\n2020"}
 }
 Input {
 inputs 0
 name mask
-xpos 1170
-ypos -585
+xpos 950
+ypos 351
 number 1
 }
 Dot {
-name Dot819
+name Dot1
 tile_color 0x949494ff
 note_font_size 72
 note_font_color 0xffffffff
-xpos 1204
-ypos -438
-}
-set N4cd6c800 [stack 0]
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.2
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform183
-label "scale: \[value scale]"
-xpos 1170
-ypos 537
-}
-Blur {
-size {{Blur_MAIN.size}}
-name Blur7
-label "Size: \[value size]"
-xpos 1280
-ypos 578
-}
-Reformat {
-inputs 0
-format "4448 3096 0 0 4448 3096 1 Project Resolution"
-name Reformat_MAIN
-label "\[if \{\[value this.type]==\"scale\"\} \{return \"Scale: \[value this.scale]\"\} \{return \"\"\}]"
-xpos 840
-ypos -633
-}
-Group {
-name STMap_Extend25
-xpos 840
-ypos -561
-addUserKnob {20 User}
-addUserKnob {41 scale l Format_Extend t "How many times do u want to extend the border of the STMap" T STmap_Ctrl.scale}
-addUserKnob {26 ""}
-addUserKnob {26 han l "" +STARTLINE T "Made by HanCao\nbe friends https://www.linkedin.com/in/hancaofx/\n\nProxy bug fixed by Jason M. Halverson"}
+xpos 984
+ypos 450
 }
 Input {
 inputs 0
-name Format
-xpos 620
-ypos 470
+name Input
+xpos 510
+ypos -57
 }
-Crop {
-box {0 0 {input.width*STmap_Ctrl.scale} {input.height*STmap_Ctrl.scale}}
-reformat true
-crop false
-name Crop2
-xpos 620
-ypos 518
-}
-Ramp {
-output {-rgba.red rgba.green -rgba.blue -rgba.alpha}
-p0 {0 0}
-p1 {0 {parent.Crop2.box.t}}
-name Ramp_GREEN
-label "in Y"
-xpos 620
-ypos 560
-}
-Ramp {
-output {rgba.red -rgba.green -rgba.blue -rgba.alpha}
-p0 {0 0}
-p1 {{parent.Crop2.box.r} 0}
-name Ramp_RED
-label "in X"
-xpos 620
-ypos 608
-}
-Expression {
-temp_name0 offset
-temp_expr0 (1-STmap_Ctrl.scale)/(2*STmap_Ctrl.scale)
-temp_name1 gain
-temp_expr1 STmap_Ctrl.scale
-expr0 (red+offset)*gain
-expr1 (green+offset)*gain
-expr2 0
-name Expression1
-selected true
-xpos 620
-ypos 662
-}
-Reformat {
-format {{{parent.input.format}}}
-resize none
-pbb true
-name Reformat1
-xpos 620
-ypos 710
-}
-Output {
-name Output1
-xpos 620
-ypos 758
-}
-NoOp {
-inputs 0
-name STmap_Ctrl
-xpos 400
-ypos 518
-addUserKnob {20 User}
-addUserKnob {7 scale R 1 10}
-scale 1.45
-}
-end_group
 Dot {
-name Dot830
+name Dot276
 tile_color 0x949494ff
-note_font_size 22
+note_font_size 72
 note_font_color 0xffffffff
-xpos 874
-ypos -438
+xpos 544
+ypos 18
 }
-set N4cbf1490 [stack 0]
+set N15b78830 [stack 0]
+Shuffle {
+red black
+green black
+blue black
+alpha white
+name Shuffle1
+label "\[string toupper \[value in]]"
+xpos 730
+ypos 9
+}
+ChannelMerge {
+inputs 2
+operation multiply
+name ChannelMerge1
+xpos 730
+ypos 434
+disable {{"!\[exists parent.input1]"}}
+}
+push $N15b78830
 Dot {
-name Dot831
+name Dot273
 tile_color 0x949494ff
-note_font_size 22
+note_font_size 72
 note_font_color 0xffffffff
-xpos 874
-ypos -318
+xpos -6
+ypos 18
 }
-set N4cbf5c60 [stack 0]
-Dot {
-name Dot832
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos -198
-}
-set N4cbfa4e0 [stack 0]
-Dot {
-name Dot833
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos -78
-}
-set N4cbfee20 [stack 0]
-Dot {
-name Dot834
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos 42
-}
-set N4cc03620 [stack 0]
-Dot {
-name Dot816
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos 186
-}
-set N4cc07ea0 [stack 0]
-Dot {
-name Dot815
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos 306
-}
-set N4cc0c720 [stack 0]
-Dot {
-name Dot817
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos 426
-}
-set N4cc10fa0 [stack 0]
-Dot {
-name Dot818
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 874
-ypos 546
-}
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform9_linked4
-xpos 950
-ypos 543
-}
-TimeOffset {
-time_offset 16
-time ""
-name TimeOffset68
-label "Value: \[value time_offset]"
-xpos 950
-ypos 585
-}
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.3
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform179
-label "scale: \[value scale]"
-xpos 1170
-ypos 417
-}
-Blur {
-size {{Blur_MAIN.size}}
-name Blur6
-label "Size: \[value size]"
-xpos 1280
-ypos 458
-}
-push $N4cc10fa0
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform9_linked3
-xpos 950
-ypos 423
-}
-TimeOffset {
-time_offset 16
-time ""
-name TimeOffset67
-label "Value: \[value time_offset]"
-xpos 950
-ypos 465
-}
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.4
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform178
-label "scale: \[value scale]"
-xpos 1170
-ypos 297
-}
-Blur {
-size {{Blur_MAIN.size}}
-name Blur5
-label "Size: \[value size]"
-xpos 1280
-ypos 338
-}
-push $N4cc0c720
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform9_linked2
-xpos 950
-ypos 303
-}
-TimeOffset {
-time_offset 15
-time ""
-name TimeOffset66
-label "Value: \[value time_offset]"
-xpos 950
-ypos 345
-}
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.5
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform177
-label "scale: \[value scale]"
-xpos 1170
-ypos 177
-}
-Blur {
-size {{Blur_MAIN.size}}
-name Blur4
-label "Size: \[value size]"
-xpos 1280
-ypos 218
-}
-push $N4cc07ea0
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform9_linked1
-xpos 950
-ypos 183
-}
-TimeOffset {
-time_offset 14
-time ""
-name TimeOffset65
-label "Value: \[value time_offset]"
-xpos 950
-ypos 225
-}
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.7
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform182
-label "scale: \[value scale]"
-xpos 1170
-ypos 33
-}
-Blur {
-size {{Blur_MAIN.size}}
-name Blur3
-label "Size: \[value size]"
-xpos 1280
-ypos 74
-}
-push $N4cc03620
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform9_linked
-xpos 950
-ypos 39
-}
-TimeOffset {
-time_offset 12
-time ""
-name TimeOffset69
-label "Value: \[value time_offset]"
-xpos 950
+set N54cb5b60 [stack 0]
+Shuffle {
+red black
+green white
+blue black
+alpha black
+name ShuffleGREEN1
+tile_color 0x6aff55ff
+label "\[string toupper \[value in]]"
+xpos -40
 ypos 81
 }
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.8
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform181
-label "scale: \[value scale]"
-xpos 1170
-ypos -87
+Grade {
+multiply {{GradeGREEN.multiply}}
+name GradeGREEN2
+xpos -40
+ypos 135
 }
-Blur {
-size {{Blur_MAIN.size}}
-name Blur2
-label "Size: \[value size]"
-xpos 1280
-ypos -46
+Saturation {
+saturation {{SaturationGREEN.saturation}}
+name SaturationGREEN2
+label "Value: \[value saturation]"
+xpos -40
+ypos 177
 }
-push $N4cbfee20
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform8_linked
-xpos 950
-ypos -81
+push 0
+push $N54cb5b60
+Shuffle {
+red black
+green black
+blue white
+alpha black
+name Shuffle_BLUE
+tile_color 0x9fffff
+label "\[string toupper \[value in]]"
+xpos 70
+ypos 81
 }
-TimeOffset {
-time_offset 10
-time ""
-name TimeOffset70
-label "Value: \[value time_offset]"
-xpos 950
-ypos -39
+Grade {
+multiply 4
+name GradeBLUE
+xpos 70
+ypos 135
 }
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale 0.9
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform180
-label "scale: \[value scale]"
-xpos 1170
-ypos -231
+Saturation {
+name SaturationBLUE
+label "Value: \[value saturation]"
+xpos 70
+ypos 177
 }
-Blur {
-size {{Blur_MAIN.size i}}
-name Blur1
-label "Size: \[value size]"
-xpos 1280
-ypos -166
+set N5f184e20 [stack 0]
+push $N54cb5b60
+Shuffle {
+red black
+green white
+blue black
+alpha black
+name ShuffleGREEN
+tile_color 0x6aff55ff
+label "\[string toupper \[value in]]"
+xpos -150
+ypos 81
 }
-push $N4cbfa4e0
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform7_linked
-xpos 950
-ypos -201
+Grade {
+name GradeGREEN
+xpos -150
+ypos 135
 }
-TimeOffset {
-time_offset 8
-time ""
-name TimeOffset71
-label "Value: \[value time_offset]"
-xpos 950
-ypos -159
+Saturation {
+name SaturationGREEN
+label "Value: \[value saturation]"
+xpos -150
+ypos 177
 }
-push $N4cd6c800
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-shutteroffset centred
-name Transform2_linked
-label "scale: \[value scale]"
-xpos 1170
-ypos -351
+set Nd5f32f70 [stack 0]
+Dissolve {
+inputs 3+1
+which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
+name DissolveCI_GB
+label "Which: \[format \"%.2f\" \[value which]]"
+xpos -40
+ypos 554
+addUserKnob {20 User}
+addUserKnob {7 waveLength R 0 100}
+waveLength {{DissolveCI_RGB.waveLength}}
+addUserKnob {7 offset R 0 100}
+offset {{DissolveCI_RGB.offset}}
 }
-set N4cb696e0 [stack 0]
-Blur {
-size 100
-name Blur_MAIN
-label "Size: \[value size]"
-xpos 1280
-ypos -286
+push $N54cb5b60
+Shuffle {
+red white
+green black
+blue black
+alpha black
+name ShuffleRED2
+tile_color 0xff0000ff
+label "\[string toupper \[value in]]"
+xpos 180
+ypos 81
 }
-push $N4cbf5c60
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-filter {{Transform1_ANIM1.filter}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform6_linked
-xpos 950
-ypos -321
+Grade {
+multiply {{GradeRED.multiply}}
+name GradeRED2
+xpos 180
+ypos 135
 }
-TimeOffset {
-time_offset 4
-time ""
-name TimeOffset72
-label "Value: \[value time_offset]"
-xpos 950
-ypos -279
+Saturation {
+saturation {{SaturationRED.saturation}}
+name SaturationRED2
+label "Value: \[value saturation]"
+xpos 180
+ypos 177
 }
-push $N4cb696e0
-push $N4cbf1490
-Transform {
-translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
-rotate {{Transform1_ANIM1.rotate}}
-scale {{Transform1_ANIM1.scale}}
-skewX {{Transform1_ANIM1.skewX}}
-skewY {{Transform1_ANIM1.skewY}}
-skew_order {{Transform1_ANIM1.skew_order}}
-center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
-invert_matrix {{Transform1_ANIM1.invert_matrix}}
-clamp {{Transform1_ANIM1.clamp}}
-black_outside {{Transform1_ANIM1.black_outside}}
-motionblur {{Transform1_ANIM1.motionblur}}
-shutter {{Transform1_ANIM1.shutter}}
-shutteroffset {{Transform1_ANIM1.shutteroffset}}
-shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
-name Transform6_linked1
-xpos 950
-ypos -441
+set N34144fe0 [stack 0]
+push 0
+push $N5f184e20
+push $N54cb5b60
+Shuffle {
+red white
+green black
+blue black
+alpha black
+name ShuffleRED
+tile_color 0xff0000ff
+label "\[string toupper \[value in]]"
+xpos -260
+ypos 81
 }
-Dot {
-name Dot835
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 1094
-ypos -438
+Grade {
+name GradeRED
+xpos -260
+ypos 135
 }
-Copy {
-inputs 2
-from0 rgba.alpha
-to0 rgba.alpha
-name Copy1
-xpos 1060
-ypos -351
+Saturation {
+name SaturationRED
+label "Value: \[value saturation]"
+xpos -260
+ypos 177
 }
+set N719283e0 [stack 0]
+Dissolve {
+inputs 3+1
+which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
+name DissolveCI_RB
+label "Which: \[format \"%.2f\" \[value which]]"
+xpos -40
+ypos 482
+addUserKnob {20 User}
+addUserKnob {7 waveLength R 0 100}
+waveLength {{DissolveCI_RGB.waveLength}}
+addUserKnob {7 offset R 0 100}
+offset {{DissolveCI_RGB.offset}}
+}
+push $N34144fe0
+push 0
+push $Nd5f32f70
+push $N719283e0
+Dissolve {
+inputs 3+1
+which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
+name DissolveCI_RG
+label "Which: \[format \"%.2f\" \[value which]]"
+xpos -40
+ypos 386
+addUserKnob {20 User}
+addUserKnob {7 waveLength R 0 100}
+waveLength {{DissolveCI_RGB.waveLength}}
+addUserKnob {7 offset R 0 100}
+offset {{DissolveCI_RGB.offset}}
+}
+push $N34144fe0
+push $N5f184e20
+push 0
+push $Nd5f32f70
+push $N719283e0
+Dissolve {
+inputs 4+1
+which {{"((frame+offset) % waveLength)/ waveLength * (3-0) + 0"}}
+name DissolveCI_RGB
+label "Which: \[format \"%.2f\" \[value which]]"
+xpos -40
+ypos 314
+addUserKnob {20 User}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 offset R 0 100}
+}
+Switch {
+inputs 4
+which {{colors_1}}
+name Switch_COLORS
+label "Which: \[value which]"
+xpos 180
+ypos 441
+}
+push $N15b78830
 Merge2 {
 inputs 2+1
-name Merge203
-xpos 1060
-ypos -273
-}
-Merge2 {
-inputs 2+1
-name Merge204
-xpos 1060
-ypos -153
-}
-Merge2 {
-inputs 2+1
-name Merge205
-xpos 1060
-ypos -33
-}
-Merge2 {
-inputs 2+1
-name Merge206
-xpos 1060
-ypos 87
-}
-Merge2 {
-inputs 2+1
-name Merge199
-xpos 1060
-ypos 231
-}
-Merge2 {
-inputs 2+1
-name Merge200
-xpos 1060
-ypos 351
-}
-Merge2 {
-inputs 2+1
-name Merge201
-xpos 1060
-ypos 471
-}
-Merge2 {
-inputs 2+1
-name Merge202
-xpos 1060
-ypos 591
-}
-Crop {
-box {{Reformat_MAIN.format.x} {Reformat_MAIN.format.y} {Reformat_MAIN.format.r} {Reformat_MAIN.format.t}}
-name Crop1
-label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
-xpos 1060
-ypos 729
-}
-Dot {
-name Dot836
-tile_color 0x949494ff
-note_font_size 22
-note_font_color 0xffffffff
-xpos 1094
-ypos 906
-}
-Input {
-inputs 0
-name image
-xpos 1830
-ypos -585
-}
-Dot {
-name Dot821
-tile_color 0x949494ff
-note_font_size 72
-note_font_color 0xffffffff
-xpos 1864
-ypos 906
-}
-set N4ca514c0 [stack 0]
-STMap {
-inputs 2
-uv rgb
-blur_scale 3
-filter Lanczos4
-name STMap23
-label "UV: \[value uv]"
-xpos 1610
-ypos 890
-}
-Premult {
-name Premult32
-xpos 1610
-ypos 1023
-}
-push $N4ca514c0
-Merge2 {
-inputs 2
+operation soft-light
 also_merge all
-name Merge207
-xpos 1830
-ypos 1023
+name MergeCI
+xpos 510
+ypos 447
 }
 Output {
 name Output1
-xpos 1830
-ypos 1239
-}
-Transform {
-inputs 0
-center {2224 1548}
-shutteroffset centred
-name Transform1_ANIM1
-xpos 1500
-ypos -465
+xpos 510
+ypos 711
 }
 end_group
