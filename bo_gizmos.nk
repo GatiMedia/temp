@@ -3,11 +3,11 @@ BackdropNode {
  name Backdrop_Adjust4
  tile_color 0x3f7f7fff
  label "<center><font color=\[value note_color]>\[value note]"
- note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
  note_font_size 42
  selected true
- xpos 1740
- ypos 9
+ xpos -900
+ ypos 177
  bdwidth 700
  bdheight 318
  z_order -222600
@@ -70,11 +70,11 @@ BackdropNode {
  name Backdrop_Adjust9
  tile_color 0x3f597fff
  label "<center><font color=\[value note_color]>\[value note]"
- note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
  note_font_size 42
  selected true
- xpos 1740
- ypos -351
+ xpos -900
+ ypos -183
  bdwidth 700
  bdheight 318
  z_order -222600
@@ -133,12 +133,38 @@ BackdropNode {
  addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
 }
 push $cut_paste_input
+NoOp {
+ name GM_LabelMaker
+ tile_color 0xb2683bff
+ note_font "DejaVu Sans"
+ selected true
+ xpos -700
+ ypos 350
+ addUserKnob {20 User}
+ addUserKnob {26 ass l "<h3>Assign Label"}
+ addUserKnob {1 new_label l "New Label Val"}
+ new_label MAIN_PIPE
+ addUserKnob {22 add_new_label l "Add new label on sleected" T "### Add new label value on selected ###\n\nnodes = nuke.selectedNodes()\nnew_label_val = nuke.thisNode()\['new_label'].value()\nfor node in nodes:\n    try:\n        node\[\"label\"].setValue(new_label_val)\n    except Exception:\n        pass" +STARTLINE}
+ addUserKnob {22 remove_label l "Remove Label on selected" T "### Remove label value on selected ###\n\nnodes = nuke.selectedNodes()\nfor node in nodes:\n    try:\n        node\[\"label\"].setValue(\"\")\n    except Exception:\n        pass" +STARTLINE}
+ addUserKnob {26 dis l "<h3>Dis/Enable by label"}
+ addUserKnob {1 label_val l "Label Val"}
+ label_val MAIN_PIPE
+ addUserKnob {22 disable_sel l "Disable Selected" T "### Disable label match on selected ###\n\nnodes = nuke.selectedNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(1)\n    except Exception:\n        pass\n" +STARTLINE}
+ addUserKnob {22 enable_sel l "Enable Selected" -STARTLINE T "### Disable label match on sleected ###\n\nnodes = nuke.selectedNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(0)\n    except Exception:\n        pass\n"}
+ addUserKnob {22 disable_all l "Disable All" T "### Disable label match on all ###\n\nnodes = nuke.allNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(1)\n    except Exception:\n        pass\n" +STARTLINE}
+ addUserKnob {22 enable_all l "Enable All" -STARTLINE T "### Enable label match on all ###\n\nnodes = nuke.allNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(0)\n    except Exception:\n        pass\n"}
+ addUserKnob {20 info l Info}
+ addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>GM_LabelMaker<font color=#777777> by Attil Gasparetz\n\n2020"}
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+}
 Group {
+ inputs 0
  name GM_Script_Boost
  tile_color 0xff9455ff
  selected true
- xpos 2160
- ypos 183
+ xpos -480
+ ypos 351
  addUserKnob {20 User l Script_Boost}
  addUserKnob {26 postage l "<b><font color=#FFFFFF size=\"4\" >Postage Stamp</font><b>"}
  addUserKnob {22 postage_dis l "Disable Postage Stamp" t "Allows you to disable the Postage Stamp on all nodes in the script." -STARTLINE T "nodes_classes = \[\"Read\", \"PostageStamp\", \"Constant\", \"ColorBars\", \"CheckerBoard2\", \"ColorWheel\"]\n\nfor node in nuke.allNodes(group=nuke.root()):\n    if node.Class() in nodes_classes:\n        try:\n            node\[\"postage_stamp\"].setValue(False)\n        except Exception:\n            pass\n"}
@@ -206,11 +232,305 @@ Group {
 end_group
 push $cut_paste_input
 Group {
+ name GM_ColorIterate
+ tile_color 0x6a55ffff
+ selected true
+ xpos -370
+ ypos 15
+ addUserKnob {20 User}
+ addUserKnob {4 colors_1 l "<h3><font color=#da5d5d>Co<font color=#87da5d>lo<font color=#5db0da>rs" M {RGB RG RB "GB " "" ""}}
+ addUserKnob {26 waves l "<h3><font color=#7c6fde>Waves"}
+ addUserKnob {41 waveLength l WaveLength T DissolveCI_RGB.waveLength}
+ addUserKnob {41 offset l Offset T DissolveCI_RGB.offset}
+ addUserKnob {26 colors l "<h3><font color=#7c6fde>Brightness"}
+ addUserKnob {41 multiply l Red T GradeRED.multiply}
+ addUserKnob {41 multiply_1 l Green T GradeGREEN.multiply}
+ addUserKnob {41 multiply_2 l Blue T GradeBLUE.multiply}
+ addUserKnob {26 saturation l "<h3><font color=#7c6fde>Saturation"}
+ addUserKnob {41 saturation_1 l Red T SaturationRED.saturation}
+ addUserKnob {41 saturation_2 l Green T SaturationGREEN.saturation}
+ addUserKnob {41 saturation_3 l Blue T SaturationBLUE.saturation}
+ addUserKnob {26 mix l "<h3><font color=#7c6fde>Mix"}
+ addUserKnob {41 operation T MergeCI.operation}
+ addUserKnob {41 mix_1 l mix T MergeCI.mix}
+ addUserKnob {20 info l Info}
+ addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>GM_ColorIterate<font color=#777777> by Attil Gasparetz\n\n2020"}
+}
+ Input {
+  inputs 0
+  name mask
+  xpos 950
+  ypos 351
+  number 1
+ }
+ Dot {
+  name Dot1
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 984
+  ypos 450
+ }
+ Input {
+  inputs 0
+  name image
+  selected true
+  xpos 510
+  ypos -57
+ }
+ Dot {
+  name Dot276
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 544
+  ypos 18
+ }
+set N68a74610 [stack 0]
+ Shuffle {
+  red black
+  green black
+  blue black
+  alpha white
+  name Shuffle1
+  label "\[string toupper \[value in]]"
+  xpos 730
+  ypos 9
+ }
+ ChannelMerge {
+  inputs 2
+  operation multiply
+  name ChannelMerge1
+  xpos 730
+  ypos 434
+  disable {{"!\[exists parent.input1]"}}
+ }
+push $N68a74610
+ Dot {
+  name Dot273
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos -6
+  ypos 18
+ }
+set N68a95830 [stack 0]
+ Shuffle {
+  red black
+  green white
+  blue black
+  alpha black
+  name ShuffleGREEN1
+  tile_color 0x6aff55ff
+  label "\[string toupper \[value in]]"
+  xpos -40
+  ypos 81
+ }
+ Grade {
+  multiply {{GradeGREEN.multiply}}
+  name GradeGREEN2
+  xpos -40
+  ypos 135
+ }
+ Saturation {
+  saturation {{SaturationGREEN.saturation}}
+  name SaturationGREEN2
+  label "Value: \[value saturation]"
+  xpos -40
+  ypos 177
+ }
+push 0
+push $N68a95830
+ Shuffle {
+  red black
+  green black
+  blue white
+  alpha black
+  name Shuffle_BLUE
+  tile_color 0x9fffff
+  label "\[string toupper \[value in]]"
+  xpos 70
+  ypos 81
+ }
+ Grade {
+  multiply 4
+  name GradeBLUE
+  xpos 70
+  ypos 135
+ }
+ Saturation {
+  name SaturationBLUE
+  label "Value: \[value saturation]"
+  xpos 70
+  ypos 177
+ }
+set N68ae6930 [stack 0]
+push $N68a95830
+ Shuffle {
+  red black
+  green white
+  blue black
+  alpha black
+  name ShuffleGREEN
+  tile_color 0x6aff55ff
+  label "\[string toupper \[value in]]"
+  xpos -150
+  ypos 81
+ }
+ Grade {
+  name GradeGREEN
+  xpos -150
+  ypos 135
+ }
+ Saturation {
+  name SaturationGREEN
+  label "Value: \[value saturation]"
+  xpos -150
+  ypos 177
+ }
+set N6ac8bc20 [stack 0]
+ Dissolve {
+  inputs 3+1
+  which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
+  name DissolveCI_GB
+  label "Which: \[format \"%.2f\" \[value which]]"
+  xpos -40
+  ypos 554
+  addUserKnob {20 User}
+  addUserKnob {7 waveLength R 0 100}
+  waveLength {{DissolveCI_RGB.waveLength}}
+  addUserKnob {7 offset R 0 100}
+  offset {{DissolveCI_RGB.offset}}
+ }
+push $N68a95830
+ Shuffle {
+  red white
+  green black
+  blue black
+  alpha black
+  name ShuffleRED2
+  tile_color 0xff0000ff
+  label "\[string toupper \[value in]]"
+  xpos 180
+  ypos 81
+ }
+ Grade {
+  multiply {{GradeRED.multiply}}
+  name GradeRED2
+  xpos 180
+  ypos 135
+ }
+ Saturation {
+  saturation {{SaturationRED.saturation}}
+  name SaturationRED2
+  label "Value: \[value saturation]"
+  xpos 180
+  ypos 177
+ }
+set N6acc3470 [stack 0]
+push 0
+push $N68ae6930
+push $N68a95830
+ Shuffle {
+  red white
+  green black
+  blue black
+  alpha black
+  name ShuffleRED
+  tile_color 0xff0000ff
+  label "\[string toupper \[value in]]"
+  xpos -260
+  ypos 81
+ }
+ Grade {
+  name GradeRED
+  xpos -260
+  ypos 135
+ }
+ Saturation {
+  name SaturationRED
+  label "Value: \[value saturation]"
+  xpos -260
+  ypos 177
+ }
+set N6acef6b0 [stack 0]
+ Dissolve {
+  inputs 3+1
+  which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
+  name DissolveCI_RB
+  label "Which: \[format \"%.2f\" \[value which]]"
+  xpos -40
+  ypos 482
+  addUserKnob {20 User}
+  addUserKnob {7 waveLength R 0 100}
+  waveLength {{DissolveCI_RGB.waveLength}}
+  addUserKnob {7 offset R 0 100}
+  offset {{DissolveCI_RGB.offset}}
+ }
+push $N6acc3470
+push 0
+push $N6ac8bc20
+push $N6acef6b0
+ Dissolve {
+  inputs 3+1
+  which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
+  name DissolveCI_RG
+  label "Which: \[format \"%.2f\" \[value which]]"
+  xpos -40
+  ypos 386
+  addUserKnob {20 User}
+  addUserKnob {7 waveLength R 0 100}
+  waveLength {{DissolveCI_RGB.waveLength}}
+  addUserKnob {7 offset R 0 100}
+  offset {{DissolveCI_RGB.offset}}
+ }
+push $N6acc3470
+push $N68ae6930
+push 0
+push $N6ac8bc20
+push $N6acef6b0
+ Dissolve {
+  inputs 4+1
+  which {{"((frame+offset) % waveLength)/ waveLength * (3-0) + 0"}}
+  name DissolveCI_RGB
+  label "Which: \[format \"%.2f\" \[value which]]"
+  xpos -40
+  ypos 314
+  addUserKnob {20 User}
+  addUserKnob {7 waveLength R 0 100}
+  waveLength 20
+  addUserKnob {7 offset R 0 100}
+ }
+ Switch {
+  inputs 4
+  which {{colors_1}}
+  name Switch_COLORS
+  label "Which: \[value which]"
+  xpos 180
+  ypos 441
+ }
+push $N68a74610
+ Merge2 {
+  inputs 2+1
+  operation soft-light
+  also_merge all
+  name MergeCI
+  xpos 510
+  ypos 447
+ }
+ Output {
+  name Output1
+  xpos 510
+  ypos 711
+ }
+end_group
+push $cut_paste_input
+Group {
  name GM_ColorWave
  tile_color 0xff00d6ff
  selected true
- xpos 1830
- ypos -153
+ xpos -810
+ ypos 15
  addUserKnob {20 User}
  addUserKnob {26 waveanim l "<h3><font color=#e665eb>Wave Anim"}
  addUserKnob {41 translate_1 l Center T Transform1.translate}
@@ -226,6 +546,11 @@ Group {
  addUserKnob {26 wavegrade l "<h3><font color=#e665eb>Wave Grade"}
  addUserKnob {41 multiply l Brightness T Grade1.multiply}
  addUserKnob {41 saturation l Saturation T Saturation1.saturation}
+ addUserKnob {26 wave_area l "<h3><font color=#e665eb>Wave Area"}
+ addUserKnob {41 keep_alpha l "Keep Effect Inside Mask Area" T PROXY_OFFSET.keep_alpha}
+ addUserKnob {41 remove_from_mask l "Remove Effect From Mask Area" T PROXY_OFFSET.remove_from_mask}
+ addUserKnob {7 fadeIn l "Fade In"}
+ addUserKnob {7 fadeOut l "Fade Out"}
  addUserKnob {26 ""}
  addUserKnob {20 offset_center l "Offset Center" n 1}
  offset_center 0
@@ -248,7 +573,7 @@ Group {
   ypos -321
   number 1
  }
-set Na83ebb30 [stack 0]
+set N3946d060 [stack 0]
  Dot {
   name Dot1
   tile_color 0x949494ff
@@ -257,7 +582,25 @@ set Na83ebb30 [stack 0]
   xpos -886
   ypos 5658
  }
-push $Na83ebb30
+ Dot {
+  name Dot43
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 104
+  ypos 5658
+ }
+ Dot {
+  name Dot44
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 324
+  ypos 5658
+ }
+set N1712840 [stack 0]
+push $N1712840
+push $N3946d060
  Dot {
   name Dot825
   tile_color 0x949494ff
@@ -266,7 +609,7 @@ push $Na83ebb30
   xpos -886
   ypos -78
  }
-set Na83f4b00 [stack 0]
+set N3842b660 [stack 0]
  Dot {
   name Dot3
   tile_color 0x949494ff
@@ -275,7 +618,7 @@ set Na83f4b00 [stack 0]
   xpos -776
   ypos 42
  }
-set Na9b39b40 [stack 0]
+set N3823c2c0 [stack 0]
  Dot {
   name Dot4
   tile_color 0x949494ff
@@ -284,7 +627,7 @@ set Na9b39b40 [stack 0]
   xpos -776
   ypos 306
  }
-set Na9b3e3a0 [stack 0]
+set N3842ad80 [stack 0]
  Dot {
   name Dot5
   tile_color 0x949494ff
@@ -293,7 +636,7 @@ set Na9b3e3a0 [stack 0]
   xpos -776
   ypos 570
  }
-set Na9b42c50 [stack 0]
+set N3b677eb0 [stack 0]
  Dot {
   name Dot6
   tile_color 0x949494ff
@@ -302,7 +645,7 @@ set Na9b42c50 [stack 0]
   xpos -776
   ypos 786
  }
-set Na9b474c0 [stack 0]
+set Nf2fc2240 [stack 0]
  Dot {
   name Dot7
   tile_color 0x949494ff
@@ -311,7 +654,7 @@ set Na9b474c0 [stack 0]
   xpos -776
   ypos 1002
  }
-set Na9b4bd40 [stack 0]
+set N38284ba0 [stack 0]
  Dot {
   name Dot8
   tile_color 0x949494ff
@@ -320,7 +663,7 @@ set Na9b4bd40 [stack 0]
   xpos -776
   ypos 1266
  }
-set Na9b505c0 [stack 0]
+set N38239050 [stack 0]
  Dot {
   name Dot9
   tile_color 0x949494ff
@@ -329,7 +672,7 @@ set Na9b505c0 [stack 0]
   xpos -776
   ypos 1530
  }
-set Na6d8a070 [stack 0]
+set N3823b520 [stack 0]
  Dot {
   name Dot10
   tile_color 0x949494ff
@@ -338,7 +681,7 @@ set Na6d8a070 [stack 0]
   xpos -776
   ypos 1818
  }
-set Na6d8e8d0 [stack 0]
+set N3854e480 [stack 0]
  Dot {
   name Dot11
   tile_color 0x949494ff
@@ -347,7 +690,7 @@ set Na6d8e8d0 [stack 0]
   xpos -776
   ypos 2130
  }
-set Na6d93150 [stack 0]
+set N1710650 [stack 0]
  Dot {
   name Dot12
   tile_color 0x949494ff
@@ -356,7 +699,7 @@ set Na6d93150 [stack 0]
   xpos -776
   ypos 2442
  }
-set Na6d979d0 [stack 0]
+set N3824ec10 [stack 0]
  Dot {
   name Dot13
   tile_color 0x949494ff
@@ -365,7 +708,7 @@ set Na6d979d0 [stack 0]
   xpos -776
   ypos 2778
  }
-set Na6d9c250 [stack 0]
+set N3824fc90 [stack 0]
  Dot {
   name Dot14
   tile_color 0x949494ff
@@ -374,7 +717,7 @@ set Na6d9c250 [stack 0]
   xpos -776
   ypos 3090
  }
-set Na6da0ad0 [stack 0]
+set N394325c0 [stack 0]
  Dot {
   name Dot15
   tile_color 0x949494ff
@@ -383,7 +726,7 @@ set Na6da0ad0 [stack 0]
   xpos -776
   ypos 3378
  }
-set Na8112fa0 [stack 0]
+set N38270020 [stack 0]
  Dot {
   name Dot16
   tile_color 0x949494ff
@@ -392,7 +735,7 @@ set Na8112fa0 [stack 0]
   xpos -776
   ypos 3690
  }
-set Na8117820 [stack 0]
+set N38568670 [stack 0]
  Dot {
   name Dot17
   tile_color 0x949494ff
@@ -401,7 +744,7 @@ set Na8117820 [stack 0]
   xpos -776
   ypos 4026
  }
-set Na811c1e0 [stack 0]
+set N39449100 [stack 0]
  Dot {
   name Dot18
   tile_color 0x949494ff
@@ -410,7 +753,7 @@ set Na811c1e0 [stack 0]
   xpos -776
   ypos 4314
  }
-set Na8120990 [stack 0]
+set Nf2fbe890 [stack 0]
  Dot {
   name Dot19
   tile_color 0x949494ff
@@ -419,7 +762,7 @@ set Na8120990 [stack 0]
   xpos -776
   ypos 4602
  }
-set Na8125210 [stack 0]
+set Nf2fc9790 [stack 0]
  Dot {
   name Dot20
   tile_color 0x949494ff
@@ -428,7 +771,7 @@ set Na8125210 [stack 0]
   xpos -776
   ypos 4866
  }
-set Na8129a90 [stack 0]
+set N38161820 [stack 0]
  Dot {
   name Dot21
   tile_color 0x949494ff
@@ -437,7 +780,7 @@ set Na8129a90 [stack 0]
   xpos -776
   ypos 5154
  }
-set Na3da8ef0 [stack 0]
+set N38165ec0 [stack 0]
  Dot {
   name Dot22
   tile_color 0x949494ff
@@ -462,6 +805,17 @@ set Na3da8ef0 [stack 0]
   xpos -370
   ypos 5426
  }
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply63
+  label "serial: \[value serial]"
+  selected true
+  xpos 70
+  ypos 5426
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 40
+ }
  Input {
   inputs 0
   name image
@@ -476,7 +830,7 @@ set Na3da8ef0 [stack 0]
   xpos 544
   ypos -222
  }
-set N9d774a40 [stack 0]
+set N38248640 [stack 0]
  Dot {
   name Dot815
   tile_color 0x949494ff
@@ -485,7 +839,7 @@ set N9d774a40 [stack 0]
   xpos 874
   ypos -222
  }
-set N9d7794b0 [stack 0]
+set N38257fa0 [stack 0]
  Dot {
   name Dot23
   tile_color 0x949494ff
@@ -494,7 +848,7 @@ set N9d7794b0 [stack 0]
   xpos 1204
   ypos 42
  }
-set N9d77db10 [stack 0]
+set N3825c8a0 [stack 0]
  Dot {
   name Dot24
   tile_color 0x949494ff
@@ -503,7 +857,7 @@ set N9d77db10 [stack 0]
   xpos 1204
   ypos 306
  }
-set N9d782390 [stack 0]
+set N38260f20 [stack 0]
  Dot {
   name Dot25
   tile_color 0x949494ff
@@ -512,7 +866,7 @@ set N9d782390 [stack 0]
   xpos 1204
   ypos 570
  }
-set N9ce572d0 [stack 0]
+set N382659e0 [stack 0]
  Dot {
   name Dot26
   tile_color 0x949494ff
@@ -521,7 +875,7 @@ set N9ce572d0 [stack 0]
   xpos 1204
   ypos 786
  }
-set N9ce5bc40 [stack 0]
+set N38551b50 [stack 0]
  Dot {
   name Dot27
   tile_color 0x949494ff
@@ -530,7 +884,7 @@ set N9ce5bc40 [stack 0]
   xpos 1204
   ypos 1002
  }
-set N9ce60270 [stack 0]
+set N38556060 [stack 0]
  Dot {
   name Dot28
   tile_color 0x949494ff
@@ -539,7 +893,7 @@ set N9ce60270 [stack 0]
   xpos 1204
   ypos 1266
  }
-set N9ce64d30 [stack 0]
+set N3855ac00 [stack 0]
  Dot {
   name Dot29
   tile_color 0x949494ff
@@ -548,7 +902,7 @@ set N9ce64d30 [stack 0]
   xpos 1204
   ypos 1530
  }
-set N9ce69720 [stack 0]
+set N3855f500 [stack 0]
  Dot {
   name Dot30
   tile_color 0x949494ff
@@ -557,7 +911,7 @@ set N9ce69720 [stack 0]
   xpos 1204
   ypos 1818
  }
-set N9ce6dd30 [stack 0]
+set N38563b20 [stack 0]
  Dot {
   name Dot31
   tile_color 0x949494ff
@@ -566,7 +920,7 @@ set N9ce6dd30 [stack 0]
   xpos 1204
   ypos 2130
  }
-set N9ce72870 [stack 0]
+set N3852c7b0 [stack 0]
  Dot {
   name Dot32
   tile_color 0x949494ff
@@ -575,7 +929,7 @@ set N9ce72870 [stack 0]
   xpos 1204
   ypos 2442
  }
-set N9ae0e330 [stack 0]
+set N38531340 [stack 0]
  Dot {
   name Dot33
   tile_color 0x949494ff
@@ -584,7 +938,7 @@ set N9ae0e330 [stack 0]
   xpos 1204
   ypos 2778
  }
-set N9ae12740 [stack 0]
+set N385358d0 [stack 0]
  Dot {
   name Dot34
   tile_color 0x949494ff
@@ -593,7 +947,7 @@ set N9ae12740 [stack 0]
   xpos 1204
   ypos 3090
  }
-set N9ae16fc0 [stack 0]
+set N3853a4f0 [stack 0]
  Dot {
   name Dot35
   tile_color 0x949494ff
@@ -602,7 +956,7 @@ set N9ae16fc0 [stack 0]
   xpos 1204
   ypos 3378
  }
-set N9ae1bb50 [stack 0]
+set N3853eac0 [stack 0]
  Dot {
   name Dot36
   tile_color 0x949494ff
@@ -611,7 +965,7 @@ set N9ae1bb50 [stack 0]
   xpos 1204
   ypos 3690
  }
-set N9ae20080 [stack 0]
+set N38543370 [stack 0]
  Dot {
   name Dot37
   tile_color 0x949494ff
@@ -620,7 +974,7 @@ set N9ae20080 [stack 0]
   xpos 1204
   ypos 4026
  }
-set N9ae24ca0 [stack 0]
+set N38547f70 [stack 0]
  Dot {
   name Dot38
   tile_color 0x949494ff
@@ -629,7 +983,7 @@ set N9ae24ca0 [stack 0]
   xpos 1204
   ypos 4314
  }
-set N9ae29200 [stack 0]
+set N3854c510 [stack 0]
  Dot {
   name Dot39
   tile_color 0x949494ff
@@ -638,7 +992,7 @@ set N9ae29200 [stack 0]
   xpos 1204
   ypos 4602
  }
-set N9ae2da90 [stack 0]
+set N38184680 [stack 0]
  Dot {
   name Dot40
   tile_color 0x949494ff
@@ -647,7 +1001,7 @@ set N9ae2da90 [stack 0]
   xpos 1204
   ypos 4866
  }
-set N9b232650 [stack 0]
+set N38188f90 [stack 0]
  Dot {
   name Dot41
   tile_color 0x949494ff
@@ -656,7 +1010,7 @@ set N9b232650 [stack 0]
   xpos 1204
   ypos 5154
  }
-set N9b236c30 [stack 0]
+set N3818dbb0 [stack 0]
  Dot {
   name Dot42
   tile_color 0x949494ff
@@ -665,7 +1019,7 @@ set N9b236c30 [stack 0]
   xpos 1204
   ypos 5442
  }
-set N9b23b4b0 [stack 0]
+set N38192110 [stack 0]
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave1
@@ -678,7 +1032,7 @@ set N9b23b4b0 [stack 0]
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"195.0 + PROXY_OFFSET.offset"}}
  }
-push $Na83f4b00
+push $N3842b660
  Dot {
   name Dot842
   tile_color 0x949494ff
@@ -687,7 +1041,7 @@ push $Na83f4b00
   xpos -886
   ypos 186
  }
-set N9e65c380 [stack 0]
+set N381a62f0 [stack 0]
  Dot {
   name Dot845
   tile_color 0x949494ff
@@ -696,7 +1050,7 @@ set N9e65c380 [stack 0]
   xpos -886
   ypos 450
  }
-set N9e660bf0 [stack 0]
+set Nf632dde0 [stack 0]
  Dot {
   name Dot826
   tile_color 0x949494ff
@@ -705,7 +1059,7 @@ set N9e660bf0 [stack 0]
   xpos -886
   ypos 666
  }
-set N9e665820 [stack 0]
+set Nf63329e0 [stack 0]
  Dot {
   name Dot848
   tile_color 0x949494ff
@@ -714,7 +1068,7 @@ set N9e665820 [stack 0]
   xpos -886
   ypos 882
  }
-set N9e66a030 [stack 0]
+set Nf63372c0 [stack 0]
  Dot {
   name Dot851
   tile_color 0x949494ff
@@ -723,7 +1077,7 @@ set N9e66a030 [stack 0]
   xpos -886
   ypos 1146
  }
-set N9e66e5a0 [stack 0]
+set Nf633b7d0 [stack 0]
  Dot {
   name Dot827
   tile_color 0x949494ff
@@ -732,7 +1086,7 @@ set N9e66e5a0 [stack 0]
   xpos -886
   ypos 1410
  }
-set N9e673200 [stack 0]
+set Nf6340450 [stack 0]
  Dot {
   name Dot854
   tile_color 0x949494ff
@@ -741,7 +1095,7 @@ set N9e673200 [stack 0]
   xpos -886
   ypos 1698
  }
-set N9e677a10 [stack 0]
+set Nf63449b0 [stack 0]
  Dot {
   name Dot828
   tile_color 0x949494ff
@@ -750,7 +1104,7 @@ set N9e677a10 [stack 0]
   xpos -886
   ypos 2010
  }
-set N9c965020 [stack 0]
+set Nf6349260 [stack 0]
  Dot {
   name Dot857
   tile_color 0x949494ff
@@ -759,7 +1113,7 @@ set N9c965020 [stack 0]
   xpos -886
   ypos 2322
  }
-set N9c969c00 [stack 0]
+set Nf634db10 [stack 0]
  Dot {
   name Dot829
   tile_color 0x949494ff
@@ -768,7 +1122,7 @@ set N9c969c00 [stack 0]
   xpos -886
   ypos 2658
  }
-set N9c96e110 [stack 0]
+set Nf63523c0 [stack 0]
  Dot {
   name Dot860
   tile_color 0x949494ff
@@ -777,7 +1131,7 @@ set N9c96e110 [stack 0]
   xpos -886
   ypos 2970
  }
-set N9c972990 [stack 0]
+set Nf6356c70 [stack 0]
  Dot {
   name Dot830
   tile_color 0x949494ff
@@ -786,7 +1140,7 @@ set N9c972990 [stack 0]
   xpos -886
   ypos 3258
  }
-set N9c977210 [stack 0]
+set Nf635b520 [stack 0]
  Dot {
   name Dot863
   tile_color 0x949494ff
@@ -795,7 +1149,7 @@ set N9c977210 [stack 0]
   xpos -886
   ypos 3570
  }
-set N9c97ba90 [stack 0]
+set Nf63601c0 [stack 0]
  Dot {
   name Dot831
   tile_color 0x949494ff
@@ -804,7 +1158,7 @@ set N9c97ba90 [stack 0]
   xpos -886
   ypos 3906
  }
-set N9c980310 [stack 0]
+set Nf6364ab0 [stack 0]
  Dot {
   name Dot866
   tile_color 0x949494ff
@@ -813,7 +1167,7 @@ set N9c980310 [stack 0]
   xpos -886
   ypos 4194
  }
-set N9c984b90 [stack 0]
+set Nf635fda0 [stack 0]
  Dot {
   name Dot832
   tile_color 0x949494ff
@@ -822,7 +1176,7 @@ set N9c984b90 [stack 0]
   xpos -886
   ypos 4482
  }
-set N9c2b5870 [stack 0]
+set Nf636da80 [stack 0]
  Dot {
   name Dot869
   tile_color 0x949494ff
@@ -831,7 +1185,7 @@ set N9c2b5870 [stack 0]
   xpos -886
   ypos 4746
  }
-set N9c2ba110 [stack 0]
+set Nf6372330 [stack 0]
  Dot {
   name Dot870
   tile_color 0x949494ff
@@ -840,7 +1194,7 @@ set N9c2ba110 [stack 0]
   xpos -886
   ypos 5034
  }
-set N9c2b5450 [stack 0]
+set Nf6376bb0 [stack 0]
  Dot {
   name Dot875
   tile_color 0x949494ff
@@ -865,7 +1219,17 @@ set N9c2b5450 [stack 0]
   xpos -480
   ypos 5306
  }
-push $N9d7794b0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply62
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 5306
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 39
+ }
+push $N38257fa0
  Dot {
   name Dot816
   tile_color 0x949494ff
@@ -874,7 +1238,7 @@ push $N9d7794b0
   xpos 874
   ypos -78
  }
-set N9bea0de0 [stack 0]
+set Nf6236780 [stack 0]
  Dot {
   name Dot843
   tile_color 0x949494ff
@@ -883,7 +1247,7 @@ set N9bea0de0 [stack 0]
   xpos 874
   ypos 186
  }
-set N9bea5430 [stack 0]
+set Nf637b470 [stack 0]
  Dot {
   name Dot846
   tile_color 0x949494ff
@@ -892,7 +1256,7 @@ set N9bea5430 [stack 0]
   xpos 874
   ypos 450
  }
-set N9bea9d00 [stack 0]
+set Nf623afc0 [stack 0]
  Dot {
   name Dot817
   tile_color 0x949494ff
@@ -901,7 +1265,7 @@ set N9bea9d00 [stack 0]
   xpos 874
   ypos 666
  }
-set N9beae580 [stack 0]
+set Nf62441b0 [stack 0]
  Dot {
   name Dot849
   tile_color 0x949494ff
@@ -910,7 +1274,7 @@ set N9beae580 [stack 0]
   xpos 874
   ypos 882
  }
-set N9dfa9030 [stack 0]
+set Nf6248a60 [stack 0]
  Dot {
   name Dot852
   tile_color 0x949494ff
@@ -919,7 +1283,7 @@ set N9dfa9030 [stack 0]
   xpos 874
   ypos 1146
  }
-set N9bea0930 [stack 0]
+set Nf623f890 [stack 0]
  Dot {
   name Dot818
   tile_color 0x949494ff
@@ -928,7 +1292,7 @@ set N9bea0930 [stack 0]
   xpos 874
   ypos 1410
  }
-set N9dfad6b0 [stack 0]
+set Nf6251c00 [stack 0]
  Dot {
   name Dot855
   tile_color 0x949494ff
@@ -937,7 +1301,7 @@ set N9dfad6b0 [stack 0]
   xpos 874
   ypos 1698
  }
-set N9dfb6810 [stack 0]
+set Nf62564b0 [stack 0]
  Dot {
   name Dot819
   tile_color 0x949494ff
@@ -946,7 +1310,7 @@ set N9dfb6810 [stack 0]
   xpos 874
   ypos 2010
  }
-set N9dfbb090 [stack 0]
+set Nf624d2e0 [stack 0]
  Dot {
   name Dot858
   tile_color 0x949494ff
@@ -955,7 +1319,7 @@ set N9dfbb090 [stack 0]
   xpos 874
   ypos 2322
  }
-set N9dfb1f50 [stack 0]
+set Nf625f640 [stack 0]
  Dot {
   name Dot820
   tile_color 0x949494ff
@@ -964,7 +1328,7 @@ set N9dfb1f50 [stack 0]
   xpos 874
   ypos 2658
  }
-set N9dfc41d0 [stack 0]
+set Nf625ad30 [stack 0]
  Dot {
   name Dot861
   tile_color 0x949494ff
@@ -973,7 +1337,7 @@ set N9dfc41d0 [stack 0]
   xpos 874
   ypos 2970
  }
-set N9dfc8a50 [stack 0]
+set Nf62687e0 [stack 0]
  Dot {
   name Dot821
   tile_color 0x949494ff
@@ -982,7 +1346,7 @@ set N9dfc8a50 [stack 0]
   xpos 874
   ypos 3258
  }
-set N9dfbf910 [stack 0]
+set Nf626d090 [stack 0]
  Dot {
   name Dot864
   tile_color 0x949494ff
@@ -991,7 +1355,7 @@ set N9dfbf910 [stack 0]
   xpos 874
   ypos 3570
  }
-set N9db8fbb0 [stack 0]
+set Nf6263ec0 [stack 0]
  Dot {
   name Dot822
   tile_color 0x949494ff
@@ -1000,7 +1364,7 @@ set N9db8fbb0 [stack 0]
   xpos 874
   ypos 3906
  }
-set N9db8b300 [stack 0]
+set Nf6276230 [stack 0]
  Dot {
   name Dot867
   tile_color 0x949494ff
@@ -1009,7 +1373,7 @@ set N9db8b300 [stack 0]
   xpos 874
   ypos 4194
  }
-set N9db98d00 [stack 0]
+set Nf627aae0 [stack 0]
  Dot {
   name Dot823
   tile_color 0x949494ff
@@ -1018,7 +1382,7 @@ set N9db98d00 [stack 0]
   xpos 874
   ypos 4482
  }
-set N9db9d580 [stack 0]
+set Nf6271910 [stack 0]
  Dot {
   name Dot871
   tile_color 0x949494ff
@@ -1027,7 +1391,7 @@ set N9db9d580 [stack 0]
   xpos 874
   ypos 4746
  }
-set N9db94430 [stack 0]
+set Nf627f360 [stack 0]
  Dot {
   name Dot872
   tile_color 0x949494ff
@@ -1036,7 +1400,7 @@ set N9db94430 [stack 0]
   xpos 874
   ypos 5034
  }
-set N9dba66c0 [stack 0]
+set Nf62885a0 [stack 0]
  Dot {
   name Dot876
   tile_color 0x949494ff
@@ -1057,7 +1421,7 @@ set N9dba66c0 [stack 0]
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"190.0 + PROXY_OFFSET.offset"}}
  }
-push $Na3da8ef0
+push $N38165ec0
  Transform {
   scale {{"0.075 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1074,7 +1438,17 @@ push $Na3da8ef0
   xpos -370
   ypos 5138
  }
-push $N9b236c30
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply61
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 5138
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 38
+ }
+push $N3818dbb0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave2
@@ -1087,7 +1461,7 @@ push $N9b236c30
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"185.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c2b5450
+push $Nf6376bb0
  Transform {
   scale {{"0.1 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1104,7 +1478,17 @@ push $N9c2b5450
   xpos -480
   ypos 5018
  }
-push $N9dba66c0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply60
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 5018
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 37
+ }
+push $Nf62885a0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave162
@@ -1117,7 +1501,7 @@ push $N9dba66c0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"180.0 + PROXY_OFFSET.offset"}}
  }
-push $Na8129a90
+push $N38161820
  Transform {
   scale {{"0.125 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1134,7 +1518,17 @@ push $Na8129a90
   xpos -370
   ypos 4850
  }
-push $N9b232650
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply59
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4850
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 36
+ }
+push $N38188f90
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave3
@@ -1147,7 +1541,7 @@ push $N9b232650
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"175.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c2ba110
+push $Nf6372330
  Transform {
   scale {{"0.15 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1164,7 +1558,17 @@ push $N9c2ba110
   xpos -480
   ypos 4730
  }
-push $N9db94430
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply58
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4730
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 35
+ }
+push $Nf627f360
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave163
@@ -1177,7 +1581,7 @@ push $N9db94430
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"170.0 + PROXY_OFFSET.offset"}}
  }
-push $Na8125210
+push $Nf2fc9790
  Transform {
   scale {{"0.175 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1194,7 +1598,17 @@ push $Na8125210
   xpos -370
   ypos 4586
  }
-push $N9ae2da90
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply57
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4586
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 34
+ }
+push $N38184680
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave4
@@ -1207,7 +1621,7 @@ push $N9ae2da90
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"165.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c2b5870
+push $Nf636da80
  Transform {
   scale {{"0.2 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1224,7 +1638,17 @@ push $N9c2b5870
   xpos -480
   ypos 4466
  }
-push $N9db9d580
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply56
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4466
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 33
+ }
+push $Nf6271910
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave145
@@ -1237,7 +1661,7 @@ push $N9db9d580
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"160.0 + PROXY_OFFSET.offset"}}
  }
-push $Na8120990
+push $Nf2fbe890
  Transform {
   scale {{"0.225 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1254,7 +1678,17 @@ push $Na8120990
   xpos -370
   ypos 4298
  }
-push $N9ae29200
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply55
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4298
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 32
+ }
+push $N3854c510
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave5
@@ -1267,7 +1701,7 @@ push $N9ae29200
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"155.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c984b90
+push $Nf635fda0
  Transform {
   scale {{"0.25 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1284,7 +1718,17 @@ push $N9c984b90
   xpos -480
   ypos 4178
  }
-push $N9db98d00
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply54
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4178
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 31
+ }
+push $Nf627aae0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave161
@@ -1297,7 +1741,7 @@ push $N9db98d00
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"150.0 + PROXY_OFFSET.offset"}}
  }
-push $Na811c1e0
+push $N39449100
  Transform {
   scale {{"0.275 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1314,7 +1758,17 @@ push $Na811c1e0
   xpos -370
   ypos 4010
  }
-push $N9ae24ca0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply53
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 4010
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 30
+ }
+push $N38547f70
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave6
@@ -1327,7 +1781,7 @@ push $N9ae24ca0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"145.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c980310
+push $Nf6364ab0
  Transform {
   scale {{"0.3 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1344,7 +1798,17 @@ push $N9c980310
   xpos -480
   ypos 3890
  }
-push $N9db8b300
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply52
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 3890
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 29
+ }
+push $Nf6276230
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave146
@@ -1357,7 +1821,7 @@ push $N9db8b300
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"140.0 + PROXY_OFFSET.offset"}}
  }
-push $Na8117820
+push $N38568670
  Transform {
   scale {{"0.325 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1374,7 +1838,17 @@ push $Na8117820
   xpos -370
   ypos 3674
  }
-push $N9ae20080
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply51
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 3674
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 28
+ }
+push $N38543370
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave7
@@ -1387,7 +1861,7 @@ push $N9ae20080
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"135.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c97ba90
+push $Nf63601c0
  Transform {
   scale {{"0.35 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1404,7 +1878,17 @@ push $N9c97ba90
   xpos -480
   ypos 3554
  }
-push $N9db8fbb0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply50
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 3554
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 27
+ }
+push $Nf6263ec0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave160
@@ -1417,7 +1901,7 @@ push $N9db8fbb0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"130.0 + PROXY_OFFSET.offset"}}
  }
-push $Na8112fa0
+push $N38270020
  Transform {
   scale {{"0.375 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1434,7 +1918,17 @@ push $Na8112fa0
   xpos -370
   ypos 3362
  }
-push $N9ae1bb50
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply49
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 3362
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 26
+ }
+push $N3853eac0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave8
@@ -1447,7 +1941,7 @@ push $N9ae1bb50
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"125.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c977210
+push $Nf635b520
  Transform {
   scale {{"0.4 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1464,7 +1958,17 @@ push $N9c977210
   xpos -480
   ypos 3242
  }
-push $N9dfbf910
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply48
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 3242
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 25
+ }
+push $Nf626d090
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave147
@@ -1477,7 +1981,7 @@ push $N9dfbf910
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"120.0 + PROXY_OFFSET.offset"}}
  }
-push $Na6da0ad0
+push $N394325c0
  Transform {
   scale {{"0.425 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1494,7 +1998,17 @@ push $Na6da0ad0
   xpos -370
   ypos 3074
  }
-push $N9ae16fc0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply47
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 3074
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 24
+ }
+push $N3853a4f0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave9
@@ -1507,7 +2021,7 @@ push $N9ae16fc0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"115.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c972990
+push $Nf6356c70
  Transform {
   scale {{"0.45 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1524,7 +2038,17 @@ push $N9c972990
   xpos -480
   ypos 2954
  }
-push $N9dfc8a50
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply46
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 2954
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 23
+ }
+push $Nf62687e0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave159
@@ -1537,7 +2061,7 @@ push $N9dfc8a50
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"110.0 + PROXY_OFFSET.offset"}}
  }
-push $Na6d9c250
+push $N3824fc90
  Transform {
   scale {{"0.475 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1554,7 +2078,17 @@ push $Na6d9c250
   xpos -370
   ypos 2762
  }
-push $N9ae12740
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply45
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 2762
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 22
+ }
+push $N385358d0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave10
@@ -1567,7 +2101,7 @@ push $N9ae12740
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"105.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c96e110
+push $Nf63523c0
  Transform {
   scale {{"0.5 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1584,7 +2118,17 @@ push $N9c96e110
   xpos -480
   ypos 2642
  }
-push $N9dfc41d0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply44
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 2642
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 21
+ }
+push $Nf625ad30
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave148
@@ -1597,7 +2141,7 @@ push $N9dfc41d0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"100.0 + PROXY_OFFSET.offset"}}
  }
-push $Na6d979d0
+push $N3824ec10
  Transform {
   scale {{"0.525 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1614,7 +2158,17 @@ push $Na6d979d0
   xpos -370
   ypos 2426
  }
-push $N9ae0e330
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply43
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 2426
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 20
+ }
+push $N38531340
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave11
@@ -1627,7 +2181,7 @@ push $N9ae0e330
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"95.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c969c00
+push $Nf634db10
  Transform {
   scale {{"0.55 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1644,7 +2198,17 @@ push $N9c969c00
   xpos -480
   ypos 2306
  }
-push $N9dfb1f50
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply42
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 2306
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 19
+ }
+push $Nf625f640
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave158
@@ -1657,7 +2221,7 @@ push $N9dfb1f50
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"90.0 + PROXY_OFFSET.offset"}}
  }
-push $Na6d93150
+push $N1710650
  Transform {
   scale {{"0.575 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1674,7 +2238,17 @@ push $Na6d93150
   xpos -370
   ypos 2114
  }
-push $N9ce72870
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply41
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 2114
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 18
+ }
+push $N3852c7b0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave12
@@ -1687,7 +2261,7 @@ push $N9ce72870
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"85.0 + PROXY_OFFSET.offset"}}
  }
-push $N9c965020
+push $Nf6349260
  Transform {
   scale {{"0.6 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1704,7 +2278,17 @@ push $N9c965020
   xpos -480
   ypos 1994
  }
-push $N9dfbb090
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply40
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1994
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 17
+ }
+push $Nf624d2e0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave149
@@ -1717,7 +2301,7 @@ push $N9dfbb090
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"80.0 + PROXY_OFFSET.offset"}}
  }
-push $Na6d8e8d0
+push $N3854e480
  Transform {
   scale {{"0.625 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1734,7 +2318,17 @@ push $Na6d8e8d0
   xpos -370
   ypos 1802
  }
-push $N9ce6dd30
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply39
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1802
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 16
+ }
+push $N38563b20
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave13
@@ -1747,7 +2341,7 @@ push $N9ce6dd30
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"75.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e677a10
+push $Nf63449b0
  Transform {
   scale {{"0.65 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1764,7 +2358,17 @@ push $N9e677a10
   xpos -480
   ypos 1682
  }
-push $N9dfb6810
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply38
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1682
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 15
+ }
+push $Nf62564b0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave157
@@ -1777,7 +2381,7 @@ push $N9dfb6810
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"70.0 + PROXY_OFFSET.offset"}}
  }
-push $Na6d8a070
+push $N3823b520
  Transform {
   scale {{"0.675 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1794,7 +2398,17 @@ push $Na6d8a070
   xpos -370
   ypos 1514
  }
-push $N9ce69720
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply37
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1514
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 14
+ }
+push $N3855f500
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave14
@@ -1807,7 +2421,7 @@ push $N9ce69720
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"65.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e673200
+push $Nf6340450
  Transform {
   scale {{"0.7 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1824,7 +2438,17 @@ push $N9e673200
   xpos -480
   ypos 1394
  }
-push $N9dfad6b0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply36
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1394
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 13
+ }
+push $Nf6251c00
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave150
@@ -1837,7 +2461,7 @@ push $N9dfad6b0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"60.0 + PROXY_OFFSET.offset"}}
  }
-push $Na9b505c0
+push $N38239050
  Transform {
   scale {{"0.725 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1854,7 +2478,17 @@ push $Na9b505c0
   xpos -370
   ypos 1250
  }
-push $N9ce64d30
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply35
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1250
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 12
+ }
+push $N3855ac00
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave15
@@ -1867,7 +2501,7 @@ push $N9ce64d30
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"55.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e66e5a0
+push $Nf633b7d0
  Transform {
   scale {{"0.75 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1884,7 +2518,17 @@ push $N9e66e5a0
   xpos -480
   ypos 1130
  }
-push $N9bea0930
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply34
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 1130
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 11
+ }
+push $Nf623f890
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave156
@@ -1897,7 +2541,7 @@ push $N9bea0930
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"50.0 + PROXY_OFFSET.offset"}}
  }
-push $Na9b4bd40
+push $N38284ba0
  Transform {
   scale {{"0.775 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1914,7 +2558,17 @@ push $Na9b4bd40
   xpos -370
   ypos 986
  }
-push $N9ce60270
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply33
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 986
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 10
+ }
+push $N38556060
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave16
@@ -1927,7 +2581,7 @@ push $N9ce60270
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"45.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e66a030
+push $Nf63372c0
  Transform {
   scale {{"0.8 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -1944,7 +2598,17 @@ push $N9e66a030
   xpos -480
   ypos 866
  }
-push $N9dfa9030
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply32
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 866
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 9
+ }
+push $Nf6248a60
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave155
@@ -1957,7 +2621,7 @@ push $N9dfa9030
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"40.0 + PROXY_OFFSET.offset"}}
  }
-push $Na9b474c0
+push $Nf2fc2240
  Transform {
   scale {{"0.825 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -1974,7 +2638,17 @@ push $Na9b474c0
   xpos -370
   ypos 770
  }
-push $N9ce5bc40
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply31
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 770
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 8
+ }
+push $N38551b50
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave17
@@ -1987,7 +2661,7 @@ push $N9ce5bc40
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"35.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e665820
+push $Nf63329e0
  Transform {
   scale {{"0.85 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2004,7 +2678,17 @@ push $N9e665820
   xpos -480
   ypos 650
  }
-push $N9beae580
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply30
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 650
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 7
+ }
+push $Nf62441b0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave151
@@ -2017,7 +2701,7 @@ push $N9beae580
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"30.0 + PROXY_OFFSET.offset"}}
  }
-push $Na9b42c50
+push $N3b677eb0
  Transform {
   scale {{"0.875 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -2034,7 +2718,17 @@ push $Na9b42c50
   xpos -370
   ypos 554
  }
-push $N9ce572d0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply29
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 554
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 6
+ }
+push $N382659e0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave18
@@ -2047,7 +2741,7 @@ push $N9ce572d0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"25.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e660bf0
+push $Nf632dde0
  Transform {
   scale {{"0.9 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2064,7 +2758,17 @@ push $N9e660bf0
   xpos -480
   ypos 434
  }
-push $N9bea9d00
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply28
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 434
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 5
+ }
+push $Nf623afc0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_WaveTEST
@@ -2077,7 +2781,7 @@ push $N9bea9d00
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"20.0 + PROXY_OFFSET.offset"}}
  }
-push $Na9b3e3a0
+push $N3842ad80
  Transform {
   scale {{"0.925 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN5.center} {Transform_MAIN5.center}}
@@ -2094,7 +2798,17 @@ push $Na9b3e3a0
   xpos -370
   ypos 290
  }
-push $N9d782390
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply27
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 290
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 4
+ }
+push $N38260f20
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave19
@@ -2107,7 +2821,7 @@ push $N9d782390
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"15.0 + PROXY_OFFSET.offset"}}
  }
-push $N9e65c380
+push $N381a62f0
  Transform {
   scale {{"0.95 * PROXY_OFFSET.size_offset"}}
   center {{Transform_MAIN.center} {Transform_MAIN.center}}
@@ -2124,7 +2838,17 @@ push $N9e65c380
   xpos -480
   ypos 170
  }
-push $N9bea5430
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply26
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 170
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 3
+ }
+push $Nf637b470
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave243
@@ -2137,7 +2861,7 @@ push $N9bea5430
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"10.0 + PROXY_OFFSET.offset"}}
  }
-push $Na9b39b40
+push $N3823c2c0
  Transform {
   scale {{"0.975 * PROXY_OFFSET.size_offset"}}
   center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
@@ -2154,7 +2878,17 @@ push $Na9b39b40
   xpos -370
   ypos 26
  }
-push $N9d77db10
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply25
+  label "serial: \[value serial]"
+  xpos 70
+  ypos 26
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 2
+ }
+push $N3825c8a0
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave_MAIN1
@@ -2167,7 +2901,7 @@ push $N9d77db10
   addUserKnob {7 offset l Offset R 0 100}
   offset {{"5.0 + PROXY_OFFSET.offset"}}
  }
-push $Na83f4b00
+push $N3842b660
  Transform {
   scale {{"1 * PROXY_OFFSET.size_offset"}}
   center {{"parent.Transform_proxy.center + Transform_proxy.x_offset"} {"parent.Transform_proxy.center + Transform_proxy.y_offset"}}
@@ -2178,13 +2912,22 @@ push $Na83f4b00
   ypos -87
  }
  Blur {
-  size 10
   name Blur_MAIN
   label "Size: \[value size]"
   xpos -480
   ypos -94
  }
-push $N9bea0de0
+ Multiply {
+  value {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-(PROXY_OFFSET.maxNum-serial))) ) * PROXY_OFFSET.fadein )\n"}}
+  name Multiply24
+  label "serial: \[value serial]"
+  xpos 70
+  ypos -94
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 1
+ }
+push $Nf6236780
  HSVTool {
   huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
   name HSVTool_Wave_MAIN
@@ -2197,267 +2940,474 @@ push $N9bea0de0
   addUserKnob {7 offset l Offset R 0 100}
   offset {{PROXY_OFFSET.offset}}
  }
-push $N9d774a40
+push $N38248640
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix149
+  label "serial: \[value serial]"
   xpos 510
-  ypos -87
+  ypos -94
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 1
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix1
+  label "serial: \[value serial]"
   xpos 950
-  ypos 33
+  ypos 26
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 2
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix157
+  label "serial: \[value serial]"
   xpos 510
-  ypos 177
+  ypos 170
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 3
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix2
+  label "serial: \[value serial]"
   xpos 950
-  ypos 297
+  ypos 290
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 4
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix158
+  label "serial: \[value serial]"
   xpos 510
-  ypos 441
+  ypos 434
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 5
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix3
+  label "serial: \[value serial]"
   xpos 950
-  ypos 561
+  ypos 554
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 40
+  addUserKnob {3 serial_1 l serial}
+  addUserKnob {3 serial_2 l serial}
+  addUserKnob {3 serial_3 l serial}
+  addUserKnob {3 serial_4 l serial}
+  addUserKnob {3 serial_5 l serial}
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix150
+  label "serial: \[value serial]"
   xpos 510
-  ypos 657
+  ypos 650
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 7
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix4
+  label "serial: \[value serial]"
   xpos 950
-  ypos 777
+  ypos 770
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 8
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix159
+  label "serial: \[value serial]"
   xpos 510
-  ypos 873
+  ypos 866
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 9
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix5
+  label "serial: \[value serial]"
   xpos 950
-  ypos 993
+  ypos 986
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 10
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix160
+  label "serial: \[value serial]"
   xpos 510
-  ypos 1137
+  ypos 1130
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 11
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix6
+  label "serial: \[value serial]"
   xpos 950
-  ypos 1257
+  ypos 1250
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 12
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix151
+  label "serial: \[value serial]"
   xpos 510
-  ypos 1401
+  ypos 1394
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 13
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix7
+  label "serial: \[value serial]"
   xpos 950
-  ypos 1521
+  ypos 1514
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 14
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix161
+  label "serial: \[value serial]"
   xpos 510
-  ypos 1689
+  ypos 1682
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 15
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix8
+  label "serial: \[value serial]"
   xpos 950
-  ypos 1809
+  ypos 1802
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 16
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix152
+  label "serial: \[value serial]"
   xpos 510
-  ypos 2001
+  ypos 1994
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 17
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix9
+  label "serial: \[value serial]"
   xpos 950
-  ypos 2121
+  ypos 2114
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 18
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix162
+  label "serial: \[value serial]"
   xpos 510
-  ypos 2313
+  ypos 2306
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 19
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix10
+  label "serial: \[value serial]"
   xpos 950
-  ypos 2433
+  ypos 2426
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 20
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix153
+  label "serial: \[value serial]"
   xpos 510
-  ypos 2649
+  ypos 2642
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 21
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix11
+  label "serial: \[value serial]"
   xpos 950
-  ypos 2769
+  ypos 2762
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 22
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix163
+  label "serial: \[value serial]"
   xpos 510
-  ypos 2961
+  ypos 2954
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 23
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix12
+  label "serial: \[value serial]"
   xpos 950
-  ypos 3081
+  ypos 3074
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 24
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix154
+  label "serial: \[value serial]"
   xpos 510
-  ypos 3249
+  ypos 3242
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 25
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix13
+  label "serial: \[value serial]"
   xpos 950
-  ypos 3369
+  ypos 3362
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 26
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix164
+  label "serial: \[value serial]"
   xpos 510
-  ypos 3561
+  ypos 3554
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 27
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix14
+  label "serial: \[value serial]"
   xpos 950
-  ypos 3681
+  ypos 3674
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 28
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix155
+  label "serial: \[value serial]"
   xpos 510
-  ypos 3897
+  ypos 3890
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 29
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix15
+  label "serial: \[value serial]"
   xpos 950
-  ypos 4017
+  ypos 4010
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 30
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix165
+  label "serial: \[value serial]"
   xpos 510
-  ypos 4185
+  ypos 4178
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 31
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix16
+  label "serial: \[value serial]"
   xpos 950
-  ypos 4305
+  ypos 4298
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 32
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix156
+  label "serial: \[value serial]"
   xpos 510
-  ypos 4473
+  ypos 4466
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 33
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix17
+  label "serial: \[value serial]"
   xpos 950
-  ypos 4593
+  ypos 4586
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 34
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix166
+  label "serial: \[value serial]"
   xpos 510
-  ypos 4737
+  ypos 4730
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 35
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix18
+  label "serial: \[value serial]"
   xpos 950
-  ypos 4857
+  ypos 4850
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 36
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix167
+  label "serial: \[value serial]"
   xpos 510
-  ypos 5025
+  ypos 5018
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 37
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix19
+  label "serial: \[value serial]"
   xpos 950
-  ypos 5145
+  ypos 5138
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 38
+  addUserKnob {3 serial_1 l serial}
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix168
+  label "serial: \[value serial]"
   xpos 510
-  ypos 5313
+  ypos 5306
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 39
  }
  Keymix {
   inputs 3
+  mix {{"((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) + ( ( 1- ((1/(PROXY_OFFSET.maxNum-1))*(PROXY_OFFSET.maxNum-serial)) ) * PROXY_OFFSET.fadeout )\n"}}
   name Keymix20
+  label "serial: \[value serial]"
   xpos 950
-  ypos 5433
+  ypos 5426
   disable {{PROXY_OFFSET.half_stripes}}
+  addUserKnob {20 User}
+  addUserKnob {3 serial}
+  serial 40
  }
+set N36b54390 [stack 0]
  Saturation {
   name Saturation1
   label "Value: \[value saturation]"
@@ -2476,13 +3426,22 @@ push $N9d774a40
   name Copy1
   xpos 510
   ypos 5649
+  disable {{!PROXY_OFFSET.keep_alpha}}
+ }
+ ChannelMerge {
+  inputs 2
+  operation stencil
+  name ChannelMerge1
+  xpos 510
+  ypos 5714
+  disable {{!PROXY_OFFSET.remove_from_mask}}
  }
  Premult {
   name Premult1
   xpos 510
-  ypos 5775
+  ypos 5799
  }
-push $N9b23b4b0
+push $N38192110
  Dot {
   name Dot2
   tile_color 0x949494ff
@@ -2491,7 +3450,7 @@ push $N9b23b4b0
   xpos 764
   ypos 5874
  }
-set N9fcd6670 [stack 0]
+set N36ba53f0 [stack 0]
  Merge2 {
   inputs 2
   also_merge all
@@ -2499,7 +3458,7 @@ set N9fcd6670 [stack 0]
   xpos 510
   ypos 5871
  }
-push $N9fcd6670
+push $N36ba53f0
  Dot {
   name Dot824
   tile_color 0x949494ff
@@ -2534,7 +3493,7 @@ push $N9fcd6670
  }
  Transform {
   inputs 0
-  translate {2224 1548}
+  translate {2500 1310}
   shutteroffset centred
   name Transform1
   xpos -480
@@ -2542,6 +3501,26 @@ push $N9fcd6670
   addUserKnob {20 User}
   addUserKnob {7 x_offset l "X Offset" R -5000 5000}
   addUserKnob {7 y_offset l "Y Offset" R -5000 5000}
+ }
+ StickyNote {
+  inputs 0
+  name StickyNote1
+  label "((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) + ( ( 1- ((1/(ReMax-1))*(ReMax-(ReMax-ReNum))) ) * Trans_COPY1_proxy.fadein )\n\n((1/(ReMax-1))*(ReMax-ReNum)) + ( ( 1- ((1/(ReMax-1))*(ReMax-ReNum)) ) * Trans_COPY1_proxy.fadeout )\n\nFADE IN\n\n((1/(41-1))*(41-(41-serial))) + ( ( 1- ((1/(41-1))*(41-(41-serial))) ) * PROXY_OFFSET.fadein )\n\nFADE OUT\n\n((1/(41-1))*(41-serial)) + ( ( 1- ((1/(41-1))*(41-serial)) ) * PROXY_OFFSET.fadeout )\n"
+  note_font_size 22
+  xpos 1184
+  ypos 5633
+ }
+push $N36b54390
+ Viewer {
+  frame 1218
+  frame_range 1216-1232
+  frame_range_lock true
+  fps 23.97602463
+  gain 4
+  viewerProcess "client_shot_grade (default)"
+  name Viewer1
+  xpos 1170
+  ypos 6207
  }
  NoOp {
   inputs 0
@@ -2554,6 +3533,15 @@ push $N9fcd6670
   addUserKnob {6 half_stripes l "Half Stripes" +STARTLINE}
   addUserKnob {7 size_offset l "Wave Size Offset" R 1 10}
   size_offset 1
+  addUserKnob {6 keep_alpha l "Keep Effect Inside Mask Area" +STARTLINE}
+  keep_alpha true
+  addUserKnob {6 remove_from_mask l "Remove Effect From Mask Area" +STARTLINE}
+  addUserKnob {7 fadein l "Fade In"}
+  fadein {{1-fadeIn}}
+  addUserKnob {7 fadeout l "Fade Out"}
+  fadeout {{1-fadeOut}}
+  addUserKnob {3 maxNum}
+  maxNum 40
  }
 end_group
 push $cut_paste_input
@@ -2561,8 +3549,8 @@ Group {
  name WiggleTransform
  tile_color 0xce75daff
  selected true
- xpos 2050
- ypos -153
+ xpos -590
+ ypos 15
  addUserKnob {20 User}
  addUserKnob {26 transform l "<h3><font color=#bd7eb9>Transform"}
  addUserKnob {41 translate T Transform1_ANIM1.translate}
@@ -2630,7 +3618,7 @@ Group {
   xpos 1424
   ypos -2766
  }
-set N9fd34090 [stack 0]
+set N650818d0 [stack 0]
  Dot {
   name Dot11
   tile_color 0x949494ff
@@ -2639,7 +3627,7 @@ set N9fd34090 [stack 0]
   xpos 1424
   ypos -2550
  }
-set N9fd388c0 [stack 0]
+set N65086100 [stack 0]
  Dot {
   name Dot4
   tile_color 0x949494ff
@@ -2648,7 +3636,7 @@ set N9fd388c0 [stack 0]
   xpos 1424
   ypos -2382
  }
-set N9fd3d170 [stack 0]
+set N6508a9b0 [stack 0]
  Dot {
   name Dot13
   tile_color 0x949494ff
@@ -2657,7 +3645,7 @@ set N9fd3d170 [stack 0]
   xpos 1424
   ypos -2214
  }
-set N9fd419d0 [stack 0]
+set N6508f210 [stack 0]
  Dot {
   name Dot5
   tile_color 0x949494ff
@@ -2666,7 +3654,7 @@ set N9fd419d0 [stack 0]
   xpos 1424
   ypos -2046
  }
-set N9fd46280 [stack 0]
+set N65093ac0 [stack 0]
  Dot {
   name Dot15
   tile_color 0x949494ff
@@ -2675,7 +3663,7 @@ set N9fd46280 [stack 0]
   xpos 1424
   ypos -1878
  }
-set N9fd4aaf0 [stack 0]
+set N65098330 [stack 0]
  Dot {
   name Dot6
   tile_color 0x949494ff
@@ -2684,7 +3672,7 @@ set N9fd4aaf0 [stack 0]
   xpos 1424
   ypos -1710
  }
-set N9fd4f370 [stack 0]
+set N6509cbb0 [stack 0]
  Dot {
   name Dot17
   tile_color 0x949494ff
@@ -2693,7 +3681,7 @@ set N9fd4f370 [stack 0]
   xpos 1424
   ypos -1542
  }
-set N9fd53bf0 [stack 0]
+set N650a1430 [stack 0]
  Dot {
   name Dot7
   tile_color 0x949494ff
@@ -2702,7 +3690,7 @@ set N9fd53bf0 [stack 0]
   xpos 1424
   ypos -1374
  }
-set N9fd584e0 [stack 0]
+set N650a5d20 [stack 0]
  Dot {
   name Dot19
   tile_color 0x949494ff
@@ -2711,7 +3699,7 @@ set N9fd584e0 [stack 0]
   xpos 1424
   ypos -1182
  }
-set N9fd5cd40 [stack 0]
+set N650aa580 [stack 0]
  Dot {
   name Dot8
   tile_color 0x949494ff
@@ -2720,7 +3708,7 @@ set N9fd5cd40 [stack 0]
   xpos 1424
   ypos -990
  }
-set N9fd615c0 [stack 0]
+set N650aee00 [stack 0]
  Dot {
   name Dot21
   tile_color 0x949494ff
@@ -2729,7 +3717,7 @@ set N9fd615c0 [stack 0]
   xpos 1424
   ypos -798
  }
-set N9fd65e40 [stack 0]
+set N650b3680 [stack 0]
  Dot {
   name Dot9
   tile_color 0x949494ff
@@ -2738,7 +3726,7 @@ set N9fd65e40 [stack 0]
   xpos 1424
   ypos -606
  }
-set N9fd6a6c0 [stack 0]
+set N650b7f00 [stack 0]
  Dot {
   name Dot23
   tile_color 0x949494ff
@@ -2747,7 +3735,7 @@ set N9fd6a6c0 [stack 0]
   xpos 1424
   ypos -414
  }
-set N9fd6ef40 [stack 0]
+set N650bc780 [stack 0]
  Dot {
   name Dot10
   tile_color 0x949494ff
@@ -2756,7 +3744,7 @@ set N9fd6ef40 [stack 0]
   xpos 1424
   ypos -222
  }
-set N9fd737c0 [stack 0]
+set N650c1000 [stack 0]
  Dot {
   name Dot25
   tile_color 0x949494ff
@@ -2765,7 +3753,7 @@ set N9fd737c0 [stack 0]
   xpos 1424
   ypos -30
  }
-set N9fd78040 [stack 0]
+set N650c5880 [stack 0]
  Dot {
   name Dot27
   tile_color 0x949494ff
@@ -2774,7 +3762,7 @@ set N9fd78040 [stack 0]
   xpos 1424
   ypos 162
  }
-set N9fd7ca00 [stack 0]
+set N650ca240 [stack 0]
  Dot {
   name Dot29
   tile_color 0x949494ff
@@ -2887,7 +3875,7 @@ set N9fd7ca00 [stack 0]
   xpos 874
   ypos -2838
  }
-set N9fdf7a50 [stack 0]
+set N68d812c0 [stack 0]
  Dot {
   name Dot831
   tile_color 0x949494ff
@@ -2896,7 +3884,7 @@ set N9fdf7a50 [stack 0]
   xpos 874
   ypos -2694
  }
-set N9fdfc0e0 [stack 0]
+set N68d85950 [stack 0]
  Dot {
   name Dot12
   tile_color 0x949494ff
@@ -2905,7 +3893,7 @@ set N9fdfc0e0 [stack 0]
   xpos 874
   ypos -2526
  }
-set N9fe00b80 [stack 0]
+set N68d8a3f0 [stack 0]
  Dot {
   name Dot832
   tile_color 0x949494ff
@@ -2914,7 +3902,7 @@ set N9fe00b80 [stack 0]
   xpos 874
   ypos -2358
  }
-set N9fe05220 [stack 0]
+set N68d8ea90 [stack 0]
  Dot {
   name Dot14
   tile_color 0x949494ff
@@ -2923,7 +3911,7 @@ set N9fe05220 [stack 0]
   xpos 874
   ypos -2190
  }
-set N9fe09aa0 [stack 0]
+set N68d93310 [stack 0]
  Dot {
   name Dot833
   tile_color 0x949494ff
@@ -2932,7 +3920,7 @@ set N9fe09aa0 [stack 0]
   xpos 874
   ypos -2022
  }
-set N9fe0e570 [stack 0]
+set N68d97de0 [stack 0]
  Dot {
   name Dot16
   tile_color 0x949494ff
@@ -2941,7 +3929,7 @@ set N9fe0e570 [stack 0]
   xpos 874
   ypos -1854
  }
-set N9fe12bd0 [stack 0]
+set N68d9c440 [stack 0]
  Dot {
   name Dot834
   tile_color 0x949494ff
@@ -2950,7 +3938,7 @@ set N9fe12bd0 [stack 0]
   xpos 874
   ypos -1686
  }
-set N9fe17450 [stack 0]
+set N68da0cc0 [stack 0]
  Dot {
   name Dot18
   tile_color 0x949494ff
@@ -2959,7 +3947,7 @@ set N9fe17450 [stack 0]
   xpos 874
   ypos -1518
  }
-set N9fe1bf30 [stack 0]
+set N68da57a0 [stack 0]
  Dot {
   name Dot816
   tile_color 0x949494ff
@@ -2968,7 +3956,7 @@ set N9fe1bf30 [stack 0]
   xpos 874
   ypos -1326
  }
-set N9fe20810 [stack 0]
+set N68daa080 [stack 0]
  Dot {
   name Dot20
   tile_color 0x949494ff
@@ -2977,7 +3965,7 @@ set N9fe20810 [stack 0]
   xpos 874
   ypos -1134
  }
-set N9fe24e40 [stack 0]
+set N68dae6b0 [stack 0]
  Dot {
   name Dot815
   tile_color 0x949494ff
@@ -2986,7 +3974,7 @@ set N9fe24e40 [stack 0]
   xpos 874
   ypos -942
  }
-set N9fe29900 [stack 0]
+set N68db3170 [stack 0]
  Dot {
   name Dot22
   tile_color 0x949494ff
@@ -2995,7 +3983,7 @@ set N9fe29900 [stack 0]
   xpos 874
   ypos -750
  }
-set N9fe2e2f0 [stack 0]
+set N68db7b60 [stack 0]
  Dot {
   name Dot817
   tile_color 0x949494ff
@@ -3004,7 +3992,7 @@ set N9fe2e2f0 [stack 0]
   xpos 874
   ypos -558
  }
-set N9fe32900 [stack 0]
+set N68dbc170 [stack 0]
  Dot {
   name Dot24
   tile_color 0x949494ff
@@ -3013,7 +4001,7 @@ set N9fe32900 [stack 0]
   xpos 874
   ypos -366
  }
-set N9fe37440 [stack 0]
+set N68dc0cb0 [stack 0]
  Dot {
   name Dot818
   tile_color 0x949494ff
@@ -3022,7 +4010,7 @@ set N9fe37440 [stack 0]
   xpos 874
   ypos -174
  }
-set N9fe3bd10 [stack 0]
+set N68dc5580 [stack 0]
  Dot {
   name Dot26
   tile_color 0x949494ff
@@ -3031,7 +4019,7 @@ set N9fe3bd10 [stack 0]
   xpos 874
   ypos 18
  }
-set N9fe40270 [stack 0]
+set N68dc9ae0 [stack 0]
  Dot {
   name Dot28
   tile_color 0x949494ff
@@ -3040,7 +4028,7 @@ set N9fe40270 [stack 0]
   xpos 874
   ypos 210
  }
-set N9fe44b50 [stack 0]
+set N68dce3c0 [stack 0]
  Dot {
   name Dot30
   tile_color 0x949494ff
@@ -3076,7 +4064,7 @@ set N9fe44b50 [stack 0]
   xpos 950
   ypos 441
  }
-push $N9fd7ca00
+push $N650ca240
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3095,7 +4083,7 @@ push $N9fd7ca00
   xpos 1280
   ypos 242
  }
-push $N9fe44b50
+push $N68dce3c0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3123,7 +4111,7 @@ push $N9fe44b50
   xpos 950
   ypos 249
  }
-push $N9fd78040
+push $N650c5880
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3142,7 +4130,7 @@ push $N9fd78040
   xpos 1280
   ypos 50
  }
-push $N9fe40270
+push $N68dc9ae0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3170,7 +4158,7 @@ push $N9fe40270
   xpos 950
   ypos 57
  }
-push $N9fd737c0
+push $N650c1000
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3189,7 +4177,7 @@ push $N9fd737c0
   xpos 1280
   ypos -142
  }
-push $N9fe3bd10
+push $N68dc5580
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3217,7 +4205,7 @@ push $N9fe3bd10
   xpos 950
   ypos -135
  }
-push $N9fd6ef40
+push $N650bc780
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3236,7 +4224,7 @@ push $N9fd6ef40
   xpos 1280
   ypos -334
  }
-push $N9fe37440
+push $N68dc0cb0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3264,7 +4252,7 @@ push $N9fe37440
   xpos 950
   ypos -327
  }
-push $N9fd6a6c0
+push $N650b7f00
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3283,7 +4271,7 @@ push $N9fd6a6c0
   xpos 1280
   ypos -526
  }
-push $N9fe32900
+push $N68dbc170
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3311,7 +4299,7 @@ push $N9fe32900
   xpos 950
   ypos -519
  }
-push $N9fd65e40
+push $N650b3680
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3330,7 +4318,7 @@ push $N9fd65e40
   xpos 1280
   ypos -718
  }
-push $N9fe2e2f0
+push $N68db7b60
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3358,7 +4346,7 @@ push $N9fe2e2f0
   xpos 950
   ypos -711
  }
-push $N9fd615c0
+push $N650aee00
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3377,7 +4365,7 @@ push $N9fd615c0
   xpos 1280
   ypos -910
  }
-push $N9fe29900
+push $N68db3170
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3405,7 +4393,7 @@ push $N9fe29900
   xpos 950
   ypos -903
  }
-push $N9fd5cd40
+push $N650aa580
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3424,7 +4412,7 @@ push $N9fd5cd40
   xpos 1280
   ypos -1102
  }
-push $N9fe24e40
+push $N68dae6b0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3452,7 +4440,7 @@ push $N9fe24e40
   xpos 950
   ypos -1095
  }
-push $N9fd584e0
+push $N650a5d20
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3471,7 +4459,7 @@ push $N9fd584e0
   xpos 1280
   ypos -1294
  }
-push $N9fe20810
+push $N68daa080
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3499,7 +4487,7 @@ push $N9fe20810
   xpos 950
   ypos -1287
  }
-push $N9fd53bf0
+push $N650a1430
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3518,7 +4506,7 @@ push $N9fd53bf0
   xpos 1280
   ypos -1486
  }
-push $N9fe1bf30
+push $N68da57a0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3546,7 +4534,7 @@ push $N9fe1bf30
   xpos 950
   ypos -1479
  }
-push $N9fd4f370
+push $N6509cbb0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3565,7 +4553,7 @@ push $N9fd4f370
   xpos 1280
   ypos -1654
  }
-push $N9fe17450
+push $N68da0cc0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3593,7 +4581,7 @@ push $N9fe17450
   xpos 950
   ypos -1647
  }
-push $N9fd4aaf0
+push $N65098330
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3612,7 +4600,7 @@ push $N9fd4aaf0
   xpos 1280
   ypos -1822
  }
-push $N9fe12bd0
+push $N68d9c440
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3640,7 +4628,7 @@ push $N9fe12bd0
   xpos 950
   ypos -1815
  }
-push $N9fd46280
+push $N65093ac0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3659,7 +4647,7 @@ push $N9fd46280
   xpos 1280
   ypos -1990
  }
-push $N9fe0e570
+push $N68d97de0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3687,7 +4675,7 @@ push $N9fe0e570
   xpos 950
   ypos -1983
  }
-push $N9fd419d0
+push $N6508f210
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3706,7 +4694,7 @@ push $N9fd419d0
   xpos 1280
   ypos -2158
  }
-push $N9fe09aa0
+push $N68d93310
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3734,7 +4722,7 @@ push $N9fe09aa0
   xpos 950
   ypos -2151
  }
-push $N9fd3d170
+push $N6508a9b0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3753,7 +4741,7 @@ push $N9fd3d170
   xpos 1280
   ypos -2326
  }
-push $N9fe05220
+push $N68d8ea90
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3781,7 +4769,7 @@ push $N9fe05220
   xpos 950
   ypos -2319
  }
-push $N9fd388c0
+push $N65086100
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3800,7 +4788,7 @@ push $N9fd388c0
   xpos 1280
   ypos -2494
  }
-push $N9fe00b80
+push $N68d8a3f0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3828,7 +4816,7 @@ push $N9fe00b80
   xpos 950
   ypos -2487
  }
-push $N9fd34090
+push $N650818d0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3840,7 +4828,7 @@ push $N9fd34090
   xpos 1280
   ypos -2775
  }
-set N9e3e63e0 [stack 0]
+set N64abcc10 [stack 0]
  Blur {
   size 40
   name Blur_MAIN
@@ -3848,7 +4836,7 @@ set N9e3e63e0 [stack 0]
   xpos 1280
   ypos -2662
  }
-push $N9fdfc0e0
+push $N68d85950
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -3877,8 +4865,8 @@ push $N9fdfc0e0
   xpos 950
   ypos -2655
  }
-push $N9e3e63e0
-push $N9fdf7a50
+push $N64abcc10
+push $N68d812c0
  Transform {
   translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
   rotate {{Transform1_ANIM1.rotate}}
@@ -4063,8 +5051,8 @@ push $N9fdf7a50
   xpos 1534
   ypos 906
  }
-set Na957ece0 [stack 0]
-push $Na957ece0
+set N689e8500 [stack 0]
+push $N689e8500
  Input {
   inputs 0
   name image
@@ -4079,7 +5067,7 @@ push $Na957ece0
   xpos 1864
   ypos -2886
  }
-set Na9583560 [stack 0]
+set N689ecd80 [stack 0]
  Dot {
   name Dot821
   tile_color 0x949494ff
@@ -4088,7 +5076,7 @@ set Na9583560 [stack 0]
   xpos 1864
   ypos 906
  }
-set Na958c610 [stack 0]
+set N689f5e30 [stack 0]
  STMap {
   inputs 2
   uv rgb
@@ -4112,7 +5100,7 @@ set Na958c610 [stack 0]
   xpos 1610
   ypos 1023
  }
-push $Na958c610
+push $N689f5e30
  Merge2 {
   inputs 2
   also_merge all
@@ -4133,7 +5121,7 @@ push $Na958c610
   xpos 510
   ypos 399
  }
-push $Na9583560
+push $N689ecd80
  Shuffle {
   red black
   green black
@@ -4166,322 +5154,3 @@ push $Na9583560
   layer_scale 1
  }
 end_group
-push $cut_paste_input
-Group {
- name GM_ColorIterate
- tile_color 0x6a55ffff
- selected true
- xpos 2270
- ypos -153
- addUserKnob {20 User}
- addUserKnob {4 colors_1 l "<h3><font color=#da5d5d>Co<font color=#87da5d>lo<font color=#5db0da>rs" M {RGB RG RB "GB " "" ""}}
- addUserKnob {26 waves l "<h3><font color=#7c6fde>Waves"}
- addUserKnob {41 waveLength l WaveLength T DissolveCI_RGB.waveLength}
- addUserKnob {41 offset l Offset T DissolveCI_RGB.offset}
- addUserKnob {26 colors l "<h3><font color=#7c6fde>Brightness"}
- addUserKnob {41 multiply l Red T GradeRED.multiply}
- addUserKnob {41 multiply_1 l Green T GradeGREEN.multiply}
- addUserKnob {41 multiply_2 l Blue T GradeBLUE.multiply}
- addUserKnob {26 saturation l "<h3><font color=#7c6fde>Saturation"}
- addUserKnob {41 saturation_1 l Red T SaturationRED.saturation}
- addUserKnob {41 saturation_2 l Green T SaturationGREEN.saturation}
- addUserKnob {41 saturation_3 l Blue T SaturationBLUE.saturation}
- addUserKnob {26 mix l "<h3><font color=#7c6fde>Mix"}
- addUserKnob {41 operation T MergeCI.operation}
- addUserKnob {41 mix_1 l mix T MergeCI.mix}
- addUserKnob {20 info l Info}
- addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>GM_ColorIterate<font color=#777777> by Attil Gasparetz\n\n2020"}
-}
- Input {
-  inputs 0
-  name mask
-  xpos 950
-  ypos 351
-  number 1
- }
- Dot {
-  name Dot1
-  tile_color 0x949494ff
-  note_font_size 72
-  note_font_color 0xffffffff
-  xpos 984
-  ypos 450
- }
- Input {
-  inputs 0
-  name Input
-  xpos 510
-  ypos -57
- }
- Dot {
-  name Dot276
-  tile_color 0x949494ff
-  note_font_size 72
-  note_font_color 0xffffffff
-  xpos 544
-  ypos 18
- }
-set Na1b74e20 [stack 0]
- Shuffle {
-  red black
-  green black
-  blue black
-  alpha white
-  name Shuffle1
-  label "\[string toupper \[value in]]"
-  xpos 730
-  ypos 9
- }
- ChannelMerge {
-  inputs 2
-  operation multiply
-  name ChannelMerge1
-  xpos 730
-  ypos 434
-  disable {{"!\[exists parent.input1]"}}
- }
-push $Na1b74e20
- Dot {
-  name Dot273
-  tile_color 0x949494ff
-  note_font_size 72
-  note_font_color 0xffffffff
-  xpos -6
-  ypos 18
- }
-set Na1b96040 [stack 0]
- Shuffle {
-  red black
-  green white
-  blue black
-  alpha black
-  name ShuffleGREEN1
-  tile_color 0x6aff55ff
-  label "\[string toupper \[value in]]"
-  xpos -40
-  ypos 81
- }
- Grade {
-  multiply {{GradeGREEN.multiply}}
-  name GradeGREEN2
-  xpos -40
-  ypos 135
- }
- Saturation {
-  saturation {{SaturationGREEN.saturation}}
-  name SaturationGREEN2
-  label "Value: \[value saturation]"
-  xpos -40
-  ypos 177
- }
-push 0
-push $Na1b96040
- Shuffle {
-  red black
-  green black
-  blue white
-  alpha black
-  name Shuffle_BLUE
-  tile_color 0x9fffff
-  label "\[string toupper \[value in]]"
-  xpos 70
-  ypos 81
- }
- Grade {
-  multiply 4
-  name GradeBLUE
-  xpos 70
-  ypos 135
- }
- Saturation {
-  name SaturationBLUE
-  label "Value: \[value saturation]"
-  xpos 70
-  ypos 177
- }
-set Na1be7140 [stack 0]
-push $Na1b96040
- Shuffle {
-  red black
-  green white
-  blue black
-  alpha black
-  name ShuffleGREEN
-  tile_color 0x6aff55ff
-  label "\[string toupper \[value in]]"
-  xpos -150
-  ypos 81
- }
- Grade {
-  name GradeGREEN
-  xpos -150
-  ypos 135
- }
- Saturation {
-  name SaturationGREEN
-  label "Value: \[value saturation]"
-  xpos -150
-  ypos 177
- }
-set Na1c12ed0 [stack 0]
- Dissolve {
-  inputs 3+1
-  which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
-  name DissolveCI_GB
-  label "Which: \[format \"%.2f\" \[value which]]"
-  xpos -40
-  ypos 554
-  addUserKnob {20 User}
-  addUserKnob {7 waveLength R 0 100}
-  waveLength {{DissolveCI_RGB.waveLength}}
-  addUserKnob {7 offset R 0 100}
-  offset {{DissolveCI_RGB.offset}}
- }
-push $Na1b96040
- Shuffle {
-  red white
-  green black
-  blue black
-  alpha black
-  name ShuffleRED2
-  tile_color 0xff0000ff
-  label "\[string toupper \[value in]]"
-  xpos 180
-  ypos 81
- }
- Grade {
-  multiply {{GradeRED.multiply}}
-  name GradeRED2
-  xpos 180
-  ypos 135
- }
- Saturation {
-  saturation {{SaturationRED.saturation}}
-  name SaturationRED2
-  label "Value: \[value saturation]"
-  xpos 180
-  ypos 177
- }
-set Na1c4a720 [stack 0]
-push 0
-push $Na1be7140
-push $Na1b96040
- Shuffle {
-  red white
-  green black
-  blue black
-  alpha black
-  name ShuffleRED
-  tile_color 0xff0000ff
-  label "\[string toupper \[value in]]"
-  xpos -260
-  ypos 81
- }
- Grade {
-  name GradeRED
-  xpos -260
-  ypos 135
- }
- Saturation {
-  name SaturationRED
-  label "Value: \[value saturation]"
-  xpos -260
-  ypos 177
- }
-set Na1c76960 [stack 0]
- Dissolve {
-  inputs 3+1
-  which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
-  name DissolveCI_RB
-  label "Which: \[format \"%.2f\" \[value which]]"
-  xpos -40
-  ypos 482
-  addUserKnob {20 User}
-  addUserKnob {7 waveLength R 0 100}
-  waveLength {{DissolveCI_RGB.waveLength}}
-  addUserKnob {7 offset R 0 100}
-  offset {{DissolveCI_RGB.offset}}
- }
-push $Na1c4a720
-push 0
-push $Na1c12ed0
-push $Na1c76960
- Dissolve {
-  inputs 3+1
-  which {{"((frame+offset) % waveLength)/ waveLength * (2-0) + 0"}}
-  name DissolveCI_RG
-  label "Which: \[format \"%.2f\" \[value which]]"
-  xpos -40
-  ypos 386
-  addUserKnob {20 User}
-  addUserKnob {7 waveLength R 0 100}
-  waveLength {{DissolveCI_RGB.waveLength}}
-  addUserKnob {7 offset R 0 100}
-  offset {{DissolveCI_RGB.offset}}
- }
-push $Na1c4a720
-push $Na1be7140
-push 0
-push $Na1c12ed0
-push $Na1c76960
- Dissolve {
-  inputs 4+1
-  which {{"((frame+offset) % waveLength)/ waveLength * (3-0) + 0"}}
-  name DissolveCI_RGB
-  label "Which: \[format \"%.2f\" \[value which]]"
-  xpos -40
-  ypos 314
-  addUserKnob {20 User}
-  addUserKnob {7 waveLength R 0 100}
-  waveLength 20
-  addUserKnob {7 offset R 0 100}
- }
- Switch {
-  inputs 4
-  which {{colors_1}}
-  name Switch_COLORS
-  label "Which: \[value which]"
-  xpos 180
-  ypos 441
- }
-push $Na1b74e20
- Merge2 {
-  inputs 2+1
-  operation soft-light
-  also_merge all
-  name MergeCI
-  xpos 510
-  ypos 447
- }
- Output {
-  name Output1
-  xpos 510
-  ypos 711
- }
-end_group
-push $cut_paste_input
-NoOp {
- name GM_LabelMaker
- tile_color 0xb2683bff
- note_font "DejaVu Sans"
- selected true
- xpos 1940
- ypos 182
- addUserKnob {20 User}
- addUserKnob {26 ass l "<h3>Assign Label"}
- addUserKnob {1 new_label l "New Label Val"}
- new_label MAIN_PIPE
- addUserKnob {22 add_new_label l "Add new label on sleected" T "### Add new label value on selected ###\n\nnodes = nuke.selectedNodes()\nnew_label_val = nuke.thisNode()\['new_label'].value()\nfor node in nodes:\n    try:\n        node\[\"label\"].setValue(new_label_val)\n    except Exception:\n        pass" +STARTLINE}
- addUserKnob {22 remove_label l "Remove Label on selected" T "### Remove label value on selected ###\n\nnodes = nuke.selectedNodes()\nfor node in nodes:\n    try:\n        node\[\"label\"].setValue(\"\")\n    except Exception:\n        pass" +STARTLINE}
- addUserKnob {26 dis l "<h3>Dis/Enable by label"}
- addUserKnob {1 label_val l "Label Val"}
- label_val MAIN_PIPE
- addUserKnob {22 disable_sel l "Disable Selected" T "### Disable label match on selected ###\n\nnodes = nuke.selectedNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(1)\n    except Exception:\n        pass\n" +STARTLINE}
- addUserKnob {22 enable_sel l "Enable Selected" -STARTLINE T "### Disable label match on sleected ###\n\nnodes = nuke.selectedNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(0)\n    except Exception:\n        pass\n"}
- addUserKnob {22 disable_all l "Disable All" T "### Disable label match on all ###\n\nnodes = nuke.allNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(1)\n    except Exception:\n        pass\n" +STARTLINE}
- addUserKnob {22 enable_all l "Enable All" -STARTLINE T "### Enable label match on all ###\n\nnodes = nuke.allNodes()\ncurrVal = nuke.thisNode()\['label_val'].value()\n\nfor node in nodes:\n    try:\n        if node\[\"label\"].value() == currVal:\n            node\[\"disable\"].setValue(0)\n    except Exception:\n        pass\n"}
- addUserKnob {20 info l Info}
- addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>GM_LabelMaker<font color=#777777> by Attil Gasparetz\n\n2020"}
- addUserKnob {20 tmpTab}
- addUserKnob {1 tmpKeepInput}
-}
