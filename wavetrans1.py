@@ -1,399 +1,319 @@
-# Add Random Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Random Wave":
-    knob1 = waveTrans['random_wave_2']
-    knob1.setLabel("<font color=#20bd2b>Random Wave Added")
-
-    knob2 = waveTrans['sine_wave_2']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_2']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_2']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_2']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_2']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['rotate'].setExpression("random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2")
-
-else:
-    nuke.message("""<center><b><font color=orange>Random Wave is already added!""")
-
-
-# Add Sine Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Sine Wave":
-    knob1 = waveTrans['random_wave_2']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_2']
-    knob2.setLabel("<font color=#20bd2b>Sine Wave Added")
-
-    knob3 = waveTrans['triangle_wave_2']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_2']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_2']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_2']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['rotate'].setExpression("(sin(2*pi*(frame+offset2)/waveLength2)+1)/2 * (maxVal2-minVal2) + minVal2")
-
-else:
-    nuke.message("""<center><b><font color=orange>Sine Wave is already added!""")
-
-
-# Add Triangle Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Triangle Wave":
-    knob1 = waveTrans['random_wave_2']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_2']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_2']
-    knob3.setLabel("<font color=#20bd2b>Triangle Wave Added")
-
-    knob4 = waveTrans['square_wave_2']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_2']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_2']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['rotate'].setExpression("(asin(sin(2*pi*(frame+offset2)/waveLength2))/pi+0.5) * (maxVal2-minVal2) + minVal2")
-
-else:
-    nuke.message("""<center><b><font color=orange>Triangle Wave is already added!""")
-
-
-# Add Square Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Square Wave":
-    knob1 = waveTrans['random_wave_2']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_2']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_2']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_2']
-    knob4.setLabel("<font color=#20bd2b>Square Wave Added")
-
-    knob5 = waveTrans['sawtooth_wave_2']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_2']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['rotate'].setExpression("int(sin(2*pi*(frame+offset2)/waveLength2)+1) * (maxVal2-minVal2) + minVal2")
-
-else:
-    nuke.message("""<center><b><font color=orange>Square Wave is already added!""")
-
-
-# Add Sawtooth Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Sawtooth Wave":
-    knob1 = waveTrans['random_wave_2']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_2']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_2']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_2']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_2']
-    knob5.setLabel("<font color=#20bd2b>Sawtooth Wave Added")
-
-    knob6 = waveTrans['bounce_wave_2']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['rotate'].setExpression("((frame+offset2) % waveLength2)/waveLength2 * (maxVal2-minVal2) + minVal2")
-
-else:
-    nuke.message("""<center><b><font color=orange>Sawtooth Wave is already added!""")
-
-
-# Add Bounce Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Bounce Wave":
-    knob1 = waveTrans['random_wave_2']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_2']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_2']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_2']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_2']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_2']
-    knob6.setLabel("<font color=#20bd2b>Bounce Wave Added")
-
-    waveTrans['rotate'].setExpression("abs(sin(pi*(frame + offset2)/waveLength2))* (maxVal2-minVal2) + minVal2")
-
-else:
-    nuke.message("""<center><b><font color=orange>Bounce Wave is already added!""")
-
-
-# Set to Default
-waveTrans = nuke.thisNode()
-knob1 = waveTrans['random_wave_2']
-knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-knob2 = waveTrans['sine_wave_2']
-knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-knob3 = waveTrans['triangle_wave_2']
-knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-knob4 = waveTrans['square_wave_2']
-knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-knob5 = waveTrans['sawtooth_wave_2']
-knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-knob6 = waveTrans['bounce_wave_2']
-knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-waveTrans['rotate'].clearAnimated()
-waveTrans['rotate'].setValue(0)
-
-
-
-#######################################
-
-
-# Add Random Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Random Wave":
-    knob1 = waveTrans['random_wave_3']
-    knob1.setLabel("<font color=#20bd2b>Random Wave Added")
-
-    knob2 = waveTrans['sine_wave_3']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_3']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_3']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_3']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_3']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['scale'].setExpression("random((frame+offset3)/waveLength3) * (maxVal3-minVal3) + minVal3")
-
-else:
-    nuke.message("""<center><b><font color=orange>Random Wave is already added!""")
-
-
-# Add Sine Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Sine Wave":
-    knob1 = waveTrans['random_wave_3']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_3']
-    knob2.setLabel("<font color=#20bd2b>Sine Wave Added")
-
-    knob3 = waveTrans['triangle_wave_3']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_3']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_3']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_3']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['scale'].setExpression("(sin(2*pi*(frame+offset3)/waveLength3)+1)/2 * (maxVal3-minVal3) + minVal3")
-
-else:
-    nuke.message("""<center><b><font color=orange>Sine Wave is already added!""")
-
-
-# Add Triangle Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Triangle Wave":
-    knob1 = waveTrans['random_wave_3']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_3']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_3']
-    knob3.setLabel("<font color=#20bd2b>Triangle Wave Added")
-
-    knob4 = waveTrans['square_wave_3']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_3']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_3']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['scale'].setExpression("(asin(sin(2*pi*(frame+offset3)/waveLength3))/pi+0.5) * (maxVal3-minVal3) + minVal3")
-
-else:
-    nuke.message("""<center><b><font color=orange>Triangle Wave is already added!""")
-
-
-
-# Add Square Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Square Wave":
-    knob1 = waveTrans['random_wave_3']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_3']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_3']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_3']
-    knob4.setLabel("<font color=#20bd2b>Square Wave Added")
-
-    knob5 = waveTrans['sawtooth_wave_3']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_3']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['scale'].setExpression("int(sin(2*pi*(frame+offset3)/waveLength3)+1) * (maxVal3-minVal3) + minVal3")
-
-else:
-    nuke.message("""<center><b><font color=orange>Square Wave is already added!""")
-
-
-# Add Sawtooth Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Sawtooth Wave":
-    knob1 = waveTrans['random_wave_3']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_3']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_3']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_3']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_3']
-    knob5.setLabel("<font color=#20bd2b>Sawtooth Wave Added")
-
-    knob6 = waveTrans['bounce_wave_3']
-    knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-    waveTrans['scale'].setExpression("((frame+offset3) % waveLength3)/waveLength3 * (maxVal3-minVal3) + minVal3")
-
-else:
-    nuke.message("""<center><b><font color=orange>Sawtooth Wave is already added!""")
-
-
-# Add Bounce Wave
-waveTrans = nuke.thisNode()
-knob = nuke.thisKnob()
-
-if knob.label() == "<font color=#cccccc>Add Bounce Wave":
-    knob1 = waveTrans['random_wave_3']
-    knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-    knob2 = waveTrans['sine_wave_3']
-    knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-    knob3 = waveTrans['triangle_wave_3']
-    knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-    knob4 = waveTrans['square_wave_3']
-    knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-    knob5 = waveTrans['sawtooth_wave_3']
-    knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-    knob6 = waveTrans['bounce_wave_3']
-    knob6.setLabel("<font color=#20bd2b>Bounce Wave Added")
-
-    waveTrans['scale'].setExpression("abs(sin(pi*(frame + offset3)/waveLength3))* (maxVal3-minVal3) + minVal3")
-
-else:
-    nuke.message("""<center><b><font color=orange>Bounce Wave is already added!""")
-
-
-# Set to Default
-waveTrans = nuke.thisNode()
-knob1 = waveTrans['random_wave_3']
-knob1.setLabel("<font color=#cccccc>Add Random Wave")
-
-knob2 = waveTrans['sine_wave_3']
-knob2.setLabel("<font color=#cccccc>Add Sine Wave")
-
-knob3 = waveTrans['triangle_wave_3']
-knob3.setLabel("<font color=#cccccc>Add Triangle Wave")
-
-knob4 = waveTrans['square_wave_3']
-knob4.setLabel("<font color=#cccccc>Add Square Wave")
-
-knob5 = waveTrans['sawtooth_wave_3']
-knob5.setLabel("<font color=#cccccc>Add Sawtooth Wave")
-
-knob6 = waveTrans['bounce_wave_3']
-knob6.setLabel("<font color=#cccccc>Add Bounce Wave")
-
-waveTrans['scale'].clearAnimated()
-waveTrans['scale'].setValue(1)
+set cut_paste_input [stack 0]
+version 11.1 v6
+push $cut_paste_input
+HSVTool {
+huerotation {{"((frame+offset) % this.wavelength)/this.wavelength * (180-(-180)) + (-180)"}}
+name WaveHSVTool
+label "Wave: \[value wavelength]\nOffset: \[value offset]"
+selected true
+xpos 3700
+ypos -2284
+addUserKnob {20 User}
+addUserKnob {7 wavelength R -100 100}
+wavelength 20
+addUserKnob {7 offset R 0 100}
+}
+Multiply {
+inputs 0
+name WaveMultiply
+label "value: \[format \"%.2f\" \[value value]]"
+selected true
+xpos 3920
+ypos -2278
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['value'].clearAnimated()\n    waveMul\['value'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['value'].clearAnimated()\n    waveMul\['value'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['value'].clearAnimated()\n    waveMul\['value'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['value'].clearAnimated()\n    waveMul\['value'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['value'].clearAnimated()\n    waveMul\['value'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['value'].clearAnimated()\n    waveMul\['value'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 "" +STARTLINE}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R 0 5}
+maxVal 1
+addUserKnob {7 minVal R 0 5}
+addUserKnob {7 offset R 0 100}
+addUserKnob {26 "" +STARTLINE}
+addUserKnob {22 set_to l "Set to 1" T "# Set to 1\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['value'].clearAnimated()\nwaveMul\['value'].setValue(1)" +STARTLINE}
+}
+Blur {
+inputs 0
+name WaveBlur
+label "Size: \[format \"%.1f\" \[value size]]"
+selected true
+xpos 4140
+ypos -2278
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 ""}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R 0 100}
+maxVal 20
+addUserKnob {7 minVal R 0 100}
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {26 ""}
+addUserKnob {22 set_to l "Set to Default" T "# Set to 1\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['size'].clearAnimated()\nwaveMul\['size'].setValue(0)" +STARTLINE}
+}
+Defocus {
+inputs 0
+defocus 0
+name WaveDefocus
+label "Size: \[format \"%.1f\" \[value defocus]]"
+selected true
+xpos 4140
+ypos -2158
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['defocus'].clearAnimated()\n    waveMul\['defocus'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['defocus'].clearAnimated()\n    waveMul\['defocus'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['defocus'].clearAnimated()\n    waveMul\['defocus'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['defocus'].clearAnimated()\n    waveMul\['defocus'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['defocus'].clearAnimated()\n    waveMul\['defocus'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['defocus'].clearAnimated()\n    waveMul\['defocus'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 ""}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R 0 100}
+maxVal 20
+addUserKnob {7 minVal R 0 100}
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {26 ""}
+addUserKnob {22 set_to l "Set to Default" T "# Set to 1\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['defocus'].clearAnimated()\nwaveMul\['defocus'].setValue(0)" +STARTLINE}
+}
+Glow2 {
+inputs 0
+brightness 0
+name WaveGlow
+label "Size: \[format \"%.1f\" \[value brightness]]"
+selected true
+xpos 4140
+ypos -2055
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['brightness'].clearAnimated()\n    waveMul\['brightness'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['brightness'].clearAnimated()\n    waveMul\['brightness'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['brightness'].clearAnimated()\n    waveMul\['brightness'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['brightness'].clearAnimated()\n    waveMul\['brightness'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['brightness'].clearAnimated()\n    waveMul\['brightness'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['brightness'].clearAnimated()\n    waveMul\['brightness'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 ""}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R 0 100}
+maxVal 10
+addUserKnob {7 minVal R 0 100}
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {26 ""}
+addUserKnob {22 set_to l "Set to Default" T "# Set to 1\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['brightness'].clearAnimated()\nwaveMul\['brightness'].setValue(0)" +STARTLINE}
+}
+ZDefocus2 {
+inputs 0
+channels rgba
+size 0
+legacy_resize_mode false
+show_legacy_resize_mode false
+name WaveZDefocus
+label "Size: \[format \"%.1f\" \[value size]]"
+selected true
+xpos 4140
+ypos -1942
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['size'].clearAnimated()\n    waveMul\['size'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 ""}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R 0 100}
+maxVal 20
+addUserKnob {7 minVal R 0 100}
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {26 ""}
+addUserKnob {22 set_to l "Set to Default" T "# Set to 1\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['size'].clearAnimated()\nwaveMul\['size'].setValue(0)" +STARTLINE}
+}
+Transform {
+inputs 0
+center {2224 1548}
+motionblur 1
+shutteroffset centred
+name WaveTransform
+label "X: \[format \"%.0f\" \[value translate.x]]\nY: \[format \"%.0f\" \[value translate.y]]\nrotate: \[format \"%.0f\" \[value rotate]]\nscale: \[format \"%.1f\" \[value scale]]"
+selected true
+xpos 4360
+ypos -2291
+addUserKnob {20 User}
+addUserKnob {22 setcenter l "Set Center" T "this_width = nuke.thisNode().width()\n\nthis_height = nuke.thisNode().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisNode().knob(\"center\").setValue(\[newWidth, newHeight])" +STARTLINE}
+addUserKnob {26 translate_1 l <h3>translate}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveTrans\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveTrans\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['translate'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\", 0)\n    waveTrans\['translate'].setExpression(\"random((frame+offset+x_y_offset)/waveLength) * (maxVal-minVal) + minVal\", 1)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveTrans\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveTrans\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['translate'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\", 0)\n    waveTrans\['translate'].setExpression(\"(sin(2*pi*(frame+offset+x_y_offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\", 1)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveTrans\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveTrans\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['translate'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\", 0)\n    waveTrans\['translate'].setExpression(\"(asin(sin(2*pi*(frame+offset+x_y_offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\", 1)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveTrans\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveTrans\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['translate'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\", 0)\n    waveTrans\['translate'].setExpression(\"int(sin(2*pi*(frame+offset+x_y_offset)/waveLength)+1) * (maxVal-minVal) + minVal\", 1)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveTrans\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveTrans\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['translate'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\", 0)\n    waveTrans\['translate'].setExpression(\"((frame+offset+x_y_offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\", 1)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveTrans\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveTrans\['translate'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\", 0)\n    waveTrans\['translate'].setExpression(\"abs(sin(pi*(frame + offset+x_y_offset)/waveLength))* (maxVal-minVal) + minVal\", 1)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")\n"}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R -1000 1000}
+maxVal 500
+addUserKnob {7 minVal R -1000 1000}
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {7 x_y_offset R 0 100}
+x_y_offset 5
+addUserKnob {22 set_to_def l "Set to Default" T "# Set to Default\nwaveTrans = nuke.thisNode()\nknob1 = waveTrans\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveTrans\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveTrans\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveTrans\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveTrans\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveTrans\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveTrans\['translate'].clearAnimated()\nwaveTrans\['translate'].setValue(0)" +STARTLINE}
+addUserKnob {26 rotate_1 l <h3>rotate}
+addUserKnob {22 random_wave_2 l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveTrans\['random_wave_2']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveTrans\['sine_wave_2']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_2']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_2']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_2']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_2']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['rotate'].setExpression(\"random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave_2 l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveTrans\['random_wave_2']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_2']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveTrans\['triangle_wave_2']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_2']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_2']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_2']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['rotate'].setExpression(\"(sin(2*pi*(frame+offset2)/waveLength2)+1)/2 * (maxVal2-minVal2) + minVal2\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave_2 l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveTrans\['random_wave_2']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_2']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_2']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveTrans\['square_wave_2']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_2']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_2']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['rotate'].setExpression(\"(asin(sin(2*pi*(frame+offset2)/waveLength2))/pi+0.5) * (maxVal2-minVal2) + minVal2\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave_2 l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveTrans\['random_wave_2']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_2']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_2']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_2']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveTrans\['sawtooth_wave_2']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_2']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['rotate'].setExpression(\"int(sin(2*pi*(frame+offset2)/waveLength2)+1) * (maxVal2-minVal2) + minVal2\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave_2 l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveTrans\['random_wave_2']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_2']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_2']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_2']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_2']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveTrans\['bounce_wave_2']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['rotate'].setExpression(\"((frame+offset2) % waveLength2)/waveLength2 * (maxVal2-minVal2) + minVal2\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave_2 l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveTrans\['random_wave_2']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_2']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_2']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_2']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_2']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_2']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveTrans\['rotate'].setExpression(\"abs(sin(pi*(frame + offset2)/waveLength2))* (maxVal2-minVal2) + minVal2\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {7 waveLength2 l waveLength R 0 100}
+waveLength2 20
+addUserKnob {7 maxVal2 l maxVal R -100 100}
+maxVal2 50
+addUserKnob {7 minVal2 l minVal R -100 100}
+addUserKnob {7 offset2 l offset t "\t\t" R -100 100}
+addUserKnob {22 set_to_def_2 l "Set to Default" T "# Set to Default\nwaveTrans = nuke.thisNode()\nknob1 = waveTrans\['random_wave_2']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveTrans\['sine_wave_2']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveTrans\['triangle_wave_2']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveTrans\['square_wave_2']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveTrans\['sawtooth_wave_2']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveTrans\['bounce_wave_2']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveTrans\['rotate'].clearAnimated()\nwaveTrans\['rotate'].setValue(0)" +STARTLINE}
+addUserKnob {26 scale_1 l <h3>scale}
+addUserKnob {22 random_wave_3 l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveTrans\['random_wave_3']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveTrans\['sine_wave_3']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_3']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_3']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_3']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_3']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['scale'].setExpression(\"random((frame+offset3)/waveLength3) * (maxVal3-minVal3) + minVal3\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave_3 l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveTrans\['random_wave_3']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_3']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveTrans\['triangle_wave_3']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_3']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_3']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_3']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['scale'].setExpression(\"(sin(2*pi*(frame+offset3)/waveLength3)+1)/2 * (maxVal3-minVal3) + minVal3\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave_3 l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveTrans\['random_wave_3']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_3']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_3']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveTrans\['square_wave_3']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_3']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_3']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['scale'].setExpression(\"(asin(sin(2*pi*(frame+offset3)/waveLength3))/pi+0.5) * (maxVal3-minVal3) + minVal3\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave_3 l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveTrans\['random_wave_3']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_3']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_3']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_3']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveTrans\['sawtooth_wave_3']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_3']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['scale'].setExpression(\"int(sin(2*pi*(frame+offset3)/waveLength3)+1) * (maxVal3-minVal3) + minVal3\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")\n" +STARTLINE}
+addUserKnob {22 sawtooth_wave_3 l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveTrans\['random_wave_3']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_3']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_3']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_3']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_3']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveTrans\['bounce_wave_3']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveTrans\['scale'].setExpression(\"((frame+offset3) % waveLength3)/waveLength3 * (maxVal3-minVal3) + minVal3\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave_3 l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveTrans = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveTrans\['random_wave_3']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveTrans\['sine_wave_3']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveTrans\['triangle_wave_3']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveTrans\['square_wave_3']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveTrans\['sawtooth_wave_3']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveTrans\['bounce_wave_3']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveTrans\['scale'].setExpression(\"abs(sin(pi*(frame + offset3)/waveLength3))* (maxVal3-minVal3) + minVal3\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {7 waveLength3 l waveLength R 0 100}
+waveLength3 24
+addUserKnob {7 maxVal3 l maxVal R -10 10}
+maxVal3 1
+addUserKnob {7 minVal3 l minVal R -10 10}
+addUserKnob {7 offset3 l offset t "\t\t" R -100 100}
+addUserKnob {22 set_to_def_3 l "Set to Default" T "# Set to Default\nwaveTrans = nuke.thisNode()\nknob1 = waveTrans\['random_wave_3']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveTrans\['sine_wave_3']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveTrans\['triangle_wave_3']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveTrans\['square_wave_3']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveTrans\['sawtooth_wave_3']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveTrans\['bounce_wave_3']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveTrans\['scale'].clearAnimated()\nwaveTrans\['scale'].setValue(1)" +STARTLINE}
+}
+Grade {
+inputs 0
+name WaveGrade
+selected true
+xpos 4580
+ypos -2265
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<b>Add Random Wave" T "## Add Random Wave\nwaveGr = nuke.thisNode()\n\nknob = waveGr\['knobs'].value()\nif knob == \"lift\":\n    knob = \"black\"\nif knob == \"gain\":\n    knob = \"white\"\nif knob == \"offset\":\n    knob = \"add\"\n\nchan = waveGr\['channels_1'].value()\nif chan == \"all\":\n    waveGr\[knob].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\nif chan == \"red\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\", 0)\nif chan == \"green\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\", 1)\nif chan == \"blue\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\", 2)\nif chan == \"alpha\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\", 3)" +STARTLINE}
+addUserKnob {22 sine_wave l "<b>Add Sine Wave" -STARTLINE T "## Add Sine Wave\nwaveGr = nuke.toNode('WaveGrade')\n\nknob = waveGr\['knobs'].value()\nif knob == \"lift\":\n    knob = \"black\"\nif knob == \"gain\":\n    knob = \"white\"\nif knob == \"offset\":\n    knob = \"add\"\n\nchan = waveGr\['channels_1'].value()\nif chan == \"all\":\n    waveGr\[knob].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\nif chan == \"red\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\", 0)\nif chan == \"green\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\", 1)\nif chan == \"blue\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\", 2)\nif chan == \"alpha\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\", 3)"}
+addUserKnob {22 triangle_wave l "<b>Add Triangle Wave" -STARTLINE T "## Add Triangle Wave\nwaveGr = nuke.thisNode()\n\nknob = waveGr\['knobs'].value()\nif knob == \"lift\":\n    knob = \"black\"\nif knob == \"gain\":\n    knob = \"white\"\nif knob == \"offset\":\n    knob = \"add\"\n\nchan = waveGr\['channels_1'].value()\nif chan == \"all\":\n    waveGr\[knob].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\nif chan == \"red\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\", 0)\nif chan == \"green\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\", 1)\nif chan == \"blue\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\", 2)\nif chan == \"alpha\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\", 3)\n"}
+addUserKnob {22 square_wave l "<b>Add Square Wave" T "## Add Square Wave\nwaveGr = nuke.thisNode()\n\nknob = waveGr\['knobs'].value()\nif knob == \"lift\":\n    knob = \"black\"\nif knob == \"gain\":\n    knob = \"white\"\nif knob == \"offset\":\n    knob = \"add\"\n\nchan = waveGr\['channels_1'].value()\nif chan == \"all\":\n    waveGr\[knob].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\nif chan == \"red\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\", 0)\nif chan == \"green\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\", 1)\nif chan == \"blue\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\", 2)\nif chan == \"alpha\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\", 3)" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<b>Add Sawtooth Wave" -STARTLINE T "## Add Sawtooth Wave\nwaveGr = nuke.thisNode()\n\nknob = waveGr\['knobs'].value()\nif knob == \"lift\":\n    knob = \"black\"\nif knob == \"gain\":\n    knob = \"white\"\nif knob == \"offset\":\n    knob = \"add\"\n\nchan = waveGr\['channels_1'].value()\nif chan == \"all\":\n    waveGr\[knob].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\nif chan == \"red\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\", 0)\nif chan == \"green\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\", 1)\nif chan == \"blue\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\", 2)\nif chan == \"alpha\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\", 3)"}
+addUserKnob {22 bounce_wave l "<b>Add Bounce Wave" -STARTLINE T "## Add Bounce Wave\nwaveGr = nuke.thisNode()\n\nknob = waveGr\['knobs'].value()\nif knob == \"lift\":\n    knob = \"black\"\nif knob == \"gain\":\n    knob = \"white\"\nif knob == \"offset\":\n    knob = \"add\"\n\nchan = waveGr\['channels_1'].value()\nif chan == \"all\":\n    waveGr\[knob].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\nif chan == \"red\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\", 0)\nif chan == \"green\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\", 1)\nif chan == \"blue\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\", 2)\nif chan == \"alpha\":\n    waveGr\[knob].setSingleValue(False)\n    waveGr\[knob].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\", 3)"}
+addUserKnob {26 ""}
+addUserKnob {4 knobs l Knobs M {blackpoint whitepoint lift gain multiply offset gamma ""}}
+knobs gain
+addUserKnob {4 channels_1 l Channels M {all red green blue alpha ""}}
+addUserKnob {26 "" +STARTLINE}
+addUserKnob {7 waveLength R 0 100}
+waveLength 20
+addUserKnob {7 maxVal R 0 10}
+maxVal 4
+addUserKnob {7 minVal R 0 10}
+minVal 1
+addUserKnob {7 offset t "\t\t" R -10 10}
+addUserKnob {26 "" +STARTLINE}
+addUserKnob {22 set_def l "Set all to default" T "## Set all to default\nwaveGr = nuke.thisNode()\n\nwaveGr\['blackpoint'].clearAnimated()\nwaveGr\['blackpoint'].setValue(0)\nwaveGr\['whitepoint'].clearAnimated()\nwaveGr\['whitepoint'].setValue(1)\nwaveGr\['black'].clearAnimated()\nwaveGr\['black'].setValue(0)\nwaveGr\['white'].clearAnimated()\nwaveGr\['white'].setValue(1)\nwaveGr\['multiply'].clearAnimated()\nwaveGr\['multiply'].setValue(1)\nwaveGr\['add'].clearAnimated()\nwaveGr\['add'].setValue(0)\nwaveGr\['gamma'].clearAnimated()\nwaveGr\['gamma'].setValue(1)" +STARTLINE}
+}
+FrameHold {
+inputs 0
+first_frame 1001
+name WaveFrameHold
+selected true
+xpos 4800
+ypos -2271
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['first_frame'].clearAnimated()\n    waveMul\['first_frame'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['first_frame'].clearAnimated()\n    waveMul\['first_frame'].setExpression(\"(sin(2*pi*(frame+offset)/waveLength)+1)/2 * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['first_frame'].clearAnimated()\n    waveMul\['first_frame'].setExpression(\"(asin(sin(2*pi*(frame+offset)/waveLength))/pi+0.5) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['first_frame'].clearAnimated()\n    waveMul\['first_frame'].setExpression(\"int(sin(2*pi*(frame+offset)/waveLength)+1) * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['first_frame'].clearAnimated()\n    waveMul\['first_frame'].setExpression(\"((frame+offset) % waveLength)/waveLength * (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['first_frame'].clearAnimated()\n    waveMul\['first_frame'].setExpression(\"abs(sin(pi*(frame + offset)/waveLength))* (maxVal-minVal) + minVal\")\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 ""}
+addUserKnob {7 waveLength R 0 100}
+waveLength 10
+addUserKnob {7 maxVal R 0 100}
+maxVal 1011
+addUserKnob {7 minVal R 0 100}
+minVal 1001
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {26 ""}
+addUserKnob {22 set_to l "Set to Current Frame" T "# Set to Current Frame\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['first_frame'].clearAnimated()\nwaveMul\['first_frame'].setValue(nuke.frame())" +STARTLINE}
+}
+Keyer {
+inputs 0
+operation "luminance key"
+name WaveKeyer2
+selected true
+xpos 5020
+ypos -2271
+addUserKnob {20 User}
+addUserKnob {22 random_wave l "<font color=#cccccc>Add Random Wave" T "# Add Random Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Random Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#20bd2b>Random Wave Added\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['range'].clearAnimated()\n    waveMul\['range'].setExpression(\"random((frame+offset+a_offset)/waveLength) * (maxVala-minVala) + minVala\", 0)\n    waveMul\['range'].setExpression(\"random((frame+offset+b_offset)/waveLength) * (maxValb-minValb) + minValb\", 1)\n    waveMul\['range'].setExpression(\"random((frame+offset+c_offset)/waveLength) * (maxValc-minValc) + minValc\", 2)\n    waveMul\['range'].setExpression(\"random((frame+offset+d_offset)/waveLength) * (maxVald-minVald) + minVald\", 3)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sine_wave l "<font color=#cccccc>Add Sine Wave" -STARTLINE T "# Add Sine Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sine Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#20bd2b>Sine Wave Added\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['range'].clearAnimated()\n    waveMul\['range'].setExpression(\"(sin(2*pi*(frame+offset+a_offset)/waveLength)+1)/2 * (maxVala-minVala) + minVala\", 0)\n    waveMul\['range'].setExpression(\"(sin(2*pi*(frame+offset+b_offset)/waveLength)+1)/2 * (maxValb-minValb) + minValb\", 1)\n    waveMul\['range'].setExpression(\"(sin(2*pi*(frame+offset+c_offset)/waveLength)+1)/2 * (maxValc-minValc) + minValc\", 2)\n    waveMul\['range'].setExpression(\"(sin(2*pi*(frame+offset+d_offset)/waveLength)+1)/2 * (maxVald-minVald) + minVald\", 3)\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sine Wave is already added!\"\"\")"}
+addUserKnob {22 triangle_wave l "<font color=#cccccc>Add Triangle Wave" -STARTLINE T "# Add Triangle Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Triangle Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#20bd2b>Triangle Wave Added\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['range'].clearAnimated()\n    waveMul\['range'].setExpression(\"(asin(sin(2*pi*(frame+offset+a_offset)/waveLength))/pi+0.5) * (maxVala-minVala) + minVala\", 0)\n    waveMul\['range'].setExpression(\"(asin(sin(2*pi*(frame+offset+b_offset)/waveLength))/pi+0.5) * (maxValb-minValb) + minValb\", 1)\n    waveMul\['range'].setExpression(\"(asin(sin(2*pi*(frame+offset+c_offset)/waveLength))/pi+0.5) * (maxValc-minValc) + minValc\", 2)\n    waveMul\['range'].setExpression(\"(asin(sin(2*pi*(frame+offset+d_offset)/waveLength))/pi+0.5) * (maxVald-minVald) + minVald\", 3)\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Triangle Wave is already added!\"\"\")"}
+addUserKnob {22 square_wave l "<font color=#cccccc>Add Square Wave" T "# Add Square Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Square Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#20bd2b>Square Wave Added\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['range'].clearAnimated()\n    waveMul\['range'].setExpression(\"int(sin(2*pi*(frame+offset+a_offset)/waveLength)+1) * (maxVala-minVala) + minVala\", 0)\n    waveMul\['range'].setExpression(\"int(sin(2*pi*(frame+offset+b_offset)/waveLength)+1) * (maxValb-minValb) + minValb\", 1)\n    waveMul\['range'].setExpression(\"int(sin(2*pi*(frame+offset+c_offset)/waveLength)+1) * (maxValc-minValc) + minValc\", 2)\n    waveMul\['range'].setExpression(\"int(sin(2*pi*(frame+offset+d_offset)/waveLength)+1) * (maxVald-minVald) + minVald\", 3)\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Square Wave is already added!\"\"\")" +STARTLINE}
+addUserKnob {22 sawtooth_wave l "<font color=#cccccc>Add Sawtooth Wave" -STARTLINE T "# Add Sawtooth Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Sawtooth Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#20bd2b>Sawtooth Wave Added\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\n    waveMul\['range'].clearAnimated()\n    waveMul\['range'].setExpression(\"((frame+offset+a_offset) % waveLength)/waveLength * (maxVala-minVala) + minVala\", 0)\n    waveMul\['range'].setExpression(\"((frame+offset+b_offset) % waveLength)/waveLength * (maxValb-minValb) + minValb\", 1)\n    waveMul\['range'].setExpression(\"((frame+offset+c_offset) % waveLength)/waveLength * (maxValc-minValc) + minValc\", 2)\n    waveMul\['range'].setExpression(\"((frame+offset+d_offset) % waveLength)/waveLength * (maxVald-minVald) + minVald\", 3)\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Sawtooth Wave is already added!\"\"\")"}
+addUserKnob {22 bounce_wave l "<font color=#cccccc>Add Bounce Wave" -STARTLINE T "# Add Bounce Wave\nwaveMul = nuke.thisNode()\nknob = nuke.thisKnob()\n\nif knob.label() == \"<font color=#cccccc>Add Bounce Wave\":\n    knob1 = waveMul\['random_wave']\n    knob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\n    knob2 = waveMul\['sine_wave']\n    knob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\n    knob3 = waveMul\['triangle_wave']\n    knob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\n    knob4 = waveMul\['square_wave']\n    knob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\n    knob5 = waveMul\['sawtooth_wave']\n    knob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\n    knob6 = waveMul\['bounce_wave']\n    knob6.setLabel(\"<font color=#20bd2b>Bounce Wave Added\")\n\n    waveMul\['range'].clearAnimated()\n    waveMul\['range'].setExpression(\"abs(sin(pi*(frame + offset + a_offset)/waveLength))* (maxVala-minVala) + minVala\", 0)\n    waveMul\['range'].setExpression(\"abs(sin(pi*(frame + offset + b_offset)/waveLength))* (maxValb-minValb) + minValb\", 1)\n    waveMul\['range'].setExpression(\"abs(sin(pi*(frame + offset + c_offset)/waveLength))* (maxValc-minValc) + minValc\", 2)\n    waveMul\['range'].setExpression(\"abs(sin(pi*(frame + offset + d_offset)/waveLength))* (maxVald-minVald) + minVald\", 3)\n\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Bounce Wave is already added!\"\"\")"}
+addUserKnob {26 ""}
+addUserKnob {7 waveLength R 0 100}
+waveLength 10
+addUserKnob {7 offset t "\t\t" R -100 100}
+addUserKnob {26 ""}
+addUserKnob {7 maxVala l "A maxVal" R 0 100}
+addUserKnob {7 minVala l "A minVal" R 0 100}
+addUserKnob {26 ""}
+addUserKnob {7 maxValb l "B maxVal" R 0 100}
+maxValb 2
+addUserKnob {7 minValb l "B minVal" R 0 100}
+addUserKnob {26 ""}
+addUserKnob {7 maxValc l "C maxVal" R 0 100}
+maxValc 2
+addUserKnob {7 minValc l "C minVal" R 0 100}
+minValc 2
+addUserKnob {26 ""}
+addUserKnob {7 maxVald l "D maxVal" R 0 100}
+maxVald 2
+addUserKnob {7 minVald l "D minVal" R 0 100}
+minVald 2
+addUserKnob {26 ""}
+addUserKnob {20 frame_offset l "Frame Offset" n 1}
+frame_offset 0
+addUserKnob {7 a_offset l "A offset" R -5 5}
+addUserKnob {7 b_offset l "B offset" R -5 5}
+addUserKnob {7 c_offset l "C offset" R -5 5}
+addUserKnob {7 d_offset l "D offset" R -5 5}
+addUserKnob {20 endGroup n -1}
+addUserKnob {26 ""}
+addUserKnob {22 set_to l "Set to Default" T "# Set to 1\nwaveMul = nuke.thisNode()\nknob1 = waveMul\['random_wave']\nknob1.setLabel(\"<font color=#cccccc>Add Random Wave\")\n\nknob2 = waveMul\['sine_wave']\nknob2.setLabel(\"<font color=#cccccc>Add Sine Wave\")\n\nknob3 = waveMul\['triangle_wave']\nknob3.setLabel(\"<font color=#cccccc>Add Triangle Wave\")\n\nknob4 = waveMul\['square_wave']\nknob4.setLabel(\"<font color=#cccccc>Add Square Wave\")\n\nknob5 = waveMul\['sawtooth_wave']\nknob5.setLabel(\"<font color=#cccccc>Add Sawtooth Wave\")\n\nknob6 = waveMul\['bounce_wave']\nknob6.setLabel(\"<font color=#cccccc>Add Bounce Wave\")\n\nwaveMul\['range'].clearAnimated()\nwaveMul\['range'].setValue(0, 0)\nwaveMul\['range'].setValue(1, 1)\nwaveMul\['range'].setValue(1, 2)\nwaveMul\['range'].setValue(1, 3)" +STARTLINE}
+}
+Noise {
+inputs 0
+size 50
+zoffset {{frame*(z_evolve/1000)}}
+gamma 0.05
+translate {{"((frame*speed) * cos((angle)*(pi/180))) "} {"((frame*speed) * sin((angle)*(pi/180))) "}}
+center {2224 1548}
+xrotate 0
+name DirNoise
+label "angle: \[format \"%.0f\" \[value angle]]\nspeed: \[format \"%.0f\" \[value speed]]\nz evolve: \[format \"%.0f\" \[value z_evolve]]"
+selected true
+xpos 3480
+ypos -2284
+addUserKnob {20 User}
+addUserKnob {7 angle R 0 360}
+angle 45
+addUserKnob {7 speed R 0 100}
+speed 21
+addUserKnob {26 ""}
+addUserKnob {7 z_evolve l "z evolve" R 0 100}
+z_evolve 50
+}
