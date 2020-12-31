@@ -1,7 +1,8 @@
 ## SmartVector to STMap ##
 
 selSV = nuke.selectedNode()
-if selSV:
+selCheck = nuke.selectedNodes('Read')
+if selCheck:
     sv_x = selSV['xpos'].value()
     sv_y = selSV['ypos'].value()
     sv_first = selSV['first'].value()
@@ -30,27 +31,22 @@ if selSV:
 
     # Create GBKWrite #
     from scarecrow.common import usage_logger;
-
     usage_logger.write_usage_log("nuke-menu", "Write GBK");
     from nuketools import writetab;
-
     writetab.createFidoWriteNode()
 
     nDispatch = nuke.selectedNode()
 
     nDispatch['removelicense'].setValue(True)
-    nDispatch['label'].setValue(
-        """Range: [value framestart] - [value frameend]\nBatch: [value batch]\nLic. Rem.: [if {[value removelicense]==true} {return "On"} {return "Off"}]\n[if { [value framestart] == [getenv FS] && [value frameend] == [getenv FE]} {return [knob tile_color 16711935]} else {return [knob tile_color 4278190335]}]""")
+    nDispatch['label'].setValue("""Range: [value framestart] - [value frameend]\nBatch: [value batch]\nLic. Rem.: [if {[value removelicense]==true} {return "On"} {return "Off"}]\n[if { [value framestart] == [getenv FS] && [value frameend] == [getenv FE]} {return [knob tile_color 16711935]} else {return [knob tile_color 4278190335]}]""")
 
     writeNode = nDispatch.dependencies()[0]
+
     writeNode['precomp'].setValue(True)
     writeNode['channel'].setValue("rgb")
     writeNode['fecompname'].setValue("stmap_fr" + str(sv_first))
 
     dot.setSelected(True)
-
-    print(nDispatch['xpos'].value())
-    print(writeNode['xpos'].value())
 
     for i in sv_range[0::10]:
         if i > 5:
@@ -68,16 +64,13 @@ if selSV:
 
                 # Create GBKWrite #
                 from scarecrow.common import usage_logger;
-
                 usage_logger.write_usage_log("nuke-menu", "Write GBK");
                 from nuketools import writetab;
-
                 writetab.createFidoWriteNode()
 
                 nDispatch = nuke.selectedNode()
                 nDispatch['removelicense'].setValue(True)
-                nDispatch['label'].setValue(
-                    """Range: [value framestart] - [value frameend]\nBatch: [value batch]\nLic. Rem.: [if {[value removelicense]==true} {return "On"} {return "Off"}]\n[if { [value framestart] == [getenv FS] && [value frameend] == [getenv FE]} {return [knob tile_color 16711935]} else {return [knob tile_color 4278190335]}]""")
+                nDispatch['label'].setValue("""Range: [value framestart] - [value frameend]\nBatch: [value batch]\nLic. Rem.: [if {[value removelicense]==true} {return "On"} {return "Off"}]\n[if { [value framestart] == [getenv FS] && [value frameend] == [getenv FE]} {return [knob tile_color 16711935]} else {return [knob tile_color 4278190335]}]""")
 
                 writeNode = nDispatch.dependencies()[0]
                 writeNode['precomp'].setValue(True)
