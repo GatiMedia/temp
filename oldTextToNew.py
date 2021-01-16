@@ -1,4 +1,4 @@
-###################
+### OLD TEXT TO NEW TEXT ###
 
 ###################
 ## OLD TEXT NODE ##
@@ -6,6 +6,8 @@
 
 oldText = nuke.selectedNode()
 
+#NAME
+oldText_name = oldText['name'].value()
 
 #TEXT
 oldText_output = oldText["output"].value()
@@ -64,6 +66,15 @@ nuke.delete(oldText)
 
 newText = nuke.nodes.Text2()
 
+#NAME
+newText['name'].setValue(oldText_name)
+
+#POSITION
+newText['xpos'].setValue(oldText_xpos)
+newText['ypos'].setValue(oldText_ypos)
+
+#DEPENDENCIES
+newText.setInput(0, oldText_dependencies[0])
 
 #TEXT
 newText["output"].setValue(oldText_output)
@@ -86,11 +97,7 @@ newText["leading"].setValue(oldText_leading)
 newText["xjustify"].setValue(oldText_xjustify)
 newText["yjustify"].setValue(oldText_yjustify)
 newText["box"].setValue(oldText_box)
-#Adding translate values to box
-newText["box"].setValue(newText["box"].value(0) + oldText_translate_x, 0)
-newText["box"].setValue(newText["box"].value(2) + oldText_translate_x, 2)
-newText["box"].setValue(newText["box"].value(1) + oldText_translate_y, 1)
-newText["box"].setValue(newText["box"].value(3) + oldText_translate_y, 3)
+
 
 #COLOR
 newText["ramp"].setValue(oldText_ramp)
@@ -104,18 +111,23 @@ newText["hide_input"].setValue(oldText_hide_input)
 newText["postage_stamp"].setValue(oldText_postage_stamp)
 newText["disable"].setValue(oldText_disable)
 
-#POSITION
-newText['xpos'].setValue(oldText_xpos)
-newText['ypos'].setValue(oldText_ypos)
-
-#DEPENDENCIES
-newText.setInput(0, oldText_dependencies[0])
-
-
-
 
 #GROUPS
-newText["translate"].setValue(oldText_translate)
+
+#newText = nuke.toNode('Text5')
+
+animLayers = newText['group_animations'].getAllItems()
+newText['group_animations'].setSelectedItems(animLayers)
+print (animLayers)
+
+#newText["rotate"].setValue(30)
+
+
+print (oldText_translate_x)
+print (oldText_rotate)
+print (oldText_scale)
+newText["translate"].setValue(oldText_translate_x, 0)
+newText["translate"].setValue(oldText_translate_y, 1)
 newText["rotate"].setValue(oldText_rotate)
 newText["scale"].setValue(oldText_scale)
 newText["skewX"].setValue(oldText_skewX)
@@ -123,4 +135,8 @@ newText["skewY"].setValue(oldText_skewY)
 newText["skew_order"].setValue(oldText_skew_order)
 newText["center"].setValue(oldText_center)
 
-newText["group_animations"].setValue(True)
+print (newText["translate"].value(0))
+print (newText["rotate"].value())
+print (newText["scale"].value())
+
+nuke.connectViewer(0, newText)
