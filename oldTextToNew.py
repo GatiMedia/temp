@@ -1,5 +1,6 @@
 ### OLD TEXT TO NEW TEXT ###
 
+
 ###################
 ## OLD TEXT NODE ##
 ###################
@@ -98,7 +99,6 @@ newText["xjustify"].setValue(oldText_xjustify)
 newText["yjustify"].setValue(oldText_yjustify)
 newText["box"].setValue(oldText_box)
 
-
 #COLOR
 newText["ramp"].setValue(oldText_ramp)
 newText["color"].setValue(oldText_color)
@@ -111,21 +111,11 @@ newText["hide_input"].setValue(oldText_hide_input)
 newText["postage_stamp"].setValue(oldText_postage_stamp)
 newText["disable"].setValue(oldText_disable)
 
-
 #GROUPS
 
-#newText = nuke.toNode('Text5')
-
+newText.showControlPanel()
 animLayers = newText['group_animations'].getAllItems()
 newText['group_animations'].setSelectedItems(animLayers)
-print (animLayers)
-
-#newText["rotate"].setValue(30)
-
-
-print (oldText_translate_x)
-print (oldText_rotate)
-print (oldText_scale)
 newText["translate"].setValue(oldText_translate_x, 0)
 newText["translate"].setValue(oldText_translate_y, 1)
 newText["rotate"].setValue(oldText_rotate)
@@ -134,9 +124,8 @@ newText["skewX"].setValue(oldText_skewX)
 newText["skewY"].setValue(oldText_skewY)
 newText["skew_order"].setValue(oldText_skew_order)
 newText["center"].setValue(oldText_center)
+newText.hideControlPanel()
 
-print (newText["translate"].value(0))
-print (newText["rotate"].value())
-print (newText["scale"].value())
+
 
 nuke.connectViewer(0, newText)
