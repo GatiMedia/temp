@@ -1,14 +1,16 @@
 ### OLD TEXT TO NEW TEXT ###
 
-
 ###################
 ## OLD TEXT NODE ##
 ###################
 
+
 oldText = nuke.selectedNode()
+
 
 #NAME
 oldText_name = oldText['name'].value()
+
 
 #TEXT
 oldText_output = oldText["output"].value()
@@ -55,6 +57,15 @@ oldText_disable = oldText["disable"].value()
 #DEPENDENCIES
 oldText_dependencies = oldText.dependencies()
 
+
+#OLDTEXT DEPENDENTS
+dependents = []
+for node in nuke.allNodes():
+    for i in node.dependencies():
+        if i.name() == oldText_name:
+            dependents.append(node.name())
+print (dependents)
+
 #POSITION
 oldText_xpos = oldText['xpos'].value()
 oldText_ypos = oldText['ypos'].value()
@@ -77,6 +88,10 @@ newText['ypos'].setValue(oldText_ypos)
 #DEPENDENCIES
 newText.setInput(0, oldText_dependencies[0])
 
+#RECONNECT DEPENDENTS
+for node in dependents:
+    nuke.toNode(node).setInput(0, newText)
+
 #TEXT
 newText["output"].setValue(oldText_output)
 newText["premult"].setValue(oldText_premult)
@@ -89,10 +104,10 @@ newText["maskChannelInput"].setValue(oldText_maskChannelInput)
 newText["inject"].setValue(oldText_inject)
 newText["invert_mask"].setValue(oldText_invert_mask)
 newText["message"].setValue(oldText_message)
-#size - font_size
+#size = font_size
 newText["font_size"].setValue(oldText_size)
 newText["global_font_scale"].setValue(0.6)
-#kerning - tracking
+#kerning = tracking
 newText["tracking"].setValue(oldText_kerning)
 newText["leading"].setValue(oldText_leading)
 newText["xjustify"].setValue(oldText_xjustify)
@@ -112,7 +127,6 @@ newText["postage_stamp"].setValue(oldText_postage_stamp)
 newText["disable"].setValue(oldText_disable)
 
 #GROUPS
-
 newText.showControlPanel()
 animLayers = newText['group_animations'].getAllItems()
 newText['group_animations'].setSelectedItems(animLayers)
@@ -125,7 +139,3 @@ newText["skewY"].setValue(oldText_skewY)
 newText["skew_order"].setValue(oldText_skew_order)
 newText["center"].setValue(oldText_center)
 newText.hideControlPanel()
-
-
-
-nuke.connectViewer(0, newText)
