@@ -107,6 +107,10 @@ def OldText2NewText():
             oldText_dependents_3 = []
             oldText_dependents_4 = []
             oldText_dependents_5 = []
+            oldText_dependents_6 = []
+            oldText_dependents_7 = []
+            oldText_dependents_8 = []
+            oldText_dependents_9 = []
             for node in nuke.allNodes():
                 try:
                     if node.input(0).name() == oldText_name:
@@ -143,7 +147,30 @@ def OldText2NewText():
                         oldText_dependents_5.append(node.name())
                 except Exception:
                     pass
-
+            for node in nuke.allNodes():
+                try:
+                    if node.input(6).name() == oldText_name:
+                        oldText_dependents_6.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(7).name() == oldText_name:
+                        oldText_dependents_7.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(8).name() == oldText_name:
+                        oldText_dependents_8.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(9).name() == oldText_name:
+                        oldText_dependents_9.append(node.name())
+                except Exception:
+                    pass
 
             #POSITION
             oldText_xpos = oldText['xpos'].value()
@@ -208,6 +235,31 @@ def OldText2NewText():
                         nuke.toNode(node).setInput(5, newText)
                 except Exception:
                     pass
+            if oldText_dependents_6:
+                try:
+                    for node in oldText_dependents_6:
+                        nuke.toNode(node).setInput(7, newText)
+                except Exception:
+                    pass
+            if oldText_dependents_7:
+                try:
+                    for node in oldText_dependents_7:
+                        nuke.toNode(node).setInput(7, newText)
+                except Exception:
+                    pass
+            if oldText_dependents_8:
+                try:
+                    for node in oldText_dependents_8:
+                        nuke.toNode(node).setInput(8, newText)
+                except Exception:
+                    pass
+            if oldText_dependents_9:
+                try:
+                    for node in oldText_dependents_9:
+                        nuke.toNode(node).setInput(9, newText)
+                except Exception:
+                    pass
+
 
             #TEXT
             newText["output"].setValue(oldText_output)
@@ -257,8 +309,7 @@ def OldText2NewText():
             newText["center"].setValue(oldText_center)
             newText.hideControlPanel()
 
-        for i in selTextNodes:
-            i.setSelected(True)
+            newText.setSelected(True)
     else:
         nuke.message("""<center><b><font color=orange>Select some Text nodes first!\n\n<a href="https://www.gatimedia.co.uk/oldtext2newtext"><font color=yellow><u>Learn about Old vs. New Text\n""")
 
@@ -371,6 +422,10 @@ def NewText2OldText():
             newText_dependents_3 = []
             newText_dependents_4 = []
             newText_dependents_5 = []
+            newText_dependents_6 = []
+            newText_dependents_7 = []
+            newText_dependents_8 = []
+            newText_dependents_9 = []
             for node in nuke.allNodes():
                 try:
                     if node.input(0).name() == newText_name:
@@ -405,6 +460,30 @@ def NewText2OldText():
                 try:
                     if node.input(5).name() == newText_name:
                         newText_dependents_5.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(6).name() == newText_name:
+                        newText_dependents_6.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(7).name() == newText_name:
+                        newText_dependents_7.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(8).name() == newText_name:
+                        newText_dependents_8.append(node.name())
+                except Exception:
+                    pass
+            for node in nuke.allNodes():
+                try:
+                    if node.input(9).name() == newText_name:
+                        newText_dependents_9.append(node.name())
                 except Exception:
                     pass
 
@@ -468,6 +547,31 @@ def NewText2OldText():
                         nuke.toNode(node).setInput(5, oldText)
                 except Exception:
                     pass
+            if newText_dependents_6:
+                try:
+                    for node in newText_dependents_6:
+                        nuke.toNode(node).setInput(6, oldText)
+                except Exception:
+                    pass
+            if newText_dependents_7:
+                try:
+                    for node in newText_dependents_7:
+                        nuke.toNode(node).setInput(7, oldText)
+                except Exception:
+                    pass
+            if newText_dependents_8:
+                try:
+                    for node in newText_dependents_8:
+                        nuke.toNode(node).setInput(8, oldText)
+                except Exception:
+                    pass
+            if newText_dependents_9:
+                try:
+                    for node in newText_dependents_9:
+                        nuke.toNode(node).setInput(9, oldText)
+                except Exception:
+                    pass
+
             #FONT
             fontType = 'Arial'
             ArialMac = '/Library/Fonts/Arial.ttf'
@@ -530,8 +634,7 @@ def NewText2OldText():
 
             oldText.hideControlPanel()
 
-        for i in selText2Nodes:
-            i.setSelected(True)
+            oldText.setSelected(True)
 
     else:
         nuke.message("""<center><b><font color=orange>Select some Text2 nodes first!\n\n<a href="https://www.gatimedia.co.uk/oldtext2newtext"><font color=yellow><u>Learn about Old vs. New Text\n""")
