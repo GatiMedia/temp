@@ -351,6 +351,17 @@ TextFixer.addCommand('New Text Node Finder', 'newTextFinder()')
 def NewText2OldText():
     if nuke.selectedNodes('Text2'):
         selText2Nodes = nuke.selectedNodes('Text2')
+
+        for i in nuke.allNodes():
+            i.setSelected(False)
+
+        oldTextTemp = nuke.createNode('Text')
+        fontVal = oldTextTemp['font'].value()
+        nuke.delete(oldTextTemp)
+
+        for elem in selText2Nodes:
+            elem.setSelected(True)
+        
         for newText in nuke.selectedNodes('Text2'):
             ###################
             ## NEW TEXT NODE ##
@@ -493,7 +504,6 @@ def NewText2OldText():
             ## OLD TEXT NODE ##
             ###################
 
-            # oldText = nuke.createNode('Text')
             oldText = nuke.nodes.Text()
 
             #NAME
@@ -573,22 +583,19 @@ def NewText2OldText():
                     pass
 
             #FONT
-            fontType = 'Arial'
-            ArialMac = '/Library/Fonts/Arial.ttf'
-            ArialWin = 'C:/Windows/Fonts/arial.ttf'
-            ArialLinux = '/usr/share/fonts/default/Type1/n019003l.pfb'
+            # ArialMac = '/Library/Fonts/Arial.ttf'
+            # ArialWin = 'C:/Windows/Fonts/arial.ttf'
+            # ArialLinux = '/usr/share/fonts/default/Type1/n019003l.pfb'
+            #
+            # if sys.platform == 'darwin':
+            #     ArialPath = ArialMac
+            # elif sys.platform == 'win32':
+            #     ArialPath = ArialWin
+            # else:
+            #     ArialPath = ArialLinux
+            #
 
-            if sys.platform == 'darwin':
-                OS = 'Mac'
-                ArialPath = ArialMac
-            elif sys.platform == 'win32':
-                OS = 'Windows'
-                ArialPath = ArialWin
-            else:
-                OS = 'Linux'
-                ArialPath = ArialLinux
-
-            oldText["font"].setValue(ArialPath)
+            oldText["font"].setValue(fontVal)
 
             #TEXT
             oldText["output"].setValue(newText_output)
@@ -644,4 +651,4 @@ TextFixer.addCommand('New Text 2 Old Text', 'NewText2OldText()')
 def OpenPage():
     webbrowser.open('https://www.gatimedia.co.uk/oldtext2newtext')
 
-TextFixer.addCommand('Open Info Page', 'OpenPage()')
+TextFixer.addCommand('Open Page', 'OpenPage()')
