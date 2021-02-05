@@ -47,7 +47,10 @@ TextFixer.addCommand('Old Text Node Finder', 'oldTextFinder()')
 def OldText2NewText():
     if nuke.selectedNodes('Text'):
         selTextNodes = nuke.selectedNodes('Text')
-        print (selTextNodes)
+        for i in nuke.allNodes():
+            i.setSelected(False)
+        for textnode in selTextNodes:
+            textnode.setSelected(True)
         for oldText in nuke.selectedNodes('Text'):
             ###################
             ## OLD TEXT NODE ##
@@ -351,7 +354,7 @@ TextFixer.addCommand('New Text Node Finder', 'newTextFinder()')
 def NewText2OldText():
     if nuke.selectedNodes('Text2'):
         selText2Nodes = nuke.selectedNodes('Text2')
-
+        
         for i in nuke.allNodes():
             i.setSelected(False)
 
@@ -359,9 +362,9 @@ def NewText2OldText():
         fontVal = oldTextTemp['font'].value()
         nuke.delete(oldTextTemp)
 
-        for elem in selText2Nodes:
-            elem.setSelected(True)
-        
+        for textnode2 in selText2Nodes:
+            textnode2.setSelected(True)
+
         for newText in nuke.selectedNodes('Text2'):
             ###################
             ## NEW TEXT NODE ##
@@ -583,18 +586,6 @@ def NewText2OldText():
                     pass
 
             #FONT
-            # ArialMac = '/Library/Fonts/Arial.ttf'
-            # ArialWin = 'C:/Windows/Fonts/arial.ttf'
-            # ArialLinux = '/usr/share/fonts/default/Type1/n019003l.pfb'
-            #
-            # if sys.platform == 'darwin':
-            #     ArialPath = ArialMac
-            # elif sys.platform == 'win32':
-            #     ArialPath = ArialWin
-            # else:
-            #     ArialPath = ArialLinux
-            #
-
             oldText["font"].setValue(fontVal)
 
             #TEXT
