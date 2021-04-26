@@ -6,31 +6,17 @@
 
 # https://gist.github.com/plasmax/bde3bd503fb6f496c7bb6aea4652e3ef
 
-node = nuke.toNode('NoOp3')
-knob = nuke.LookupCurves_Knob('33_LookUpCurves', 'lookup') 
-#knob.setRange(1,10)
-node.addKnob(knob)
+# https://www.facebook.com/media/set/?set=a.421234635125030&type=3
 
-Help_Knob
+# https://learn.foundry.com/nuke/developers/63/ndkdevguide/knobs-and-handles/knobtypes.html
 
-node = nuke.toNode('NoOp2')
-knob = nuke.Eyedropper_Knob('eyedropper', '36_Eyedropper') 
-node.addKnob(knob)
+# http://yamagishi-2bit.blogspot.com/2013/09/
 
-node = nuke.toNode('NoOp2')
-knob = nuke.Range_Knob('Range', '37_Range') 
-node.addKnob(knob)
-
-index = nuke.tcl('knob', '-t', knob.node().name() + '.' + knob.name() )
-
-nuke.knob(knobname, type = True) # Returns an int with the knob ID
-
-
-knob = nuke.toNode('NoOp3').knob('functions').KnobType()
-print(knob)
-
-
-
+# all knobs' name
+node = nuke.selectedNode()
+for i in range(node.numKnobs()):
+    knob = node.knob(i)
+    print knob.name()
 
 #1
 node = nuke.toNode('NoOp')
@@ -382,9 +368,3 @@ knob = nuke.Radio_Knob('Radio', '83_Radio', ('red', 'green', 'blue', 'alpha'))
 node.addKnob(knob)
 
 
-
-# all knobs' name
-node = nuke.selectedNode()
-for i in range(node.numKnobs()):
-    knob = node.knob(i)
-    print knob.name()
