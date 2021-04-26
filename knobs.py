@@ -6,21 +6,35 @@
 
 # https://gist.github.com/plasmax/bde3bd503fb6f496c7bb6aea4652e3ef
 
-# https://www.facebook.com/media/set/?set=a.421234635125030&type=3
+# https://community.foundry.com/discuss/topic/102536/some-knobs-not-returning-the-correct-class
 
-# https://learn.foundry.com/nuke/developers/63/ndkdevguide/knobs-and-handles/knobtypes.html
+# https://community.foundry.com/discuss/topic/103357/re-mystery-knobs-that-don-t-take-animation
 
-# http://yamagishi-2bit.blogspot.com/2013/09/
+#https://www.facebook.com/media/set/?set=a.421234635125030&type=3
 
-# all knobs' name
-node = nuke.selectedNode()
-for i in range(node.numKnobs()):
-    knob = node.knob(i)
-    print knob.name()
+
+index = nuke.tcl('knob', '-t', knob.node().name() + '.' + knob.name() )
+
+
+nuke.knob(knobname, type = True) # Returns an int with the knob ID
+
+
+knob = nuke.toNode('NoOp3').knob('functions').KnobType()
+print(knob)
+
+
+#0
+#nuke.Obsolete_Knob
 
 #1
 node = nuke.toNode('NoOp')
 knob = nuke.String_Knob('Text', '1_String_Knob')
+node.addKnob(knob)
+
+# OR 
+
+node = nuke.toNode('NoOp')
+knob = nuke.EvalString_Knob('EvalString', 'EvalString')
 node.addKnob(knob)
 
 #2
@@ -35,11 +49,14 @@ node.addKnob(knob)
 
 #4
 node = nuke.toNode('NoOp')
-knob = nuke.Enumeration_Knob('Enumeration', 'Enumeration_Knob', ['Shapes', 'Strokes'])
+knob = nuke.Enumeration_Knob('Enumeration', '4_Enumeration_Knob', ['A', 'B', 'C'])
 node.addKnob(knob)
 
 #5
-#Bitmask_knob - buggy
+node = nuke.toNode('NoOp')
+knob = nuke.Bitmask_Knob('Bitmask', '5_Bitmask', ['Opt. 1', 'Opt. 2', 'Opt. 3'])
+node.addKnob(knob)
+# checkbox to pulldown
 
 #6
 node = nuke.toNode('NoOp')
@@ -68,7 +85,7 @@ node.addKnob(knob)
 
 #11
 node = nuke.toNode('NoOp')
-knob = nuke.nuke.Channel_Knob('Channel', '11_Channel') 
+knob = nuke.Channel_Knob('Channel', '11_Channel') 
 node.addKnob(knob)
 
 #12
@@ -103,11 +120,13 @@ node.addKnob(knob)
 node = nuke.toNode('NoOp')
 knob = nuke.Color_Knob('Color','18_Color')
 node.addKnob(knob)
+# https://support.foundry.com/hc/en-us/articles/360000036479-TP-352820-Panel-Dropped-knob-Duplicating-on-Copy-Paste
 
 #19
 node = nuke.toNode('NoOp')
 knob = nuke.AColor_Knob('AColor','19_AColor')
 node.addKnob(knob)
+# https://support.foundry.com/hc/en-us/articles/360000036479-TP-352820-Panel-Dropped-knob-Duplicating-on-Copy-Paste
 
 #20
 node = nuke.toNode('NoOp')
@@ -115,12 +134,11 @@ knob = nuke.Tab_Knob('custom_tab', '20_Custom Tab')
 node.addKnob(knob)
 
 #21
-#Custom_Knob - "'module' object has no attribute 'Float_Knob'"
+#Custom_Knob - not in the module
 
 #22
 node = nuke.toNode('NoOp')
-site = 'https://imgur.com/search/score/?q=cat'
-knob = nuke.PyScript_Knob('PyScript', '22_PyScript', "webbrowser.open(site)")
+knob = nuke.PyScript_Knob('PyScript', '22_PyScript', """nuke.message("This is a PyScript Button")""")
 node.addKnob(knob)
 
 #23
@@ -128,6 +146,10 @@ node.addKnob(knob)
 
 #24
 #Transform2d_Knob - couldn't make it
+
+node = nuke.toNode('NoOp')
+knob = nuke.Transform2d_Knob('Text', '26_Text')
+node.addKnob(knob)
 
 #25
 #Spacer_Knob - "'module' object has no attribute 'Spacer_Knob'"
@@ -209,6 +231,7 @@ node.addKnob(knob)
 node = nuke.toNode('NoOp')
 knob = nuke.ColorChip_Knob('ColorChip','40_ColorChip')
 node.addKnob(knob)
+# without start newline flag
 
 #41
 node = nuke.toNode('NoOp')
@@ -245,7 +268,7 @@ node.addKnob(knob)
 #PyPulldown_knob - not in the module
 
 #48
-#GPUEngine_knob 
+#GPUEngine_knob - not in the module
 
 #49
 #MultiArray_knob - Generally Table_knob is a better choice.
@@ -257,7 +280,10 @@ node.addKnob(knob)
 #List_knob - not in the module
 
 #52
-#Python_knob - not in the module
+node = nuke.toNode('NoOp')
+knob = nuke.PythonKnob('PyScript', '52_PyScript')
+node.addKnob(knob)
+# seems same as #1 String_Knob
 
 #53
 #MetaData_knob - not in the module
@@ -272,7 +298,11 @@ node.addKnob(knob)
 #BeginToolbar/EndToolbar - not in the module
 
 #57
-#BeginTabGroup/EndTabGroup - not in the module
+node = nuke.toNode('NoOp')
+knob1 = nuke.BeginTabGroup_Knob('TabGroup1', '57_TabGroup')
+knob2 = nuke.EndTabGroup_Knob('TabGroup2')
+node.addKnob(knob1)
+node.addKnob(knob2)
 
 #58
 #PluginPython_knob - donno what happened here
@@ -347,6 +377,7 @@ node.addKnob(knob)
 node = nuke.toNode('NoOp')
 knob = nuke.IArray_Knob('Array', '78_Array', [3, 3])
 node.addKnob(knob)
+#dissappears
 
 #79
 #ResizableArray_Knob - not in the module
@@ -367,4 +398,33 @@ node = nuke.toNode('NoOp')
 knob = nuke.Radio_Knob('Radio', '83_Radio', ('red', 'green', 'blue', 'alpha'))
 node.addKnob(knob)
 
+#84
+node = nuke.toNode('NoOp')
+knob = nuke.FreeType_Knob('Font', '84_FreeType')
+node.addKnob(knob)
 
+#85
+node = nuke.toNode('NoOp')
+knob = nuke.EditableEnumeration_Knob('EditableEnumeration', 'EditableEnumeration', ['1','2','3'])
+node.addKnob(knob)
+
+node = nuke.toNode('NoOp')
+knob = nuke.Font_Knob('Font', 'Font')
+node.addKnob(knob)
+
+
+nuke.PyCustom_Knob
+nuke.PythonCustomKnob
+
+# print knob's ID number
+n = nuke.toNode("Text32")
+a = n['font']
+knob = (n.name() + '.' + a.name())
+print nuke.tcl('knob', '-t', knob)
+
+
+# all knobs' name
+node = nuke.selectedNode()
+for i in range(node.numKnobs()):
+    knob = node.knob(i)
+    print knob.name()
