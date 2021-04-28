@@ -64,7 +64,7 @@ node = nuke.createNode('NoOp')
 knob = nuke.Bitmask_Knob('Bitmask', '5_Bitmask', ['Opt. 1', 'Opt. 2', 'Opt. 3'])
 node.addKnob(knob)
 # series of checkbox to pulldown when copied
-# shows ID 4 in syntax
+# ID is 4 - Enumeration_Knob
 
 #6
 node = nuke.createNode('NoOp')
@@ -90,11 +90,13 @@ knob.setValue(2, 1)
 knob.setValue(3, 2)
 knob.setValue(4, 3)
 print (knob.arraySize())
+# ID is 78 - IArray_Knob
 
 #10
 node = nuke.createNode('NoOp')
 knob = nuke.ChannelMask_Knob('ChannelMask', '10_ChannelMask')
 node.addKnob(knob)
+# Doesn't save setting
 
 #11
 node = nuke.createNode('NoOp')
@@ -133,7 +135,7 @@ node = nuke.createNode('NoOp')
 knob = nuke.BBox_Knob('BBox','15_BBox')
 node.addKnob(knob)
 
-knob.fromDict({'x':10, 'y': 20, 'r': 30, 't': 40})
+#knob.fromDict({'x':10, 'y': 20, 'r': 30, 't': 40})
 
 knob.setX(10)
 knob.setY(20)
@@ -181,10 +183,8 @@ node.addKnob(knob)
 
 #24
 #Transform2d_Knob - couldn't make it
-
-
 node = nuke.createNode('NoOp')
-knob = nuke.Transform2d_Knob('Text', '26_Text', 3)
+knob = nuke.Transform2d_Knob('Transform2d' , '24_Transform2d')
 node.addKnob(knob)
 
 #25
@@ -236,7 +236,9 @@ knob = nuke.nuke.LookupCurves_Knob('LookupCurves', '33_LookupCurves')
 knob.addCurve('NewCurve', '(sin(2*pi*(frame)/.2))/2')
 knob.delCurve('default')
 node.addKnob(knob)
-#seems broken - doesn't add name and serial number, can't be copied
+#Use toScript to get expression value
+print (knob.toScript())
+# ID 0 - Obsolete - disappear
 
 #34
 #n/a - Was Tooltip_knob.
@@ -245,13 +247,15 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.Pulldown_Knob('Pulldown', '35_Pulldown', {'1':'nuke.message("Number 1")', '2':'nuke.message("Number 2")', '3':'nuke.message("Number 3")'})
 node.addKnob(knob)
+print ("Number of options are %d." % knob.numValues())
+print ("""The second options`s command is "%s".""" % knob.commands(1))
 
 
 #36
 node = nuke.createNode('NoOp')
 knob = nuke.Eyedropper_Knob('Eyedropper', '36_Eyedropper') 
 node.addKnob(knob)
-# dissappears if not linked
+# ID 0 - Obsolete - disappear
 
 #37
 node = nuke.createNode('NoOp')
@@ -259,20 +263,27 @@ knob = nuke.Range_Knob('Range', '37_Range')
 knob.setRange(1,10)
 knob.setValue(1)
 node.addKnob(knob)
-# slider dissappears
+# slider dissappears when copied
+# ID is 78 - IArray_Knob
 
 #38
 node = nuke.createNode('NoOp')
 knob = nuke.Histogram_Knob('Histogram', '38_Histogram') 
 node.addKnob(knob)
-# dissappears if not linked
+# ID 0 - Obsolete - disappear
 
 #39
 node = nuke.createNode('NoOp')
 knob = nuke.Keyer_Knob('Keyer', '39_Keyer') 
 node.addKnob(knob)
-# dissappears if not linked
+knob.setValue(1, 0)
+knob.setValue(2, 1)
+knob.setValue(3, 2)
+knob.setValue(4, 3)
+print (knob.lowSoft(), knob.lowTol(),knob.highTol(), knob.highSoft())
+# UI dissappears when copied
 #MJT onCreate trick - https://www.facebook.com/media/set/?set=a.421234635125030&type=3
+# ID is 78 - IArray_Knob
 
 #40
 node = nuke.createNode('NoOp')
@@ -290,6 +301,11 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.Scale_Knob('Scale','42_Scale')
 node.addKnob(knob)
+knob.setValue(1, 0)
+knob.setValue(2, 1)
+knob.setValue(3, 2)
+print ("""X is {0}, Y is {1} and Z is {2}.""" .format(knob.x(), knob.y(), knob.z()))
+# ID is 78 - IArray_Knob
 
 #43
 node = nuke.createNode('NoOp')
@@ -300,16 +316,20 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.OneView_Knob('OneView', '44_OneView', ['a','b','c'])
 node.addKnob(knob)
+# ID is 4 - Enumeration_Knob
 
 #45
 node = nuke.createNode('NoOp')
 knob = nuke.MultiView_Knob('MultiView', '45_MultiView')
 node.addKnob(knob)
+knob.setValue('main')
+print (knob.toScript())
 
 #46
 node = nuke.createNode('NoOp')
 knob = nuke.ViewView_Knob('ViewView', '46_ViewView')
 node.addKnob(knob)
+# ID 0 - Obsolete - disappear
 
 #47
 #PyPulldown_knob - not in the module
@@ -330,7 +350,7 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.PythonKnob('PyScript', '52_PyScript')
 node.addKnob(knob)
-# seems same as #1 String_Knob
+# ID is 1 - String_Knob
 
 #53
 #MetaData_knob - not in the module
@@ -346,10 +366,12 @@ node.addKnob(knob)
 
 #57
 node = nuke.createNode('NoOp')
-knob1 = nuke.BeginTabGroup_Knob('TabGroup1', '57_TabGroup')
-knob2 = nuke.EndTabGroup_Knob('TabGroup2')
+knob1 = nuke.BeginTabGroup_Knob()
+knob2 = nuke.EndTabGroup_Knob()
 node.addKnob(knob1)
 node.addKnob(knob2)
+knob1.setLabel('57_TabGroup')
+# Doesn't set name or label from argument
 
 #58
 #PluginPython_knob - donno what happened here
@@ -413,6 +435,11 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.SceneView_Knob('SceneView','75_SceneView', nuke.views())
 node.addKnob(knob)
+knob.addItems(['new_item_1', 'new_item_1/A', 'new_item_1/B', 'new_item_2'])
+print(knob.getAllItems())
+knob.removeItems(['new_item_2'])
+print(knob.getAllItems())
+# Items disappear when copied
 
 #76
 #VSpacer_Knob - not in the module
@@ -424,7 +451,7 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.IArray_Knob('Array', '78_Array', [3, 3])
 node.addKnob(knob)
-#dissappears
+# 2 lines disappear and set animated when copied - seems broken
 
 #79
 #ResizableArray_Knob - not in the module
@@ -450,24 +477,25 @@ node = nuke.createNode('NoOp')
 knob = nuke.FreeType_Knob('Font', '84_FreeType')
 node.addKnob(knob)
 
-#85
-node = nuke.createNode('NoOp')
-knob = nuke.EditableEnumeration_Knob('EditableEnumeration', 'EditableEnumeration', ['1','2','3'])
-node.addKnob(knob)
-
 node = nuke.createNode('NoOp')
 knob = nuke.Font_Knob('Font', 'Font')
 node.addKnob(knob)
+# ID 0 - Obsolete - disappear - Use FreeType_Knob instead
+
+#85
+node = nuke.createNode('NoOp')
+knob = nuke.EditableEnumeration_Knob('EditableEnumeration', 'EditableEnumeration', ['1','2','3','something'])
+node.addKnob(knob)
+print (knob.enumName(3))
+print (knob.numValues())
 
 
-nuke.PyCustom_Knob
-nuke.PythonCustomKnob
 
-# print knob's ID number
+# print knob's info
 n = nuke.selectedNode()
-a = n['useGPUIfAvailable']
+a = n['size']
 knob = (n.name() + '.' + a.name())
-print nuke.tcl('knob', '-t', knob)
+print ("""Class is {0}, name is {1} and ID is {2}.""" .format(a.Class(), knob , nuke.tcl('knob', '-t', knob)))
 
 
 # all knobs' name
