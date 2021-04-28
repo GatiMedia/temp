@@ -503,3 +503,7 @@ node = nuke.selectedNode()
 for i in range(node.numKnobs()):
     knob = node.knob(i)
     print knob.name()
+
+
+print (nuke.knob(knobname, type = True))
+# Returns an int with the knob ID
