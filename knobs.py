@@ -23,7 +23,6 @@ print(knob)
 
 #0
 #nuke.Obsolete_Knob
-#It's a placeholder
 
 #1
 node = nuke.createNode('NoOp')
@@ -73,7 +72,7 @@ node.addKnob(knob)
 
 #7
 node = nuke.createNode('NoOp')
-knob = nuke.nuke.Double_Knob('Double', '7_Double') 
+knob = nuke.Double_Knob('Double', '7_Double') 
 knob.setRange(1,10)
 knob.setValue(1)
 node.addKnob(knob)
@@ -145,7 +144,7 @@ print ("""X value is %d, Y is %d, R is %d and T is %d.""" % (knob.x(), knob.y(),
 
 
 #16
-#Obsoleted by 17 - Was Size_knob
+#Obsoleted by 17 - Was Size_knob ( You can create manually )
 
 #17
 node = nuke.createNode('NoOp')
@@ -185,6 +184,14 @@ node.addKnob(knob)
 #Transform2d_Knob - couldn't make it
 node = nuke.createNode('NoOp')
 knob = nuke.Transform2d_Knob('Transform2d' , '24_Transform2d')
+node.addKnob(knob)
+
+
+val = nuke.toNode('Matrix1')['matrix'].getValue()
+print (val)
+
+node = nuke.createNode('NoOp')
+knob = nuke.Transform2d_Knob('Transform2d' , '24_Transform2d', val)
 node.addKnob(knob)
 
 #25
@@ -495,7 +502,7 @@ print (knob.numValues())
 n = nuke.selectedNode()
 a = n['size']
 knob = (n.name() + '.' + a.name())
-print ("""Class is {0}, name is {1} and ID is {2}.""" .format(a.Class(), knob , nuke.tcl('knob', '-t', knob)))
+print ("""The knob`s class is {0}, name is "{1}" and ID is {2}.""" .format(a.Class(), a.name() , nuke.tcl('knob', '-t', knob)))
 
 
 # all knobs' name
@@ -503,7 +510,3 @@ node = nuke.selectedNode()
 for i in range(node.numKnobs()):
     knob = node.knob(i)
     print knob.name()
-
-
-print (nuke.knob(knobname, type = True))
-# Returns an int with the knob ID
