@@ -44,6 +44,8 @@ knob = nuke.File_Knob('File', '2_File_Knob')
 node.addKnob(knob)
 knob.fromUserText('/newPath.####.png')
 print (knob.getEvaluatedValue())
+print (knob.value()) # /newPath.%04d.png
+print (knob.toScript()) # /newPath.####.png
 
 #3
 node = nuke.createNode('NoOp')
@@ -54,8 +56,8 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.Enumeration_Knob('Enumeration', '4_Enumeration_Knob', ['A', 'B', 'C'])
 node.addKnob(knob)
-print (knob.enumName(0))
-print (knob.numValues())
+print (knob.enumName(1)) #options name by ID
+print (knob.numValues()) #number of options
 
 
 #5
@@ -95,7 +97,8 @@ print (knob.arraySize())
 node = nuke.createNode('NoOp')
 knob = nuke.ChannelMask_Knob('ChannelMask', '10_ChannelMask')
 node.addKnob(knob)
-# Doesn't save setting
+knob.setName('ChannelMask')
+knob.setLabel('10_ChannelMask')
 
 #11
 node = nuke.createNode('NoOp')
@@ -104,7 +107,7 @@ node.addKnob(knob)
 
 #12
 node = nuke.createNode('NoOp')
-knob = nuke.nuke.XY_Knob('XY', '12_XY') 
+knob = nuke.XY_Knob('XY', '12_XY') 
 node.addKnob(knob)
 knob.setValue(10, 0)
 knob.setValue(20, 1)
@@ -146,6 +149,7 @@ print ("""X value is %d, Y is %d, R is %d and T is %d.""" % (knob.x(), knob.y(),
 #16
 #Obsoleted by 17 - Was Size_knob ( You can create manually )
 
+
 #17
 node = nuke.createNode('NoOp')
 knob = nuke.Format_Knob('Format','17_Format')
@@ -182,8 +186,12 @@ node.addKnob(knob)
 
 #24
 #Transform2d_Knob - couldn't make it
+matrixValues = [3039.75, 176.404, 0.155272, 0.155268, -124.794, 2800.11, -0.121872, -0.121869, -547.587, -1113.77, -0.980346, -0.980326, 4755.08, 509.823, 8.00838, 8.20822]
+myMatrix = nuke.math.Matrix4()
+for val in matrixValues:
+    myMatrix[matrixValues.index(val)] = val
 node = nuke.createNode('NoOp')
-knob = nuke.Transform2d_Knob('Transform2d' , '24_Transform2d')
+knob = nuke.Transform2d_Knob('Transform2d' , '24_Transform2d', myMatrix)
 node.addKnob(knob)
 
 
@@ -217,7 +225,9 @@ node.addKnob(knob)
 #Axis_knob - 'module' object has no attribute 'Axis_knob'
 
 #30
-#UV_knob - 'module' object has no attribute 'UV_knob'
+node = nuke.createNode('NoOp')
+knob = nuke.UV_Knob('UV', '30_UV')
+node.addKnob(knob)
 
 #31
 node = nuke.createNode('NoOp')
@@ -236,15 +246,15 @@ script = """[knob tile_color [ expr { [value hide_input]? 16711935 : 4294902015 
 node = nuke.createNode('NoOp')
 knob = nuke.nuke.Script_Knob('Script', '32_Script', script) 
 node.addKnob(knob)
+print (knob.command()) # Shows the stored script
 
 #33
 node = nuke.createNode('NoOp')
-knob = nuke.nuke.LookupCurves_Knob('LookupCurves', '33_LookupCurves') 
+knob = nuke.LookupCurves_Knob('LookupCurves', '33_LookupCurves') 
 knob.addCurve('NewCurve', '(sin(2*pi*(frame)/.2))/2')
 knob.delCurve('default')
 node.addKnob(knob)
-#Use toScript to get expression value
-print (knob.toScript())
+print (knob.toScript()) #Use toScript to get expression value
 # ID 0 - Obsolete - disappear
 
 #34
@@ -303,6 +313,8 @@ node = nuke.createNode('NoOp')
 knob = nuke.Link_Knob('Link', '41_Link')
 knob.setLink('root.Blur1.size')
 node.addKnob(knob)
+print (knob.getLink()) # Result: root.Blur1.size
+print (knob.getLinkedKnob()) # Result: <WH_Knob object at 0x0000010ADB9C1D98>
 
 #42
 node = nuke.createNode('NoOp')
@@ -318,11 +330,16 @@ print ("""X is {0}, Y is {1} and Z is {2}.""" .format(knob.x(), knob.y(), knob.z
 node = nuke.createNode('NoOp')
 knob = nuke.Multiline_Eval_String_Knob('Multiline_Eval', '43_Multiline_Eval')
 node.addKnob(knob)
+knob.setText('Lorem Ipsum')
+print (knob.evaluate())
+print (knob.getText())
 
 #44
 node = nuke.createNode('NoOp')
 knob = nuke.OneView_Knob('OneView', '44_OneView', ['a','b','c'])
 node.addKnob(knob)
+print (knob.enumName(1)) #options name by ID
+print (knob.numValues()) #number of options
 # ID is 4 - Enumeration_Knob
 
 #45
@@ -377,6 +394,7 @@ knob1 = nuke.BeginTabGroup_Knob()
 knob2 = nuke.EndTabGroup_Knob()
 node.addKnob(knob1)
 node.addKnob(knob2)
+knob1.setName('TabGroup')
 knob1.setLabel('57_TabGroup')
 # Doesn't set name or label from argument
 
@@ -393,6 +411,7 @@ knob1.setLabel('57_TabGroup')
 node = nuke.createNode('NoOp')
 knob = nuke.Password_Knob('Password', '61_Password')
 node.addKnob(knob)
+knob.setValue('pw')
 
 #62
 #Toolbox_knob - DO not use
@@ -417,8 +436,10 @@ node.addKnob(knob)
 
 #68
 node = nuke.createNode('NoOp')
-knob = nuke.nuke.CascadingEnumeration_Knob('CascadingEnum', '68_CascadingEnum', ['1/A', '1/B', '1/C', '2', '3' ])
+knob = nuke.CascadingEnumeration_Knob('CascadingEnum', '68_CascadingEnum', ['1/A', '1/B', '1/C', '2', '3' ])
 node.addKnob(knob)
+print (knob.enumName(1)) #options name by ID
+print (knob.numValues()) #number of options
 
 #69
 #Dynamic_Bitmask_knob - not in the module
@@ -458,6 +479,12 @@ print(knob.getAllItems())
 node = nuke.createNode('NoOp')
 knob = nuke.IArray_Knob('Array', '78_Array', [3, 3])
 node.addKnob(knob)
+knob.setValue(1, 0)
+knob.setValue(1, 4)
+knob.setValue(1, 8)
+print (knob.dimensions())
+print (knob.width())
+print (knob.height())
 # 2 lines disappear and set animated when copied - seems broken
 
 #79
@@ -478,11 +505,19 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.Radio_Knob('Radio', '83_Radio', ('red', 'green', 'blue', 'alpha'))
 node.addKnob(knob)
+knob.setValue('blue')
+print (knob.values()) #list of options
+print (knob.enumName(1)) #options name by ID
+print (knob.numValues()) #number of options
+print (knob.value()) #result in string
+print (knob.getValue()) #result in float
 
 #84
 node = nuke.createNode('NoOp')
 knob = nuke.FreeType_Knob('Font', '84_FreeType')
 node.addKnob(knob)
+knob.setValue('Arial', 'Regular')
+print (knob.getValue()) # Result: ['Arial', 'Regular']
 
 node = nuke.createNode('NoOp')
 knob = nuke.Font_Knob('Font', 'Font')
@@ -493,9 +528,11 @@ node.addKnob(knob)
 node = nuke.createNode('NoOp')
 knob = nuke.EditableEnumeration_Knob('EditableEnumeration', 'EditableEnumeration', ['1','2','3','something'])
 node.addKnob(knob)
-print (knob.enumName(3))
-print (knob.numValues())
-
+print (knob.values()) #list of options
+print (knob.enumName(3)) #options name by ID
+print (knob.numValues()) #number of options
+print (knob.value()) #result in string
+print (knob.getValue()) #result in float
 
 
 # print knob's info
