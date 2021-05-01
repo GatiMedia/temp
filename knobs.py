@@ -487,6 +487,10 @@ print (knob.width())
 print (knob.height())
 # 2 lines disappear and set animated when copied - seems broken
 
+node = nuke.createNode('NoOp')
+knob = nuke.Unsigned_Knob('Unsigned', 'Unsigned')
+node.addKnob(knob)
+
 #79
 #ResizableArray_Knob - not in the module
 
