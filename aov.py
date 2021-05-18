@@ -82,13 +82,11 @@ def addknobs():
     node.addKnob(knobMute)
 
     #create dividing line
-    knobLine = nuke.Text_Knob('tmp')
-    knobLine.setName('')
-    knobLine.setLabel('')
+    knobLine = nuke.Text_Knob('', '')
     node.addKnob(knobLine)
 
 
-# create AOV_Beauty Tab
+### CREATE AOV_Beauty TAB ###
 knob = nuke.Tab_Knob('shaderList', 'AOV_Beauty')
 node.addKnob(knob)
 
@@ -96,7 +94,7 @@ for i in node['shaderList'].value().split(","):
     addknobs()
 
 
-# create lights Tab
+### CREATE lights TAB ###
 knob = nuke.Tab_Knob('lightList', 'lights')
 node.addKnob(knob)
 
@@ -104,7 +102,7 @@ for i in lightList:
     addknobs()
 
 
-# create AOVs Tab
+### CREATE AOVs TAB ###
 knob = nuke.Tab_Knob('aovList', 'AOVs')
 node.addKnob(knob)
 
@@ -205,9 +203,7 @@ for i in node['basecolourName'].value().split(","):
     knobanyMute.setFlag(nuke.INVISIBLE)
 
     #create dividing line
-    knobLine = nuke.Text_Knob('tmp')
-    knobLine.setName('')
-    knobLine.setLabel('')
+    knobLine = nuke.Text_Knob('', '')
     node.addKnob(knobLine)
 
 
@@ -308,9 +304,7 @@ for i in node['leftoversName'].value().split(","):
     knobanyMute.setFlag(nuke.INVISIBLE)
 
     #create dividing line
-    knobLine = nuke.Text_Knob('tmp')
-    knobLine.setName('')
-    knobLine.setLabel('')
+    knobLine = nuke.Text_Knob('', '')
     node.addKnob(knobLine)
 
 
@@ -319,9 +313,7 @@ knobGroupEnd = nuke.Tab_Knob('', None, nuke.TABENDGROUP)
 node.addKnob(knobGroupEnd)
 
 #create dividing line after EXTRAS
-knobLine = nuke.Text_Knob('tmp')
-knobLine.setName('')
-knobLine.setLabel('')
+knobLine = nuke.Text_Knob('', '')
 node.addKnob(knobLine)
 
 for i in lightList:
@@ -416,9 +408,7 @@ for i in lightList:
         knobanyMute.setFlag(nuke.INVISIBLE)
 
         #create dividing line
-        knobLine = nuke.Text_Knob('tmp')
-        knobLine.setName('')
-        knobLine.setLabel('')
+        knobLine = nuke.Text_Knob('', '')
         node.addKnob(knobLine)
 
     # create Group End
@@ -426,7 +416,83 @@ for i in lightList:
     node.addKnob(knobGroupEnd)
 
     #create dividing line
-    knobLine = nuke.Text_Knob('tmp')
-    knobLine.setName('')
-    knobLine.setLabel('')
+    knobLine = nuke.Text_Knob('', '')
     node.addKnob(knobLine)
+
+### CREATE config TAB ###
+knob = nuke.Tab_Knob('config', 'config')
+node.addKnob(knob)
+
+# create txt
+knobTxt = nuke.Text_Knob('txt', '', 'Nothing to play with here. Best not to touch.')
+node.addKnob(knobTxt)
+
+# create dividing line
+knobLine = nuke.Text_Knob('', '')
+node.addKnob(knobLine)
+
+# create shaderList stringKnob
+knobshaderList = nuke.String_Knob('_shaderList', 'shaderList')
+knobshaderList.setValue(str(node['shaderList'].value()))
+node.addKnob(knobshaderList)
+
+# create lightList stringKnob
+knoblightList = nuke.String_Knob('_lightList', 'lightList')
+knoblightList.setValue(str(node['lightList'].value())) 
+node.addKnob(knoblightList)
+
+# create aovList stringKnob
+knobaovList = nuke.String_Knob('_aovList', 'aovList')
+knobaovList.setValue(str(node['aovList'].value())) 
+node.addKnob(knobaovList)
+
+# create basecolourName stringKnob
+knobbasecolourName = nuke.String_Knob('_basecolourName', 'basecolourName')
+knobbasecolourName.setValue(str(node['basecolourName'].value())) 
+node.addKnob(knobbasecolourName)
+
+# create leftoversName stringKnob
+knobleftoversName = nuke.String_Knob('_leftoversName', 'leftoversName')
+knobleftoversName.setValue(str(node['leftoversName'].value()))
+node.addKnob(knobleftoversName)
+
+# create none_isAnyGrade
+knobnone_isAnyGrade = nuke.Boolean_Knob('none_isAnyGrade', 'none_isAnyGrade')
+node.addKnob(knobnone_isAnyGrade)
+knobnone_isAnyGrade.setFlag(nuke.INVISIBLE)
+
+# create none_isSolo
+knobnone_isSolo = nuke.Boolean_Knob('none_isSolo', 'none_isSolo')
+node.addKnob(knobnone_isSolo)
+knobnone_isSolo.setFlag(nuke.INVISIBLE)
+
+# create none_isMute
+knobnone_isMute = nuke.Boolean_Knob('none_isMute', 'none_isMute')
+node.addKnob(knobnone_isMute)
+knobnone_isMute.setFlag(nuke.INVISIBLE)
+
+# create none_isAnyMute
+knobnone_isAnyMute = nuke.Boolean_Knob('none_isAnyMute', 'none_isAnyMute')
+node.addKnob(knobnone_isAnyMute)
+knobnone_isAnyMute.setFlag(nuke.INVISIBLE)
+
+# create none_isCcDisabled
+knobnone_isCcDisabled = nuke.Boolean_Knob('none_isCcDisabled', 'none_isCcDisabled')
+node.addKnob(knobnone_isCcDisabled)
+knobnone_isCcDisabled.setFlag(nuke.INVISIBLE)
+
+### CREATE Info TAB ###
+knob = nuke.Tab_Knob('Info', 'Info')
+node.addKnob(knob)
+
+# create version txt
+knobVersion = nuke.Text_Knob('_version', 'Version', node['version'].value())
+node.addKnob(knobVersion)
+
+# create dividing line
+knobLine = nuke.Text_Knob('', '')
+node.addKnob(knobLine)
+
+# create todo txt
+knobVersion = nuke.Text_Knob('_todo', 'todo', node['todo'].value())
+node.addKnob(knobVersion)
