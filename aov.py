@@ -330,7 +330,7 @@ for i in lightList:
 
         # create exposure
         knobExpo = nuke.Color_Knob('tmp')
-        knobExpo.setName(i+'_exposure')
+        knobExpo.setName(t+'_exposure')
         knobExpo.setLabel('exposure')
         node.addKnob(knobExpo)
 
@@ -340,7 +340,7 @@ for i in lightList:
 
         # create multiply
         knobMult = nuke.Color_Knob('tmp')
-        knobMult.setName(i+'_multiply')
+        knobMult.setName(t+'_multiply')
         knobMult.setLabel('multiply')
         node.addKnob(knobMult)
         knobMult.setRange(0, 4)
@@ -350,14 +350,14 @@ for i in lightList:
 
         # create add
         knobAdd = nuke.Color_Knob('tmp')
-        knobAdd.setName(i+'_add')
+        knobAdd.setName(t+'_add')
         knobAdd.setLabel('add')
         node.addKnob(knobAdd)
         knobAdd.setRange(-1, 1)
 
         # create gamma
         knobGamma = nuke.Color_Knob('tmp')
-        knobGamma.setName(i+'_gamma')
+        knobGamma.setName(t+'_gamma')
         knobGamma.setLabel('gamma')
         node.addKnob(knobGamma)
         knobGamma.setRange(0.2, 5)
@@ -365,7 +365,7 @@ for i in lightList:
 
         # create saturation
         knobSat = nuke.Color_Knob('tmp')
-        knobSat.setName(i+'_saturation')
+        knobSat.setName(t+'_saturation')
         knobSat.setLabel('saturation')
         node.addKnob(knobSat)
         knobSat.setRange(0, 4)
