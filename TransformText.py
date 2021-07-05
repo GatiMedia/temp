@@ -59,5 +59,8 @@ else:
         except Exception:
             pass
 
+    #Selecting the Text node 
+    te.setSelected(True)
+        
 #Adding the function to the Node's menu under Transform
 nuke.menu('Nodes').addMenu('Transform').addCommand('Create Transform and Text node.', 'TransformText()', shortcut='t', icon='Transform.png')
