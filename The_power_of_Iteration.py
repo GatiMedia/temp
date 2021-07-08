@@ -1,9 +1,8 @@
-The power of Iteration
-( for loop )
+# The power of Iteration #
+## ( for loop ) ##
 
 
-
-Practice Snippets:
+# Practice Snippets #
 
     
 # Setting up size for all Blur nodes
@@ -79,7 +78,8 @@ setValue()
 setExpression()
 setInput()
 
-Getting knob’s value:
+
+# Getting knob’s value #
 
 # Get knob’s value with getValue()
 
@@ -94,7 +94,7 @@ print (nuke.toNode('Blur12')['filter'].value())
 print (nuke.toNode('Blur12')['size'].toScript())
 
 
-Practice Snippets:
+# Practice Snippets #
 
 
 # Setting a value on selected nodes
@@ -142,7 +142,7 @@ for i in nuke.selectedNodes():
     i.setInput(0, nuke.toNode('Transform1'))
     
 
-Material:
+# Extra Material #
 
 https://www.w3schools.com/python/python_for_loops.asp
 
