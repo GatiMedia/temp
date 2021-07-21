@@ -4,17 +4,17 @@
 
 # Practice Snippets #
 
-    
+
 # Setting up size for all Blur nodes
 for node in nuke.allNodes('Blur'):
     node['size'].setValue(5)
 
-    
+
 # Printing all node's name
 for node in nuke.allNodes():
     print (node['name'].value())
 
-    
+
 # Setting up selected node's size value ( with/without try )
 for node in nuke.selectedNodes():
     try:
@@ -45,9 +45,20 @@ for node in nuke.selectedNodes():
         retime.setInput(0, node)
     except Exception:
         pass
-    
+
+
+for node in nuke.selectedNodes():
+    try:
+        dot = nuke.nodes.Dot()
+        dot['xpos'].setValue(node['xpos'].value() + 35)
+        dot['ypos'].setValue(node['ypos'].value() + 100)
+        dot.setInput(0, node)
+    except Exception:
+        pass
+
+
 # Printing Range
-    
+
 for i in range(10):
     print (i)
 
@@ -66,7 +77,7 @@ for i in range(1, 10, 2):
 for i in range(10,5,-1):
     print (i)
 
-    
+
 
 Py functions needed:
 allNodes()
@@ -133,19 +144,18 @@ t = nuke.toNode('Transform1')
 nodes = nuke.selectedNodes()
 for i in nodes:
     i.setInput(0, t)
-    i.setInput(1, None)
 
 
 # Connecting selected nodes to a specified node without variables
 
 for i in nuke.selectedNodes():
     i.setInput(0, nuke.toNode('Transform1'))
-    
+
 
 # Extra Material #
 
 https://www.w3schools.com/python/python_for_loops.asp
 
 https://www.learnpython.org/en/Loops
-    
+
 https://pynative.com/python-range-function/
