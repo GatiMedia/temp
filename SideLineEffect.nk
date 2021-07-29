@@ -1,0 +1,4820 @@
+set cut_paste_input [stack 0]
+version 12.2 v3
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust80
+ tile_color 0x444444ff
+ label "<center><font color=\[value note_color]>\[value note]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 202
+ selected true
+ xpos 48944
+ ypos -24598
+ bdwidth 3400
+ bdheight 6164
+ z_order -20957600
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
+ addUserKnob {26 label_1 l <b>Label}
+ addUserKnob {43 note l Note}
+ note "SIDE LINE EFFECT"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {26 tasks l <b>Tasks}
+ addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
+ addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 reference l "<font color=white>Reference" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 Foreground l "<font color=white>Foreground" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 background l "<font color=white>Background" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<font color=white>3D" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 camera l "<font color=white>Camera" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2137407487)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')"}
+ addUserKnob {22 track l "<font color=white>Track" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1916764159)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<font color=white>Matte" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2134861567)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Fuchsia')" +STARTLINE}
+ addUserKnob {22 grade l "<font color=white>Grade" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1062830079)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065320447)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
+ addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
+ addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+ addUserKnob {26 node_color l "<b>Node Color"}
+ addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+ addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+ addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+ addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+ addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+ addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+ addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+ addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode2
+ tile_color 0x777777ff
+ label "<center><font color=orange>016_0190\nDN\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 42
+ selected true
+ xpos 51446
+ ypos -23868
+ bdwidth 377
+ bdheight 384
+ z_order -144768
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust76
+ tile_color 0x666666ff
+ label "<center><font color=\[value note_color]>\[value note]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 42
+ selected true
+ xpos 49634
+ ypos -22720
+ bdwidth 920
+ bdheight 968
+ z_order -1
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
+ addUserKnob {26 label_1 l <b>Label}
+ addUserKnob {43 note l Note}
+ note "Turning circular"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {26 tasks l <b>Tasks}
+ addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
+ addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 reference l "<font color=white>Reference" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 Foreground l "<font color=white>Foreground" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 background l "<font color=white>Background" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<font color=white>3D" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 camera l "<font color=white>Camera" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2137407487)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')"}
+ addUserKnob {22 track l "<font color=white>Track" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1916764159)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<font color=white>Matte" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2134861567)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Fuchsia')" +STARTLINE}
+ addUserKnob {22 grade l "<font color=white>Grade" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1062830079)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065320447)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
+ addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
+ addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+ addUserKnob {26 node_color l "<b>Node Color"}
+ addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+ addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+ addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+ addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+ addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+ addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+ addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+ addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust75
+ tile_color 0x666666ff
+ label "<center><font color=\[value note_color]>\[value note]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 42
+ selected true
+ xpos 49679
+ ypos -23749
+ bdwidth 610
+ bdheight 913
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
+ addUserKnob {26 label_1 l <b>Label}
+ addUserKnob {43 note l Note}
+ note "Base lines"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {26 tasks l <b>Tasks}
+ addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
+ addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 reference l "<font color=white>Reference" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 Foreground l "<font color=white>Foreground" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 background l "<font color=white>Background" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<font color=white>3D" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 camera l "<font color=white>Camera" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2137407487)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')"}
+ addUserKnob {22 track l "<font color=white>Track" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1916764159)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<font color=white>Matte" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2134861567)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Fuchsia')" +STARTLINE}
+ addUserKnob {22 grade l "<font color=white>Grade" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1062830079)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065320447)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
+ addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
+ addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+ addUserKnob {26 node_color l "<b>Node Color"}
+ addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+ addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+ addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+ addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+ addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+ addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+ addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+ addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust77
+ tile_color 0x666666ff
+ label "<center><font color=\[value note_color]>\[value note]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 42
+ selected true
+ xpos 49624
+ ypos -21613
+ bdwidth 720
+ bdheight 721
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
+ addUserKnob {26 label_1 l <b>Label}
+ addUserKnob {43 note l Note}
+ note "Side distortion"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {26 tasks l <b>Tasks}
+ addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
+ addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 reference l "<font color=white>Reference" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 Foreground l "<font color=white>Foreground" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 background l "<font color=white>Background" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<font color=white>3D" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 camera l "<font color=white>Camera" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2137407487)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')"}
+ addUserKnob {22 track l "<font color=white>Track" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1916764159)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<font color=white>Matte" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2134861567)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Fuchsia')" +STARTLINE}
+ addUserKnob {22 grade l "<font color=white>Grade" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1062830079)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065320447)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
+ addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
+ addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+ addUserKnob {26 node_color l "<b>Node Color"}
+ addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+ addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+ addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+ addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+ addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+ addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+ addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+ addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust78
+ tile_color 0x666666ff
+ label "<center><font color=\[value note_color]>\[value note]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 42
+ selected true
+ xpos 49184
+ ypos -20745
+ bdwidth 940
+ bdheight 810
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
+ addUserKnob {26 label_1 l <b>Label}
+ addUserKnob {43 note l Note}
+ note "Removing the middle section"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {26 tasks l <b>Tasks}
+ addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
+ addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 reference l "<font color=white>Reference" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 Foreground l "<font color=white>Foreground" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 background l "<font color=white>Background" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<font color=white>3D" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 camera l "<font color=white>Camera" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2137407487)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')"}
+ addUserKnob {22 track l "<font color=white>Track" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1916764159)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<font color=white>Matte" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2134861567)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Fuchsia')" +STARTLINE}
+ addUserKnob {22 grade l "<font color=white>Grade" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1062830079)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065320447)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
+ addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
+ addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+ addUserKnob {26 node_color l "<b>Node Color"}
+ addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+ addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+ addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+ addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+ addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+ addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+ addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+ addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust79
+ tile_color 0x666666ff
+ label "<center><font color=\[value note_color]>\[value note]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 42
+ selected true
+ xpos 49844
+ ypos -19803
+ bdwidth 280
+ bdheight 318
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<font color=yellow>Cover Selected Area" T "bd_this = nuke.thisNode()\nz_List = \[]\nif nuke.selectedNodes():\n\n    if nuke.selectedNodes('BackdropNode'):\n        sel_bd = nuke.selectedNodes('BackdropNode')\n        for s in sel_bd:\n            z_List.append(s\['z_order'].value())\n        else:\n            pass\n\n    if not z_List:\n        z_List.append(1)\n    z_Min = min(z_List)\n\n\n    nodes = nuke.selectedNodes()\n\n    # Calculate bounds for the backdrop node.\n    bdX = min(\[node.xpos() for node in nodes])\n    bdY = min(\[node.ypos() for node in nodes])\n    bdW = max(\[node.xpos() + node.screenWidth() for node in nodes]) - bdX\n    bdH = max(\[node.ypos() + node.screenHeight() for node in nodes]) - bdY\n\n    # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n    left, top, right, bottom = (-100, -200, 100, 100)\n    bdX += left\n    bdY += top\n    bdW += (right - left)\n    bdH += (bottom - top)\n\n    # Applying the values\n    bd_this\[\"xpos\"].setValue(bdX)\n    bd_this\[\"bdwidth\"].setValue(bdW)\n    bd_this\[\"ypos\"].setValue(bdY)\n    bd_this\[\"bdheight\"].setValue(bdH)\n    bd_this\['z_order'].setValue(z_Min - 1)\nelse:\n    nuke.message('<font color=orange><b>\\n\\nSelect some nodes first!\\n\\n')" +STARTLINE}
+ addUserKnob {26 label_1 l <b>Label}
+ addUserKnob {43 note l Note}
+ note "Zoom\neffect"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size+10)\n\nnew_size =  int(curr_size + 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {22 size_min_10 l "<font style=\"background-color:#3e4f5a\"><font color=aqua>▼ 10" -STARTLINE T "curr_size = nuke.thisNode()\['note_font_size'].value()\n\nnuke.thisNode()\['note_font_size'].setValue(curr_size-10)\n\nnew_size =  int(curr_size - 10)\n\nprint ('\\n The new font size is ' + str(new_size))"}
+ addUserKnob {26 tasks l <b>Tasks}
+ addUserKnob {22 plate l "<font color=white>Plate" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Orange')" +STARTLINE}
+ addUserKnob {22 denoise l "<font color=white>Denoise" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 reference l "<font color=white>Reference" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Orange')"}
+ addUserKnob {22 Foreground l "<font color=white>Foreground" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 background l "<font color=white>Background" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(3149642751)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<font color=white>3D" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Black')\n" +STARTLINE}
+ addUserKnob {22 camera l "<font color=white>Camera" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2137407487)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')"}
+ addUserKnob {22 track l "<font color=white>Track" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1916764159)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<font color=white>Matte" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2134861567)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Fuchsia')" +STARTLINE}
+ addUserKnob {22 grade l "<font color=white>Grade" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1062830079)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<font color=white>Lens Effect" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065320447)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<font color=white>Grain" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Aqua')" +STARTLINE}
+ addUserKnob {22 key l "<font color=white>Key" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1065310719)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Lime')"}
+ addUserKnob {22 roto l "<font color=white>Roto" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1920942079)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Yellow')"}
+ addUserKnob {26 node_color l "<b>Node Color"}
+ addUserKnob {22 red l "<font color=#a85454><big>█" T "nuke.thisNode()\['tile_color'].setValue(2134851583)" +STARTLINE}
+ addUserKnob {22 pink l "<font color=#a85470><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2134861567)"}
+ addUserKnob {22 purple l "<font color=#a8548c><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1916764159)"}
+ addUserKnob {22 blue l "<font color=#5470a8><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1062830079)"}
+ addUserKnob {22 cyan l "<font color=#54a8a8><big>█" T "nuke.thisNode()\['tile_color'].setValue(1065320447)" +STARTLINE}
+ addUserKnob {22 green l "<font color=#54a87e><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1065310719)"}
+ addUserKnob {22 olive l "<font color=#9aa854><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1920942079)"}
+ addUserKnob {22 brown l "<font color=#a87e54><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2137407487)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+100)\n\nnew_height =  int(curr_height + 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height+500)\n\nnew_height = int(curr_height + 500)\n\nprint ('\\n The new height is ' + str(new_height))\n"}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100" T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-100)\n\nnew_height = int(curr_height - 100)\n\nprint ('\\n The new height is ' + str(new_height))\n" +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500" -STARTLINE T "curr_height = nuke.thisNode()\['bdheight'].value()\n\nnuke.thisNode()\['bdheight'].setValue(curr_height-500)\n\nnew_height = int(curr_height - 500)\n\nprint ('\\n The new height is ' + str(new_height))"}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+100)\n\nnew_width =  int(curr_width + 100)\n\nprint ('\\n The new width is ' + str(new_width))\n\n" +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width+500)\n\nnew_width =  int(curr_width + 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100" T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-100)\n\nnew_width =  int(curr_width - 100)\n\nprint ('\\n The new width is ' + str(new_width))" +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500" -STARTLINE T "curr_width = nuke.thisNode()\['bdwidth'].value()\n\nnuke.thisNode()\['bdwidth'].setValue(curr_width-500)\n\nnew_width =  int(curr_width - 500)\n\nprint ('\\n The new width is ' + str(new_width))"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+Roto {
+ inputs 0
+ output alpha
+ cliptype bbox
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x450b0000 x44c18000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px x449be000
+        {x43dc0000 x43e80000}
+        {x45686667 x4543cccd}
+        {xc3dc0000 xc3e80000}
+        {xc07ffc00 x441c0002}
+        {x450d3fff x44b7ffff}
+        {x4020f000 xc3c428c4}
+        {xc4080000 x41c00000}
+        {x458f0000 xc3280000}
+        {x44080000 xc1c00000}
+        {xc3280000 xc42c0000}
+        {x45b28000 x43380000}
+        {x43280000 x442c0000}
+        {x42800000 xc3a40000}
+        {x45aa8000 x45468000}
+        {xc2800000 x43a40000}}}     idem}
+     {tx x449be000 x458c8ccd x44adcccd}
+     {a osw x41200000 osf 0 str 1 spx x450b0000 spy x44c18000 sb 1 ltn x449be000 ltm x449be000 tt x40800000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {2224 1548}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ lifetime_start 1247
+ lifetime_end 1247
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto155
+ selected true
+ xpos 49724
+ ypos -21100
+}
+Blur {
+ size 900
+ name Blur324
+ label "Size: \[value size]"
+ selected true
+ xpos 49724
+ ypos -21034
+}
+Noise {
+ inputs 0
+ type turbulence
+ size {{parent.Noise67MAIN.size}}
+ zoffset {{t/40}}
+ lacunarity {{parent.Noise67MAIN.lacunarity}}
+ gain {{parent.Noise67MAIN.gain}}
+ gamma {{parent.Noise67MAIN.gamma}}
+ translate {{-Noise67MAIN.translate.x} 0}
+ scale {{parent.Noise67MAIN.scale} {parent.Noise67MAIN.scale}}
+ center {2224 1548}
+ name Noise79
+ selected true
+ xpos 50164
+ ypos -21334
+}
+Blur {
+ size {{Blur321MAIN.size}}
+ name Blur323
+ label "Size: \[value size]"
+ selected true
+ xpos 50164
+ ypos -21274
+}
+Roto {
+ inputs 0
+ output alpha
+ cliptype bbox
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x450b0000 x44c18000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Rectangle1 512 bezier
+     {{cc
+       {f 8192}
+       {px x4497e000
+        {0 xc4060000}
+        {xc3980000 x45454000}
+        {x44f60000 0}
+        {xc4f60000 0}
+        {x45af0000 x45454000}
+        {0 xc4060000}
+        {0 x44060000}
+        {x45af0000 x44c18000}
+        {xc4f60000 0}
+        {x44f60000 0}
+        {xc3980000 x44c18000}
+        {0 x44060000}}}
+      {cc
+       {f 8192}
+       {p
+        {{{x4497e000 0}}
+      {{x4497e000 xc4060000}}}
+        {{{x4497e000 0}}
+      {{x4497e000 0}}}
+        {{{x4497e000 x44f60000}}
+      {{x4497e000 0}}}
+        {{{x4497e000 xc4f60000}}
+      {{x4497e000 0}}}
+        {{{x4497e000 0}}
+      {{x4497e000 0}}}
+        {{{x4497e000 0}}
+      {{x4497e000 xc4060000}}}
+        {{{x4497e000 0}}
+      {{x4497e000 x44060000}}}
+        {{{x4497e000 0}}
+      {{x4497e000 0}}}
+        {{{x4497e000 xc4f60000}}
+      {{x4497e000 0}}}
+        {{{x4497e000 x44f60000}}
+      {{x4497e000 0}}}
+        {{{x4497e000 0}}
+      {{x4497e000 0}}}
+        {{{x4497e000 0}}
+      {{x4497e000 x44060000}}}}}}
+     {tx x4497e000 x45258000 x45134000}
+     {a osw x41200000 osf 0 str 1 spx x450b0000 spy x44c18000 sb 1 ltn x4497e000 ltm x4497e000 tt x41000000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 tt 8 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {2224 1548}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ lifetime_start 1215
+ lifetime_end 1215
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto154
+ selected true
+ xpos 50274
+ ypos -22132
+}
+Blur {
+ size 2
+ name Blur320
+ label "Size: \[value size]"
+ selected true
+ xpos 50274
+ ypos -22090
+}
+Constant {
+ inputs 0
+ color 1
+ name Constant26
+ label "Res: \[value width] * \[value height]"
+ selected true
+ xpos 49944
+ ypos -22276
+ postage_stamp false
+}
+set Nfe46c800 [stack 0]
+Dot {
+ name Dot163
+ tile_color 0x949494ff
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 49868
+ ypos -22266
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+ tmpKeepInput Constant26
+}
+Group {
+ inputs 0
+ name GM_Moving_Lines7
+ tile_color 0xe8f57dff
+ label "offset: \[value offset_1]"
+ note_font "DejaVu Sans"
+ selected true
+ xpos 50164
+ ypos -23146
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
+ addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
+ keep_a true
+ addUserKnob {26 ""}
+ addUserKnob {41 type_1 l typ T proxy.type}
+ addUserKnob {41 axis_1 l axis T proxy.axis}
+ addUserKnob {41 direction_1 l direction T proxy.direction}
+ addUserKnob {41 thickness_1 l thickness T proxy.thickness}
+ addUserKnob {41 chew l gap T key_chew_ML.chew}
+ addUserKnob {41 speed_1 l speed T proxy.speed}
+ addUserKnob {41 value_1 l value T proxy.value}
+ addUserKnob {41 offset_1 l offset T proxy.offset}
+ addUserKnob {7 blur l Blur R 0 100}
+ addUserKnob {41 multiply l Color T Grade_ML.multiply}
+ addUserKnob {6 invert +STARTLINE}
+ invert true
+ addUserKnob {26 ""}
+ addUserKnob {6 cross l "Enable Cross" +STARTLINE}
+ addUserKnob {41 operation1 T Merge_Proxy.operation1}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix l Mix T Merge2.mix}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Moving_Lines© by Attila Gasparetz</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 180
+  ypos -874
+ }
+ Dot {
+  name Dot9
+  xpos 214
+  ypos -750
+ }
+set Nfe42e400 [stack 0]
+ Remove {
+  name Remove_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -640
+ }
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -534
+ }
+set Nfe42d600 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -534
+ }
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"y\"\} else \{return \"x\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 34.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+ }
+ Clamp {
+  name Clamp_ML1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -424
+ }
+ Group {
+  name key_chew_ML1
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos -40
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew {{parent.key_chew_ML.chew}}
+  addUserKnob {7 soften R 0 200}
+  soften {{parent.key_chew_ML.soften}}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfe401600 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfe400f00 [stack 0]
+push $Nfe400f00
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfe400f00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfe3df900 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfe3df900
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfe401600
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -270
+ }
+push $Nfe42d600
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"x\"\} else \{return \"y\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp
+  tile_color 0x555555ff
+  xpos 180
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 19.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 rotate R 0 180}
+  rotate 23.6
+ }
+ Clamp {
+  name Clamp_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -424
+ }
+ Group {
+  name key_chew_ML
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos 180
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew 60
+  addUserKnob {7 soften R 0 200}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfe17b900 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfe17b200 [stack 0]
+push $Nfe17b200
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfe17b200
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfe161d00 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfe161d00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfe17b900
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  name Merge_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -274
+  disable {{"parent.cross ==0"}}
+ }
+ Invert {
+  name Invert_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -160
+  disable {{"parent.invert == 0"}}
+ }
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -78
+ }
+set Nfe138800 [stack 0]
+ Dot {
+  name Dot2
+  xpos 214
+  ypos 18
+ }
+set Nfe138100 [stack 0]
+push $Nfe138800
+push $Nfe42d600
+ Dot {
+  name Dot1
+  xpos 544
+  ypos -534
+ }
+set Nfe113900 [stack 0]
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green black
+  blue black
+  alpha black
+  name ShuffleCopy_R
+  tile_color 0x555555ff
+  xpos 510
+  ypos -82
+ }
+ ShuffleCopy {
+  inputs 2
+  green alpha
+  blue black
+  alpha black
+  name ShuffleCopy_G
+  tile_color 0x555555ff
+  xpos 510
+  ypos 14
+ }
+ Dot {
+  name Dot12
+  xpos 544
+  ypos 66
+ }
+set Nfe112400 [stack 0]
+ Blur {
+  size {{blur}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 730
+  ypos 49
+ }
+push $Nfe113900
+ Dot {
+  name Dot10
+  xpos 1204
+  ypos -534
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+0.5)/height
+  name Expression1
+  xpos 1170
+  ypos -346
+ }
+ Merge2 {
+  inputs 2
+  mix {{Merge2.mix/5}}
+  name Merge1
+  xpos 1170
+  ypos 62
+ }
+set Nfe110800 [stack 0]
+push $Nfe110800
+push $Nfe42e400
+ Dot {
+  name Dot11
+  xpos 984
+  ypos -750
+ }
+ Shuffle {
+  alpha black
+  name Shuffle1
+  label "\[value in]"
+  xpos 950
+  ypos -184
+  disable {{!keep_a}}
+ }
+ Dot {
+  name Dot13
+  xpos 984
+  ypos 258
+ }
+set Nfe0e7200 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  label "UV: \[value uv]"
+  xpos 1170
+  ypos 241
+ }
+push $Nfe138100
+ Dot {
+  name Dot3
+  xpos 214
+  ypos 114
+ }
+set Nfe0e6400 [stack 0]
+ Dot {
+  name Dot4
+  xpos 214
+  ypos 210
+ }
+push $Nfe0e6400
+push $Nfe112400
+ ShuffleCopy {
+  inputs 2
+  blue alpha
+  alpha black
+  name ShuffleCopy_B
+  tile_color 0x555555ff
+  xpos 510
+  ypos 110
+ }
+ Grade {
+  name Grade_ML
+  xpos 510
+  ypos 158
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy_A
+  tile_color 0x555555ff
+  xpos 510
+  ypos 206
+  disable {{"parent.alpha == 0"}}
+ }
+ Blur {
+  size {{Blur1.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 510
+  ypos 265
+ }
+ Premult {
+  name Premult1
+  xpos 510
+  ypos 374
+ }
+set Nfe2c4800 [stack 0]
+push $Nfe0e7200
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 950
+  ypos 374
+ }
+push $Nfe2c4800
+ Switch {
+  inputs 4
+  which {{output}}
+  name Switch1
+  label "Which: \[value which]"
+  xpos 950
+  ypos 536
+ }
+ Output {
+  name Output
+  xpos 950
+  ypos 686
+ }
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x555555ff
+  xpos -150
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type l typ M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  addUserKnob {4 direction M {up down}}
+  addUserKnob {7 thickness R 1 100}
+  thickness 20
+  addUserKnob {7 speed R 0 2}
+  speed {{parent.parent.GM_Moving_Lines11_MAIN.proxy.speed}}
+  addUserKnob {7 value R 0 10}
+  value 10
+  addUserKnob {7 offset R 0 100}
+  offset 16
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  selected true
+  xpos 290
+  ypos -274
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 over
+ }
+end_group
+set Nfe42f200 [stack 0]
+Group {
+ name GM_Moving_Lines1
+ tile_color 0xe8f57dff
+ label "offset: \[value offset_1]"
+ note_font "DejaVu Sans"
+ selected true
+ xpos 50164
+ ypos -23074
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
+ addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
+ keep_a true
+ addUserKnob {26 ""}
+ addUserKnob {41 type_1 l typ T proxy.type}
+ addUserKnob {41 axis_1 l axis T proxy.axis}
+ addUserKnob {41 direction_1 l direction T proxy.direction}
+ addUserKnob {41 thickness_1 l thickness T proxy.thickness}
+ addUserKnob {41 chew l gap T key_chew_ML.chew}
+ addUserKnob {41 speed_1 l speed T proxy.speed}
+ addUserKnob {41 value_1 l value T proxy.value}
+ addUserKnob {41 offset_1 l offset T proxy.offset}
+ addUserKnob {7 blur l Blur R 0 100}
+ addUserKnob {41 multiply l Color T Grade_ML.multiply}
+ addUserKnob {6 invert +STARTLINE}
+ invert true
+ addUserKnob {26 ""}
+ addUserKnob {6 cross l "Enable Cross" +STARTLINE}
+ addUserKnob {41 operation1 T Merge_Proxy.operation1}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix l Mix T Merge2.mix}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Moving_Lines© by Attila Gasparetz</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 180
+  ypos -874
+ }
+ Dot {
+  name Dot9
+  xpos 214
+  ypos -750
+ }
+set Nfe298f00 [stack 0]
+ Remove {
+  name Remove_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -640
+ }
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -534
+ }
+set Nfe298100 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -534
+ }
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"y\"\} else \{return \"x\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 34.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+ }
+ Clamp {
+  name Clamp_ML1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -424
+ }
+ Group {
+  name key_chew_ML1
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos -40
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew {{parent.key_chew_ML.chew}}
+  addUserKnob {7 soften R 0 200}
+  soften {{parent.key_chew_ML.soften}}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfe278100 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfe267900 [stack 0]
+push $Nfe267900
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfe267900
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfe24e400 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfe24e400
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfe278100
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -270
+ }
+push $Nfe298100
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"x\"\} else \{return \"y\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp
+  tile_color 0x555555ff
+  xpos 180
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 19.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 rotate R 0 180}
+  rotate 23.6
+ }
+ Clamp {
+  name Clamp_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -424
+ }
+ Group {
+  name key_chew_ML
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos 180
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew 60
+  addUserKnob {7 soften R 0 200}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfe1fe400 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfe1fdd00 [stack 0]
+push $Nfe1fdd00
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfe1fdd00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfe1dc800 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfe1dc800
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfe1fe400
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  name Merge_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -274
+  disable {{"parent.cross ==0"}}
+ }
+ Invert {
+  name Invert_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -160
+  disable {{"parent.invert == 0"}}
+ }
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -78
+ }
+set Nfe383200 [stack 0]
+ Dot {
+  name Dot2
+  xpos 214
+  ypos 18
+ }
+set Nfe382b00 [stack 0]
+push $Nfe383200
+push $Nfe298100
+ Dot {
+  name Dot1
+  xpos 544
+  ypos -534
+ }
+set Nfe382400 [stack 0]
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green black
+  blue black
+  alpha black
+  name ShuffleCopy_R
+  tile_color 0x555555ff
+  xpos 510
+  ypos -82
+ }
+ ShuffleCopy {
+  inputs 2
+  green alpha
+  blue black
+  alpha black
+  name ShuffleCopy_G
+  tile_color 0x555555ff
+  xpos 510
+  ypos 14
+ }
+ Dot {
+  name Dot12
+  xpos 544
+  ypos 66
+ }
+set Nfe380f00 [stack 0]
+ Blur {
+  size {{blur}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 730
+  ypos 49
+ }
+push $Nfe382400
+ Dot {
+  name Dot10
+  xpos 1204
+  ypos -534
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+0.5)/height
+  name Expression1
+  xpos 1170
+  ypos -346
+ }
+ Merge2 {
+  inputs 2
+  mix {{Merge2.mix/5}}
+  name Merge1
+  xpos 1170
+  ypos 62
+ }
+set Nfe367200 [stack 0]
+push $Nfe367200
+push $Nfe298f00
+ Dot {
+  name Dot11
+  xpos 984
+  ypos -750
+ }
+ Shuffle {
+  alpha black
+  name Shuffle1
+  label "\[value in]"
+  xpos 950
+  ypos -184
+  disable {{!keep_a}}
+ }
+ Dot {
+  name Dot13
+  xpos 984
+  ypos 258
+ }
+set Nfe365d00 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  label "UV: \[value uv]"
+  xpos 1170
+  ypos 241
+ }
+push $Nfe382b00
+ Dot {
+  name Dot3
+  xpos 214
+  ypos 114
+ }
+set Nfe364f00 [stack 0]
+ Dot {
+  name Dot4
+  xpos 214
+  ypos 210
+ }
+push $Nfe364f00
+push $Nfe380f00
+ ShuffleCopy {
+  inputs 2
+  blue alpha
+  alpha black
+  name ShuffleCopy_B
+  tile_color 0x555555ff
+  xpos 510
+  ypos 110
+ }
+ Grade {
+  name Grade_ML
+  xpos 510
+  ypos 158
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy_A
+  tile_color 0x555555ff
+  xpos 510
+  ypos 206
+  disable {{"parent.alpha == 0"}}
+ }
+ Blur {
+  size {{Blur1.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 510
+  ypos 265
+ }
+ Premult {
+  name Premult1
+  xpos 510
+  ypos 374
+ }
+set Nfe323200 [stack 0]
+push $Nfe365d00
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 950
+  ypos 374
+ }
+push $Nfe323200
+ Switch {
+  inputs 4
+  which {{output}}
+  name Switch1
+  label "Which: \[value which]"
+  xpos 950
+  ypos 536
+ }
+ Output {
+  name Output
+  xpos 950
+  ypos 686
+ }
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x555555ff
+  xpos -150
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type l typ M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  addUserKnob {4 direction M {up down}}
+  addUserKnob {7 thickness R 1 100}
+  thickness 20
+  addUserKnob {7 speed R 0 2}
+  speed {{parent.parent.GM_Moving_Lines11_MAIN.proxy.speed}}
+  addUserKnob {7 value R 0 10}
+  value 10
+  addUserKnob {7 offset R 0 100}
+  offset 20
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  selected true
+  xpos 290
+  ypos -274
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 over
+ }
+end_group
+Constant {
+ inputs 0
+ channels rgb
+ color {0.8866667151 1 0.3333333731 1}
+ name Constant24
+ label "Res: \[value width] * \[value height]"
+ selected true
+ xpos 49724
+ ypos -23428
+ postage_stamp false
+}
+set Nfe320800 [stack 0]
+HSVTool {
+ huerotation 40
+ name HSVTool18
+ label "hue: \[value huerotation]"
+ selected true
+ xpos 49724
+ ypos -23362
+}
+set Nfe2fb900 [stack 0]
+HSVTool {
+ huerotation 40
+ name HSVTool19
+ label "hue: \[value huerotation]"
+ selected true
+ xpos 49724
+ ypos -23290
+}
+set Nfe2fa400 [stack 0]
+HSVTool {
+ huerotation 40
+ name HSVTool20
+ label "hue: \[value huerotation]"
+ selected true
+ xpos 49724
+ ypos -23218
+}
+set Nfe2f8f00 [stack 0]
+HSVTool {
+ huerotation 40
+ name HSVTool21
+ label "hue: \[value huerotation]"
+ selected true
+ xpos 49724
+ ypos -23146
+}
+set Nfe2db900 [stack 0]
+HSVTool {
+ huerotation 40
+ name HSVTool22
+ label "hue: \[value huerotation]"
+ selected true
+ xpos 49724
+ ypos -23074
+}
+push $Nfe42f200
+push $Nfe2db900
+Group {
+ inputs 0
+ name GM_Moving_Lines8
+ tile_color 0xe8f57dff
+ label "offset: \[value offset_1]"
+ note_font "DejaVu Sans"
+ selected true
+ xpos 50164
+ ypos -23218
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
+ addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
+ keep_a true
+ addUserKnob {26 ""}
+ addUserKnob {41 type_1 l typ T proxy.type}
+ addUserKnob {41 axis_1 l axis T proxy.axis}
+ addUserKnob {41 direction_1 l direction T proxy.direction}
+ addUserKnob {41 thickness_1 l thickness T proxy.thickness}
+ addUserKnob {41 chew l gap T key_chew_ML.chew}
+ addUserKnob {41 speed_1 l speed T proxy.speed}
+ addUserKnob {41 value_1 l value T proxy.value}
+ addUserKnob {41 offset_1 l offset T proxy.offset}
+ addUserKnob {7 blur l Blur R 0 100}
+ addUserKnob {41 multiply l Color T Grade_ML.multiply}
+ addUserKnob {6 invert +STARTLINE}
+ invert true
+ addUserKnob {26 ""}
+ addUserKnob {6 cross l "Enable Cross" +STARTLINE}
+ addUserKnob {41 operation1 T Merge_Proxy.operation1}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix l Mix T Merge2.mix}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Moving_Lines© by Attila Gasparetz</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 180
+  ypos -874
+ }
+ Dot {
+  name Dot9
+  xpos 214
+  ypos -750
+ }
+set Nfe2d8100 [stack 0]
+ Remove {
+  name Remove_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -640
+ }
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -534
+ }
+set Nfde2f200 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -534
+ }
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"y\"\} else \{return \"x\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 34.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+ }
+ Clamp {
+  name Clamp_ML1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -424
+ }
+ Group {
+  name key_chew_ML1
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos -40
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew {{parent.key_chew_ML.chew}}
+  addUserKnob {7 soften R 0 200}
+  soften {{parent.key_chew_ML.soften}}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfde17200 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfde16b00 [stack 0]
+push $Nfde16b00
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfde16b00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfddf5600 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfddf5600
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfde17200
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -270
+ }
+push $Nfde2f200
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"x\"\} else \{return \"y\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp
+  tile_color 0x555555ff
+  xpos 180
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 19.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 rotate R 0 180}
+  rotate 23.6
+ }
+ Clamp {
+  name Clamp_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -424
+ }
+ Group {
+  name key_chew_ML
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos 180
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew 60
+  addUserKnob {7 soften R 0 200}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfddad600 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfddacf00 [stack 0]
+push $Nfddacf00
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfddacf00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfdd8b900 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfdd8b900
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfddad600
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  name Merge_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -274
+  disable {{"parent.cross ==0"}}
+ }
+ Invert {
+  name Invert_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -160
+  disable {{"parent.invert == 0"}}
+ }
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -78
+ }
+set Nfdb4a400 [stack 0]
+ Dot {
+  name Dot2
+  xpos 214
+  ypos 18
+ }
+set Nfdb49d00 [stack 0]
+push $Nfdb4a400
+push $Nfde2f200
+ Dot {
+  name Dot1
+  xpos 544
+  ypos -534
+ }
+set Nfdb49600 [stack 0]
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green black
+  blue black
+  alpha black
+  name ShuffleCopy_R
+  tile_color 0x555555ff
+  xpos 510
+  ypos -82
+ }
+ ShuffleCopy {
+  inputs 2
+  green alpha
+  blue black
+  alpha black
+  name ShuffleCopy_G
+  tile_color 0x555555ff
+  xpos 510
+  ypos 14
+ }
+ Dot {
+  name Dot12
+  xpos 544
+  ypos 66
+ }
+set Nfdb48100 [stack 0]
+ Blur {
+  size {{blur}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 730
+  ypos 49
+ }
+push $Nfdb49600
+ Dot {
+  name Dot10
+  xpos 1204
+  ypos -534
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+0.5)/height
+  name Expression1
+  xpos 1170
+  ypos -346
+ }
+ Merge2 {
+  inputs 2
+  mix {{Merge2.mix/5}}
+  name Merge1
+  xpos 1170
+  ypos 62
+ }
+set Nfdb16400 [stack 0]
+push $Nfdb16400
+push $Nfe2d8100
+ Dot {
+  name Dot11
+  xpos 984
+  ypos -750
+ }
+ Shuffle {
+  alpha black
+  name Shuffle1
+  label "\[value in]"
+  xpos 950
+  ypos -184
+  disable {{!keep_a}}
+ }
+ Dot {
+  name Dot13
+  xpos 984
+  ypos 258
+ }
+set Nfdb14f00 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  label "UV: \[value uv]"
+  xpos 1170
+  ypos 241
+ }
+push $Nfdb49d00
+ Dot {
+  name Dot3
+  xpos 214
+  ypos 114
+ }
+set Nfdb14100 [stack 0]
+ Dot {
+  name Dot4
+  xpos 214
+  ypos 210
+ }
+push $Nfdb14100
+push $Nfdb48100
+ ShuffleCopy {
+  inputs 2
+  blue alpha
+  alpha black
+  name ShuffleCopy_B
+  tile_color 0x555555ff
+  xpos 510
+  ypos 110
+ }
+ Grade {
+  name Grade_ML
+  xpos 510
+  ypos 158
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy_A
+  tile_color 0x555555ff
+  xpos 510
+  ypos 206
+  disable {{"parent.alpha == 0"}}
+ }
+ Blur {
+  size {{Blur1.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 510
+  ypos 265
+ }
+ Premult {
+  name Premult1
+  xpos 510
+  ypos 374
+ }
+set Nfdade400 [stack 0]
+push $Nfdb14f00
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 950
+  ypos 374
+ }
+push $Nfdade400
+ Switch {
+  inputs 4
+  which {{output}}
+  name Switch1
+  label "Which: \[value which]"
+  xpos 950
+  ypos 536
+ }
+ Output {
+  name Output
+  xpos 950
+  ypos 686
+ }
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x555555ff
+  xpos -150
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type l typ M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  addUserKnob {4 direction M {up down}}
+  addUserKnob {7 thickness R 1 100}
+  thickness 20
+  addUserKnob {7 speed R 0 2}
+  speed {{parent.parent.GM_Moving_Lines11_MAIN.proxy.speed}}
+  addUserKnob {7 value R 0 10}
+  value 10
+  addUserKnob {7 offset R 0 100}
+  offset 12
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  selected true
+  xpos 290
+  ypos -274
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 over
+ }
+end_group
+push $Nfe2f8f00
+Group {
+ inputs 0
+ name GM_Moving_Lines9
+ tile_color 0xe8f57dff
+ label "offset: \[value offset_1]"
+ note_font "DejaVu Sans"
+ selected true
+ xpos 50164
+ ypos -23290
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
+ addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
+ keep_a true
+ addUserKnob {26 ""}
+ addUserKnob {41 type_1 l typ T proxy.type}
+ addUserKnob {41 axis_1 l axis T proxy.axis}
+ addUserKnob {41 direction_1 l direction T proxy.direction}
+ addUserKnob {41 thickness_1 l thickness T proxy.thickness}
+ addUserKnob {41 chew l gap T key_chew_ML.chew}
+ addUserKnob {41 speed_1 l speed T proxy.speed}
+ addUserKnob {41 value_1 l value T proxy.value}
+ addUserKnob {41 offset_1 l offset T proxy.offset}
+ addUserKnob {7 blur l Blur R 0 100}
+ addUserKnob {41 multiply l Color T Grade_ML.multiply}
+ addUserKnob {6 invert +STARTLINE}
+ invert true
+ addUserKnob {26 ""}
+ addUserKnob {6 cross l "Enable Cross" +STARTLINE}
+ addUserKnob {41 operation1 T Merge_Proxy.operation1}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix l Mix T Merge2.mix}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Moving_Lines© by Attila Gasparetz</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 180
+  ypos -874
+ }
+ Dot {
+  name Dot9
+  xpos 214
+  ypos -750
+ }
+set Nfdaa6b00 [stack 0]
+ Remove {
+  name Remove_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -640
+ }
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -534
+ }
+set Nfdaa5d00 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -534
+ }
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"y\"\} else \{return \"x\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 34.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+ }
+ Clamp {
+  name Clamp_ML1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -424
+ }
+ Group {
+  name key_chew_ML1
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos -40
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew {{parent.key_chew_ML.chew}}
+  addUserKnob {7 soften R 0 200}
+  soften {{parent.key_chew_ML.soften}}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfda85d00 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfda85600 [stack 0]
+push $Nfda85600
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfda85600
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfda68100 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfda68100
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfda85d00
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -270
+ }
+push $Nfdaa5d00
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"x\"\} else \{return \"y\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp
+  tile_color 0x555555ff
+  xpos 180
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 19.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 rotate R 0 180}
+  rotate 23.6
+ }
+ Clamp {
+  name Clamp_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -424
+ }
+ Group {
+  name key_chew_ML
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos 180
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew 60
+  addUserKnob {7 soften R 0 200}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfdc1c100 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfdc0b900 [stack 0]
+push $Nfdc0b900
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfdc0b900
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfdbea400 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfdbea400
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfdc1c100
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  name Merge_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -274
+  disable {{"parent.cross ==0"}}
+ }
+ Invert {
+  name Invert_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -160
+  disable {{"parent.invert == 0"}}
+ }
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -78
+ }
+set Nfdbbcf00 [stack 0]
+ Dot {
+  name Dot2
+  xpos 214
+  ypos 18
+ }
+set Nfdbbc800 [stack 0]
+push $Nfdbbcf00
+push $Nfdaa5d00
+ Dot {
+  name Dot1
+  xpos 544
+  ypos -534
+ }
+set Nfdbbc100 [stack 0]
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green black
+  blue black
+  alpha black
+  name ShuffleCopy_R
+  tile_color 0x555555ff
+  xpos 510
+  ypos -82
+ }
+ ShuffleCopy {
+  inputs 2
+  green alpha
+  blue black
+  alpha black
+  name ShuffleCopy_G
+  tile_color 0x555555ff
+  xpos 510
+  ypos 14
+ }
+ Dot {
+  name Dot12
+  xpos 544
+  ypos 66
+ }
+set Nfdb9ab00 [stack 0]
+ Blur {
+  size {{blur}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 730
+  ypos 49
+ }
+push $Nfdbbc100
+ Dot {
+  name Dot10
+  xpos 1204
+  ypos -534
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+0.5)/height
+  name Expression1
+  xpos 1170
+  ypos -346
+ }
+ Merge2 {
+  inputs 2
+  mix {{Merge2.mix/5}}
+  name Merge1
+  xpos 1170
+  ypos 62
+ }
+set Nfdb98f00 [stack 0]
+push $Nfdb98f00
+push $Nfdaa6b00
+ Dot {
+  name Dot11
+  xpos 984
+  ypos -750
+ }
+ Shuffle {
+  alpha black
+  name Shuffle1
+  label "\[value in]"
+  xpos 950
+  ypos -184
+  disable {{!keep_a}}
+ }
+ Dot {
+  name Dot13
+  xpos 984
+  ypos 258
+ }
+set Nfdb6b900 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  label "UV: \[value uv]"
+  xpos 1170
+  ypos 241
+ }
+push $Nfdbbc800
+ Dot {
+  name Dot3
+  xpos 214
+  ypos 114
+ }
+set Nfdb6ab00 [stack 0]
+ Dot {
+  name Dot4
+  xpos 214
+  ypos 210
+ }
+push $Nfdb6ab00
+push $Nfdb9ab00
+ ShuffleCopy {
+  inputs 2
+  blue alpha
+  alpha black
+  name ShuffleCopy_B
+  tile_color 0x555555ff
+  xpos 510
+  ypos 110
+ }
+ Grade {
+  name Grade_ML
+  xpos 510
+  ypos 158
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy_A
+  tile_color 0x555555ff
+  xpos 510
+  ypos 206
+  disable {{"parent.alpha == 0"}}
+ }
+ Blur {
+  size {{Blur1.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 510
+  ypos 265
+ }
+ Premult {
+  name Premult1
+  xpos 510
+  ypos 374
+ }
+set Nfdd48f00 [stack 0]
+push $Nfdb6b900
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 950
+  ypos 374
+ }
+push $Nfdd48f00
+ Switch {
+  inputs 4
+  which {{output}}
+  name Switch1
+  label "Which: \[value which]"
+  xpos 950
+  ypos 536
+ }
+ Output {
+  name Output
+  xpos 950
+  ypos 686
+ }
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x555555ff
+  xpos -150
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type l typ M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  addUserKnob {4 direction M {up down}}
+  addUserKnob {7 thickness R 1 100}
+  thickness 20
+  addUserKnob {7 speed R 0 2}
+  speed {{parent.parent.GM_Moving_Lines11_MAIN.proxy.speed}}
+  addUserKnob {7 value R 0 10}
+  value 10
+  addUserKnob {7 offset R 0 100}
+  offset 8
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  selected true
+  xpos 290
+  ypos -274
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 over
+ }
+end_group
+push $Nfe2fa400
+Group {
+ inputs 0
+ name GM_Moving_Lines2
+ tile_color 0xe8f57dff
+ label "offset: \[value offset_1]"
+ note_font "DejaVu Sans"
+ selected true
+ xpos 50164
+ ypos -23362
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
+ addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
+ keep_a true
+ addUserKnob {26 ""}
+ addUserKnob {41 type_1 l typ T proxy.type}
+ addUserKnob {41 axis_1 l axis T proxy.axis}
+ addUserKnob {41 direction_1 l direction T proxy.direction}
+ addUserKnob {41 thickness_1 l thickness T proxy.thickness}
+ addUserKnob {41 chew l gap T key_chew_ML.chew}
+ addUserKnob {41 speed_1 l speed T proxy.speed}
+ addUserKnob {41 value_1 l value T proxy.value}
+ addUserKnob {41 offset_1 l offset T proxy.offset}
+ addUserKnob {7 blur l Blur R 0 100}
+ addUserKnob {41 multiply l Color T Grade_ML.multiply}
+ addUserKnob {6 invert +STARTLINE}
+ invert true
+ addUserKnob {26 ""}
+ addUserKnob {6 cross l "Enable Cross" +STARTLINE}
+ addUserKnob {41 operation1 T Merge_Proxy.operation1}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix l Mix T Merge2.mix}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Moving_Lines© by Attila Gasparetz</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 180
+  ypos -874
+ }
+ Dot {
+  name Dot9
+  xpos 214
+  ypos -750
+ }
+set Nfdd15600 [stack 0]
+ Remove {
+  name Remove_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -640
+ }
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -534
+ }
+set Nfdd14800 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -534
+ }
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"y\"\} else \{return \"x\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 34.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+ }
+ Clamp {
+  name Clamp_ML1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -424
+ }
+ Group {
+  name key_chew_ML1
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos -40
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew {{parent.key_chew_ML.chew}}
+  addUserKnob {7 soften R 0 200}
+  soften {{parent.key_chew_ML.soften}}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfdd00800 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfdd00100 [stack 0]
+push $Nfdd00100
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfdd00100
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfdcceb00 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfdcceb00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfdd00800
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -270
+ }
+push $Nfdd14800
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"x\"\} else \{return \"y\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp
+  tile_color 0x555555ff
+  xpos 180
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 19.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 rotate R 0 180}
+  rotate 23.6
+ }
+ Clamp {
+  name Clamp_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -424
+ }
+ Group {
+  name key_chew_ML
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos 180
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew 60
+  addUserKnob {7 soften R 0 200}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfdc76b00 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfdc76400 [stack 0]
+push $Nfdc76400
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfdc76400
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfdc54f00 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfdc54f00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfdc76b00
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  name Merge_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -274
+  disable {{"parent.cross ==0"}}
+ }
+ Invert {
+  name Invert_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -160
+  disable {{"parent.invert == 0"}}
+ }
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -78
+ }
+set Nfd98b900 [stack 0]
+ Dot {
+  name Dot2
+  xpos 214
+  ypos 18
+ }
+set Nfd98b200 [stack 0]
+push $Nfd98b900
+push $Nfdd14800
+ Dot {
+  name Dot1
+  xpos 544
+  ypos -534
+ }
+set Nfd98ab00 [stack 0]
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green black
+  blue black
+  alpha black
+  name ShuffleCopy_R
+  tile_color 0x555555ff
+  xpos 510
+  ypos -82
+ }
+ ShuffleCopy {
+  inputs 2
+  green alpha
+  blue black
+  alpha black
+  name ShuffleCopy_G
+  tile_color 0x555555ff
+  xpos 510
+  ypos 14
+ }
+ Dot {
+  name Dot12
+  xpos 544
+  ypos 66
+ }
+set Nfd989600 [stack 0]
+ Blur {
+  size {{blur}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 730
+  ypos 49
+ }
+push $Nfd98ab00
+ Dot {
+  name Dot10
+  xpos 1204
+  ypos -534
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+0.5)/height
+  name Expression1
+  xpos 1170
+  ypos -346
+ }
+ Merge2 {
+  inputs 2
+  mix {{Merge2.mix/5}}
+  name Merge1
+  xpos 1170
+  ypos 62
+ }
+set Nfd963900 [stack 0]
+push $Nfd963900
+push $Nfdd15600
+ Dot {
+  name Dot11
+  xpos 984
+  ypos -750
+ }
+ Shuffle {
+  alpha black
+  name Shuffle1
+  label "\[value in]"
+  xpos 950
+  ypos -184
+  disable {{!keep_a}}
+ }
+ Dot {
+  name Dot13
+  xpos 984
+  ypos 258
+ }
+set Nfd962400 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  label "UV: \[value uv]"
+  xpos 1170
+  ypos 241
+ }
+push $Nfd98b200
+ Dot {
+  name Dot3
+  xpos 214
+  ypos 114
+ }
+set Nfd961600 [stack 0]
+ Dot {
+  name Dot4
+  xpos 214
+  ypos 210
+ }
+push $Nfd961600
+push $Nfd989600
+ ShuffleCopy {
+  inputs 2
+  blue alpha
+  alpha black
+  name ShuffleCopy_B
+  tile_color 0x555555ff
+  xpos 510
+  ypos 110
+ }
+ Grade {
+  name Grade_ML
+  xpos 510
+  ypos 158
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy_A
+  tile_color 0x555555ff
+  xpos 510
+  ypos 206
+  disable {{"parent.alpha == 0"}}
+ }
+ Blur {
+  size {{Blur1.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 510
+  ypos 265
+ }
+ Premult {
+  name Premult1
+  xpos 510
+  ypos 374
+ }
+set Nfd917900 [stack 0]
+push $Nfd962400
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 950
+  ypos 374
+ }
+push $Nfd917900
+ Switch {
+  inputs 4
+  which {{output}}
+  name Switch1
+  label "Which: \[value which]"
+  xpos 950
+  ypos 536
+ }
+ Output {
+  name Output
+  xpos 950
+  ypos 686
+ }
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x555555ff
+  xpos -150
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type l typ M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  addUserKnob {4 direction M {up down}}
+  addUserKnob {7 thickness R 1 100}
+  thickness 20
+  addUserKnob {7 speed R 0 2}
+  speed {{parent.parent.GM_Moving_Lines11_MAIN.proxy.speed}}
+  addUserKnob {7 value R 0 10}
+  value 10
+  addUserKnob {7 offset R 0 100}
+  offset 4
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  selected true
+  xpos 290
+  ypos -274
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 over
+ }
+end_group
+push $Nfe2fb900
+Group {
+ inputs 0
+ name GM_Moving_Lines11_MAIN
+ tile_color 0xe8f57dff
+ label "offset: \[value offset_1]"
+ note_font "DejaVu Sans"
+ selected true
+ xpos 50164
+ ypos -23434
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
+ addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
+ keep_a true
+ addUserKnob {26 ""}
+ addUserKnob {41 type_1 l typ T proxy.type}
+ addUserKnob {41 axis_1 l axis T proxy.axis}
+ addUserKnob {41 direction_1 l direction T proxy.direction}
+ addUserKnob {41 thickness_1 l thickness T proxy.thickness}
+ addUserKnob {41 chew l gap T key_chew_ML.chew}
+ addUserKnob {41 speed_1 l speed T proxy.speed}
+ addUserKnob {41 value_1 l value T proxy.value}
+ addUserKnob {41 offset_1 l offset T proxy.offset}
+ addUserKnob {7 blur l Blur R 0 100}
+ addUserKnob {41 multiply l Color T Grade_ML.multiply}
+ addUserKnob {6 invert +STARTLINE}
+ invert true
+ addUserKnob {26 ""}
+ addUserKnob {6 cross l "Enable Cross" +STARTLINE}
+ addUserKnob {41 operation1 T Merge_Proxy.operation1}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix l Mix T Merge2.mix}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Moving_Lines© by Attila Gasparetz</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 180
+  ypos -874
+ }
+ Dot {
+  name Dot9
+  xpos 214
+  ypos -750
+ }
+set Nfd914100 [stack 0]
+ Remove {
+  name Remove_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -640
+ }
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -534
+ }
+set Nfd8fb200 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -534
+ }
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"y\"\} else \{return \"x\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 34.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+ }
+ Clamp {
+  name Clamp_ML1
+  tile_color 0x555555ff
+  xpos -40
+  ypos -424
+ }
+ Group {
+  name key_chew_ML1
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos -40
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew {{parent.key_chew_ML.chew}}
+  addUserKnob {7 soften R 0 200}
+  soften {{parent.key_chew_ML.soften}}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfd8db200 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfd8dab00 [stack 0]
+push $Nfd8dab00
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfd8dab00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfd6a5600 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfd6a5600
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfd8db200
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos -6
+  ypos -270
+ }
+push $Nfd8fb200
+ Expression {
+  channel3 alpha
+  expr3 "( \[value proxy.type](\[if \{\[numvalue proxy.axis] == 0\} \{return \"x\"\} else \{return \"y\"\}]/proxy.thickness \[if \{\[numvalue proxy.direction] == 0\} \{return \"-\"\} else \{return \"+\"\}]  (frame+proxy.offset)*proxy.speed )  )*proxy.value"
+  name Moving_Lines_Exp
+  tile_color 0x555555ff
+  xpos 180
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  axis y
+  addUserKnob {4 direction M {up down}}
+  direction down
+  addUserKnob {7 thickness R 1 100}
+  thickness 19.5
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 1
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 rotate R 0 180}
+  rotate 23.6
+ }
+ Clamp {
+  name Clamp_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -424
+ }
+ Group {
+  name key_chew_ML
+  help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
+  tile_color 0x555555ff
+  xpos 180
+  ypos -346
+  addUserKnob {20 Controls}
+  addUserKnob {7 chew t "\t\t" R -200 200}
+  chew 60
+  addUserKnob {7 soften R 0 200}
+  addUserKnob {6 matteMult +STARTLINE}
+ }
+  Input {
+   inputs 0
+   name Input
+   xpos 0
+  }
+set Nfd669600 [stack 0]
+  Dot {
+   name Dot1
+   xpos 366
+   ypos 5
+  }
+set Nfd668f00 [stack 0]
+push $Nfd668f00
+  Invert {
+   name Invert1
+   xpos 177
+   ypos 34
+  }
+push $Nfd668f00
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch1
+   xpos 177
+   ypos 87
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.chew]))/4)+(floor(abs(\[value parent.chew]))/8)" i}}
+   name FgEdgeBlur
+   xpos 177
+   ypos 111
+  }
+  Grade {
+   channels alpha
+   multiply {1 1 1 {max(FgEdgeBlur.size*1.5,1) i}}
+   black_clamp false
+   name FgEdgeMult
+   xpos 177
+   ypos 165
+  }
+  Grade {
+   channels alpha
+   gamma {1 1 1 {JSplineVFake(floor(abs(parent.chew))) i}}
+   name FgEdgeGamma1
+   xpos 177
+   ypos 213
+   addUserKnob {20 User}
+   addUserKnob {7 JSplineVFake}
+   JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
+  }
+set Nfd63b900 [stack 0]
+  Merge2 {
+   inputs 2
+   operation minus
+   name Merge1
+   xpos 332
+   ypos 218
+  }
+push $Nfd63b900
+  Switch {
+   inputs 2
+   which {{"\[value parent.chew]>=0?0:1"}}
+   name Switch2
+   xpos 177
+   ypos 284
+  }
+  Clamp {
+   name Clamp2
+   xpos 177
+   ypos 323
+  }
+  Blur {
+   size {{"(floor(abs(\[value parent.soften]))/4)+(floor(abs(\[value parent.soften]))/8)"}}
+   name BlurResult
+   xpos 177
+   ypos 446
+  }
+push $Nfd669600
+  ShuffleCopy {
+   inputs 2
+   name ShuffleCopy1
+   xpos 0
+   ypos 451
+  }
+  Premult {
+   name Premult1
+   xpos 0
+   ypos 486
+   disable {{"1-\[value parent.matteMult]" i}}
+  }
+  Output {
+   name Output1
+   xpos 0
+   ypos 556
+  }
+ end_group
+ Merge2 {
+  inputs 2
+  operation {{Merge_Proxy.operation1}}
+  name Merge_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -274
+  disable {{"parent.cross ==0"}}
+ }
+ Invert {
+  name Invert_ML
+  tile_color 0x555555ff
+  xpos 180
+  ypos -160
+  disable {{"parent.invert == 0"}}
+ }
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 214
+  ypos -78
+ }
+set Nfd5fe400 [stack 0]
+ Dot {
+  name Dot2
+  xpos 214
+  ypos 18
+ }
+set Nfd5fdd00 [stack 0]
+push $Nfd5fe400
+push $Nfd8fb200
+ Dot {
+  name Dot1
+  xpos 544
+  ypos -534
+ }
+set Nfd5fd600 [stack 0]
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green black
+  blue black
+  alpha black
+  name ShuffleCopy_R
+  tile_color 0x555555ff
+  xpos 510
+  ypos -82
+ }
+ ShuffleCopy {
+  inputs 2
+  green alpha
+  blue black
+  alpha black
+  name ShuffleCopy_G
+  tile_color 0x555555ff
+  xpos 510
+  ypos 14
+ }
+ Dot {
+  name Dot12
+  xpos 544
+  ypos 66
+ }
+set Nfd5fc100 [stack 0]
+ Blur {
+  size {{blur}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 730
+  ypos 49
+ }
+push $Nfd5fd600
+ Dot {
+  name Dot10
+  xpos 1204
+  ypos -534
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+0.5)/height
+  name Expression1
+  xpos 1170
+  ypos -346
+ }
+ Merge2 {
+  inputs 2
+  mix {{Merge2.mix/5}}
+  name Merge1
+  xpos 1170
+  ypos 62
+ }
+set Nfd5e2400 [stack 0]
+push $Nfd5e2400
+push $Nfd914100
+ Dot {
+  name Dot11
+  xpos 984
+  ypos -750
+ }
+ Shuffle {
+  alpha black
+  name Shuffle1
+  label "\[value in]"
+  xpos 950
+  ypos -184
+  disable {{!keep_a}}
+ }
+ Dot {
+  name Dot13
+  xpos 984
+  ypos 258
+ }
+set Nfd5e0f00 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  label "UV: \[value uv]"
+  xpos 1170
+  ypos 241
+ }
+push $Nfd5fdd00
+ Dot {
+  name Dot3
+  xpos 214
+  ypos 114
+ }
+set Nfd5e0100 [stack 0]
+ Dot {
+  name Dot4
+  xpos 214
+  ypos 210
+ }
+push $Nfd5e0100
+push $Nfd5fc100
+ ShuffleCopy {
+  inputs 2
+  blue alpha
+  alpha black
+  name ShuffleCopy_B
+  tile_color 0x555555ff
+  xpos 510
+  ypos 110
+ }
+ Grade {
+  name Grade_ML
+  xpos 510
+  ypos 158
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy_A
+  tile_color 0x555555ff
+  xpos 510
+  ypos 206
+  disable {{"parent.alpha == 0"}}
+ }
+ Blur {
+  size {{Blur1.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 510
+  ypos 265
+ }
+ Premult {
+  name Premult1
+  xpos 510
+  ypos 374
+ }
+set Nfd7a2400 [stack 0]
+push $Nfd5e0f00
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 950
+  ypos 374
+ }
+push $Nfd7a2400
+ Switch {
+  inputs 4
+  which {{output}}
+  name Switch1
+  label "Which: \[value which]"
+  xpos 950
+  ypos 536
+ }
+ Output {
+  name Output
+  xpos 950
+  ypos 686
+ }
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x555555ff
+  xpos -150
+  ypos -490
+  addUserKnob {20 User}
+  addUserKnob {4 type l typ M {sin cos tan}}
+  addUserKnob {4 axis M {x y}}
+  addUserKnob {4 direction M {up down}}
+  addUserKnob {7 thickness R 1 100}
+  thickness 20
+  addUserKnob {7 speed R 0 2}
+  speed 0.3
+  addUserKnob {7 value R 0 10}
+  value 10
+  addUserKnob {7 offset R 0 100}
+ }
+ NoOp {
+  inputs 0
+  name Merge_Proxy
+  selected true
+  xpos 290
+  ypos -274
+  addUserKnob {20 User}
+  addUserKnob {4 operation1 M {atop average color-burn color-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor ""}}
+  operation1 over
+ }
+end_group
+push $Nfe320800
+Constant {
+ inputs 0
+ channels rgb
+ name Constant25
+ label "Res: \[value width] * \[value height]"
+ selected true
+ xpos 49944
+ ypos -23548
+ postage_stamp false
+}
+Keymix {
+ inputs 3
+ name Keymix30
+ selected true
+ xpos 49944
+ ypos -23428
+}
+Keymix {
+ inputs 3
+ name Keymix31
+ selected true
+ xpos 49944
+ ypos -23356
+}
+Keymix {
+ inputs 3
+ name Keymix32
+ selected true
+ xpos 49944
+ ypos -23284
+}
+Keymix {
+ inputs 3
+ name Keymix33
+ selected true
+ xpos 49944
+ ypos -23212
+}
+Keymix {
+ inputs 3
+ name Keymix34
+ selected true
+ xpos 49944
+ ypos -23140
+}
+Keymix {
+ inputs 3
+ name Keymix38
+ selected true
+ xpos 49944
+ ypos -23068
+}
+Blur {
+ size {40 0}
+ name Blur322
+ label "Size: \[value size]"
+ selected true
+ xpos 49944
+ ypos -22978
+}
+ColorCorrect {
+ contrast 1.4
+ name ColorCorrect3
+ label "contrast: \[value contrast]"
+ selected true
+ xpos 49944
+ ypos -22900
+}
+Dot {
+ name Dot158
+ tile_color 0x949494ff
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 49978
+ ypos -22434
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+ tmpKeepInput ColorCorrect3
+}
+Dot {
+ name Dot159
+ tile_color 0x949494ff
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 50198
+ ypos -22434
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+ tmpKeepInput Dot158
+}
+Transform {
+ rotate 90
+ scale {1 2}
+ center {2224 1548}
+ shutteroffset centred
+ name Transform69
+ selected true
+ xpos 50164
+ ypos -22318
+}
+SphericalTransform {
+ input "Lat Long map"
+ rx 90
+ output "Mirror Ball"
+ format "4096 4096 0 0 4096 4096 1 4K_Square"
+ fix true
+ name SphericalTransform6
+ selected true
+ xpos 50164
+ ypos -22252
+}
+Transform {
+ translate {178 -498}
+ scale {1.086 0.754}
+ center {2048 2048}
+ shutteroffset centred
+ name Transform70
+ selected true
+ xpos 50164
+ ypos -22150
+}
+push $Nfe46c800
+Keymix {
+ inputs 3
+ name Keymix35
+ selected true
+ xpos 49944
+ ypos -22156
+}
+set Nfd70f900 [stack 0]
+Mirror2 {
+ flip true
+ name Mirror2_8
+ selected true
+ xpos 49834
+ ypos -22078
+}
+push $Nfd70f900
+Keymix {
+ inputs 3
+ name Keymix36
+ selected true
+ xpos 49944
+ ypos -22084
+}
+Transform {
+ scale 4
+ center {2224 1548}
+ shutteroffset centred
+ name Transform71
+ label "scale: \[value scale]"
+ selected true
+ xpos 49944
+ ypos -21964
+}
+Blur {
+ size 100
+ name Blur326
+ label "Size: \[value size]"
+ selected true
+ xpos 49944
+ ypos -21826
+}
+Crop {
+ box {0 0 4448 3096}
+ name Crop70
+ label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+ selected true
+ xpos 49944
+ ypos -21412
+}
+set Nfd70d600 [stack 0]
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy46
+ selected true
+ xpos 50054
+ ypos -21268
+}
+IDistort {
+ uv alpha
+ uv_scale {{-IDistort13MAIN.uv_scale}}
+ name IDistort14
+ label "Scale: \[value uv_scale]"
+ selected true
+ xpos 50054
+ ypos -21178
+}
+Noise {
+ inputs 0
+ type turbulence
+ size 570
+ zoffset {{t/z_evolve}}
+ lacunarity 1.23
+ gain 0.4
+ gamma 0.8
+ translate {{t*speed} 0}
+ scale {10 0.8}
+ center {2224 1548}
+ name Noise67MAIN
+ note_font "Bitstream Vera Sans Bold"
+ selected true
+ xpos 49724
+ ypos -21334
+ addUserKnob {20 User}
+ addUserKnob {7 speed l Speed R 0 100}
+ speed 30
+ addUserKnob {7 z_evolve l "Z evolve" R 0 100}
+ z_evolve 40
+}
+Blur {
+ size 2
+ name Blur321MAIN
+ label "Size: \[value size]"
+ note_font "Bitstream Vera Sans Bold"
+ selected true
+ xpos 49724
+ ypos -21274
+}
+push $Nfd70d600
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy45
+ selected true
+ xpos 49834
+ ypos -21268
+}
+IDistort {
+ uv alpha
+ uv_scale 1000
+ name IDistort13MAIN
+ label "Scale: \[value uv_scale]"
+ note_font "Bitstream Vera Sans Bold"
+ selected true
+ xpos 49834
+ ypos -21178
+}
+Keymix {
+ inputs 3
+ name Keymix37
+ selected true
+ xpos 49944
+ ypos -21028
+}
+Crop {
+ box {0 0 4448 3096}
+ name Crop71
+ label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+ selected true
+ xpos 49944
+ ypos -20548
+}
+set Nfd6dcf00 [stack 0]
+Keyer {
+ operation "red keyer"
+ range {0.5419623242 1 3 {range.C x1249 3}}
+ name Keyer29
+ selected true
+ xpos 49724
+ ypos -20548
+}
+Shuffle {
+ inputs 0
+ red white
+ green white
+ blue white
+ alpha white
+ name Shuffle14
+ label "\[string toupper \[value in]]"
+ selected true
+ xpos 49284
+ ypos -20380
+}
+Radial {
+ area {0 0 4448 3096}
+ name Radial1
+ selected true
+ xpos 49284
+ ypos -20278
+}
+Transform {
+ scale {1.1 1.2}
+ center {2224 1548}
+ shutteroffset centred
+ name Transform73
+ label "scale.w: \[value scale.w]\nscale.h: \[value scale.h]"
+ selected true
+ xpos 49284
+ ypos -20170
+}
+Blur {
+ size 1000
+ name Blur325
+ label "Size: \[value size]"
+ selected true
+ xpos 49504
+ ypos -20170
+}
+set Nfd89dd00 [stack 0]
+Group {
+ inputs 2
+ name FractalBlur16
+ tile_color 0xff5f00ff
+ selected true
+ xpos 49504
+ ypos -20548
+ addUserKnob {20 User}
+ addUserKnob {4 output l Output M {rgba alpha}}
+ output alpha
+ addUserKnob {26 ""}
+ addUserKnob {7 FractalBlur_UserDilate l Spread R 0 200}
+ FractalBlur_UserDilate 1
+ addUserKnob {7 FractalBlur_UserGrainSize l "Grain Size" R 0 100}
+ FractalBlur_UserGrainSize 1.5
+ addUserKnob {7 FractalBlur_UserContrast l Contrast}
+ addUserKnob {7 FractalBlur_UserGamma l Gamma R 0 5}
+ FractalBlur_UserGamma 1
+ addUserKnob {6 FractalBlur_UserBlackWhite l "Make black and white" +STARTLINE}
+ addUserKnob {7 FractalBlur_UserThreshold l Threshold}
+ addUserKnob {6 FractalBlur_UserBW l "Clamp output" +STARTLINE}
+ FractalBlur_UserBW true
+ addUserKnob {26 ""}
+ addUserKnob {7 FractalBlur_UserGrainEvolve l "Grain Evolution" t "Keyframe this value to animate the grain" R 0 10}
+ FractalBlur_UserGrainEvolve 1
+ addUserKnob {26 ""}
+ addUserKnob {26 instructions l "" +STARTLINE T "Plug a texture into it's input to use that instead of noise"}
+}
+ Input {
+  inputs 0
+  name texture
+  xpos 1874
+  ypos -423
+  number 1
+ }
+ Dot {
+  name Dot2
+  xpos 1908
+  ypos -118
+ }
+ Input {
+  inputs 0
+  name alpha
+  xpos 1249
+  ypos -506
+ }
+ Dot {
+  name Dot4
+  xpos 1283
+  ypos -413
+ }
+set Nfd877900 [stack 0]
+ Dot {
+  name Dot3
+  xpos 1550
+  ypos -370
+ }
+set Nfd877200 [stack 0]
+ Dot {
+  name Dot1
+  xpos 1748
+  ypos -370
+ }
+ Shuffle {
+  red black
+  green black
+  blue black
+  alpha black
+  name Shuffle10
+  label "\[value in 1]"
+  xpos 1714
+  ypos -255
+ }
+ Noise {
+  cliptype none
+  size {{"\[value FractalBlur_UserGrainSize]"}}
+  zoffset {{"\[value FractalBlur_UserGrainEvolve]"}}
+  center {1024 778}
+  name Noise1
+  xpos 1714
+  ypos -165
+ }
+ Switch {
+  inputs 2
+  which {{"\[exists parent.input1]"}}
+  name Switch3
+  xpos 1714
+  ypos -116
+ }
+ Invert {
+  name Invert4
+  xpos 1714
+  ypos -72
+ }
+push $Nfd877200
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle1
+  label "\[value in 1]"
+  xpos 1516
+  ypos -340
+ }
+ Blur {
+  size {{"\[value FractalBlur_UserDilate]" x101 0}}
+  name Blur1
+  xpos 1516
+  ypos -280
+ }
+ FilterErode {
+  channels rgba
+  size {{"(-\[value FractalBlur_UserDilate])/2" x1 0}}
+  filter gaussian
+  name FilterErode7
+  xpos 1516
+  ypos -216
+ }
+ Dot {
+  name Dot10
+  xpos 1550
+  ypos -133
+ }
+set Nfd855d00 [stack 0]
+ Merge2 {
+  inputs 2
+  operation minus
+  name Merge2
+  xpos 1660
+  ypos -6
+ }
+ Invert {
+  name Invert3
+  xpos 1660
+  ypos 37
+ }
+push $Nfd855d00
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge13
+  xpos 1516
+  ypos 72
+ }
+set Nfd854800 [stack 0]
+ Clamp {
+  name Clamp1
+  xpos 1408
+  ypos 116
+ }
+ Grade {
+  channels rgba
+  blackpoint {{FractalBlur_UserThreshold}}
+  whitepoint {{FractalBlur_UserThreshold}}
+  name Grade1
+  xpos 1408
+  ypos 195
+ }
+push $Nfd854800
+ Switch {
+  inputs 2
+  which {{FractalBlur_UserBlackWhite x47 1}}
+  name Switch1
+  xpos 1516
+  ypos 249
+ }
+ Grade {
+  channels rgba
+  blackpoint {{FractalBlur_UserContrast}}
+  whitepoint {{1-FractalBlur_UserContrast}}
+  gamma {{FractalBlur_UserGamma x101 0.985}}
+  black_clamp false
+  name Grade5
+  xpos 1516
+  ypos 329
+ }
+set Nfd819d00 [stack 0]
+ Clamp {
+  name Clamp2
+  xpos 1426
+  ypos 394
+ }
+push $Nfd819d00
+ Switch {
+  inputs 2
+  which {{FractalBlur_UserBW x47 0}}
+  name Switch2
+  xpos 1516
+  ypos 466
+ }
+ Dot {
+  name Dot6
+  xpos 1550
+  ypos 545
+ }
+set Nfd7fb900 [stack 0]
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle2
+  label "\[value in 1]"
+  xpos 1516
+  ypos 619
+ }
+push $Nfd7fb900
+push $Nfd877900
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy1
+  xpos 1249
+  ypos 575
+ }
+ Dot {
+  name Dot5
+  xpos 1283
+  ypos 636
+ }
+ Switch {
+  inputs 2
+  which {{parent.output}}
+  name Switch5
+  xpos 1516
+  ypos 751
+ }
+ Output {
+  name Output1
+  xpos 1516
+  ypos 851
+ }
+end_group
+push $Nfd89dd00
+Dissolve {
+ inputs 2
+ which 0.7
+ name Dissolve2
+ label "Which: \[value which]"
+ selected true
+ xpos 49724
+ ypos -20170
+}
+push $Nfd6dcf00
+Multiply {
+ value 0.028
+ name Multiply78
+ label "Value: \[value value]"
+ selected true
+ xpos 49944
+ ypos -20434
+}
+Merge2 {
+ inputs 2
+ operation stencil
+ also_merge all
+ name Merge356
+ selected true
+ xpos 49944
+ ypos -20158
+}
+Crop {
+ box {0 0 4448 3096}
+ name Crop30
+ label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+ selected true
+ xpos 49944
+ ypos -20068
+}
+DirBlurWrapper {
+ channels rgba
+ BlurLayer rgba
+ BlurCenter {{input.width/2} {input.height/2}}
+ BlurLength 150
+ BlurAngle 0
+ name DirBlurWrapper2
+ label "type: \[string toupper \[value BlurType]]"
+ selected true
+ xpos 49944
+ ypos -19612
+}
+Dot {
+ name Dot160
+ tile_color 0x949494ff
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 51078
+ ypos -19602
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+ tmpKeepInput DirBlurWrapper2
+}
+set Nfcf25d00 [stack 0]
+Dot {
+ inputs 0
+ name Dot309
+ tile_color 0x949494ff
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 51628
+ ypos -23612
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ also_merge all
+ name Merge357
+ selected true
+ xpos 51594
+ ypos -19606
+}
+Dot {
+ name Dot162
+ tile_color 0x949494ff
+ label "  VIEW\n  HERE\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 51628
+ ypos -19098
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+ tmpKeepInput Merge357
+}
+Crop {
+ box {0 0 4448 3096}
+ name Crop32
+ label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+ selected true
+ xpos 51594
+ ypos -18916
+}
+StickyNote {
+ inputs 0
+ name StickyNote3
+ label "  \n    If needed 'scale' can be   \nadjusted here.\n"
+ note_font_size 22
+ selected true
+ xpos 50070
+ ypos -21998
+}
+StickyNote {
+ inputs 0
+ name StickyNote4
+ label "  \n    If needed Noise can be   \nadjusted here.\n"
+ note_font_size 22
+ selected true
+ xpos 49414
+ ypos -21374
+}
+push $Nfcf25d00
+Dot {
+ name Dot161
+ tile_color 0x949494ff
+ label "  PRECOMP\n  THIS\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 72
+ note_font_color 0xffffffff
+ selected true
+ xpos 51078
+ ypos -19098
+ addUserKnob {20 tmpTab}
+ addUserKnob {1 tmpKeepInput}
+ tmpKeepInput Dot160
+}
+Crop {
+ box {0 0 4448 3096}
+ name Crop31
+ label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+ selected true
+ xpos 51044
+ ypos -18916
+}
