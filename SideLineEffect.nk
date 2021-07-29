@@ -8,8 +8,8 @@ BackdropNode {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 202
  selected true
- xpos 1380
- ypos -3274
+ xpos 3030
+ ypos -3322
  bdwidth 3400
  bdheight 6164
  z_order -20957600
@@ -70,12 +70,12 @@ BackdropNode {
  inputs 0
  name BackdropNode2
  tile_color 0x777777ff
- label "<center><font color=orange>016_0190\nDN\n"
+ label "<center><font color=orange>Plate"
  note_font "Bitstream Vera Sans Bold"
  note_font_size 42
  selected true
- xpos 3882
- ypos -2544
+ xpos 5532
+ ypos -2592
  bdwidth 377
  bdheight 384
  z_order -144768
@@ -88,8 +88,8 @@ BackdropNode {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 42
  selected true
- xpos 2070
- ypos -1396
+ xpos 3720
+ ypos -1444
  bdwidth 920
  bdheight 968
  z_order -1
@@ -155,8 +155,8 @@ BackdropNode {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 42
  selected true
- xpos 2115
- ypos -2425
+ xpos 3765
+ ypos -2473
  bdwidth 610
  bdheight 913
  addUserKnob {20 User}
@@ -221,8 +221,8 @@ BackdropNode {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 42
  selected true
- xpos 2060
- ypos -289
+ xpos 3710
+ ypos -337
  bdwidth 720
  bdheight 721
  addUserKnob {20 User}
@@ -287,8 +287,8 @@ BackdropNode {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 42
  selected true
- xpos 1620
- ypos 579
+ xpos 3270
+ ypos 531
  bdwidth 940
  bdheight 810
  addUserKnob {20 User}
@@ -353,8 +353,8 @@ BackdropNode {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 42
  selected true
- xpos 2280
- ypos 1521
+ xpos 3930
+ ypos 1473
  bdwidth 280
  bdheight 318
  addUserKnob {20 User}
@@ -416,8 +416,8 @@ Reformat {
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat7
  selected true
- xpos 2160
- ypos 152
+ xpos 3810
+ ypos 104
 }
 Roto {
  output alpha
@@ -479,24 +479,24 @@ Roto {
  source_black_outside true
  name Roto155
  selected true
- xpos 2160
- ypos 224
+ xpos 3810
+ ypos 176
 }
 Blur {
  size 900
  name Blur324
  label "Size: \[value size]"
  selected true
- xpos 2160
- ypos 289
+ xpos 3810
+ ypos 241
 }
 Reformat {
  inputs 0
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat6
  selected true
- xpos 2600
- ypos -112
+ xpos 4250
+ ypos -160
 }
 Noise {
  type turbulence
@@ -510,24 +510,24 @@ Noise {
  center {2224 1548}
  name Noise79
  selected true
- xpos 2600
- ypos -10
+ xpos 4250
+ ypos -58
 }
 Blur {
  size {{Blur321MAIN.size}}
  name Blur323
  label "Size: \[value size]"
  selected true
- xpos 2600
- ypos 49
+ xpos 4250
+ ypos 1
 }
 Reformat {
  inputs 0
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat2
  selected true
- xpos 2710
- ypos -880
+ xpos 4360
+ ypos -928
 }
 Roto {
  output alpha
@@ -613,16 +613,16 @@ Roto {
  source_black_outside true
  name Roto154
  selected true
- xpos 2710
- ypos -808
+ xpos 4360
+ ypos -856
 }
 Blur {
  size 2
  name Blur320
  label "Size: \[value size]"
  selected true
- xpos 2710
- ypos -767
+ xpos 4360
+ ypos -815
 }
 Constant {
  inputs 0
@@ -630,16 +630,16 @@ Constant {
  name Constant26
  label "Res: \[value width] * \[value height]"
  selected true
- xpos 2380
- ypos -1000
+ xpos 4030
+ ypos -1048
  postage_stamp false
 }
 Reformat {
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat1
  selected true
- xpos 2380
- ypos -952
+ xpos 4030
+ ypos -1000
 }
 set N1334c400 [stack 0]
 Dot {
@@ -648,8 +648,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 2304
- ypos -942
+ xpos 3954
+ ypos -990
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
  tmpKeepInput Constant26
@@ -659,8 +659,8 @@ Reformat {
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat4
  selected true
- xpos 2820
- ypos -1984
+ xpos 4470
+ ypos -2032
 }
 set N13301800 [stack 0]
 Group {
@@ -669,8 +669,8 @@ Group {
  label "offset: \[value offset_1]"
  note_font "DejaVu Sans"
  selected true
- xpos 2600
- ypos -1749
+ xpos 4250
+ ypos -1797
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
  addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
@@ -1244,8 +1244,8 @@ Constant {
  name Constant24
  label "Res: \[value width] * \[value height]"
  selected true
- xpos 2160
- ypos -2104
+ xpos 3810
+ ypos -2152
  postage_stamp false
 }
 set Nbcc2cc00 [stack 0]
@@ -1254,8 +1254,8 @@ HSVTool {
  name HSVTool18
  label "hue: \[value huerotation]"
  selected true
- xpos 2160
- ypos -2039
+ xpos 3810
+ ypos -2087
 }
 set Nbcc2c800 [stack 0]
 HSVTool {
@@ -1263,8 +1263,8 @@ HSVTool {
  name HSVTool19
  label "hue: \[value huerotation]"
  selected true
- xpos 2160
- ypos -1967
+ xpos 3810
+ ypos -2015
 }
 set Nbcc2c400 [stack 0]
 HSVTool {
@@ -1272,8 +1272,8 @@ HSVTool {
  name HSVTool20
  label "hue: \[value huerotation]"
  selected true
- xpos 2160
- ypos -1895
+ xpos 3810
+ ypos -1943
 }
 set Nbcbcfc00 [stack 0]
 HSVTool {
@@ -1281,8 +1281,8 @@ HSVTool {
  name HSVTool21
  label "hue: \[value huerotation]"
  selected true
- xpos 2160
- ypos -1823
+ xpos 3810
+ ypos -1871
 }
 set Nbcbcf800 [stack 0]
 HSVTool {
@@ -1290,8 +1290,8 @@ HSVTool {
  name HSVTool22
  label "hue: \[value huerotation]"
  selected true
- xpos 2160
- ypos -1751
+ xpos 3810
+ ypos -1799
 }
 push $N13301800
 Group {
@@ -1300,8 +1300,8 @@ Group {
  label "offset: \[value offset_1]"
  note_font "DejaVu Sans"
  selected true
- xpos 2600
- ypos -1821
+ xpos 4250
+ ypos -1869
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
  addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
@@ -1876,8 +1876,8 @@ Group {
  label "offset: \[value offset_1]"
  note_font "DejaVu Sans"
  selected true
- xpos 2600
- ypos -1893
+ xpos 4250
+ ypos -1941
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
  addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
@@ -2452,8 +2452,8 @@ Group {
  label "offset: \[value offset_1]"
  note_font "DejaVu Sans"
  selected true
- xpos 2600
- ypos -1965
+ xpos 4250
+ ypos -2013
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
  addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
@@ -3028,8 +3028,8 @@ Group {
  label "offset: \[value offset_1]"
  note_font "DejaVu Sans"
  selected true
- xpos 2600
- ypos -2037
+ xpos 4250
+ ypos -2085
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
  addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
@@ -3604,8 +3604,8 @@ Group {
  label "offset: \[value offset_1]"
  note_font "DejaVu Sans"
  selected true
- xpos 2600
- ypos -2109
+ xpos 4250
+ ypos -2157
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {"Pattern Only" "Pattern Over Image" "Distorted Image" STMap ""}}
  addUserKnob {6 keep_a l "Keep Original Alpha" -STARTLINE}
@@ -4178,74 +4178,74 @@ Constant {
  name Constant25
  label "Res: \[value width] * \[value height]"
  selected true
- xpos 2380
- ypos -2224
+ xpos 4030
+ ypos -2272
  postage_stamp false
 }
 Reformat {
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat3
  selected true
- xpos 2380
- ypos -2176
+ xpos 4030
+ ypos -2224
 }
 Keymix {
  inputs 3
  name Keymix30
  selected true
- xpos 2380
- ypos -2104
+ xpos 4030
+ ypos -2152
 }
 Keymix {
  inputs 3
  name Keymix31
  selected true
- xpos 2380
- ypos -2032
+ xpos 4030
+ ypos -2080
 }
 Keymix {
  inputs 3
  name Keymix32
  selected true
- xpos 2380
- ypos -1960
+ xpos 4030
+ ypos -2008
 }
 Keymix {
  inputs 3
  name Keymix33
  selected true
- xpos 2380
- ypos -1888
+ xpos 4030
+ ypos -1936
 }
 Keymix {
  inputs 3
  name Keymix34
  selected true
- xpos 2380
- ypos -1816
+ xpos 4030
+ ypos -1864
 }
 Keymix {
  inputs 3
  name Keymix38
  selected true
- xpos 2380
- ypos -1744
+ xpos 4030
+ ypos -1792
 }
 Blur {
  size {40 0}
  name Blur322
  label "Size: \[value size]"
  selected true
- xpos 2380
- ypos -1655
+ xpos 4030
+ ypos -1703
 }
 ColorCorrect {
  contrast 1.4
  name ColorCorrect3
  label "contrast: \[value contrast]"
  selected true
- xpos 2380
- ypos -1576
+ xpos 4030
+ ypos -1624
 }
 Dot {
  name Dot158
@@ -4253,8 +4253,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 2414
- ypos -1110
+ xpos 4064
+ ypos -1158
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
  tmpKeepInput ColorCorrect3
@@ -4265,8 +4265,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 2634
- ypos -1110
+ xpos 4284
+ ypos -1158
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
  tmpKeepInput Dot158
@@ -4278,8 +4278,8 @@ Transform {
  shutteroffset centred
  name Transform69
  selected true
- xpos 2600
- ypos -994
+ xpos 4250
+ ypos -1042
 }
 SphericalTransform {
  input "Lat Long map"
@@ -4289,8 +4289,8 @@ SphericalTransform {
  fix true
  name SphericalTransform6
  selected true
- xpos 2600
- ypos -928
+ xpos 4250
+ ypos -976
 }
 Transform {
  translate {178 -498}
@@ -4299,32 +4299,32 @@ Transform {
  shutteroffset centred
  name Transform70
  selected true
- xpos 2600
- ypos -826
+ xpos 4250
+ ypos -874
 }
 push $N1334c400
 Keymix {
  inputs 3
  name Keymix35
  selected true
- xpos 2380
- ypos -832
+ xpos 4030
+ ypos -880
 }
 set N134d4c00 [stack 0]
 Mirror2 {
  flip true
  name Mirror2_8
  selected true
- xpos 2270
- ypos -754
+ xpos 3920
+ ypos -802
 }
 push $N134d4c00
 Keymix {
  inputs 3
  name Keymix36
  selected true
- xpos 2380
- ypos -760
+ xpos 4030
+ ypos -808
 }
 Transform {
  scale 4
@@ -4333,24 +4333,24 @@ Transform {
  name Transform71
  label "scale: \[value scale]"
  selected true
- xpos 2380
- ypos -640
+ xpos 4030
+ ypos -688
 }
 Blur {
  size 100
  name Blur326
  label "Size: \[value size]"
  selected true
- xpos 2380
- ypos -503
+ xpos 4030
+ ypos -551
 }
 Crop {
  box {0 0 4448 3096}
  name Crop70
  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
  selected true
- xpos 2380
- ypos -88
+ xpos 4030
+ ypos -136
 }
 set N1347f400 [stack 0]
 Copy {
@@ -4359,8 +4359,8 @@ Copy {
  to0 rgba.alpha
  name Copy46
  selected true
- xpos 2490
- ypos 56
+ xpos 4140
+ ypos 8
 }
 IDistort {
  uv alpha
@@ -4368,16 +4368,16 @@ IDistort {
  name IDistort14
  label "Scale: \[value uv_scale]"
  selected true
- xpos 2490
- ypos 145
+ xpos 4140
+ ypos 97
 }
 Reformat {
  inputs 0
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat5
  selected true
- xpos 2160
- ypos -112
+ xpos 3810
+ ypos -160
 }
 Noise {
  type turbulence
@@ -4392,8 +4392,8 @@ Noise {
  name Noise67MAIN
  note_font "Bitstream Vera Sans Bold"
  selected true
- xpos 2160
- ypos -9
+ xpos 3810
+ ypos -57
  addUserKnob {20 User}
  addUserKnob {7 speed l Speed R 0 100}
  speed 30
@@ -4406,8 +4406,8 @@ Blur {
  label "Size: \[value size]"
  note_font "Bitstream Vera Sans Bold"
  selected true
- xpos 2160
- ypos 51
+ xpos 3810
+ ypos 3
 }
 push $N1347f400
 Copy {
@@ -4416,8 +4416,8 @@ Copy {
  to0 rgba.alpha
  name Copy45
  selected true
- xpos 2270
- ypos 56
+ xpos 3920
+ ypos 8
 }
 IDistort {
  uv alpha
@@ -4426,23 +4426,23 @@ IDistort {
  label "Scale: \[value uv_scale]"
  note_font "Bitstream Vera Sans Bold"
  selected true
- xpos 2270
- ypos 147
+ xpos 3920
+ ypos 99
 }
 Keymix {
  inputs 3
  name Keymix37
  selected true
- xpos 2380
- ypos 296
+ xpos 4030
+ ypos 248
 }
 Crop {
  box {0 0 4448 3096}
  name Crop71
  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
  selected true
- xpos 2380
- ypos 776
+ xpos 4030
+ ypos 728
 }
 set N1347d400 [stack 0]
 Keyer {
@@ -4450,16 +4450,16 @@ Keyer {
  range {0.5419623242 1 3 {range.C x1249 3}}
  name Keyer29
  selected true
- xpos 2160
- ypos 776
+ xpos 3810
+ ypos 728
 }
 Reformat {
  inputs 0
  format "4448 3096 0 0 4448 3096 1 projectRes"
  name Reformat8
  selected true
- xpos 1720
- ypos 872
+ xpos 3370
+ ypos 824
 }
 Shuffle {
  red white
@@ -4469,15 +4469,15 @@ Shuffle {
  name Shuffle14
  label "\[string toupper \[value in]]"
  selected true
- xpos 1720
- ypos 944
+ xpos 3370
+ ypos 896
 }
 Radial {
  area {0 0 4448 3096}
  name Radial2
  selected true
- xpos 1720
- ypos 1046
+ xpos 3370
+ ypos 998
 }
 Transform {
  scale {1.1 1.2}
@@ -4486,16 +4486,16 @@ Transform {
  name Transform73
  label "scale.w: \[value scale.w]\nscale.h: \[value scale.h]"
  selected true
- xpos 1720
- ypos 1153
+ xpos 3370
+ ypos 1105
 }
 Blur {
  size 1000
  name Blur325
  label "Size: \[value size]"
  selected true
- xpos 1940
- ypos 1153
+ xpos 3590
+ ypos 1105
 }
 set N1340fc00 [stack 0]
 Group {
@@ -4503,8 +4503,8 @@ Group {
  name FractalBlur16
  tile_color 0xff5f00ff
  selected true
- xpos 1940
- ypos 776
+ xpos 3590
+ ypos 728
  addUserKnob {20 User}
  addUserKnob {4 output l Output M {rgba alpha}}
  output alpha
@@ -4736,8 +4736,8 @@ Dissolve {
  name Dissolve2
  label "Which: \[value which]"
  selected true
- xpos 2160
- ypos 1153
+ xpos 3810
+ ypos 1105
 }
 push $N1347d400
 Multiply {
@@ -4745,8 +4745,8 @@ Multiply {
  name Multiply78
  label "Value: \[value value]"
  selected true
- xpos 2380
- ypos 889
+ xpos 4030
+ ypos 841
 }
 Merge2 {
  inputs 2
@@ -4754,16 +4754,16 @@ Merge2 {
  also_merge all
  name Merge356
  selected true
- xpos 2380
- ypos 1166
+ xpos 4030
+ ypos 1118
 }
 Crop {
  box {0 0 4448 3096}
  name Crop30
  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
  selected true
- xpos 2380
- ypos 1256
+ xpos 4030
+ ypos 1208
 }
 DirBlurWrapper {
  channels rgba
@@ -4774,8 +4774,8 @@ DirBlurWrapper {
  name DirBlurWrapper2
  label "type: \[string toupper \[value BlurType]]"
  selected true
- xpos 2380
- ypos 1712
+ xpos 4030
+ ypos 1664
 }
 Dot {
  name Dot160
@@ -4783,8 +4783,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 3514
- ypos 1722
+ xpos 5164
+ ypos 1674
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
  tmpKeepInput DirBlurWrapper2
@@ -4797,8 +4797,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 4064
- ypos -2286
+ xpos 5714
+ ypos -2334
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
 }
@@ -4808,8 +4808,8 @@ Merge2 {
  also_merge all
  name Merge357
  selected true
- xpos 4030
- ypos 1718
+ xpos 5680
+ ypos 1670
 }
 Dot {
  name Dot162
@@ -4819,8 +4819,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 4064
- ypos 2226
+ xpos 5714
+ ypos 2178
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
  tmpKeepInput Merge357
@@ -4830,8 +4830,8 @@ Crop {
  name Crop32
  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
  selected true
- xpos 4030
- ypos 2408
+ xpos 5680
+ ypos 2360
 }
 StickyNote {
  inputs 0
@@ -4839,8 +4839,8 @@ StickyNote {
  label "  \n    If needed 'scale' can be   \nadjusted here.\n"
  note_font_size 22
  selected true
- xpos 2521
- ypos -675
+ xpos 4171
+ ypos -723
 }
 StickyNote {
  inputs 0
@@ -4848,8 +4848,8 @@ StickyNote {
  label "  \n    If needed Noise can be   \nadjusted here.\n"
  note_font_size 22
  selected true
- xpos 1864
- ypos -51
+ xpos 3514
+ ypos -99
 }
 push $N1334e800
 Dot {
@@ -4860,8 +4860,8 @@ Dot {
  note_font_size 72
  note_font_color 0xffffffff
  selected true
- xpos 3514
- ypos 2226
+ xpos 5164
+ ypos 2178
  addUserKnob {20 tmpTab}
  addUserKnob {1 tmpKeepInput}
  tmpKeepInput Dot160
@@ -4871,6 +4871,6 @@ Crop {
  name Crop31
  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
  selected true
- xpos 3480
- ypos 2408
+ xpos 5130
+ ypos 2360
 }
