@@ -1,0 +1,1616 @@
+Group {
+ inputs 2
+ name WiggleTransform
+ tile_color 0xce75daff
+ selected true
+ xpos 29220
+ ypos -3658
+ addUserKnob {20 User}
+ addUserKnob {26 transform l "<h3><font color=#bd7eb9>Transform"}
+ addUserKnob {41 translate T Transform1_ANIM1.translate}
+ addUserKnob {41 rotate T Transform1_ANIM1.rotate}
+ addUserKnob {41 scale T Transform1_ANIM1.scale}
+ addUserKnob {41 skewX l "skew X" T Transform1_ANIM1.skewX}
+ addUserKnob {41 skewY l "skew Y" T Transform1_ANIM1.skewY}
+ addUserKnob {41 skew_order l "skew order" T Transform1_ANIM1.skew_order}
+ addUserKnob {41 center T Transform1_ANIM1.center}
+ addUserKnob {22 setCenter l "Set Center" -STARTLINE T "this_width = nuke.thisNode().width()\n\nthis_height = nuke.thisNode().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisNode().knob(\"center\").setValue(\[newWidth, newHeight])"}
+ addUserKnob {41 invert_matrix l invert T Transform1_ANIM1.invert_matrix}
+ addUserKnob {41 filter T Transform1_ANIM1.filter}
+ addUserKnob {41 clamp -STARTLINE T Transform1_ANIM1.clamp}
+ addUserKnob {41 black_outside l "black outside" -STARTLINE T Transform1_ANIM1.black_outside}
+ addUserKnob {41 motionblur T Transform1_ANIM1.motionblur}
+ addUserKnob {41 shutter T Transform1_ANIM1.shutter}
+ addUserKnob {41 shutteroffset l "shutter offset" T Transform1_ANIM1.shutteroffset}
+ addUserKnob {41 shuttercustomoffset l "" -STARTLINE T Transform1_ANIM1.shuttercustomoffset}
+ addUserKnob {26 layers l "<h3><font color=#bd7eb9>Layers"}
+ addUserKnob {41 layer_num l "layer number" T PROXY.layer_num}
+ addUserKnob {41 lin_offset l "linear offset" T PROXY.lin_offset}
+ addUserKnob {41 exp_offset l "exponential offset" T PROXY.exp_offset}
+ addUserKnob {41 layer_scale l "layer scale" T PROXY.layer_scale}
+ addUserKnob {41 size l "layer blur" T Blur_MAIN.size}
+ addUserKnob {20 WaveAnim}
+ addUserKnob {26 WARN l "" +STARTLINE T "<h1><center><font color=#FF5555><font style=\"background-color:#364c87;\">☢ WARNING ☢ </h1>\n \n\n"}
+ addUserKnob {26 warn2 l "" +STARTLINE T "<center><font color=#DD7777><b><font style=\"background-color:#364c87;\">If you enable any WaveAnim functions it overwrites your current values!\n"}
+ addUserKnob {26 warn3 l "" +STARTLINE T "<center><font color=#DD7777><font style=\"background-color:#364c87;\">\n<b>By disabling them the current values stay static."}
+ addUserKnob {26 ""}
+ addUserKnob {22 enable_wave_rotate l "<font color=#cccccc>Enable Wave Rotate" T "# Enable Wave Rotate\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_wave_rotate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Wave Rotate\":\n    def toggleLabel():\n        options = \[\"<font color=#cccccc>Enable Wave Rotate\", \"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['remove_anim']\n        options2 = \[\"<font color=#cccccc>Wave Rotate Disabled\", \"\"\"<font color=#e38764>Disable Wave Rotate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n    x_val = trans1\['rotate'].setExpression(\"random((frame+offset)/waveLength) * (maxVal-minVal) + minVal\")\n\n    cWave.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Wave Rotate is already Enabled!\"\"\")" +STARTLINE}
+ addUserKnob {22 remove_anim l "<font color=#cccccc>Wave Rotate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_wave_rotate']\n\nval1 = \"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Wave Rotate Enabled\"\"\", \"<font color=#cccccc>Enable Wave Rotate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['remove_anim']\n        options2 = \[\"\"\"<font color=#e38764>Disable Wave Rotate\"\"\", \"<font color=#cccccc>Wave Rotate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['rotate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Wave Rotate is not Enabled!\"\"\")"}
+ addUserKnob {7 waveLength l "Wave Length" R 0 100}
+ waveLength 10
+ addUserKnob {7 maxVal R -100 100}
+ maxVal 30
+ addUserKnob {7 minVal R -100 100}
+ minVal {{-maxVal}}
+ addUserKnob {7 offset l Offset R 0 100}
+ offset 30
+ addUserKnob {26 ""}
+ addUserKnob {22 enable_random_translate l "<font color=#cccccc>Enable Random Translate" T "#Enable Random Translate\nmShift = nuke.thisGroup()\nknob1 = mShift\['enable_random_translate']\n\nif knob1.label() == \"<font color=#cccccc>Enable Random Translate\":\n    def toggleLabel():\n        options = \[\"\"\"<font color=#cccccc>Enable Random Translate\"\"\", \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#cccccc>Random Translate Disabled\"\"\", \"\"\"<font color=#e38764>Disable Random Translate\"\"\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    mShift.begin()\n\n    trans1 = nuke.toNode('Transform1_ANIM1')\n\n    trans1\['translate'].setExpression(\"random((frame+offset2)/waveLength2) * (maxVal2-minVal2) + minVal2\", 0)\n    trans1\['translate'].setExpression(\"random((frame+offset2+1000)/waveLength2) * (maxVal2-minVal2) + minVal2\", 1)\n\n    mShift.end()\nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is already Enabled!\"\"\")" +STARTLINE}
+ addUserKnob {22 dis_rand_trans l "<font color=#cccccc>Random Translate Disabled" -STARTLINE T "#No Animation\ncWave = nuke.thisGroup()\nknob1 = cWave\['enable_random_translate']\n\nval1 = \"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\"\n\nif knob1.label() == val1:\n    def toggleLabel():\n        options = \[\"\"\"<font color=#20bd2b>Random Translate Enabled\"\"\", \"<font color=#cccccc>Enable Random Translate\"]\n        knob1.setLabel(options\[int(knob1.label() == options\[0])])\n\n        knob2 = cWave\['dis_rand_trans']\n        options2 = \[\"\"\"<font color=#e38764>Disable Random Translate\"\"\", \"<font color=#cccccc>Random Translate Disabled\"]\n        knob2.setLabel(options2\[int(knob2.label() == options2\[0])])\n\n    toggleLabel()\n\n    cWave.begin()\n    \n    nuke.toNode('Transform1_ANIM1')\['translate'].clearAnimated()\n    \n    cWave.end()\n    \nelse:\n    nuke.message(\"\"\"<center><b><font color=orange>Random Translate is not Enabled!\"\"\")"}
+ addUserKnob {7 waveLength2 l "Wave Length" R 0 100}
+ waveLength2 10
+ addUserKnob {7 maxVal2 l maxVal R -100 100}
+ maxVal2 30
+ addUserKnob {7 minVal2 l minVal R -100 100}
+ minVal2 {{-maxVal2}}
+ addUserKnob {7 offset2 l Offset R 0 100}
+ addUserKnob {20 info l Info}
+ addUserKnob {26 info1 l "" +STARTLINE T "<h1><font color=#888888>1.01 version</h1>\nWiggleTransform<font color=#777777> by Jason M. Halverson and Attila Gasparetz, 2020"}
+}
+ Input {
+  inputs 0
+  name mask
+  xpos 1390
+  ypos -3130
+  number 1
+ }
+ Dot {
+  name Dot3
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -2766
+ }
+set Nd4d9a400 [stack 0]
+ Dot {
+  name Dot11
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -2550
+ }
+set Nd4d9a000 [stack 0]
+ Dot {
+  name Dot4
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -2382
+ }
+set Nd4d99c00 [stack 0]
+ Dot {
+  name Dot13
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -2214
+ }
+set Nd4d99800 [stack 0]
+ Dot {
+  name Dot5
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -2046
+ }
+set Nd4d99400 [stack 0]
+ Dot {
+  name Dot15
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -1878
+ }
+set Nd4d99000 [stack 0]
+ Dot {
+  name Dot6
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -1710
+ }
+set Nd4d98c00 [stack 0]
+ Dot {
+  name Dot17
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -1542
+ }
+set Nd4d98800 [stack 0]
+ Dot {
+  name Dot7
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -1374
+ }
+set Nd4d98400 [stack 0]
+ Dot {
+  name Dot19
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -1182
+ }
+set Nd4d3fc00 [stack 0]
+ Dot {
+  name Dot8
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -990
+ }
+set Nd4d3f800 [stack 0]
+ Dot {
+  name Dot21
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -798
+ }
+set Nd4d3f400 [stack 0]
+ Dot {
+  name Dot9
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -606
+ }
+set Nd4d3f000 [stack 0]
+ Dot {
+  name Dot23
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -414
+ }
+set Nd4d3ec00 [stack 0]
+ Dot {
+  name Dot10
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -222
+ }
+set Nd4d3e800 [stack 0]
+ Dot {
+  name Dot25
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos -30
+ }
+set Nd4d3e400 [stack 0]
+ Dot {
+  name Dot27
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos 162
+ }
+set Nd4d3e000 [stack 0]
+ Dot {
+  name Dot29
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1424
+  ypos 354
+ }
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.05 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform10
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos 344
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur17
+  label "Size: \[value size]"
+  xpos 1280
+  ypos 433
+ }
+ Reformat {
+  inputs 0
+  format "3200 1800 0 0 3200 1800 1 "
+  name Reformat1
+  xpos 840
+  ypos -3016
+ }
+ Group {
+  name STMap_Extend25
+  xpos 840
+  ypos -2914
+  addUserKnob {20 User}
+  addUserKnob {41 scale l Format_Extend t "How many times do u want to extend the border of the STMap" T STmap_Ctrl.scale}
+  addUserKnob {26 ""}
+  addUserKnob {26 han l "" +STARTLINE T "Made by HanCao\nbe friends https://www.linkedin.com/in/hancaofx/\n\nProxy bug fixed by Jason M. Halverson"}
+ }
+  Input {
+   inputs 0
+   name Format
+   xpos 620
+   ypos 470
+  }
+  Crop {
+   box {0 0 {input.width*STmap_Ctrl.scale} {input.height*STmap_Ctrl.scale}}
+   reformat true
+   crop false
+   name Crop2
+   xpos 620
+   ypos 518
+  }
+  Ramp {
+   output {-rgba.red rgba.green -rgba.blue -rgba.alpha}
+   p0 {0 0}
+   p1 {0 {parent.Crop2.box.t}}
+   name Ramp_GREEN
+   label "in Y"
+   xpos 620
+   ypos 560
+  }
+  Ramp {
+   output {rgba.red -rgba.green -rgba.blue -rgba.alpha}
+   p0 {0 0}
+   p1 {{parent.Crop2.box.r} 0}
+   name Ramp_RED
+   label "in X"
+   xpos 620
+   ypos 608
+  }
+  Expression {
+   temp_name0 offset
+   temp_expr0 (1-STmap_Ctrl.scale)/(2*STmap_Ctrl.scale)
+   temp_name1 gain
+   temp_expr1 STmap_Ctrl.scale
+   expr0 (red+offset)*gain
+   expr1 (green+offset)*gain
+   expr2 0
+   name Expression1
+   selected true
+   xpos 620
+   ypos 662
+  }
+  Reformat {
+   format {{{parent.input.format}}}
+   resize none
+   pbb true
+   name Reformat1
+   xpos 620
+   ypos 710
+  }
+  Output {
+   name Output1
+   xpos 620
+   ypos 758
+  }
+  NoOp {
+   inputs 0
+   name STmap_Ctrl
+   xpos 400
+   ypos 518
+   addUserKnob {20 User}
+   addUserKnob {7 scale R 1 10}
+   scale 1.45
+  }
+ end_group
+ Dot {
+  name Dot830
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -2838
+ }
+set Nd4cf6800 [stack 0]
+ Dot {
+  name Dot831
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -2694
+ }
+set Nd4cf6400 [stack 0]
+ Dot {
+  name Dot12
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -2526
+ }
+set Nd4cf6000 [stack 0]
+ Dot {
+  name Dot832
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -2358
+ }
+set Nd4cf5c00 [stack 0]
+ Dot {
+  name Dot14
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -2190
+ }
+set Nd4cf5800 [stack 0]
+ Dot {
+  name Dot833
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -2022
+ }
+set Nd4cf5400 [stack 0]
+ Dot {
+  name Dot16
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -1854
+ }
+set Nd4cf5000 [stack 0]
+ Dot {
+  name Dot834
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -1686
+ }
+set Nd4cf4c00 [stack 0]
+ Dot {
+  name Dot18
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -1518
+ }
+set Nd4cf4800 [stack 0]
+ Dot {
+  name Dot816
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -1326
+ }
+set Nd4cf4400 [stack 0]
+ Dot {
+  name Dot20
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -1134
+ }
+set Nd4cc3c00 [stack 0]
+ Dot {
+  name Dot815
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -942
+ }
+set Nd4cc3800 [stack 0]
+ Dot {
+  name Dot22
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -750
+ }
+set Nd4cc3400 [stack 0]
+ Dot {
+  name Dot817
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -558
+ }
+set Nd4cc3000 [stack 0]
+ Dot {
+  name Dot24
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -366
+ }
+set Nd4cc2c00 [stack 0]
+ Dot {
+  name Dot818
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos -174
+ }
+set Nd4cc2800 [stack 0]
+ Dot {
+  name Dot26
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos 18
+ }
+set Nd4cc2400 [stack 0]
+ Dot {
+  name Dot28
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos 210
+ }
+set Nd4cc2000 [stack 0]
+ Dot {
+  name Dot30
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 874
+  ypos 402
+ }
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked11
+  xpos 950
+  ypos 398
+ }
+ TimeOffset {
+  time_offset {{"(18.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset10
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos 440
+ }
+push $Nd4d3e000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.1 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform9
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos 152
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur16
+  label "Size: \[value size]"
+  xpos 1280
+  ypos 241
+ }
+push $Nd4cc2000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked10
+  xpos 950
+  ypos 206
+ }
+ TimeOffset {
+  time_offset {{"(17.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset9
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos 248
+ }
+push $Nd4d3e400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.15 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform8
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -40
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur15
+  label "Size: \[value size]"
+  xpos 1280
+  ypos 49
+ }
+push $Nd4cc2400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked9
+  xpos 950
+  ypos 14
+ }
+ TimeOffset {
+  time_offset {{"(16.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset8
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos 56
+ }
+push $Nd4d3e800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.2 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform183
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -232
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur7
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -143
+ }
+push $Nd4cc2800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked4
+  xpos 950
+  ypos -178
+ }
+ TimeOffset {
+  time_offset {{"(15.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset68
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -136
+ }
+push $Nd4d3ec00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.25 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform7
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -424
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur14
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -335
+ }
+push $Nd4cc2c00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked8
+  xpos 950
+  ypos -370
+ }
+ TimeOffset {
+  time_offset {{"(14.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset7
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -328
+ }
+push $Nd4d3f000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.3 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform179
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -616
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur6
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -527
+ }
+push $Nd4cc3000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked3
+  xpos 950
+  ypos -562
+ }
+ TimeOffset {
+  time_offset {{"(13.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset67
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -520
+ }
+push $Nd4d3f400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.35 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform6
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -808
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur13
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -719
+ }
+push $Nd4cc3400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked7
+  xpos 950
+  ypos -754
+ }
+ TimeOffset {
+  time_offset {{"(12.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset6
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -712
+ }
+push $Nd4d3f800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.4 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform178
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -1000
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur5
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -911
+ }
+push $Nd4cc3800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked2
+  xpos 950
+  ypos -946
+ }
+ TimeOffset {
+  time_offset {{"(11.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset66
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -904
+ }
+push $Nd4d3fc00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.45 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform5
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -1192
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur12
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -1103
+ }
+push $Nd4cc3c00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked6
+  xpos 950
+  ypos -1138
+ }
+ TimeOffset {
+  time_offset {{"(10.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset5
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -1096
+ }
+push $Nd4d98400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.5 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform177
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -1384
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur4
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -1295
+ }
+push $Nd4cf4400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked1
+  xpos 950
+  ypos -1330
+ }
+ TimeOffset {
+  time_offset {{"(9.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset65
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -1288
+ }
+push $Nd4d98800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.65 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform4
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -1552
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur11
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -1487
+ }
+push $Nd4cf4800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked5
+  xpos 950
+  ypos -1522
+ }
+ TimeOffset {
+  time_offset {{"(8.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset4
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -1480
+ }
+push $Nd4d98c00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.7 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform182
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -1720
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur3
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -1655
+ }
+push $Nd4cf4c00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform9_linked
+  xpos 950
+  ypos -1690
+ }
+ TimeOffset {
+  time_offset {{"(7.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset69
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -1648
+ }
+push $Nd4d99000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.75 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform3
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -1888
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur10
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -1823
+ }
+push $Nd4cf5000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform8_linked1
+  xpos 950
+  ypos -1858
+ }
+ TimeOffset {
+  time_offset {{"(6.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset3
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -1816
+ }
+push $Nd4d99400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.8 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform181
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -2056
+ }
+ Blur {
+  size {{Blur_MAIN.size}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -1991
+ }
+push $Nd4cf5400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform8_linked
+  xpos 950
+  ypos -2026
+ }
+ TimeOffset {
+  time_offset {{"(5.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset70
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -1984
+ }
+push $Nd4d99800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.85 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform2
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -2224
+ }
+ Blur {
+  size {{Blur_MAIN.size i}}
+  name Blur9
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -2159
+ }
+push $Nd4cf5800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform7_linked2
+  xpos 950
+  ypos -2194
+ }
+ TimeOffset {
+  time_offset {{"(4.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset2
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -2152
+ }
+push $Nd4d99c00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.9 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform180
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -2392
+ }
+ Blur {
+  size {{Blur_MAIN.size i}}
+  name Blur1
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -2327
+ }
+push $Nd4cf5c00
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform7_linked
+  xpos 950
+  ypos -2362
+ }
+ TimeOffset {
+  time_offset {{"(3.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset71
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -2320
+ }
+push $Nd4d9a000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"0.95 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform1
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -2560
+ }
+ Blur {
+  size {{Blur_MAIN.size i}}
+  name Blur8
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -2495
+ }
+push $Nd4cf6000
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform7_linked1
+  xpos 950
+  ypos -2530
+ }
+ TimeOffset {
+  time_offset {{"(2.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset1
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -2488
+ }
+push $Nd4d9a400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{"1.0 * PROXY.layer_scale"}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  shutteroffset centred
+  name Transform2_linked
+  label "scale: \[value scale]"
+  xpos 1280
+  ypos -2776
+ }
+set Nd60ec800 [stack 0]
+ Blur {
+  size 40
+  name Blur_MAIN
+  label "Size: \[value size]"
+  xpos 1280
+  ypos -2663
+ }
+push $Nd4cf6400
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  filter {{Transform1_ANIM1.filter}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform6_linked
+  xpos 950
+  ypos -2698
+ }
+ TimeOffset {
+  time_offset {{"(1.0 + PROXY.lin_offset ) * PROXY.exp_offset"}}
+  time ""
+  name TimeOffset72
+  label "Value: \[value time_offset]"
+  xpos 950
+  ypos -2656
+ }
+push $Nd60ec800
+push $Nd4cf6800
+ Transform {
+  translate {{Transform1_ANIM1.translate} {Transform1_ANIM1.translate}}
+  rotate {{Transform1_ANIM1.rotate}}
+  scale {{Transform1_ANIM1.scale}}
+  skewX {{Transform1_ANIM1.skewX}}
+  skewY {{Transform1_ANIM1.skewY}}
+  skew_order {{Transform1_ANIM1.skew_order}}
+  center {{Transform1_ANIM1.center} {Transform1_ANIM1.center}}
+  invert_matrix {{Transform1_ANIM1.invert_matrix}}
+  clamp {{Transform1_ANIM1.clamp}}
+  black_outside {{Transform1_ANIM1.black_outside}}
+  motionblur {{Transform1_ANIM1.motionblur}}
+  shutter {{Transform1_ANIM1.shutter}}
+  shutteroffset {{Transform1_ANIM1.shutteroffset}}
+  shuttercustomoffset {{Transform1_ANIM1.shuttercustomoffset}}
+  name Transform6_linked1
+  xpos 950
+  ypos -2842
+ }
+ Dot {
+  name Dot835
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 1094
+  ypos -2838
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  xpos 1060
+  ypos -2776
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer1
+  xpos 1060
+  ypos -2650
+  disable {{"\[if \{\[value PROXY.layer_num] < 1\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer2
+  xpos 1060
+  ypos -2482
+  disable {{"\[if \{\[value PROXY.layer_num] < 2\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer3
+  xpos 1060
+  ypos -2314
+  disable {{"\[if \{\[value PROXY.layer_num] < 3\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer4
+  xpos 1060
+  ypos -2146
+  disable {{"\[if \{\[value PROXY.layer_num] < 4\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer5
+  xpos 1060
+  ypos -1978
+  disable {{"\[if \{\[value PROXY.layer_num] < 5\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer6
+  xpos 1060
+  ypos -1810
+  disable {{"\[if \{\[value PROXY.layer_num] < 6\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer7
+  xpos 1060
+  ypos -1642
+  disable {{"\[if \{\[value PROXY.layer_num] < 7\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer8
+  xpos 1060
+  ypos -1474
+  disable {{"\[if \{\[value PROXY.layer_num] < 8\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer9
+  xpos 1060
+  ypos -1282
+  disable {{"\[if \{\[value PROXY.layer_num] < 9\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer10
+  xpos 1060
+  ypos -1090
+  disable {{"\[if \{\[value PROXY.layer_num] < 10\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer11
+  xpos 1060
+  ypos -898
+  disable {{"\[if \{\[value PROXY.layer_num] < 11\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer12
+  xpos 1060
+  ypos -706
+  disable {{"\[if \{\[value PROXY.layer_num] < 12\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer13
+  xpos 1060
+  ypos -514
+  disable {{"\[if \{\[value PROXY.layer_num] < 13\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer14
+  xpos 1060
+  ypos -322
+  disable {{"\[if \{\[value PROXY.layer_num] < 14\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer15
+  xpos 1060
+  ypos -130
+  disable {{"\[if \{\[value PROXY.layer_num] < 15\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer16
+  xpos 1060
+  ypos 62
+  disable {{"\[if \{\[value PROXY.layer_num] < 16\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer17
+  xpos 1060
+  ypos 254
+  disable {{"\[if \{\[value PROXY.layer_num] < 17\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Merge2 {
+  inputs 2+1
+  name Layer18
+  xpos 1060
+  ypos 446
+  disable {{"\[if \{\[value PROXY.layer_num] < 18\}  \{return \"1\"\} \{return \"0\"\}]"}}
+ }
+ Crop {
+  box {{CropPROXY.box} {CropPROXY.box} {CropPROXY.box} {CropPROXY.box}}
+  name Crop1
+  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+  xpos 1060
+  ypos 608
+ }
+ Dot {
+  name Dot836
+  tile_color 0x949494ff
+  note_font_size 22
+  note_font_color 0xffffffff
+  xpos 1094
+  ypos 906
+ }
+ Dot {
+  name Dot1
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1534
+  ypos 906
+ }
+set Nd5fe9800 [stack 0]
+push $Nd5fe9800
+ Input {
+  inputs 0
+  name image
+  xpos 1830
+  ypos -3130
+ }
+ Dot {
+  name Dot2
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1864
+  ypos -2886
+ }
+set Nd5fe9000 [stack 0]
+ Dot {
+  name Dot821
+  tile_color 0x949494ff
+  note_font_size 72
+  note_font_color 0xffffffff
+  xpos 1864
+  ypos 906
+ }
+set Nd5fe8c00 [stack 0]
+ STMap {
+  inputs 2
+  uv rgb
+  blur_scale 3
+  filter Lanczos4
+  name STMap23
+  label "UV: \[value uv]"
+  xpos 1610
+  ypos 889
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy2
+  xpos 1610
+  ypos 968
+ }
+ Premult {
+  name Premult32
+  xpos 1610
+  ypos 1022
+ }
+push $Nd5fe8c00
+ Merge2 {
+  inputs 2
+  also_merge all
+  name Merge207
+  xpos 1830
+  ypos 1022
+ }
+ Output {
+  name Output1
+  xpos 1830
+  ypos 1238
+ }
+ Transform {
+  inputs 0
+  center {1524 1048}
+  shutteroffset centred
+  name Transform1_ANIM1
+  xpos 510
+  ypos 398
+ }
+ NoOp {
+  inputs 0
+  name PROXY
+  xpos 510
+  ypos -2770
+  addUserKnob {20 User}
+  addUserKnob {7 layer_num l "layer number" R 1 18}
+  layer_num 18
+  addUserKnob {7 lin_offset l "linear offset" R -5 5}
+  addUserKnob {7 exp_offset l "exponential offset" R -3 3}
+  exp_offset 1
+  addUserKnob {7 layer_scale l "layer scale" R 0 2}
+  layer_scale 1
+ }
+push $Nd5fe9000
+ Shuffle {
+  red black
+  green black
+  blue black
+  alpha black
+  name Shuffle1
+  label "\[string toupper \[value in]]"
+  xpos 1720
+  ypos -2896
+ }
+ Crop {
+  box {{input.format.x} {input.format.y} {input.format.r} {input.format.t}}
+  name CropPROXY
+  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+  xpos 1610
+  ypos -2896
+ }
+end_group
