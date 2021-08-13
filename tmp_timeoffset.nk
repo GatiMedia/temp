@@ -1,0 +1,623 @@
+Reformat {
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name Reformat2
+ selected true
+ xpos 36590
+ ypos -3712
+}
+Roto {
+ output alpha
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44200000 x43b40000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Rectangle1 512 bezier
+     {{cc
+       {f 8192}
+       {px x41c80000
+        {0 xc3415554}
+        {xc26c0000 x44894000}
+        {x443ad555 0}
+        {xc43ad554 0}
+        {x45087000 x44894000}
+        {0 xc3415554}
+        {0 x43415554}
+        {x45087000 x44018000}
+        {xc43ad554 0}
+        {x443ad555 0}
+        {xc26c0000 x44018000}
+        {0 x43415554}}}
+      {cc
+       {f 8192}
+       {p
+        {{{x41c80000 0}}
+      {{x41c80000 xc3415554}}}
+        {{{x41c80000 0}}
+      {{x41c80000 0}}}
+        {{{x41c80000 x443ad555}}
+      {{x41c80000 0}}}
+        {{{x41c80000 xc43ad554}}
+      {{x41c80000 0}}}
+        {{{x41c80000 0}}
+      {{x41c80000 0}}}
+        {{{x41c80000 0}}
+      {{x41c80000 xc3415554}}}
+        {{{x41c80000 0}}
+      {{x41c80000 x43415554}}}
+        {{{x41c80000 0}}
+      {{x41c80000 0}}}
+        {{{x41c80000 xc43ad554}}
+      {{x41c80000 0}}}
+        {{{x41c80000 x443ad555}}
+      {{x41c80000 0}}}
+        {{{x41c80000 0}}
+      {{x41c80000 0}}}
+        {{{x41c80000 0}}
+      {{x41c80000 x43415554}}}}}}
+     {tx x41c80000 x4484c000 x444a0000}
+     {a osw x41200000 osf 0 str 1 spx x44200000 spy x43b40000 sb 1 ltn x41c80000 ltm x41c80000 tt x41000000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 tt 8 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {640 360}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ lifetime_start 25
+ lifetime_end 25
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto8
+ selected true
+ xpos 36590
+ ypos -3640
+}
+Blur {
+ size 5
+ name Blur30
+ label "Size: \[value size]"
+ selected true
+ xpos 36590
+ ypos -3575
+}
+set N7cd00c00 [stack 0]
+Transform {
+ translate {0 20}
+ center {640 360}
+ shutteroffset centred
+ name TransformMaster
+ selected true
+ xpos 36590
+ ypos -3490
+}
+set N1183a800 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform16
+ selected true
+ xpos 36590
+ ypos -3442
+}
+set N11839400 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform17
+ selected true
+ xpos 36590
+ ypos -3394
+}
+set N11838400 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform18
+ selected true
+ xpos 36590
+ ypos -3346
+}
+set Nc4c33000 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform19
+ selected true
+ xpos 36590
+ ypos -3298
+}
+set Nc4c32000 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform20
+ selected true
+ xpos 36590
+ ypos -3250
+}
+set Nc4c31000 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform21
+ selected true
+ xpos 36590
+ ypos -3202
+}
+set Ncfa8bc00 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform22
+ selected true
+ xpos 36590
+ ypos -3154
+}
+set Ncfa8ac00 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform15
+ selected true
+ xpos 36590
+ ypos -3106
+}
+set Ncfa89c00 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform23
+ selected true
+ xpos 36590
+ ypos -3058
+}
+set Ncfa88c00 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform24
+ selected true
+ xpos 36590
+ ypos -3010
+}
+set Nd5adb800 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform25
+ selected true
+ xpos 36590
+ ypos -2962
+}
+set Nd5ada800 [stack 0]
+Transform {
+ translate {{TransformMaster.translate.y} {TransformMaster.translate.y}}
+ center {640 360}
+ shutteroffset centred
+ name Transform26
+ selected true
+ xpos 36590
+ ypos -2914
+}
+ColorWheel {
+ inputs 0
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ gamma 0.45
+ name ColorWheel6
+ selected true
+ xpos 36370
+ ypos -3969
+}
+Reformat {
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name Reformat1
+ selected true
+ xpos 36370
+ ypos -3832
+}
+Transform {
+ translate {{curve x1 -760 x50 760} 0}
+ scale {0.2 0.8}
+ center {960 540}
+ shutteroffset centred
+ name Transform14
+ selected true
+ xpos 36370
+ ypos -3754
+}
+Dot {
+ name Dot34
+ selected true
+ xpos 36404
+ ypos -3678
+}
+set N1183bc00 [stack 0]
+Dot {
+ name Dot36
+ selected true
+ xpos 36184
+ ypos -3678
+}
+Dot {
+ name Dot37
+ selected true
+ xpos 36184
+ ypos -3558
+}
+set N1183b400 [stack 0]
+Dot {
+ name Dot38
+ selected true
+ xpos 36184
+ ypos -3486
+}
+set N1183a000 [stack 0]
+Dot {
+ name Dot39
+ selected true
+ xpos 36184
+ ypos -3438
+}
+set N11839000 [stack 0]
+Dot {
+ name Dot40
+ selected true
+ xpos 36184
+ ypos -3390
+}
+set Nc4c33c00 [stack 0]
+Dot {
+ name Dot41
+ selected true
+ xpos 36184
+ ypos -3342
+}
+set Nc4c32c00 [stack 0]
+Dot {
+ name Dot42
+ selected true
+ xpos 36184
+ ypos -3294
+}
+set Nc4c31c00 [stack 0]
+Dot {
+ name Dot43
+ selected true
+ xpos 36184
+ ypos -3246
+}
+set Nc4c30c00 [stack 0]
+Dot {
+ name Dot44
+ selected true
+ xpos 36184
+ ypos -3198
+}
+set Ncfa8b800 [stack 0]
+Dot {
+ name Dot45
+ selected true
+ xpos 36184
+ ypos -3150
+}
+set Ncfa8a800 [stack 0]
+Dot {
+ name Dot46
+ selected true
+ xpos 36184
+ ypos -3102
+}
+set Ncfa89800 [stack 0]
+Dot {
+ name Dot47
+ selected true
+ xpos 36184
+ ypos -3054
+}
+set Ncfa88800 [stack 0]
+Dot {
+ name Dot48
+ selected true
+ xpos 36184
+ ypos -3006
+}
+set Nd5adb400 [stack 0]
+Dot {
+ name Dot49
+ selected true
+ xpos 36184
+ ypos -2958
+}
+set Nd5ada400 [stack 0]
+Dot {
+ name Dot50
+ selected true
+ xpos 36184
+ ypos -2910
+}
+TimeOffset {
+ time ""
+ name TimeOffset14
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -2920
+}
+push $Nd5ada800
+push $Nd5ada400
+TimeOffset {
+ time_offset 1
+ time ""
+ name TimeOffset13
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -2968
+}
+push $Nd5adb800
+push $Nd5adb400
+TimeOffset {
+ time_offset 2
+ time ""
+ name TimeOffset12
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3016
+}
+push $Ncfa88c00
+push $Ncfa88800
+TimeOffset {
+ time_offset 3
+ time ""
+ name TimeOffset11
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3064
+}
+push $Ncfa89c00
+push $Ncfa89800
+TimeOffset {
+ time_offset 2
+ time ""
+ name TimeOffset10
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3112
+}
+push $Ncfa8ac00
+push $Ncfa8a800
+TimeOffset {
+ time_offset 1
+ time ""
+ name TimeOffset9
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3160
+}
+push $Ncfa8bc00
+push $Ncfa8b800
+TimeOffset {
+ time ""
+ name TimeOffset8
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3208
+}
+push $Nc4c31000
+push $Nc4c30c00
+TimeOffset {
+ time_offset -1
+ time ""
+ name TimeOffset7
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3256
+}
+push $Nc4c32000
+push $Nc4c31c00
+TimeOffset {
+ time_offset -2
+ time ""
+ name TimeOffset6
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3304
+}
+push $Nc4c33000
+push $Nc4c32c00
+TimeOffset {
+ time_offset -3
+ time ""
+ name TimeOffset5
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3352
+}
+push $N11838400
+push $Nc4c33c00
+TimeOffset {
+ time_offset -4
+ time ""
+ name TimeOffset4
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3400
+}
+push $N11839400
+push $N11839000
+TimeOffset {
+ time_offset -3
+ time ""
+ name TimeOffset3
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3448
+}
+push $N1183a800
+push $N1183a000
+TimeOffset {
+ time_offset -2
+ time ""
+ name TimeOffset2
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3496
+}
+push $N7cd00c00
+push $N1183b400
+TimeOffset {
+ time_offset -1
+ time ""
+ name TimeOffset1
+ label "Value: \[value time_offset]"
+ selected true
+ xpos 36260
+ ypos -3568
+}
+push $N1183bc00
+Keymix {
+ inputs 3
+ name Keymix2
+ selected true
+ xpos 36370
+ ypos -3568
+}
+Keymix {
+ inputs 3
+ name Keymix3
+ selected true
+ xpos 36370
+ ypos -3496
+}
+Keymix {
+ inputs 3
+ name Keymix4
+ selected true
+ xpos 36370
+ ypos -3448
+}
+Keymix {
+ inputs 3
+ name Keymix5
+ selected true
+ xpos 36370
+ ypos -3400
+}
+Keymix {
+ inputs 3
+ name Keymix6
+ selected true
+ xpos 36370
+ ypos -3352
+}
+Keymix {
+ inputs 3
+ name Keymix7
+ selected true
+ xpos 36370
+ ypos -3304
+}
+Keymix {
+ inputs 3
+ name Keymix8
+ selected true
+ xpos 36370
+ ypos -3256
+}
+Keymix {
+ inputs 3
+ name Keymix9
+ selected true
+ xpos 36370
+ ypos -3208
+}
+Keymix {
+ inputs 3
+ name Keymix10
+ selected true
+ xpos 36370
+ ypos -3160
+}
+Keymix {
+ inputs 3
+ name Keymix11
+ selected true
+ xpos 36370
+ ypos -3112
+}
+Keymix {
+ inputs 3
+ name Keymix12
+ selected true
+ xpos 36370
+ ypos -3064
+}
+Keymix {
+ inputs 3
+ name Keymix13
+ selected true
+ xpos 36370
+ ypos -3016
+}
+Keymix {
+ inputs 3
+ name Keymix14
+ selected true
+ xpos 36370
+ ypos -2968
+}
+Keymix {
+ inputs 3
+ name Keymix15
+ selected true
+ xpos 36370
+ ypos -2920
+}
+Reformat {
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name Reformat3
+ selected true
+ xpos 36370
+ ypos -2752
+}
