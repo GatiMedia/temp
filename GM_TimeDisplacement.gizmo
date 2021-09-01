@@ -1,0 +1,1272 @@
+Group {
+ name GM_TimeDisplacement
+ selected true
+ xpos 36040
+ ypos -3634
+ addUserKnob {20 User}
+ addUserKnob {41 steps l Steps T callback.steps}
+ addUserKnob {26 warning l "" -STARTLINE T "  This might take a while to update!"}
+ addUserKnob {26 ""}
+ addUserKnob {41 WaveLength T SinMaster.WaveLength}
+ addUserKnob {41 maxVal T SinMaster.maxVal}
+ addUserKnob {41 offset l Offset T SinMaster.offset}
+ addUserKnob {41 layerBlur l "Layer Blur" T SinMaster.layerBlur}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0xff
+  label "<center><font color=red><h4>DON'T TOUCH\nstatic"
+  note_font_size 42
+  xpos 294
+  ypos -880
+  bdwidth 293
+  bdheight 176
+ }
+ NoOp {
+  inputs 0
+  name callback
+  knobChanged "\nm = nuke.thisNode()\nkc = nuke.thisKnob()\nif kc.name() in \[\"steps\"]:\n    for n in nuke.allNodes():\n        if \"static\" not in n\['label'].getValue():\n            nuke.delete(n)\n\ndot1 = nuke.toNode('Dot1')\nkeymix1 = nuke.toNode('Keymix1')\ntrans1 = nuke.toNode('Transform1')\nblur1 = nuke.toNode('Blur1')\nsinM = nuke.toNode('SinMaster')\noutput = nuke.toNode('Output')\nexprMain = nuke.toNode('ExpressionMain')\n\nfor step in range(int(nuke.toNode('callback')\['steps'].value())):\n    dot = nuke.createNode('Dot')\n    dot\['xpos'].setValue(dot1\['xpos'].value())\n    dot\['ypos'].setValue(dot1\['ypos'].value() + 48)\n    dot.setInput(0, dot1)\n    dot.hideControlPanel()\n    \n    timeoffset = nuke.createNode('TimeOffset')\n    timeoffset\['xpos'].setValue(dot\['xpos'].value() + 76)\n    timeoffset\['ypos'].setValue(dot1\['ypos'].value() + 38)\n    timeoffset\['time_offset'].setExpression('(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal')\n    timeoffset\['label'].setValue('Value: \[format %.2f \[value time_offset]]')\n    timeoffset.setInput(0, dot)\n    timeoffset.hideControlPanel()\n    \n    trans = nuke.createNode('Transform')\n    trans\['xpos'].setValue(trans1\['xpos'].value())\n    trans\['ypos'].setValue(dot\['ypos'].value() - 10)\n    trans\['center'].setExpression('input.width/2')\n    trans\['center'].setExpression('input.height')\n    trans\['scale'].setSingleValue(False)\n    trans\['scale'].setExpression(('1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )'),1)\n    trans\['label'].setValue('Height: \[value scale.h]')\n    trans.setInput(0, exprMain)\n    trans.hideControlPanel() \n\n    blur = nuke.createNode('Blur')\n    blur\['xpos'].setValue(blur1\['xpos'].value())\n    blur\['ypos'].setValue(blur1\['ypos'].value() + 48)\n    blur\['size'].setExpression('SinMaster.layerBlur')\n    blur\['label'].setValue('Size: \[value size]')\n    blur.setInput(0, trans)\n    blur.hideControlPanel() \n    \n\n    keymix = nuke.createNode('Keymix')\n    keymix\['xpos'].setValue(keymix1\['xpos'].value())\n    keymix\['ypos'].setValue(keymix1\['ypos'].value() + 48)\n    keymix.setInput(0, keymix1)\n    keymix.setInput(1, timeoffset)\n    keymix.setInput(2, blur)\n    keymix.hideControlPanel() \n\n    output\['xpos'].setValue(keymix\['xpos'].value())\n    output\['ypos'].setValue(keymix\['ypos'].value() + 48)\n    output.setInput(0, keymix)\n    \n    dot1 = dot\n    keymix1 = keymix\n    trans1 = trans\n    blur1 = blur\n"
+  label static
+  xpos 400
+  ypos -784
+  addUserKnob {20 User}
+  addUserKnob {3 steps l Steps}
+  steps 30
+ }
+ Input {
+  inputs 0
+  name img
+  label static
+  xpos 950
+  ypos -784
+ }
+ Dot {
+  name DotMain
+  label "\[value name]\nstatic"
+  xpos 984
+  ypos -702
+ }
+set N925eb400 [stack 0]
+ Expression {
+  channel0 rgb
+  expr0 0
+  channel3 alpha
+  expr3 1
+  name ExpressionMain
+  label static
+  xpos 1170
+  ypos -712
+ }
+set N925eb000 [stack 0]
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform31
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 776
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur31
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 763
+ }
+push $N925eb400
+ Dot {
+  name DotLeft
+  label "\[value name]\nstatic"
+  xpos 764
+  ypos -702
+ }
+ Dot {
+  name Dot1
+  label static
+  xpos 764
+  ypos -654
+ }
+set N92582800 [stack 0]
+ Dot {
+  name Dot2
+  xpos 764
+  ypos -606
+ }
+set N727a4c00 [stack 0]
+ Dot {
+  name Dot3
+  xpos 764
+  ypos -558
+ }
+set Nc66fb400 [stack 0]
+ Dot {
+  name Dot4
+  xpos 764
+  ypos -510
+ }
+set Nc66fa000 [stack 0]
+ Dot {
+  name Dot5
+  xpos 764
+  ypos -462
+ }
+set Nc66f8c00 [stack 0]
+ Dot {
+  name Dot6
+  xpos 764
+  ypos -414
+ }
+set Nd2737400 [stack 0]
+ Dot {
+  name Dot7
+  xpos 764
+  ypos -366
+ }
+set Nd2736000 [stack 0]
+ Dot {
+  name Dot8
+  xpos 764
+  ypos -318
+ }
+set Nd2734c00 [stack 0]
+ Dot {
+  name Dot9
+  xpos 764
+  ypos -270
+ }
+set Nf8433400 [stack 0]
+ Dot {
+  name Dot10
+  xpos 764
+  ypos -222
+ }
+set Nf8432000 [stack 0]
+ Dot {
+  name Dot11
+  xpos 764
+  ypos -174
+ }
+set Nf8430c00 [stack 0]
+ Dot {
+  name Dot12
+  xpos 764
+  ypos -126
+ }
+set Nb61e7400 [stack 0]
+ Dot {
+  name Dot13
+  xpos 764
+  ypos -78
+ }
+set Nb61e6000 [stack 0]
+ Dot {
+  name Dot14
+  xpos 764
+  ypos -30
+ }
+set Nb61e4c00 [stack 0]
+ Dot {
+  name Dot15
+  xpos 764
+  ypos 18
+ }
+set N416e3400 [stack 0]
+ Dot {
+  name Dot16
+  xpos 764
+  ypos 66
+ }
+set N416e2000 [stack 0]
+ Dot {
+  name Dot17
+  xpos 764
+  ypos 114
+ }
+set N416e0c00 [stack 0]
+ Dot {
+  name Dot18
+  xpos 764
+  ypos 162
+ }
+set N2c013400 [stack 0]
+ Dot {
+  name Dot19
+  xpos 764
+  ypos 210
+ }
+set N2c012000 [stack 0]
+ Dot {
+  name Dot20
+  xpos 764
+  ypos 258
+ }
+set N2c010c00 [stack 0]
+ Dot {
+  name Dot21
+  xpos 764
+  ypos 306
+ }
+set N54177400 [stack 0]
+ Dot {
+  name Dot22
+  xpos 764
+  ypos 354
+ }
+set N54176000 [stack 0]
+ Dot {
+  name Dot23
+  xpos 764
+  ypos 402
+ }
+set N54174c00 [stack 0]
+ Dot {
+  name Dot24
+  xpos 764
+  ypos 450
+ }
+set N57d17400 [stack 0]
+ Dot {
+  name Dot25
+  xpos 764
+  ypos 498
+ }
+set N57d16000 [stack 0]
+ Dot {
+  name Dot26
+  xpos 764
+  ypos 546
+ }
+set N57d14c00 [stack 0]
+ Dot {
+  name Dot27
+  xpos 764
+  ypos 594
+ }
+set Nd3027400 [stack 0]
+ Dot {
+  name Dot28
+  xpos 764
+  ypos 642
+ }
+set Nd3026000 [stack 0]
+ Dot {
+  name Dot29
+  xpos 764
+  ypos 690
+ }
+set Nd3024c00 [stack 0]
+ Dot {
+  name Dot30
+  xpos 764
+  ypos 738
+ }
+set Ndd13b400 [stack 0]
+ Dot {
+  name Dot31
+  xpos 764
+  ypos 786
+ }
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset31
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 776
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform30
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 728
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur30
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 715
+ }
+push $Ndd13b400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset30
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 728
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform29
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 680
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur29
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 667
+ }
+push $Nd3024c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset29
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 680
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform28
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 632
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur28
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 619
+ }
+push $Nd3026000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset28
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 632
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform27
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 584
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur27
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 571
+ }
+push $Nd3027400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset27
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 584
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform26
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 536
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur26
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 523
+ }
+push $N57d14c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset26
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 536
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform25
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 488
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur25
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 475
+ }
+push $N57d16000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset25
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 488
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform24
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 440
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur24
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 427
+ }
+push $N57d17400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset24
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 440
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform23
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 392
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur23
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 379
+ }
+push $N54174c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset23
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 392
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform22
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 344
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur22
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 331
+ }
+push $N54176000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset22
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 344
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform21
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 296
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur21
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 283
+ }
+push $N54177400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset21
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 296
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform20
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 248
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur20
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 235
+ }
+push $N2c010c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset20
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 248
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform19
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 200
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur19
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 187
+ }
+push $N2c012000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset19
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 200
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform18
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 152
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur18
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 139
+ }
+push $N2c013400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset18
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 152
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform17
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 104
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur17
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 91
+ }
+push $N416e0c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset17
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 104
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform16
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 56
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur16
+  label "Size: \[value size]"
+  xpos 1060
+  ypos 43
+ }
+push $N416e2000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset16
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 56
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform15
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos 8
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur15
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -5
+ }
+push $N416e3400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset15
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos 8
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform14
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -40
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur14
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -53
+ }
+push $Nb61e4c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset14
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -40
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform13
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -88
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur13
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -101
+ }
+push $Nb61e6000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset13
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -88
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform12
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -136
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur12
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -149
+ }
+push $Nb61e7400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset12
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -136
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform11
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -184
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur11
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -197
+ }
+push $Nf8430c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset11
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -184
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform10
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -232
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur10
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -245
+ }
+push $Nf8432000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset10
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -232
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform9
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -280
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur9
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -293
+ }
+push $Nf8433400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset9
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -280
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform8
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -328
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur8
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -341
+ }
+push $Nd2734c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset8
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -328
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform7
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -376
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur7
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -389
+ }
+push $Nd2736000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset7
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -376
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform6
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -424
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur6
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -437
+ }
+push $Nd2737400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset6
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -424
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform5
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -472
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur5
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -485
+ }
+push $Nc66f8c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset5
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -472
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform4
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -520
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur4
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -533
+ }
+push $Nc66fa000
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset4
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -520
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform3
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -568
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur3
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -581
+ }
+push $Nc66fb400
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset3
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -568
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform2
+  label "Height: \[value scale.h]"
+  xpos 1170
+  ypos -616
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur2
+  label "Size: \[value size]"
+  xpos 1060
+  ypos -629
+ }
+push $N727a4c00
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset2
+  label "Value: \[format %.2f \[value time_offset]]"
+  xpos 840
+  ypos -616
+ }
+push $N925eb000
+ Transform {
+  scale {1 {"1-((\[ regexp -inline \{\\d+\} \[value name]] - 1) / callback.steps )"}}
+  center {{input.height} {input.height}}
+  shutteroffset centred
+  name Transform1
+  label "Height: \[value scale.h]\nstatic"
+  xpos 1170
+  ypos -671
+ }
+ Blur {
+  size {{SinMaster.layerBlur}}
+  name Blur1
+  label "Size: \[value size]\nstatic"
+  xpos 1060
+  ypos -677
+ }
+push $N92582800
+ TimeOffset {
+  time_offset {{"(sin(2*pi*(frame+\[ regexp -inline \{\\d+\} \[value name]])/SinMaster.WaveLength))/2 * (SinMaster.maxVal-SinMaster.minVal) + SinMaster.minVal"}}
+  time ""
+  name TimeOffset1
+  label "Value: \[format %.2f \[value time_offset]]\nstatic"
+  xpos 840
+  ypos -671
+ }
+push $N925eb400
+ Keymix {
+  inputs 3
+  name Keymix1
+  label static
+  xpos 950
+  ypos -671
+ }
+ Keymix {
+  inputs 3
+  name Keymix2
+  xpos 950
+  ypos -623
+ }
+ Keymix {
+  inputs 3
+  name Keymix3
+  xpos 950
+  ypos -575
+ }
+ Keymix {
+  inputs 3
+  name Keymix4
+  xpos 950
+  ypos -527
+ }
+ Keymix {
+  inputs 3
+  name Keymix5
+  xpos 950
+  ypos -479
+ }
+ Keymix {
+  inputs 3
+  name Keymix6
+  xpos 950
+  ypos -431
+ }
+ Keymix {
+  inputs 3
+  name Keymix7
+  xpos 950
+  ypos -383
+ }
+ Keymix {
+  inputs 3
+  name Keymix8
+  xpos 950
+  ypos -335
+ }
+ Keymix {
+  inputs 3
+  name Keymix9
+  xpos 950
+  ypos -287
+ }
+ Keymix {
+  inputs 3
+  name Keymix10
+  xpos 950
+  ypos -239
+ }
+ Keymix {
+  inputs 3
+  name Keymix11
+  xpos 950
+  ypos -191
+ }
+ Keymix {
+  inputs 3
+  name Keymix12
+  xpos 950
+  ypos -143
+ }
+ Keymix {
+  inputs 3
+  name Keymix13
+  xpos 950
+  ypos -95
+ }
+ Keymix {
+  inputs 3
+  name Keymix14
+  xpos 950
+  ypos -47
+ }
+ Keymix {
+  inputs 3
+  name Keymix15
+  xpos 950
+  ypos 1
+ }
+ Keymix {
+  inputs 3
+  name Keymix16
+  xpos 950
+  ypos 49
+ }
+ Keymix {
+  inputs 3
+  name Keymix17
+  xpos 950
+  ypos 97
+ }
+ Keymix {
+  inputs 3
+  name Keymix18
+  xpos 950
+  ypos 145
+ }
+ Keymix {
+  inputs 3
+  name Keymix19
+  xpos 950
+  ypos 193
+ }
+ Keymix {
+  inputs 3
+  name Keymix20
+  xpos 950
+  ypos 241
+ }
+ Keymix {
+  inputs 3
+  name Keymix21
+  xpos 950
+  ypos 289
+ }
+ Keymix {
+  inputs 3
+  name Keymix22
+  xpos 950
+  ypos 337
+ }
+ Keymix {
+  inputs 3
+  name Keymix23
+  xpos 950
+  ypos 385
+ }
+ Keymix {
+  inputs 3
+  name Keymix24
+  xpos 950
+  ypos 433
+ }
+ Keymix {
+  inputs 3
+  name Keymix25
+  xpos 950
+  ypos 481
+ }
+ Keymix {
+  inputs 3
+  name Keymix26
+  xpos 950
+  ypos 529
+ }
+ Keymix {
+  inputs 3
+  name Keymix27
+  xpos 950
+  ypos 577
+ }
+ Keymix {
+  inputs 3
+  name Keymix28
+  xpos 950
+  ypos 625
+ }
+ Keymix {
+  inputs 3
+  name Keymix29
+  xpos 950
+  ypos 673
+ }
+ Keymix {
+  inputs 3
+  name Keymix30
+  xpos 950
+  ypos 721
+ }
+ Keymix {
+  inputs 3
+  name Keymix31
+  selected true
+  xpos 950
+  ypos 769
+ }
+ Output {
+  name Output
+  label static
+  xpos 950
+  ypos 817
+ }
+ NoOp {
+  inputs 0
+  name SinMaster
+  label static
+  xpos 400
+  ypos -664
+  addUserKnob {20 User}
+  addUserKnob {7 WaveLength R 0 500}
+  WaveLength 150
+  addUserKnob {7 minVal}
+  addUserKnob {7 maxVal R 0 100}
+  maxVal 50
+  addUserKnob {26 ""}
+  addUserKnob {7 offset l Offset R 0 100}
+  offset 10
+  addUserKnob {7 layerBlur l "Layer Blur" R 0 100}
+  layerBlur 5
+ }
+end_group
