@@ -58,7 +58,7 @@ else:
         pass
     
     if nodeTodo:
-        knobTodo = nuke.Text_Knob('comment', '')
+        knobTodo = nuke.Text_Knob('todo', '')
         node.addKnob(knobTodo)
         knobTodo.setValue("TODO:\n" + nodeTodo )
     else:
