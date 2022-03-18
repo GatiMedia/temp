@@ -1,0 +1,4179 @@
+DeepOmit {
+ name DeepOmit1
+ selected true
+ xpos 1060
+ ypos 782
+}
+StickyNote {
+ inputs 0
+ name StickyNote13
+ label A
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos -370
+ ypos -462
+}
+StickyNote {
+ inputs 0
+ name StickyNote14
+ label B
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 70
+ ypos -462
+}
+StickyNote {
+ inputs 0
+ name StickyNote15
+ label C
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 510
+ ypos -462
+}
+StickyNote {
+ inputs 0
+ name StickyNote16
+ label D
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 1060
+ ypos -462
+}
+EdgeScatter {
+ inputs 0
+ name EdgeScatter1
+ selected true
+ xpos 1720
+ ypos 8
+}
+StickyNote {
+ inputs 0
+ name StickyNote17
+ label E
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 1720
+ ypos -486
+}
+FFTMultiply {
+ inputs 0
+ name FFTMultiply1
+ selected true
+ xpos 2270
+ ypos -112
+}
+FishEye {
+ inputs 0
+ name FishEye1
+ selected true
+ xpos 2280
+ ypos 762
+}
+StickyNote {
+ inputs 0
+ name StickyNote20
+ label F
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 2270
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote22
+ label G
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 2710
+ ypos -486
+}
+HydraCylinderLight {
+ inputs 0
+ name HydraCylinderLight1
+ selected true
+ xpos 3160
+ ypos -198
+}
+HydraDiskLight {
+ inputs 0
+ name HydraDiskLight1
+ selected true
+ xpos 3160
+ ypos -78
+}
+HydraDomeLight {
+ inputs 0
+ name HydraDomeLight1
+ selected true
+ xpos 3160
+ ypos 42
+}
+HydraRender {
+ inputs 0
+ renderer_id ""
+ name HydraRender1
+ selected true
+ xpos 3150
+ ypos 326
+}
+HydraScene {
+ inputs 0
+ name HydraScene1
+ selected true
+ xpos 3160
+ ypos 426
+}
+HydraSphereLight {
+ inputs 0
+ name HydraSphereLight1
+ selected true
+ xpos 3160
+ ypos 546
+}
+HydraUSDStage {
+ inputs 0
+ name HydraUSDStage1
+ selected true
+ xpos 3160
+ ypos 690
+}
+HydraViewer {
+ inputs 0
+ rendererId HdStormRendererPlugin
+ name HydraViewer1
+ selected true
+ xpos 3150
+ ypos 830
+}
+StickyNote {
+ inputs 0
+ name StickyNote23
+ label H
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 3150
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote19
+ label "EdgeDetectWrapper\n"
+ selected true
+ xpos 1820
+ ypos -256
+}
+StickyNote {
+ inputs 0
+ name StickyNote18
+ label EdgeDetect
+ selected true
+ xpos 1720
+ ypos -250
+}
+StickyNote {
+ inputs 0
+ name StickyNote27
+ label IBKGizmo
+ selected true
+ xpos 3810
+ ypos -178
+}
+StickyNote {
+ inputs 0
+ name StickyNote25
+ label IBK
+ selected true
+ xpos 3590
+ ypos -178
+}
+StickyNote {
+ inputs 0
+ name StickyNote29
+ label IBKColour
+ selected true
+ xpos 3590
+ ypos -34
+}
+InvFFT {
+ inputs 0
+ name InvFFT1
+ selected true
+ xpos 3590
+ ypos 728
+}
+StickyNote {
+ inputs 0
+ name StickyNote24
+ label I
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 3590
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote31
+ label K
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 4250
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote34
+ label LensDistortion1_0
+ selected true
+ xpos 4795
+ ypos -226
+}
+StickyNote {
+ inputs 0
+ name StickyNote33
+ label LensDistortion
+ selected true
+ xpos 4690
+ ypos -226
+}
+StickyNote {
+ inputs 0
+ name StickyNote38
+ label Light2
+ selected true
+ xpos 4800
+ ypos -58
+}
+StickyNote {
+ inputs 0
+ name StickyNote39
+ label Light3
+ selected true
+ xpos 4910
+ ypos -58
+}
+StickyNote {
+ inputs 0
+ name StickyNote32
+ label L
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 4690
+ ypos -486
+}
+MeshGeo {
+ inputs 0
+ name MeshGeo1
+ selected true
+ xpos 5350
+ ypos 158
+}
+StickyNote {
+ inputs 0
+ name StickyNote40
+ label ModelBuilderGeo
+ selected true
+ xpos 5565
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote42
+ label Modeler
+ selected true
+ xpos 5350
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote43
+ label Modeler1_0
+ selected true
+ xpos 5460
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote37
+ label M
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 5347
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote44
+ label N
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 5790
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote35
+ label LensDistortion2
+ selected true
+ xpos 4910
+ ypos -226
+}
+StickyNote {
+ inputs 0
+ name StickyNote45
+ label O
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 6230
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote53
+ label PlanarTracker
+ selected true
+ xpos 6780
+ ypos 974
+}
+PointCloudGenerator1_0 {
+ inputs 0
+ serializeKnob "22 serialization::archive 17 0 0 0 0 0 1"
+ name PointCloudGenerator2
+ selected true
+ xpos 6890
+ ypos 1190
+}
+PointCloudGenerator {
+ inputs 0
+ serializeKnob "22 serialization::archive 17 0 0 0 0 0 1"
+ name PointCloudGenerator1
+ selected true
+ xpos 6780
+ ypos 1190
+}
+StickyNote {
+ inputs 0
+ name StickyNote58
+ label PositionToPoints2
+ selected true
+ xpos 6885
+ ypos 1310
+}
+StickyNote {
+ inputs 0
+ name StickyNote57
+ label PositionToPoints
+ selected true
+ xpos 6778
+ ypos 1310
+}
+StickyNote {
+ inputs 0
+ name StickyNote60
+ label Project3D2
+ selected true
+ xpos 6890
+ ypos 1814
+}
+StickyNote {
+ inputs 0
+ name StickyNote59
+ label Project3D
+ selected true
+ xpos 6780
+ ypos 1814
+}
+StickyNote {
+ inputs 0
+ name StickyNote62
+ label ProjectionSolver1_0
+ selected true
+ xpos 6879
+ ypos 2006
+}
+StickyNote {
+ inputs 0
+ name StickyNote52
+ label P
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 6780
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote46
+ label OFXuk.co.thefoundry.furnace.f_degrain_v403
+ selected true
+ xpos 6161
+ ypos -202
+}
+StickyNote {
+ inputs 0
+ name StickyNote63
+ label R
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 7220
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote65
+ label S
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 7660
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote67
+ label U
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 8540
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote68
+ label V
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 8980
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote69
+ label W
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 9409
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote70
+ label Z
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 9860
+ ypos -486
+}
+StickyNote {
+ inputs 0
+ name StickyNote41
+ label ModelBuilder
+ selected true
+ xpos 5680
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote72
+ label Shuffle1
+ selected true
+ xpos 7770
+ ypos -178
+}
+SphereToLatLongMap {
+ inputs 0
+ name SphereToLatLongMap1
+ selected true
+ xpos 7660
+ ypos 254
+}
+SphericalMap {
+ inputs 0
+ name SphericalMap1
+ selected true
+ xpos 7660
+ ypos 374
+}
+StickyNote {
+ inputs 0
+ name StickyNote71
+ label Shuffle
+ selected true
+ xpos 7660
+ ypos -178
+}
+SphericalTransform {
+ inputs 0
+ fix true
+ name SphericalTransform2
+ selected true
+ xpos 7660
+ ypos 560
+}
+SphericalTransform2 {
+ inputs 0
+ name SphericalTransform3
+ selected true
+ xpos 7770
+ ypos 566
+}
+StickyNote {
+ inputs 0
+ name StickyNote76
+ label SphericalTransform2
+ selected true
+ xpos 7758
+ ypos 494
+}
+StickyNote {
+ inputs 0
+ name StickyNote75
+ label SphericalTransform
+ selected true
+ xpos 7651
+ ypos 494
+}
+SplineWarp {
+ inputs 0
+ srcgrid  {
+    2 0 0 0  {
+      1 0 0 0
+    }  {
+      1 0 0 0 0 
+    } 
+  } 
+ dstgrid  {
+    2 0 0 0  {
+      1 0 0 0
+    }  {
+      1 0 0 0 0 
+    } 
+  } 
+ name SplineWarp1
+ selected true
+ xpos 7660
+ ypos 734
+}
+SplineWarp2 {
+ inputs 0
+ srcgrid  {
+    2 0 0 0  {
+      2 0 0 0 { }
+    }  {
+      1 0 0 0 0 
+    } 
+  } 
+ dstgrid  {
+    2 0 0 0  {
+      2 0 0 0 { }
+    }  {
+      1 0 0 0 0 
+    } 
+  } 
+ center {1024 778}
+ name SplineWarp2_1
+ selected true
+ xpos 7770
+ ypos 734
+}
+StickyNote {
+ inputs 0
+ name StickyNote78
+ label SplineWarp2
+ selected true
+ xpos 7770
+ ypos 662
+}
+SplineWarp3 {
+ inputs 0
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 0}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}}}}}
+ toolbar_preview_mode "persistent preview"
+ name SplineWarp3_1
+ selected true
+ xpos 7880
+ ypos 728
+}
+StickyNote {
+ inputs 0
+ name StickyNote79
+ label SplineWarp3
+ selected true
+ xpos 7880
+ ypos 662
+}
+Spotlight {
+ inputs 0
+ depthmap_slope_bias 0.01
+ name Spotlight1
+ selected true
+ xpos 7670
+ ypos 882
+}
+StickyNote {
+ inputs 0
+ name StickyNote77
+ label SplineWarp
+ selected true
+ xpos 7660
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote66
+ label T
+ note_font "Verdana Bold"
+ note_font_size 91
+ selected true
+ xpos 8100
+ ypos -486
+}
+Text {
+ inputs 0
+ font C:/Windows/Fonts/arial.ttf
+ yjustify center
+ box {512 389 1536 1167}
+ center {1024 778}
+ name Text1
+ selected true
+ xpos 8100
+ ypos -130
+}
+Text2 {
+ inputs 0
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ transforms {{0 2}
+   }
+ center {1024 778}
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+   }
+ name Text2
+ selected true
+ xpos 8210
+ ypos -130
+}
+StickyNote {
+ inputs 0
+ name StickyNote73
+ label Shuffle2
+ selected true
+ xpos 7880
+ ypos -178
+}
+TextureFile {
+ inputs 0
+ name TextureFile1
+ selected true
+ xpos 8100
+ ypos -9
+}
+TextureMap {
+ inputs 0
+ name TextureMap1
+ selected true
+ xpos 8100
+ ypos 134
+}
+TextureSampler {
+ inputs 0
+ name TextureSampler1
+ selected true
+ xpos 8100
+ ypos 254
+}
+TimeBlend {
+ inputs 0
+ name TimeBlend1
+ selected true
+ xpos 8100
+ ypos 374
+}
+TimeShift {
+ inputs 0
+ name TimeShift1
+ selected true
+ xpos 8100
+ ypos 470
+}
+StickyNote {
+ inputs 0
+ name StickyNote81
+ label Text
+ selected true
+ xpos 8100
+ ypos -178
+}
+ToDeep {
+ inputs 0
+ name DeepFromImage1
+ selected true
+ xpos 8100
+ ypos 710
+}
+TimeToDepth {
+ inputs 0
+ name DeepFromFrames1
+ selected true
+ xpos 8100
+ ypos 590
+}
+StickyNote {
+ inputs 0
+ name StickyNote84
+ label TimeToDepth
+ selected true
+ xpos 8100
+ ypos 542
+}
+Tracker {
+ inputs 0
+ name Tracker1
+ selected true
+ xpos 8100
+ ypos 854
+}
+Tracker3 {
+ inputs 0
+ track1 {922 676}
+ offset1 {0 0}
+ pattern1 {-32 -32 32 32}
+ search1 {-22 -22 22 22}
+ track2 {1126 676}
+ offset2 {0 0}
+ pattern2 {-32 -32 32 32}
+ search2 {-22 -22 22 22}
+ track3 {1126 880}
+ offset3 {0 0}
+ pattern3 {-32 -32 32 32}
+ search3 {-22 -22 22 22}
+ track4 {922 880}
+ offset4 {0 0}
+ pattern4 {-32 -32 32 32}
+ search4 {-22 -22 22 22}
+ center {1024 778}
+ name Tracker2
+ selected true
+ xpos 8210
+ ypos 854
+}
+Tracker4 {
+ inputs 0
+ center {1024 778}
+ shutteroffset centred
+ name Tracker3
+ selected true
+ xpos 8320
+ ypos 854
+}
+StickyNote {
+ inputs 0
+ name StickyNote83
+ label ToDeep
+ selected true
+ xpos 8100
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote85
+ label Tracker
+ selected true
+ xpos 8100
+ ypos 782
+}
+StickyNote {
+ inputs 0
+ name StickyNote86
+ label Tracker3
+ selected true
+ xpos 8210
+ ypos 782
+}
+StickyNote {
+ inputs 0
+ name StickyNote87
+ label Tracker4
+ selected true
+ xpos 8320
+ ypos 782
+}
+Transform3D {
+ inputs 0
+ name Transform3D1
+ selected true
+ xpos 8100
+ ypos 974
+}
+Twist {
+ inputs 0
+ name Twist1
+ selected true
+ xpos 8100
+ ypos 1118
+}
+TwistGeo {
+ inputs 0
+ name TwistGeo1
+ selected true
+ xpos 8100
+ ypos 1238
+}
+USDPreviewSurface {
+ inputs 0
+ name USDPreviewSurface1
+ selected true
+ xpos 8540
+ ypos -130
+}
+UVTile2 {
+ inputs 0
+ name UVTile1
+ selected true
+ xpos 8540
+ ypos -10
+}
+UnmultColor {
+ inputs 0
+ name UnmultColor1
+ selected true
+ xpos 8540
+ ypos 134
+}
+Unwrap {
+ inputs 0
+ name Unwrap1
+ selected true
+ xpos 8540
+ ypos 254
+}
+UpRez {
+ inputs 0
+ name UpRez1
+ selected true
+ xpos 8540
+ ypos 350
+}
+StickyNote {
+ inputs 0
+ name StickyNote82
+ label Text2
+ selected true
+ xpos 8210
+ ypos -178
+}
+StickyNote {
+ inputs 0
+ name StickyNote88
+ label VectorBlur
+ selected true
+ xpos 8980
+ ypos -202
+}
+ViewerCaptureOp {
+ inputs 0
+ name ViewerCaptureOp1
+ selected true
+ xpos 8980
+ ypos -10
+}
+ViewerChannelSelector {
+ inputs 0
+ name ViewerChannelSelector1
+ selected true
+ xpos 8980
+ ypos 86
+}
+ViewerClipTest {
+ inputs 0
+ name ViewerClipTest1
+ selected true
+ xpos 8980
+ ypos 206
+}
+ViewerDitherDisable {
+ inputs 0
+ name ViewerDitherDisable1
+ selected true
+ xpos 8980
+ ypos 326
+}
+ViewerDitherHighFrequency {
+ inputs 0
+ name ViewerDitherHighFrequency1
+ selected true
+ xpos 8980
+ ypos 422
+}
+ViewerGamma {
+ inputs 0
+ name ViewerGamma1
+ selected true
+ xpos 8980
+ ypos 662
+}
+ViewerInterlacedStereo {
+ inputs 0
+ name ViewerInterlacedStereo1
+ selected true
+ xpos 8980
+ ypos 758
+}
+ViewerLUT {
+ inputs 0
+ name ViewerLUT1
+ selected true
+ xpos 8980
+ ypos 854
+}
+ViewerProcess_1DLUT {
+ inputs 0
+ name ViewerProcess_1DLUT1
+ selected true
+ xpos 8980
+ ypos 950
+}
+ViewerProcess_None {
+ inputs 0
+ name ViewerProcess_None1
+ selected true
+ xpos 8980
+ ypos 1022
+}
+ViewerScopeOp {
+ inputs 0
+ name ViewerScopeOp1
+ selected true
+ xpos 8980
+ ypos 1118
+}
+ViewerWipe {
+ inputs 0
+ name ViewerWipe1
+ selected true
+ xpos 8980
+ ypos 1214
+}
+StickyNote {
+ inputs 0
+ name StickyNote89
+ label VectorBlur2
+ selected true
+ xpos 9090
+ ypos -202
+}
+StickyNote {
+ inputs 0
+ name StickyNote90
+ label ZDefocus
+ selected true
+ xpos 9860
+ ypos 14
+}
+StickyNote {
+ inputs 0
+ name StickyNote91
+ label ZDefocus2
+ selected true
+ xpos 9970
+ ypos 14
+}
+ViewerDitherLowFrequency {
+ inputs 0
+ name ViewerDitherLowFrequency1
+ selected true
+ xpos 8980
+ ypos 494
+}
+Blocky {
+ inputs 0
+ name Blocky1
+ selected true
+ xpos 70
+ ypos 494
+}
+StickyNote {
+ inputs 0
+ name StickyNote80
+ label "Error message:\nStabTrack1.Transform1.clip: Animated knob has been deprecated"
+ selected true
+ xpos 7544
+ ypos 1040
+}
+add_layer {stmap stmap.u stmap.v stmap.mask}
+AddSTMap {
+ inputs 0
+ name AddSTMap1
+ selected true
+ xpos -370
+ ypos -274
+ STMap_channels stmap
+}
+ApplyLUT {
+ inputs 0
+ name ApplyLUT1
+ selected true
+ xpos -370
+ ypos -154
+}
+AttribGeo {
+ inputs 0
+ name AttribGeo1
+ selected true
+ xpos -370
+ ypos -34
+}
+BakedPointCloud {
+ inputs 0
+ serializeKnob ""
+ name BakedPointCloud1
+ selected true
+ xpos 70
+ ypos -250
+}
+BakedPointCloudMesh {
+ inputs 0
+ serializeKnob ""
+ name BakedPointCloudMesh1
+ selected true
+ xpos 70
+ ypos -178
+}
+Bezier {
+ inputs 0
+ points {{
+}}
+ shape {}
+ center {1024 778}
+ name Bezier1
+ selected true
+ xpos 70
+ ypos -58
+}
+Bilateral {
+ inputs 0
+ name Bilateral1
+ selected true
+ xpos 70
+ ypos 62
+}
+BlockGPU {
+ inputs 0
+ name BlockGPU1
+ selected true
+ xpos 70
+ ypos 398
+}
+BumpMat {
+ inputs 0
+ name BumpMat1
+ selected true
+ xpos 70
+ ypos 590
+}
+BurnIn {
+ inputs 0
+ name BurnIn1
+ selected true
+ xpos 70
+ ypos 686
+ burnIn_font {{ Utopia : Regular : UtopiaRegular.pfa : 0 }}
+}
+Bilateral2 {
+ inputs 0
+ name Bilateral2
+ selected true
+ xpos 180
+ ypos 56
+}
+CCorrect {
+ inputs 0
+ name CCorrect1
+ selected true
+ xpos 510
+ ypos -202
+}
+ColorCorrect {
+ inputs 0
+ name ColorCorrect2
+ selected true
+ xpos 730
+ ypos -202
+}
+CCrosstalk {
+ inputs 0
+ name CCrosstalk1
+ selected true
+ xpos 510
+ ypos -106
+}
+C_Bilateral2_1 {
+ inputs 0
+ name Bilateral3
+ selected true
+ xpos 510
+ ypos 8
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ label C_Bilateral2_1
+ selected true
+ xpos 510
+ ypos -34
+}
+StickyNote {
+ inputs 0
+ name StickyNote2
+ label C_SphericalTransform2_1
+ selected true
+ xpos 486
+ ypos 86
+}
+C_SphericalTransform2_1 {
+ inputs 0
+ name SphericalTransform1
+ selected true
+ xpos 510
+ ypos 134
+}
+SphericalTransform2 {
+ inputs 0
+ name SphericalTransform4
+ selected true
+ xpos 620
+ ypos 134
+}
+Axis {
+ inputs 0
+ name Axis1
+ selected true
+ xpos -470
+ ypos 90
+}
+Axis2 {
+ inputs 0
+ name Axis2
+ selected true
+ xpos -360
+ ypos 90
+}
+Axis3 {
+ inputs 0
+ name Axis3
+ selected true
+ xpos -250
+ ypos 90
+}
+Camera {
+ inputs 0
+ name Camera1
+ selected true
+ xpos 410
+ ypos 306
+}
+Camera2 {
+ inputs 0
+ name Camera2
+ selected true
+ xpos 520
+ ypos 306
+}
+Camera3 {
+ inputs 0
+ name Camera3
+ selected true
+ xpos 630
+ ypos 306
+}
+CameraShake {
+ inputs 0
+ name CameraShake1
+ selected true
+ xpos 400
+ ypos 542
+}
+CameraShake2 {
+ inputs 0
+ name CameraShake2_1
+ label "\[value amplitude] px at \[value frequency]"
+ selected true
+ xpos 510
+ ypos 536
+ cs_center {{"\[value input.width 0]/2"} {"\[value input.height 0]/2"}}
+}
+CameraShake3 {
+ inputs 0
+ name CameraShake3_1
+ label "\[value amplitude] px at \[value frequency]"
+ selected true
+ xpos 620
+ ypos 536
+ cs_center {{"\[value input.width 0]/2"} {"\[value input.height 0]/2"}}
+}
+StickyNote {
+ inputs 0
+ name StickyNote3
+ label "also - CameraTracker1_0"
+ selected true
+ xpos 599
+ ypos 686
+}
+StickyNote {
+ inputs 0
+ name StickyNote4
+ label "also - CameraTrackerPointCloud1_0"
+ selected true
+ xpos 572
+ ypos 782
+}
+CameraTracker {
+ inputs 0
+ serializeKnob "22 serialization::archive 17 0 4 0 2 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0"
+ trackStart 1
+ trackStop 180
+ filenameSalt 10330
+ userTrackViews {left right}
+ name CameraTracker1
+ selected true
+ xpos 400
+ ypos 734
+}
+CameraTracker1_0 {
+ inputs 0
+ serializeKnob "22 serialization::archive 17 0 4 0 2 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0"
+ trackStart 1
+ trackStop 180
+ filenameSalt 3556
+ userTrackViews {left right}
+ name CameraTracker2
+ selected true
+ xpos 620
+ ypos 734
+}
+CameraTrackerPointCloud1_0 {
+ inputs 0
+ name CameraTrackerPointCloud2
+ selected true
+ xpos 620
+ ypos 830
+}
+CameraTrackerPointCloud {
+ inputs 0
+ name CameraTrackerPointCloud1
+ selected true
+ xpos 400
+ ypos 830
+}
+Card {
+ inputs 0
+ name Card1
+ selected true
+ xpos 510
+ ypos 974
+}
+Card2 {
+ inputs 0
+ control_points {3 3 3 6 
+
+1 {-0.5 -0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0 0 0} 
+1 {0 -0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0.5 0 0} 
+1 {0.5 -0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {1 0 0} 
+1 {-0.5 0 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0 0.5 0} 
+1 {0 0 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0.5 0.5 0} 
+1 {0.5 0 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {1 0.5 0} 
+1 {-0.5 0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0 1 0} 
+1 {0 0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0.5 1 0} 
+1 {0.5 0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {1 1 0} }
+ name Card2
+ selected true
+ xpos 620
+ ypos 974
+}
+CardObj {
+ inputs 0
+ name CardObj1
+ selected true
+ xpos 510
+ ypos 1094
+}
+ChannelSelector {
+ inputs 0
+ name ChannelSelector1
+ selected true
+ xpos 510
+ ypos 1214
+}
+CheckerBoard2 {
+ inputs 0
+ name CheckerBoard2
+ selected true
+ xpos 620
+ ypos 1335
+}
+Checker {
+ inputs 0
+ color 1
+ size 22
+ name Checker1
+ selected true
+ xpos 400
+ ypos 1358
+}
+CheckerBoard {
+ inputs 0
+ name CheckerBoard1
+ selected true
+ xpos 510
+ ypos 1335
+}
+ColorTransferWrapper {
+ inputs 0
+ ROI {274 1220 880 1717}
+ name ColorTransferWrapper1
+ selected true
+ xpos 510
+ ypos 1550
+}
+Compare {
+ inputs 0
+ name Compare1
+ selected true
+ xpos 510
+ ypos 1694
+}
+Convolve {
+ inputs 0
+ name Convolve1
+ selected true
+ xpos 510
+ ypos 1832
+}
+Convolve2 {
+ inputs 0
+ name Convolve2
+ selected true
+ xpos 620
+ ypos 1832
+}
+CubeObj {
+ inputs 0
+ name CubeObj1
+ selected true
+ xpos 510
+ ypos 1958
+}
+CylinderObj {
+ inputs 0
+ name CylinderObj1
+ selected true
+ xpos 510
+ ypos 2054
+}
+DeInterlace {
+ inputs 0
+ name DeInterlace1
+ selected true
+ xpos 1060
+ ypos -226
+}
+DeepHoldout2 {
+ inputs 0
+ name DeepHoldout1
+ selected true
+ xpos 1390
+ ypos -34
+}
+DeepHoldout {
+ inputs 0
+ name DeepClipZ3
+ selected true
+ xpos 1280
+ ypos -34
+}
+DeepClipZ {
+ inputs 0
+ name DeepClipZ2
+ selected true
+ xpos 1170
+ ypos -34
+}
+StickyNote {
+ inputs 0
+ name StickyNote6
+ label DeepClipZ
+ selected true
+ xpos 1170
+ ypos -106
+}
+StickyNote {
+ inputs 0
+ name StickyNote7
+ label DeepHoldout
+ selected true
+ xpos 1280
+ ypos -106
+}
+StickyNote {
+ inputs 0
+ name StickyNote8
+ label DeepHoldout2
+ selected true
+ xpos 1390
+ ypos -106
+}
+StickyNote {
+ inputs 0
+ name StickyNote5
+ label "also - DeepClip"
+ selected true
+ xpos 1060
+ ypos -106
+}
+DeepChannelBlanker {
+ inputs 0
+ name DeepChannelBlanker1
+ selected true
+ xpos 1060
+ ypos -154
+}
+DeepClipZ {
+ inputs 0
+ name DeepClipZ1
+ selected true
+ xpos 1060
+ ypos -34
+}
+DeepColorCorrect {
+ inputs 0
+ name DeepColorCorrect1
+ selected true
+ xpos 1060
+ ypos 110
+}
+DeepColorCorrect2 {
+ inputs 0
+ name DeepColorCorrect2
+ selected true
+ xpos 1170
+ ypos 110
+}
+DeepCompare {
+ inputs 0
+ name DeepCompare1
+ selected true
+ xpos 1060
+ ypos 230
+}
+DeepDeOverlap {
+ inputs 0
+ name DeepDeOverlap1
+ selected true
+ xpos 1060
+ ypos 350
+}
+DeepCrop {
+ inputs 0
+ bbox {409.6000061 311.2000122 1638.400024 1244.800049}
+ name DeepCrop2
+ selected true
+ xpos 1060
+ ypos 494
+}
+StickyNote {
+ inputs 0
+ name StickyNote9
+ label DeepMask
+ selected true
+ xpos 1170
+ ypos 446
+}
+DeepMask {
+ inputs 0
+ bbox {409.6000061 311.2000122 1638.400024 1244.800049}
+ name DeepCrop1
+ selected true
+ xpos 1170
+ ypos 494
+}
+DeepMerge {
+ inputs 0
+ operation holdout
+ name DeepMerge1
+ selected true
+ xpos 1060
+ ypos 614
+}
+DeepMerge2 {
+ inputs 0
+ operation holdout
+ name DeepMerge2
+ selected true
+ xpos 1170
+ ypos 614
+}
+DeepToImage {
+ inputs 0
+ name DeepToImage1
+ selected true
+ xpos 1060
+ ypos 1046
+}
+DeepToImage2 {
+ inputs 0
+ name DeepToImage2
+ selected true
+ xpos 1170
+ ypos 1046
+}
+DeepVolumeMaker {
+ inputs 0
+ range {1 200}
+ name DeepVolumeMaker1
+ selected true
+ xpos 1060
+ ypos 1166
+}
+OFXuk.co.thefoundry.noisetools.denoise_v100 {
+ inputs 0
+ type Film
+ model Modulated
+ profile Constant
+ output Result
+ amount 1
+ rolloff 2
+ smoothness 1
+ sharpen 0
+ lumablend 0.7
+ chromablend 1
+ "Noise Analysis" 0
+ mode "Pen Up"
+ analysisfile ""
+ regionBL {921.5999756 700.1999815}
+ regionTR {1126.400024 855.8000185}
+ analysisframe 1
+ profileframe 1
+ plotProfile false
+ "Tune Profile" 0
+ tuneProfile false
+ lowGain 1
+ midGain 1
+ highGain 1
+ "Tune Frequencies" 0
+ processHigh true
+ highAmount 1
+ processMedium true
+ mediumAmount 1
+ processLow true
+ lowAmount 1
+ processVeryLow true
+ verylowAmount 1
+ "Tune Channels" 0
+ lumaAmount 1
+ chromaAmount 5
+ hasBeenAnalyzed false
+ inputHasChanged true
+ hasBeenProfiled false
+ frameOutsideRange false
+ profileExists true
+ writeFailed false
+ readFailed false
+ fileIsEmpty false
+ threshold0HHY 0
+ threshold0LHY 0
+ threshold0HLY 0
+ threshold0LLY 0
+ threshold0HHCb 0
+ threshold0LHCb 0
+ threshold0HLCb 0
+ threshold0LLCb 0
+ threshold0HHCr 0
+ threshold0LHCr 0
+ threshold0HLCr 0
+ threshold0LLCr 0
+ threshold1HHY 0
+ threshold1LHY 0
+ threshold1HLY 0
+ threshold1LLY 0
+ threshold1HHCb 0
+ threshold1LHCb 0
+ threshold1HLCb 0
+ threshold1LLCb 0
+ threshold1HHCr 0
+ threshold1LHCr 0
+ threshold1HLCr 0
+ threshold1LLCr 0
+ threshold2HHY 0
+ threshold2LHY 0
+ threshold2HLY 0
+ threshold2LLY 0
+ threshold2HHCb 0
+ threshold2LHCb 0
+ threshold2HLCb 0
+ threshold2LLCb 0
+ threshold2HHCr 0
+ threshold2LHCr 0
+ threshold2HLCr 0
+ threshold2LLCr 0
+ threshold3HHY 0
+ threshold3LHY 0
+ threshold3HLY 0
+ threshold3LLY 0
+ threshold3HHCb 0
+ threshold3LHCb 0
+ threshold3HLCb 0
+ threshold3LLCb 0
+ threshold3HHCr 0
+ threshold3LHCr 0
+ threshold3HLCr 0
+ threshold3LLCr 0
+ profile0 0
+ profile1 0
+ profile2 0
+ profile3 0
+ profile4 0
+ profile5 0
+ profile6 0
+ profile7 0
+ profile8 0
+ cacheBreaker false
+ name Denoise1
+ selected true
+ xpos 1060
+ ypos 1286
+}
+Denoise2 {
+ inputs 0
+ userMessage "Move the analysis region to analyse noise or press Lock Noise Analysis to disable this message."
+ profileCurve {profile {curve 0 x0.125 0 0 0 0 0 0 0 0}}
+ serializeKnob "0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 
+18446744073709551615"
+ name Denoise2
+ selected true
+ xpos 1170
+ ypos 1280
+}
+StickyNote {
+ inputs 0
+ name StickyNote10
+ label "also - DepthGenerator1_0"
+ selected true
+ xpos 1147
+ ypos 1430
+}
+DepthGenerator {
+ inputs 0
+ serializeKnob ""
+ name DepthGenerator1
+ selected true
+ xpos 1060
+ ypos 1478
+}
+DepthGenerator1_0 {
+ inputs 0
+ serializeKnob ""
+ name DepthGenerator2
+ selected true
+ xpos 1170
+ ypos 1478
+}
+StickyNote {
+ inputs 0
+ name StickyNote11
+ label DirBlur
+ selected true
+ xpos 1060
+ ypos 1550
+}
+StickyNote {
+ inputs 0
+ name StickyNote12
+ label DirBlurWrapper
+ selected true
+ xpos 1170
+ ypos 1550
+}
+DirBlur {
+ inputs 0
+ name DirBlur1
+ selected true
+ xpos 1060
+ ypos 1622
+}
+DirBlurWrapper {
+ inputs 0
+ name DirBlurWrapper1
+ selected true
+ xpos 1170
+ ypos 1616
+}
+DualBlend {
+ inputs 0
+ name DualBlend1
+ selected true
+ xpos 1060
+ ypos 1760
+}
+EdgeDetect {
+ inputs 0
+ name EdgeDetectCore1
+ selected true
+ xpos 1720
+ ypos -184
+}
+EdgeDetectWrapper {
+ inputs 0
+ name EdgeDetect1
+ selected true
+ xpos 1830
+ ypos -184
+}
+ErrorIop {
+ inputs 0
+ name ErrorIop1
+ selected true
+ xpos 1720
+ ypos 134
+}
+FloodFill {
+ inputs 0
+ name FloodFill1
+ selected true
+ xpos 2270
+ ypos 902
+}
+Black {
+ inputs 0
+ name Black1
+ selected true
+ xpos 70
+ ypos 207
+}
+ExecuteTreeMT {
+ inputs 0
+ name ExecuteTreeMT1
+ selected true
+ xpos 1720
+ ypos 254
+}
+FFT {
+ inputs 0
+ name FFT1
+ selected true
+ xpos 2270
+ ypos -232
+}
+OFXuk.co.thefoundry.furnace.f_matchgrade_v403 {
+ inputs 0
+ iterations 6
+ Advanced 0
+ sourceFrom "Specified Frame"
+ sourceFrame 0
+ targetFrom "Specified Frame"
+ targetFrame 0
+ cacheBreaker true
+ name F_MatchGrade1
+ selected true
+ xpos 2270
+ ypos 158
+}
+OFXuk.co.thefoundry.furnace.f_motionblur_v403 {
+ inputs 0
+ shutterTime 0.75
+ shutterSamples 3
+ vectorDetail 0.2
+ matteComponent None
+ cacheBreaker true
+ name F_MotionBlur1
+ selected true
+ xpos 2270
+ ypos 254
+}
+OFXuk.co.thefoundry.furnace.f_vectorgenerator_v403 {
+ inputs 0
+ vectorDetail 0.2
+ smoothness 0.5
+ output Foreground
+ matteComponent None
+ Advanced 0
+ blockSize 6
+ oversmooth false
+ Tolerances 0
+ weightRed 0.3
+ weightGreen 0.6
+ weightBlue 0.1
+ cacheBreaker true
+ name F_VectorGenerator1
+ selected true
+ xpos 2270
+ ypos 326
+}
+FieldSelect {
+ inputs 0
+ name FieldSelect1
+ selected true
+ xpos 2270
+ ypos 566
+}
+Fill {
+ inputs 0
+ name Fill1
+ selected true
+ xpos 2270
+ ypos 662
+}
+StickyNote {
+ inputs 0
+ name StickyNote21
+ label "\nFnNukeMultiTypeOpDeepOp\nFnNukeMultiTypeOpGeoOp\nFnNukeMultiTypeOpIop\nFnNukeMultiTypeOpParticleOp\n"
+ note_font "Verdana Bold"
+ selected true
+ xpos 2221
+ ypos 993
+}
+Fog {
+ inputs 0
+ name Fog1
+ selected true
+ xpos 2270
+ ypos 1166
+}
+GPUFileShader {
+ inputs 0
+ name GPUFileShader1
+ selected true
+ xpos 2710
+ ypos -226
+}
+GPUOp {
+ inputs 0
+ name GPUOp1
+ selected true
+ xpos 2710
+ ypos -106
+}
+GenerateLUTGeo {
+ inputs 0
+ name GenerateLUTGeo1
+ selected true
+ xpos 2710
+ ypos -10
+}
+GenerateLUT {
+ inputs 0
+ name GenerateLUT1
+ selected true
+ xpos 2930
+ ypos -10
+}
+Gizmo {
+ inputs 0
+ name Gizmo1
+ selected true
+ xpos 2710
+ ypos 86
+}
+end_group
+push $cut_paste_input
+Glow {
+ name Glow1
+ selected true
+ xpos 2710
+ ypos 230
+}
+Glow2 {
+ inputs 0
+ name Glow2
+ selected true
+ xpos 2820
+ ypos 230
+}
+Grain {
+ inputs 0
+ name Grain1
+ selected true
+ xpos 2710
+ ypos 350
+}
+Grain2 {
+ inputs 0
+ name Grain2_1
+ label "Kodak 5248"
+ selected true
+ xpos 2820
+ ypos 344
+ red_m 0.42
+ black {0 0 0}
+ minimum {0 0 0}
+}
+Group {
+ inputs 0
+ name Group5
+ help "Adds synthetic grain. Push \"presets\" to get predefined types of grain, these are the correct size for 2K scans.\n\nYou can also adjust the sliders to match a sample piece of grain. Find a sample with a rather constant background, blur it to remove the grain, and use as input to this. View with a wipe in the viewer so you can make a match. It helps to view and match each of the red, green, blue separately."
+ label "Kodak 5248"
+ selected true
+ xpos 2820
+ ypos 392
+ addUserKnob {20 "" l User}
+ addUserKnob {3 seed t "Change this value to make different instances of this operator produce different noise"}
+ seed 134
+ addUserKnob {35 presets l "" -STARTLINE M {"presets/Kodak 5248" "knobs this \{red_size 3.30 green_size 2.90 blue_size 2.5 red_i 0.60 green_i 0.60 blue_i 0.60 red_m 0.42 green_m 0.46 blue_m 0.85 black 0.00 label \{Kodak 5248\}\}" "presets/Kodak 5279" "knobs this \{red_size 2.70 green_size 2.60 blue_size 2.40 red_i 1.00 green_i 0.76 blue_i 0.65 red_m 0.37 green_m 0.60 blue_m 1.65 black 0.00 label \{Kodak 5279\}\}" "presets/Kodak FX214" "knobs this \{red_size 1.87 green_size 2.60 blue_size 2.44 red_i 1 green_i 0.76 blue_i 0.79 red_m 0.41 green_m 0.60 blue_m 1.80 black 0.00 label \{Kodak FX214\}\}" "presets/Kodak GT5274" "knobs this \{red_size 0.04 green_size 0.10 blue_size 0.90 red_i 0.90 green_i 0.76 blue_i 0.81 red_m 0.49 green_m 0.50 blue_m 1.55 black 0.00 label \{Kodak GT5274\}\}" "presets/Kodak 5217" "knobs this \{red_size 0.23 green_size 1.20 blue_size 1.40 red_i 0.60 green_i 0.86 blue_i 0.60 red_m 0.48 green_m 0.42 blue_m 0.87 black 0.00 label \{Kodak 5217\}\}" "presets/Kodak 5218" "knobs this \{red_size 0.10 green_size 1.60 blue_size 1.91 red_i 0.60 green_i 0.86 blue_i 0.73 red_m 0.38 green_m 0.17 blue_m 0.87 black 0.00 label \{Kodak 5218\}\}" presets/other "knobs this \{label other\}"}}
+ addUserKnob {26 "" l "@b;Size"}
+ addUserKnob {14 red_size l red R 0 100}
+ red_size 3.3
+ addUserKnob {14 green_size l green R 0 100}
+ green_size 2.9
+ addUserKnob {14 blue_size l blue R 0 100}
+ blue_size 2.5
+ addUserKnob {26 "" l "@b;Irregularity"}
+ addUserKnob {7 red_i l red}
+ red_i 0.6
+ addUserKnob {7 green_i l green}
+ green_i 0.6
+ addUserKnob {7 blue_i l blue}
+ blue_i 0.6
+ addUserKnob {26 "" l "@b;Intensity"}
+ addUserKnob {7 red_m l red t "Amount of grain to add to a white pixel"}
+ red_m 0.416
+ addUserKnob {7 green_m l green}
+ green_m 0.46
+ addUserKnob {7 blue_m l blue}
+ blue_m 0.85
+ addUserKnob {18 black t "Amount of grain to add everywhere"}
+ black {0 0 0}
+ addUserKnob {6 black_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {18 minimum t "Minimum black level" R 0 0.01}
+ minimum {0 0 0}
+ addUserKnob {6 minimum_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {26 "" l "@b;Mask"}
+ addUserKnob {6 maskgrain l "Apply only through alpha" -STARTLINE}
+ maskgrain true
+ addUserKnob {41 maskinvert l "Invert alpha" -STARTLINE T Copy1.invert_mask}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos -40
+  ypos -10
+ }
+set N4348a400 [stack 0]
+ Noise {
+  output {rgba.red -rgba.green -rgba.blue -rgba.alpha}
+  cliptype none
+  replace true
+  size {{parent.red_size.w} {parent.red_size.h}}
+  zoffset {{frame+seed+red_i/2}}
+  octaves 2
+  gamma 1
+  xrotate {{red_i*45}}
+  yrotate {{red_i*45}}
+  name red
+  xpos 180
+  ypos -10
+ }
+ Noise {
+  output {-rgba.red rgba.green -rgba.blue -rgba.alpha}
+  cliptype none
+  replace true
+  size {{parent.green_size.w} {parent.green_size.h}}
+  zoffset {{frame+2*seed+green_i/2}}
+  octaves 2
+  gamma 1
+  xrotate {{green_i*45}}
+  yrotate {{green_i*45}}
+  name green
+  xpos 180
+  ypos 38
+ }
+ Noise {
+  output {-rgba.red -rgba.green rgba.blue -rgba.alpha}
+  cliptype none
+  replace true
+  size {{parent.blue_size.w} {parent.blue_size.h}}
+  zoffset {{frame+3*seed+blue_i/2}}
+  octaves 2
+  gamma 1
+  xrotate {{blue_i*45}}
+  yrotate {{blue_i*45}}
+  name blue
+  xpos 180
+  ypos 86
+ }
+push $N4348a400
+ MergeExpression {
+  inputs 2
+  expr0 max(minimum.r,r+(2*Ar-1)*(r*red_m+black.r))
+  expr1 max(minimum.g,g+(2*Ag-1)*(g*green_m+black.g))
+  expr2 max(minimum.b,b+(2*Ab-1)*(b*blue_m+black.b))
+  name MergeExpression1
+  xpos 180
+  ypos 158
+ }
+set N43489400 [stack 0]
+push $N4348a400
+ Copy {
+  inputs 2
+  channels rgb
+  maskChannelInput rgba.alpha
+  name Copy1
+  xpos -40
+  ypos 145
+ }
+push $N43489400
+ Switch {
+  inputs 2
+  which {{maskgrain}}
+  name Switch1
+  xpos -40
+  ypos 230
+ }
+ Output {
+  name Output1
+  xpos -40
+  ypos 278
+ }
+end_group
+push $cut_paste_input
+GridWarp {
+ srcgrid  {
+    2 4 4 0  {
+      1 4 4 0
+      100 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      150 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      200 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      250 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      100 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      150 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      200 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      250 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      100 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      150 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      200 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      250 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      100 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      150 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      200 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      250 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+    }  {
+      1 0 0 0 0 
+    } 
+  } 
+ dstgrid  {
+    2 4 4 0  {
+      1 4 4 0
+      400 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      450 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      500 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      550 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      400 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      450 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      500 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      550 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      400 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      450 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      500 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      550 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      400 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      450 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      500 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+      550 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0 0
+    }  {
+      1 0 0 0 0 
+    } 
+  } 
+ name GridWarp1
+ selected true
+ xpos 2710
+ ypos 542
+}
+GridWarp2 {
+ inputs 0
+ srcgrid {4 4 4 { {skew              } {center 1024 778} {identity false} } {{
+{100 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{150 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{200 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{250 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{100 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{150 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{200 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{250 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{100 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{150 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{200 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{250 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{100 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{150 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{200 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{250 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+}}}
+ dstgrid {4 4 4 { {skew                                   } {center 1024 778} {identity false} } {{
+{400 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{450 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{500 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{550 100 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{400 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{450 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{500 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{550 150 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{400 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{450 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{500 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{550 200 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{400 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{450 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{500 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+{550 250 0 16.6667 0 -16.6667 -16.6667 0 16.6667 0}
+}}}
+ center {1024 778}
+ name GridWarp2_1
+ selected true
+ xpos 2820
+ ypos 542
+}
+GridWarp3 {
+ inputs 0
+ toolbar_visibility_src false
+ source_grid_col   {
+    1 5 5 4 1 0
+    {default }
+    {
+      { {2 0 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+    }
+  }
+ destination_grid_col   {
+    1 5 5 4 1 0
+    {default }
+    {
+      { {2 0 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 0} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 389} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 778} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 1167} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 0 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 512 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1024 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 1536 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+      { {2 2048 1556} { {2 0 129.667}  {2 0 -129.667}  {2 170.667 0}  {2 -170.667 0} } } 
+    }
+  }
+ source_grid_transform_center {1024 778}
+ destination_grid_transform_center {1024 778}
+ name GridWarp3_1
+ selected true
+ xpos 2930
+ ypos 536
+}
+HydraRectLight {
+ inputs 0
+ name HydraRectLight1
+ selected true
+ xpos 3160
+ ypos 162
+}
+StickyNote {
+ inputs 0
+ name StickyNote26
+ label IBK2Gizmo
+ selected true
+ xpos 3700
+ ypos -178
+}
+StickyNote {
+ inputs 0
+ name StickyNote28
+ label IBKGizmoV3
+ selected true
+ xpos 3920
+ ypos -178
+}
+Group {
+ inputs 0
+ name Group2
+ tile_color 0x990000
+ selected true
+ xpos 3810
+ ypos -250
+ addUserKnob {20 "" l Parameters}
+ addUserKnob {4 screen l "screen type" t "as it says" M {green blue}}
+ addUserKnob {18 mult l separation t "weight of the 2 channels that define the key" R 0 4}
+ mult {1 1 1}
+ addUserKnob {6 mult_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {7 erode l range t "clean up the background" R 0 0.5}
+ addUserKnob {26 "" -STARTLINE T " "}
+ addUserKnob {6 finetune l "max back transparencies" t "restore fine detail after cleanup" -STARTLINE}
+ addUserKnob {7 erode2 l range2 t "clean up fine detail" R 0 0.2}
+}
+ Input {
+  inputs 0
+  name S
+  xpos 555
+  ypos -29
+  number 1
+ }
+ Dot {
+  name Dot7
+  tile_color 0x9597bf00
+  xpos 589
+  ypos 153
+ }
+ Grade {
+  multiply {{mult.r==0?0.00001:mult.r i} {mult.g i} {mult.b==0?0.00001:mult.b i} {curve}}
+  name Grade3
+  tile_color 0x7aa9ff00
+  xpos 479
+  ypos 150
+ }
+ Dot {
+  name Dot4
+  tile_color 0x9597bf00
+  xpos 437
+  ypos 153
+ }
+set N433f9800 [stack 0]
+ Input {
+  inputs 0
+  name Fg
+  xpos 23
+  ypos -31
+ }
+ Dot {
+  name Dot2
+  tile_color 0x9597bf00
+  xpos 57
+  ypos 57
+ }
+set N433f9000 [stack 0]
+ Dot {
+  name Dot1
+  tile_color 0x9597bf00
+  xpos 57
+  ypos 153
+ }
+ Grade {
+  multiply {{mult.r==0?0.00001:mult.r i} {mult.g i} {mult.b==0?0.00001:mult.b i} {curve}}
+  name Grade2
+  tile_color 0x7aa9ff00
+  xpos 98
+  ypos 150
+ }
+ Dot {
+  name Dot5
+  tile_color 0x9597bf00
+  xpos 208
+  ypos 153
+ }
+set N433f8400 [stack 0]
+push $N433f9000
+ Dot {
+  name Dot6
+  tile_color 0x9597bf00
+  xpos 150
+  ypos 57
+ }
+ Grade {
+  multiply {{mult.r==0?0.00001:mult.r i} {mult.g i} {mult.b==0?0.00001:mult.b i} {curve}}
+  name Grade4
+  tile_color 0x7aa9ff00
+  xpos 207
+  ypos 54
+ }
+ Dot {
+  name Dot3
+  tile_color 0x9597bf00
+  xpos 317
+  ypos 57
+ }
+ Dot {
+  name Dot9
+  tile_color 0x9597bf00
+  xpos 317
+  ypos 109
+ }
+set N43393000 [stack 0]
+ IBK {
+  inputs 3
+  red_weight 0.5
+  blue_green_weight 0.5
+  name IBK2
+  tile_color 0xff00
+  xpos 403
+  ypos 227
+ }
+push $N433f9800
+push $N433f8400
+push $N43393000
+ IBK {
+  inputs 3
+  screen_type green
+  red_weight 0.5
+  blue_green_weight 0.5
+  name IBK1
+  tile_color 0xff0000
+  xpos 283
+  ypos 150
+ }
+ Switch {
+  inputs 2
+  which {{screen}}
+  name Switch1
+  xpos 284
+  ypos 227
+ }
+ Grade {
+  multiply {{1/Grade2.multiply.r i} {1/Grade2.multiply.g i} {1/Grade2.multiply.b i} {curve}}
+  name Grade1
+  tile_color 0x7aa9ff00
+  xpos 284
+  ypos 284
+ }
+ Clamp {
+  channels alpha
+  maximum_enable false
+  name Clamp1
+  tile_color 0x7aa9ff00
+  label (alpha)
+  xpos 284
+  ypos 308
+ }
+set N43391c00 [stack 0]
+push $N43391c00
+ ChannelMerge {
+  inputs 2
+  A rgba.red
+  operation max
+  B rgba.green
+  name ChannelMerge1
+  tile_color 0x4b5ec600
+  label "(red max green =\nalpha)"
+  xpos 177
+  ypos 301
+ }
+set N43391800 [stack 0]
+push $N43391800
+ ChannelMerge {
+  inputs 2
+  operation max
+  B rgba.blue
+  name ChannelMerge2
+  tile_color 0x4b5ec600
+  label "(alpha max blue =\nalpha)"
+  xpos 177
+  ypos 353
+ }
+set N43391400 [stack 0]
+ Dot {
+  name Dot16
+  tile_color 0x9597bf00
+  xpos 456
+  ypos 370
+ }
+ Unpremult {
+  name Unpremult2
+  xpos 422
+  ypos 388
+ }
+ Erode {
+  size {{erode2}}
+  name Erode2
+  tile_color 0xcc804e00
+  label (alpha)
+  xpos 422
+  ypos 412
+ }
+ Premult {
+  name Premult2
+  xpos 422
+  ypos 566
+ }
+push $N43391400
+ Dot {
+  name Dot12
+  tile_color 0x9597bf00
+  xpos 211
+  ypos 445
+ }
+push $N43391c00
+ ChannelMerge {
+  inputs 2
+  operation max
+  name ChannelMerge3
+  tile_color 0x4b5ec600
+  label "(alpha max alpha =\nalpha)"
+  xpos 284
+  ypos 428
+ }
+ Unpremult {
+  name Unpremult1
+  xpos 284
+  ypos 480
+ }
+ Erode {
+  size {{erode}}
+  name Erode1
+  tile_color 0xcc804e00
+  label (alpha)
+  xpos 284
+  ypos 504
+ }
+ Premult {
+  name Premult1
+  xpos 284
+  ypos 542
+ }
+ Merge {
+  inputs 2
+  operation max
+  name Merge6
+  tile_color 0x4b5ec600
+  xpos 284
+  ypos 566
+  disable {{1-finetune}}
+ }
+ Output {
+  name Output1
+  xpos 284
+  ypos 590
+ }
+end_group
+push $cut_paste_input
+Group {
+ name Group6
+ help "There are 2 basic approaches to pull a key with IBK. One is to use IBKColour and the C input and the other is to pick a colour which best represents the area you are trying to key.\n\nThe colour weights deal with the hardness of the matte. If you view the output (with screen subtraction ticked on) you will typically see areas where edges have a slight discolouration\ndue to the background not being fully removed from the original plate. This is not spill but a result of the matte being too strong. Lowering one of the weights will correct that particular edge. If it's\na red foreground image with an edge problem bring down the red weight - same idea for the other weight. This may affect other edges so the use of multiple IBKGizmo's with different weights split with KeyMixes is recommended.\n\nThe 'luminance match' feature adds a luminance factor to the keying algorithm which helps to capture transparent areas of the foreground which are brighter than the backing screen. It will also allow you to lessen some of the garbage area noise by bringing down the screen range - \npushing this control too far will also eat into some of your foreground blacks. 'Luminance level' allows you to make the overall effect stronger or weaker.\n\n'autolevels' will perform a colour correction before the image is pulled so that hard edges from a foreground subject with saturated colours are reduced. The same can be achieved with the weights but here only those saturated colours are affected whereas the use of weights will\naffect the entire image. When using this feature it's best to have this as a separate node which you can then split with other IBKGizmos as the weights will no longer work as expected. You can override some of the logic for when you actually have particular foreground colours you want to keep.\nFor example when you have a saturated red subject against bluescreen you'll get a magenta transition area. Autolevels will eliminate this but if you have a magenta foreground object then this control will make the magenta more red unless you check the magenta box to keep it.\n\n'screen subtraction' will remove the backing from the rgb via a subtraction process. Unchecking this will simply premultiply the original fg with the generated matte.\n\n'use bkg luminance' and 'use bkg chroma' allow you to affect the output rgb by the new bg. These controls are best used with the 'luminance match' sliders above. This feature can also sometimes really help with screens that exhibit some form of fringing artifact - usually a darkening or\nlightening of an edge on one of the colour channels on the screen. You can offset the effect by grading the bg input up or down with a grade node just before input. If it's just an area which needs help then just bezier that area and locally grade the\nbg input  up or down to remove the artifact."
+ tile_color 0x990000
+ selected true
+ xpos 3920
+ ypos -250
+ addUserKnob {20 "" l IBK}
+ addUserKnob {4 st l "screen type" t "use the C input  to define the screen colour on a per pixel basis or use 'pick' and the colour tab below" M {C-blue C-green pick}}
+ addUserKnob {18 colour l "colour " t "use this colour instead of the C input when 'pick' is enabled above"}
+ colour {0 0 1}
+ addUserKnob {6 colour_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {26 ""}
+ addUserKnob {41 red_weight l "red weight" T IBK1.red_weight}
+ addUserKnob {41 blue_green_weight l "blue/green weight" T IBK1.blue_green_weight}
+ addUserKnob {26 ""}
+ addUserKnob {41 lm_enable l "luminance match" T IBK1.lm_enable}
+ addUserKnob {41 level l "screen range" T IBK1.level}
+ addUserKnob {41 luma l "luminance level" T IBK1.luma}
+ addUserKnob {41 ll_enable l enable T IBK1.ll_enable}
+ addUserKnob {26 ""}
+ addUserKnob {41 autolevels T IBK1.autolevels}
+ addUserKnob {41 yellow T IBK1.yellow}
+ addUserKnob {41 cyan T IBK1.cyan}
+ addUserKnob {41 magenta T IBK1.magenta}
+ addUserKnob {26 ""}
+ addUserKnob {41 ss l "screen subtraction" T IBK1.ss}
+ addUserKnob {6 ublu l "use bkg luminance" t "have the brightness of the edge be affected by the brightness of the bg input" -STARTLINE}
+ addUserKnob {6 ubcr l "use bkg chroma" t "have the colour of the edge be affected by the colour of the bg input" -STARTLINE}
+}
+ Input {
+  inputs 0
+  name bg
+  xpos 559
+  ypos 175
+  number 2
+ }
+set N43332000 [stack 0]
+ Input {
+  inputs 0
+  name fg
+  xpos 48
+  ypos 178
+ }
+set N43331c00 [stack 0]
+ Grade {
+  multiply 0
+  add {{colour.r i} {colour.g i} {colour.b i} {curve}}
+  black_clamp false
+  name Grade1
+  xpos 158
+  ypos 178
+ }
+ Input {
+  inputs 0
+  name c
+  xpos 423
+  ypos 178
+  number 1
+ }
+ Switch {
+  inputs 2
+  which {{st==2}}
+  name Switch1
+  xpos 293
+  ypos 178
+ }
+set N43331000 [stack 0]
+push $N43331c00
+push $N43331c00
+ IBK {
+  inputs 4
+  screen_type green
+  red_weight {{IBK1.red_weight}}
+  blue_green_weight {{IBK1.blue_green_weight}}
+  lm_enable {{IBK1.lm_enable}}
+  level {{IBK1.level}}
+  luma {{IBK1.luma}}
+  ll_enable {{IBK1.ll_enable}}
+  autolevels {{IBK1.autolevels}}
+  yellow {{IBK1.yellow}}
+  cyan {{IBK1.cyan}}
+  magenta {{IBK1.magenta}}
+  ss {{IBK1.ss}}
+  clamp_alpha {{IBK1.clamp_alpha}}
+  rgbal {{IBK1.rgbal}}
+  ubl {{IBK1.ubl}}
+  ubc {{IBK1.ubc}}
+  name IBK3
+  note_font_color 0xff0000
+  xpos 48
+  ypos 306
+ }
+push $N43332000
+push $N43331000
+push $N43331c00
+push $N43331c00
+ IBK {
+  inputs 4
+  red_weight 0.5
+  blue_green_weight 0.5
+  luma 0
+  rgbal true
+  ubl {{ublu}}
+  ubc {{ubcr}}
+  name IBK1
+  note_font_color 0xff00
+  xpos 293
+  ypos 302
+ }
+ Switch {
+  inputs 2
+  which {{st==2?colour.g>colour.b:st}}
+  name Switch6
+  xpos 48
+  ypos 396
+ }
+ Output {
+  name Output1
+  xpos 48
+  ypos 466
+ }
+end_group
+push $cut_paste_input
+IBK {
+ name IBK1
+ selected true
+ xpos 3590
+ ypos -130
+}
+Group {
+ inputs 0
+ name Group1
+ tile_color 0x990000
+ selected true
+ xpos 3700
+ ypos -130
+ addUserKnob {20 "" l User}
+ addUserKnob {41 screen_type l "screen type" T IBK1.screen_type}
+ addUserKnob {18 colour}
+ colour {0 0 1}
+ addUserKnob {6 colour_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 use t "use the colour selected to define the matte" -STARTLINE}
+ addUserKnob {6 decouple t "use the colour pick for the key but still use the C input for bkg calculation" -STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {41 red_weight l "red weight" T IBK1.red_weight}
+ addUserKnob {41 blue_green_weight l "blue/green weight" T IBK1.blue_green_weight}
+ addUserKnob {26 ""}
+ addUserKnob {41 lm_enable l "luminance match enable" T IBK1.lm_enable}
+ addUserKnob {41 level l "screen range" T IBK1.level}
+ addUserKnob {41 luma l "luminance level" T IBK1.luma}
+ addUserKnob {41 ll_enable l enable T IBK1.ll_enable}
+ addUserKnob {26 ""}
+ addUserKnob {41 autolevels T IBK1.autolevels}
+ addUserKnob {41 yellow T IBK1.yellow}
+ addUserKnob {41 cyan T IBK1.cyan}
+ addUserKnob {41 magenta T IBK1.magenta}
+ addUserKnob {26 ""}
+ addUserKnob {41 ss l "screen subtraction" T IBK1.ss}
+ addUserKnob {6 ublu l "use bkg luminance" t "have the brightness of the edge be affected by the brightness of the bg input" -STARTLINE}
+ addUserKnob {6 ubcr l "use bkg chroma" t "have the colour of the edge be affected by the colour of the bg input" -STARTLINE}
+}
+ Input {
+  inputs 0
+  name bg
+  xpos 477
+  ypos 25
+  number 2
+ }
+set N432cf400 [stack 0]
+ Input {
+  inputs 0
+  name c
+  xpos 142
+  ypos 1
+  number 1
+ }
+set N432cf000 [stack 0]
+push $N432cf400
+ Input {
+  inputs 0
+  name fg
+  xpos -106
+  ypos 161
+ }
+set N432cec00 [stack 0]
+ Grade {
+  multiply 0
+  add {{colour.r i} {colour.g i} {colour.b i} {curve}}
+  black_clamp false
+  name Grade1
+  xpos 19
+  ypos 161
+ }
+push $N432cf000
+ Switch {
+  inputs 2
+  which {{use i}}
+  name Switch1
+  xpos 142
+  ypos 161
+ }
+push $N432cec00
+push $N432cec00
+ IBK {
+  inputs 4
+  red_weight 0.5
+  blue_green_weight 0.5
+  rgbal true
+  ubl {{(1-decouple)?ublu:0}}
+  ubc {{(1-decouple)?ubcr:0}}
+  name IBK1
+  selected true
+  xpos 142
+  ypos 289
+ }
+set N432ce000 [stack 0]
+push $N432ce000
+ IBK {
+  inputs 4
+  nokey true
+  ubl {{ublu i}}
+  ubc {{ubcr}}
+  name IBK2
+  xpos 263
+  ypos 371
+ }
+push $N432ce000
+ Switch {
+  inputs 2
+  which {{decouple}}
+  name Switch3
+  xpos 142
+  ypos 436
+ }
+ Output {
+  name Output1
+  xpos 142
+  ypos 520
+ }
+ Switch {
+  inputs 0
+  name Switch2
+  xpos 416
+  ypos 415
+ }
+end_group
+push $cut_paste_input
+IBKGizmo {
+ name IBKGizmo1
+ selected true
+ xpos 3810
+ ypos -130
+}
+IBKGizmoV3 {
+ inputs 0
+ name IBKGizmoV3_1
+ xpos 3920
+ ypos -130
+}
+StickyNote {
+ inputs 0
+ name StickyNote30
+ label IBKColourV3
+ selected true
+ xpos 3810
+ ypos -34
+}
+StickyNote {
+ inputs 0
+ name StickyNote92
+ label IBKSFill
+ selected true
+ xpos 3700
+ ypos -34
+}
+IBKColourV3 {
+ inputs 0
+ name IBKColourV3_1
+ selected true
+ xpos 3810
+ ypos 14
+}
+IBKSFill {
+ inputs 0
+ name IBKSFill1
+ selected true
+ xpos 3700
+ ypos 14
+ off {0 0 0}
+}
+Group {
+ inputs 0
+ name Group3
+ tile_color 0x990000
+ selected true
+ xpos 3590
+ ypos 14
+ addUserKnob {20 "" l Parameters}
+ addUserKnob {41 screen_type l "screen type" T IBK2.screen_type}
+ addUserKnob {16 Size l size t "size of colour expansion"}
+ Size 10
+ addUserKnob {18 off l darks t "adjust the colour values to get the best separation between black and the screen type colour.\nYou want to be left with only shades of the screen colour and black. \nIf a green screen is selected start by bringing down darks->green\nIf a blue screen is selected start by bringing down darks->blue" R -1 1}
+ off {0 0 0}
+ addUserKnob {6 off_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {18 mult l lights t "adjust the colour values to get the best separation between black and the screen type colour.\nYou want to be left with only shades of the screen colour and black. \nIf a green screen is selected start by bringing down darks->green\nIf a blue screen is selected start by bringing down darks->blue" R 0 2}
+ mult {1 1 1}
+ addUserKnob {6 mult_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {26 ""}
+ addUserKnob {7 multi l "patch black" t "increase this to optionally remove the black from the output.\nThis should only be used once the the above darks/lights have been set" R 0 5}
+ addUserKnob {6 filt l INVISIBLE -STARTLINE +INVISIBLE}
+ filt true
+ addUserKnob {26 ""}
+ addUserKnob {7 level l INVISIBLE t "multiply the rgb output. Helps remove noise from main key" +INVISIBLE}
+ level 1
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos -31
+  ypos -45
+ }
+ Dot {
+  name Dot16
+  xpos 3
+  ypos -21
+ }
+set N4304a400 [stack 0]
+ Dot {
+  name Dot1
+  tile_color 0x9597bf00
+  xpos -94
+  ypos -21
+ }
+ Grade {
+  multiply {{mult.r i} {mult.g i} {mult.b i} {curve i}}
+  add {{off.r i} {off.g i} {off.b i} {curve}}
+  name Grade11
+  tile_color 0x7aa9ff00
+  xpos -128
+  ypos 30
+ }
+ Clamp {
+  maximum_enable false
+  name Clamp2
+  xpos -128
+  ypos 91
+ }
+set N43049800 [stack 0]
+push $N43049800
+push $N43049800
+ IBK {
+  inputs 3
+  blue_green_weight 1
+  name IBK2
+  tile_color 0xff00
+  selected true
+  xpos -128
+  ypos 193
+ }
+ Invert {
+  channels alpha
+  name Invert1
+  tile_color 0x7aa9ff00
+  xpos -18
+  ypos 186
+ }
+set N43049000 [stack 0]
+ Dot {
+  name Dot3
+  tile_color 0x9597bf00
+  xpos 16
+  ypos 665
+ }
+push $N43049000
+push $N4304a400
+ Dot {
+  name Dot17
+  xpos 126
+  ypos -21
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  channels alpha
+  name Copy3
+  tile_color 0x9e3c6300
+  xpos 92
+  ypos 179
+ }
+ Premult {
+  name Premult3
+  xpos 92
+  ypos 238
+ }
+ Blur {
+  size {{Size}}
+  name Blur4
+  tile_color 0xcc804e00
+  xpos 92
+  ypos 262
+ }
+ Unpremult {
+  name Unpremult4
+  xpos 92
+  ypos 300
+ }
+set N42fe3400 [stack 0]
+ Clamp {
+  channels {rgba.red rgba.green rgba.blue -rgba.alpha}
+  maximum 0
+  MinClampTo_enable true
+  MaxClampTo_enable true
+  name Clamp1
+  xpos 212
+  ypos 300
+ }
+set N42fe3000 [stack 0]
+ Dot {
+  name Dot5
+  xpos 366
+  ypos 304
+ }
+push $N42fe3000
+push $N42fe3400
+ Dot {
+  name Dot4
+  xpos 126
+  ypos 349
+ }
+set N42fe2800 [stack 0]
+ Copy {
+  inputs 2
+  from0 rgba.red
+  to0 rgba.alpha
+  name Copy1
+  xpos 212
+  ypos 338
+ }
+ Blur {
+  channels rgba
+  size {{Size*3*multi}}
+  name Blur1
+  xpos 212
+  ypos 390
+ }
+ Unpremult {
+  name Unpremult1
+  xpos 212
+  ypos 428
+ }
+ Copy {
+  inputs 2
+  from0 rgba.red
+  to0 rgba.alpha
+  name Copy2
+  xpos 332
+  ypos 421
+ }
+ Invert {
+  channels alpha
+  name Invert2
+  xpos 334
+  ypos 473
+ }
+set N42fe1400 [stack 0]
+ FilterErode {
+  channels alpha
+  size {{(-Size/5)}}
+  filter gaussian
+  name FilterErode2
+  xpos 334
+  ypos 571
+ }
+push $N42fe1400
+ FilterErode {
+  channels alpha
+  size {{(-Size/5)*multi*2}}
+  filter gaussian
+  name FilterErode1
+  xpos 217
+  ypos 473
+ }
+ Switch {
+  inputs 2
+  which {{1-filt}}
+  name Switch1
+  xpos 217
+  ypos 578
+ }
+ Premult {
+  name Premult1
+  xpos 217
+  ypos 616
+ }
+push $N42fe2800
+ Merge {
+  inputs 2
+  name Merge1
+  xpos 92
+  ypos 616
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name ChannelCopy2
+  tile_color 0x9e3c6300
+  xpos 92
+  ypos 654
+ }
+ Grade {
+  multiply {{level}}
+  name Grade1
+  xpos 92
+  ypos 706
+ }
+ Output {
+  name Output1
+  xpos 92
+  ypos 743
+ }
+end_group
+push $cut_paste_input
+IBKSplit {
+ name IBKSplit1
+ selected true
+ xpos 3590
+ ypos 206
+}
+IT8_Writer {
+ inputs 0
+ name IT8_Writer1
+ selected true
+ xpos 3700
+ ypos 374
+}
+IT8_Reader {
+ inputs 0
+ name IT8_Reader1
+ selected true
+ xpos 3590
+ ypos 374
+}
+Inpaint {
+ inputs 0
+ name Inpaint1
+ selected true
+ xpos 3590
+ ypos 536
+}
+Inpaint2 {
+ inputs 0
+ center {1024 778}
+ name Inpaint2
+ selected true
+ xpos 3700
+ ypos 542
+}
+LensDistortion1_0 {
+ inputs 0
+ serializeKnob ""
+ serialiseKnob "22 serialization::archive 17 0 0 0 0 0 0 0 0 0 0 0 0"
+ "Card Parameters" 1
+ name LensDistortion2
+ selected true
+ xpos 4800
+ ypos -178
+}
+LensDistortion {
+ inputs 0
+ serializeKnob ""
+ serialiseKnob "22 serialization::archive 17 0 0 0 0 0 0 0 0 0 0 0 0"
+ "Card Parameters" 1
+ name LensDistortion1
+ selected true
+ xpos 4690
+ ypos -178
+}
+LensDistortion2 {
+ inputs 0
+ output Undistort
+ outputBBox {0 0 2048 1556}
+ featuresKnob "
+version 1
+entries 0
+entries 0
+"
+ distortionModelDisplayX "xu = xd / (1 + k0 * rd^2 + k1 * rd^4)"
+ distortionModelDisplayY "yu = yd / (1 + k0 * rd^2 + k1 * rd^4)"
+ name LensDistortion3
+ selected true
+ xpos 4910
+ ypos -184
+}
+Light3 {
+ inputs 0
+ depthmap_slope_bias 0.01
+ name Light3
+ selected true
+ xpos 4920
+ ypos -6
+}
+Light {
+ inputs 0
+ depthmap_slope_bias 0.01
+ name Point1
+ selected true
+ xpos 4700
+ ypos -6
+}
+Light2 {
+ inputs 0
+ depthmap_slope_bias 0.01
+ name Light2
+ selected true
+ xpos 4810
+ ypos -6
+}
+MakeLatLongMap {
+ inputs 0
+ rot_order ZYX
+ format "6144 4608 0 0 6144 4608 1 6K_CubeMap"
+ name MakeLatLongMap1
+ selected true
+ xpos 5350
+ ypos -184
+}
+StickyNote {
+ inputs 0
+ name StickyNote36
+ label Light
+ selected true
+ xpos 4690
+ ypos -58
+}
+StickyNote {
+ inputs 0
+ name StickyNote93
+ label Merge
+ selected true
+ xpos 5350
+ ypos -82
+}
+StickyNote {
+ inputs 0
+ name StickyNote94
+ label Merge2
+ selected true
+ xpos 5460
+ ypos -82
+}
+Merge2 {
+ inputs 0
+ name Merge2
+ selected true
+ xpos 5460
+ ypos -34
+}
+Merge {
+ inputs 0
+ name Merge1
+ selected true
+ xpos 5350
+ ypos -34
+}
+MindRead {
+ inputs 0
+ name MindRead1
+ selected true
+ xpos 5350
+ ypos 302
+}
+Mirror {
+ inputs 0
+ name Mirror1
+ selected true
+ xpos 5350
+ ypos 422
+}
+Mirror2 {
+ inputs 0
+ name Mirror2_1
+ selected true
+ xpos 5460
+ ypos 422
+}
+Modeler {
+ inputs 0
+ uniform_scale 9
+ serializeKnob ""
+ faceData {  }
+ name Modeler1
+ selected true
+ xpos 5350
+ ypos 734
+}
+Modeler1_0 {
+ inputs 0
+ serializeKnob ""
+ faceData {  }
+ name Modeler2
+ selected true
+ xpos 5460
+ ypos 734
+}
+ModelBuilderGeo {
+ inputs 0
+ scene "
+version 3
+scenegraph {
+  name 'Root'
+  visible 1
+  transform 1.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 1.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 1.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 1.000000000e+00
+  geometry 0
+  children 0 [
+  ]
+}
+"
+ name ModelBuilderGeo1
+ selected true
+ xpos 5570
+ ypos 734
+}
+ModelBuilder {
+ inputs 0
+ scene "
+version 3
+scenegraph {
+  name 'Root'
+  visible 1
+  transform 1.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 1.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 1.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 1.000000000e+00
+  geometry 0
+  children 0 [
+  ]
+}
+"
+ name ModelBuilder1
+ selected true
+ xpos 5680
+ ypos 734
+}
+MultiTexture {
+ inputs 0
+ name MultiTexture1
+ selected true
+ xpos 5350
+ ypos 878
+}
+NoProxy {
+ inputs 0
+ name NoProxy1
+ selected true
+ xpos 5790
+ ypos -202
+}
+NodeWrapper {
+ inputs 0
+ name NodeWrapper1
+ selected true
+ xpos 5790
+ ypos -64
+}
+ViewerGain {
+ inputs 0
+ name ViewerGain1
+ selected true
+ xpos 8980
+ ypos 590
+}
+ZComp {
+ inputs 0
+ name ZComp1
+ selected true
+ xpos 9860
+ ypos -58
+}
+ZDefocus2 {
+ inputs 0
+ legacy_resize_mode false
+ show_legacy_resize_mode false
+ name ZDefocus2
+ selected true
+ xpos 9970
+ ypos 80
+}
+ZDefocus {
+ inputs 0
+ name ZDefocus1
+ selected true
+ xpos 9860
+ ypos 80
+}
+ZRMerge {
+ inputs 0
+ name ZRMerge1
+ selected true
+ xpos 9860
+ ypos 326
+}
+ZMerge {
+ inputs 0
+ name ZMerge1
+ selected true
+ xpos 9970
+ ypos 326
+}
+ZBlur {
+ inputs 0
+ name ZBlur1
+ selected true
+ xpos 9860
+ ypos -184
+}
+ZFDefocus {
+ inputs 0
+ name ZFDefocus1
+ selected true
+ xpos 9860
+ ypos 206
+}
+VectorBlur {
+ inputs 0
+ name VectorBlur1
+ selected true
+ xpos 8980
+ ypos -136
+}
+VectorBlur2 {
+ inputs 0
+ name VectorBlur2
+ selected true
+ xpos 9090
+ ypos -136
+}
+OFXuk.co.thefoundry.furnace.f_kronos_v403 {
+ inputs 0
+ method "Motion Estimation"
+ timing Speed
+ speed 0.5
+ frame 1
+ vectorDetail 0.2
+ smoothness 0.5
+ Shutter 0
+ shutterTime 0
+ shutterSamples 1
+ autoShutterTime true
+ output Result
+ matteComponent None
+ Advanced 1
+ blockSize 6
+ oversmooth false
+ filtering Normal
+ warpMode Normal
+ showVectors false
+ lumCorrect false
+ Tolerances 0
+ weightRed 0.3
+ weightGreen 0.6
+ weightBlue 0.1
+ cacheBreaker true
+ name F_Kronos1
+ selected true
+ xpos 2270
+ ypos 422
+}
+OFXuk.co.thefoundry.furnace.f_degrain_v403 {
+ inputs 0
+ colourSpace Cineon
+ amount 1
+ output Result
+ grain 10
+ "Analysis Region" 0
+ regionBL {921.5999756 700.1999815}
+ regionTR {1126.400024 855.8000185}
+ frame 1
+ Advanced 0
+ Frequencies 0
+ processSmall true
+ smallAmount 1
+ processMedium true
+ mediumAmount 1
+ processLarge true
+ largeAmount 1
+ processHuge true
+ hugeAmount 1
+ Channels 0
+ redAmount 1
+ greenAmount 1
+ blueAmount 1
+ notBeenAnalysed true
+ inputHasChanged true
+ magic0HR 0.003
+ magic0DR 0.003922
+ magic0HG 0.003
+ magic0DG 0.003922
+ magic0HB 0.003
+ magic0DB 0.003922
+ magic1HR 0.003922
+ magic1DR 0.003922
+ magic1HG 0.003922
+ magic1DG 0.003922
+ magic1HB 0.003922
+ magic1DB 0.003922
+ magic2HR 0.001961
+ magic2DR 0.00098
+ magic2HG 0.001961
+ magic2DG 0.00098
+ magic2HB 0.001961
+ magic2DB 0.00098
+ magic3HR 0.001961
+ magic3DR 0.00098
+ magic3HG 0.001961
+ magic3DG 0.00098
+ magic3HB 0.001961
+ magic3DB 0.00098
+ cacheBreaker true
+ name F_DeGrain1
+ selected true
+ xpos 2270
+ ypos 38
+}
+Read {
+ inputs 0
+ file_type dpx
+ file D:/05_Projects/PAPIRLELEK/ASSETS/BugyiSHot/A003C001_180607_R5BG.########.dpx
+ format "3200 1800 0 0 3200 1800 1 "
+ first 2070407
+ last 2071115
+ origfirst 2070407
+ origlast 2071115
+ origset true
+ name Read2
+ label "Fr. range: \[value first] - \[value last]\nRes: \[value width] * \[value height]"
+ selected true
+ xpos -1580
+ ypos -269
+}
+Retime {
+ input.first 2070407
+ input.last 2071115
+ output.first 1001
+ output.first_lock true
+ output.last 1709
+ time ""
+ name Retime1
+ label "Out: \[value output.first] - \[value output.last]"
+ selected true
+ xpos -1580
+ ypos -64
+}
+OFXuk.co.thefoundry.furnace.f_motionblur_v403 {
+ inputs 0
+ shutterTime 0.75
+ shutterSamples 3
+ vectorDetail 0.2
+ matteComponent None
+ cacheBreaker true
+ name F_MotionBlur2
+ selected true
+ xpos 6230
+ ypos -10
+}
+OFXuk.co.thefoundry.furnace.f_vectorgenerator_v403 {
+ inputs 0
+ vectorDetail 0.2
+ smoothness 0.5
+ output Foreground
+ matteComponent None
+ Advanced 0
+ blockSize 6
+ oversmooth false
+ Tolerances 0
+ weightRed 0.3
+ weightGreen 0.6
+ weightBlue 0.1
+ cacheBreaker true
+ name F_VectorGenerator2
+ selected true
+ xpos 6230
+ ypos 62
+}
+OFXuk.co.thefoundry.furnace.f_degrain_v403 {
+ inputs 0
+ colourSpace Cineon
+ amount 1
+ output Result
+ grain 10
+ "Analysis Region" 0
+ regionBL {921.5999756 700.1999815}
+ regionTR {1126.400024 855.8000185}
+ frame 1
+ Advanced 0
+ Frequencies 0
+ processSmall true
+ smallAmount 1
+ processMedium true
+ mediumAmount 1
+ processLarge true
+ largeAmount 1
+ processHuge true
+ hugeAmount 1
+ Channels 0
+ redAmount 1
+ greenAmount 1
+ blueAmount 1
+ notBeenAnalysed true
+ inputHasChanged true
+ magic0HR 0.003
+ magic0DR 0.003922
+ magic0HG 0.003
+ magic0DG 0.003922
+ magic0HB 0.003
+ magic0DB 0.003922
+ magic1HR 0.003922
+ magic1DR 0.003922
+ magic1HG 0.003922
+ magic1DG 0.003922
+ magic1HB 0.003922
+ magic1DB 0.003922
+ magic2HR 0.001961
+ magic2DR 0.00098
+ magic2HG 0.001961
+ magic2DG 0.00098
+ magic2HB 0.001961
+ magic2DB 0.00098
+ magic3HR 0.001961
+ magic3DR 0.00098
+ magic3HG 0.001961
+ magic3DG 0.00098
+ magic3HB 0.001961
+ magic3DB 0.00098
+ cacheBreaker true
+ name F_DeGrain2
+ selected true
+ xpos 6230
+ ypos -154
+}
+OFXuk.co.thefoundry.furnace.f_kronos_v403 {
+ inputs 0
+ method "Motion Estimation"
+ timing Speed
+ speed 0.5
+ frame 1
+ vectorDetail 0.2
+ smoothness 0.5
+ Shutter 0
+ shutterTime 0
+ shutterSamples 1
+ autoShutterTime true
+ output Result
+ matteComponent None
+ Advanced 1
+ blockSize 6
+ oversmooth false
+ filtering Normal
+ warpMode Normal
+ showVectors false
+ lumCorrect false
+ Tolerances 0
+ weightRed 0.3
+ weightGreen 0.6
+ weightBlue 0.1
+ cacheBreaker true
+ name F_Kronos3
+ selected true
+ xpos 6230
+ ypos -82
+}
+StickyNote {
+ inputs 0
+ name StickyNote47
+ label OFXuk.co.thefoundry.furnace.f_kronos_v403
+ selected true
+ xpos 6165
+ ypos -130
+}
+StickyNote {
+ inputs 0
+ name StickyNote48
+ label OFXuk.co.thefoundry.furnace.f_motionblur_v403
+ selected true
+ xpos 6154
+ ypos -58
+}
+StickyNote {
+ inputs 0
+ name StickyNote49
+ label OFXuk.co.thefoundry.furnace.f_vectorgenerator_v403
+ selected true
+ xpos 6143
+ ypos 14
+}
+Denoise2 {
+ inputs 0
+ userMessage "Move the analysis region to analyse noise or press Lock Noise Analysis to disable this message."
+ profileCurve {profile {curve 0 x0.125 0 0 0 0 0 0 0 0}}
+ serializeKnob "0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00
+0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 0.000000000e+00 
+18446744073709551615"
+ name Denoise4
+ selected true
+ xpos 6450
+ ypos 296
+}
+StickyNote {
+ inputs 0
+ name StickyNote51
+ label OFXuk.co.thefoundry.noisetools.denoise_v100
+ selected true
+ xpos 6159
+ ypos 230
+}
+StickyNote {
+ inputs 0
+ name StickyNote96
+ label OFlow2
+ selected true
+ xpos 6450
+ ypos 446
+}
+OFXuk.co.thefoundry.noisetools.denoise_v100 {
+ inputs 0
+ type Film
+ model Modulated
+ profile Constant
+ output Result
+ amount 1
+ rolloff 2
+ smoothness 1
+ sharpen 0
+ lumablend 0.7
+ chromablend 1
+ "Noise Analysis" 0
+ mode "Pen Up"
+ analysisfile ""
+ regionBL {921.5999756 700.1999815}
+ regionTR {1126.400024 855.8000185}
+ analysisframe 1
+ profileframe 1
+ plotProfile false
+ "Tune Profile" 0
+ tuneProfile false
+ lowGain 1
+ midGain 1
+ highGain 1
+ "Tune Frequencies" 0
+ processHigh true
+ highAmount 1
+ processMedium true
+ mediumAmount 1
+ processLow true
+ lowAmount 1
+ processVeryLow true
+ verylowAmount 1
+ "Tune Channels" 0
+ lumaAmount 1
+ chromaAmount 5
+ hasBeenAnalyzed false
+ inputHasChanged true
+ hasBeenProfiled false
+ frameOutsideRange false
+ profileExists true
+ writeFailed false
+ readFailed false
+ fileIsEmpty false
+ threshold0HHY 0
+ threshold0LHY 0
+ threshold0HLY 0
+ threshold0LLY 0
+ threshold0HHCb 0
+ threshold0LHCb 0
+ threshold0HLCb 0
+ threshold0LLCb 0
+ threshold0HHCr 0
+ threshold0LHCr 0
+ threshold0HLCr 0
+ threshold0LLCr 0
+ threshold1HHY 0
+ threshold1LHY 0
+ threshold1HLY 0
+ threshold1LLY 0
+ threshold1HHCb 0
+ threshold1LHCb 0
+ threshold1HLCb 0
+ threshold1LLCb 0
+ threshold1HHCr 0
+ threshold1LHCr 0
+ threshold1HLCr 0
+ threshold1LLCr 0
+ threshold2HHY 0
+ threshold2LHY 0
+ threshold2HLY 0
+ threshold2LLY 0
+ threshold2HHCb 0
+ threshold2LHCb 0
+ threshold2HLCb 0
+ threshold2LLCb 0
+ threshold2HHCr 0
+ threshold2LHCr 0
+ threshold2HLCr 0
+ threshold2LLCr 0
+ threshold3HHY 0
+ threshold3LHY 0
+ threshold3HLY 0
+ threshold3LLY 0
+ threshold3HHCb 0
+ threshold3LHCb 0
+ threshold3HLCb 0
+ threshold3LLCb 0
+ threshold3HHCr 0
+ threshold3LHCr 0
+ threshold3HLCr 0
+ threshold3LLCr 0
+ profile0 0
+ profile1 0
+ profile2 0
+ profile3 0
+ profile4 0
+ profile5 0
+ profile6 0
+ profile7 0
+ profile8 0
+ cacheBreaker false
+ name Denoise3
+ selected true
+ xpos 6230
+ ypos 302
+}
+StickyNote {
+ inputs 0
+ name StickyNote95
+ label OFXuk.co.thefoundry.time.oflow_v100
+ selected true
+ xpos 6178
+ ypos 446
+}
+OFXuk.co.thefoundry.time.oflow_v100 {
+ inputs 0
+ method Motion
+ timing Speed
+ timingFrame 1
+ timingSpeed 0.5
+ filtering Normal
+ warpMode Normal
+ correctLuminance false
+ automaticShutterTime false
+ shutterTime 0
+ shutterSamples 1
+ vectorDetail 0.2
+ smoothness 0.5
+ blockSize 6
+ Tolerances 1
+ weightRed 0.3
+ weightGreen 0.6
+ weightBlue 0.1
+ showVectors false
+ cacheBreaker false
+ name OFlow1
+ selected true
+ xpos 6230
+ ypos 494
+}
+OFlow2 {
+ inputs 0
+ Shutter 1
+ Advanced 1
+ name OFlow2
+ selected true
+ xpos 6450
+ ypos 494
+}
+OpStatisticsOp {
+ inputs 0
+ processed_rows 43
+ total_rows 43
+ unique_rows 43
+ name OpStatisticsOp1
+ selected true
+ xpos 6230
+ ypos 639
+}
+Paint {
+ inputs 0
+ srcgrid {
+  3 0 0 0
+  { 1 0 0 0
+  }
+ }
+ bl_color {1 1 1 1}
+ name Paint1
+ selected true
+ xpos 6780
+ ypos -154
+}
+StickyNote {
+ inputs 0
+ name StickyNote64
+ label "Generated from Read when PSD read in"
+ selected true
+ xpos 6722
+ ypos -106
+}
+PSDMerge {
+ inputs 0
+ name PSDMerge1
+ note_font "Bitstream Vera Sans"
+ selected true
+ xpos 6780
+ ypos -9
+ maskChannelInput none
+}
+StickyNote {
+ inputs 0
+ name StickyNote55
+ label PointCloudGenerator
+ selected true
+ xpos 6767
+ ypos 1142
+}
+StickyNote {
+ inputs 0
+ name StickyNote56
+ label PointCloudGenerator1_0
+ selected true
+ xpos 6868
+ ypos 1142
+}
+ParticleBlinkScriptRender {
+ inputs 0
+ kernelSourceGroup 1
+ kernelSource "Dkernel ParticleRenderKernel : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessPoint> p_position;\n  Image<eRead, eAccessPoint> p_color;\n  Image<eRead, eAccessPoint> p_size;\n  Image<eWrite, eAccessRandom> output;\n\n  param:\n    float4x4 _worldToScreen;\n    float _size;\n\n  local:\n    int _w, _h;\n\n  void define() \{\n    defineParam(_worldToScreen, \"_worldToScreen\", float4x4(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f) );\n    defineParam(_size, \"paSize\", 3.0f);\n  \}\n\n  float4 srcOver( float4 a, float4 b ) \{\n    return (1.0f-a.w)*b + a;\n  \}\n\n  float2 transform( float3 p )\n  \{\n    float4 r = _worldToScreen*float4(p.x, p.y, p.z, 1.0);\n    return float2(r.x, r.y)/r.w;\n  \}\n\n  float smoothstep( float a, float b, float x ) \{\n    float t = clamp((x - a) / (b - a), 0.0, 1.0);\n    return t*t * (3.0f - 2.0f*t);\n  \}\n\n  void init()\n  \{\n    _w = output.bounds.width();\n    _h = output.bounds.height();\n  \}\n\n  void renderPoint( float2 xy, float4 pcolor, float pointSize )\n  \{\n    float sizeSquared = pointSize*pointSize;\n    float2 f = xy-floor(xy);\n    float2 g = float2(1.0f) - f;\n    xy = floor(xy);\n    int size = ceil(pointSize);\n    int minX = max(0, int(xy.x)-size);\n    int maxX = min(_w-1, int(xy.x)+size);\n    int minY = max(0, int(xy.y)-size);\n    int maxY = min(_h-1, int(xy.y)+size);\n    for ( int y = minY; y <= maxY; y++ ) \{\n      for ( int x = minX ; x <= maxX; x++ ) \{\n        float2 p = float2(x, y);\n        float2 d = p-xy;\n        float r2 = dot(d, d);\n        if ( r2 < sizeSquared ) \{\n         float t = 1.0f-smoothstep(0, sizeSquared, r2);\n          output(p.x, p.y) += pcolor*t;\n        \}\n      \}\n    \}\n  \}\n\n  void process() \{\n    float2 xy = transform(p_position());\n    float4 pcolor = p_color();\n    renderPoint(xy, pcolor, _size*p_size().x);\n  \}\n\};\n"
+ name ParticleBlinkScriptRender1
+ selected true
+ xpos 6780
+ ypos 110
+}
+ParticleSystem {
+ inputs 0
+ timeinc 0.1
+ name ParticleSystem1
+ selected true
+ xpos 6780
+ ypos 422
+}
+ParticleToImage {
+ inputs 0
+ name ParticleToImage1
+ selected true
+ xpos 6780
+ ypos 542
+}
+PerspDistort {
+ inputs 0
+ name PerspDistort1
+ selected true
+ xpos 6780
+ ypos 680
+}
+PixelStat {
+ inputs 0
+ WtransfType "plot scanline"
+ name PixelStat1
+ selected true
+ xpos 6780
+ ypos 800
+}
+PixelSum {
+ inputs 0
+ name PixelSum1
+ selected true
+ xpos 6780
+ ypos 902
+}
+ParticleDrag {
+ inputs 0
+ name ParticleDrag1
+ selected true
+ xpos 6780
+ ypos 296
+}
+ParticleDrag2 {
+ inputs 0
+ name ParticleDrag2
+ selected true
+ xpos 6890
+ ypos 296
+}
+PlanarTracker {
+ inputs 0
+ serializeKnob "22 serialization::archive 17 0 1 0 2 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+ name PlanarTracker1
+ selected true
+ xpos 6780
+ ypos 1022
+}
+StickyNote {
+ inputs 0
+ name StickyNote54
+ label PlanarTracker1_0
+ selected true
+ xpos 6886
+ ypos 974
+}
+PlanarTracker1_0 {
+ inputs 0
+ serializeKnob "22 serialization::archive 17 0 1 0 2 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+ name PlanarTracker2
+ selected true
+ xpos 6890
+ ypos 1022
+}
+PositionToPoints {
+ inputs 0
+ display textured
+ render_mode textured
+ name PositionToPoints1
+ selected true
+ xpos 6780
+ ypos 1358
+}
+PositionToPoints2 {
+ inputs 0
+ display textured
+ render_mode textured
+ name PositionToPoints2
+ selected true
+ xpos 6890
+ ypos 1358
+}
+PrintHash {
+ inputs 0
+ name PrintHash1
+ selected true
+ xpos 6780
+ ypos 1478
+}
+ViewMetaData {
+ inputs 0
+ name ViewMetaData1
+ selected true
+ xpos 7000
+ ypos 1598
+}
+PrintMetaData {
+ inputs 0
+ name PrintMetaData1
+ selected true
+ xpos 6780
+ ypos 1598
+}
+ProcGeo {
+ inputs 0
+ name ProcGeo1
+ selected true
+ xpos 6780
+ ypos 1718
+}
+Project3D2 {
+ inputs 0
+ name Project3D2
+ selected true
+ xpos 6890
+ ypos 1862
+}
+Project3D {
+ inputs 0
+ name Project3D1
+ selected true
+ xpos 6780
+ ypos 1862
+}
+ProjectionSolver {
+ inputs 0
+ serializeKnob ""
+ name ProjectionSolver1
+ selected true
+ xpos 6780
+ ypos 2054
+}
+ProjectionSolver1_0 {
+ inputs 0
+ serializeKnob ""
+ name ProjectionSolver2
+ selected true
+ xpos 6890
+ ypos 2054
+}
+StickyNote {
+ inputs 0
+ name StickyNote61
+ label ProjectionSolver
+ selected true
+ xpos 6778
+ ypos 2006
+}
+PythonGeo {
+ inputs 0
+ name PythonGeo1
+ selected true
+ xpos 6780
+ ypos 2174
+}
+StickyNote {
+ inputs 0
+ name StickyNote50
+ label Denoise2
+ selected true
+ xpos 6450
+ ypos 230
+}
+StickyNote {
+ inputs 0
+ name StickyNote97
+ label ReadGeo2
+ selected true
+ xpos 7330
+ ypos -226
+}
+StickyNote {
+ inputs 0
+ name StickyNote98
+ label ReadGeo
+ selected true
+ xpos 7220
+ ypos -226
+}
+ReadGeo {
+ inputs 0
+ name ReadGeo1
+ selected true
+ xpos 7220
+ ypos -178
+}
+ReadGeo2 {
+ inputs 0
+ name ReadGeo2
+ selected true
+ xpos 7330
+ ypos -178
+}
+Shuffle1 {
+ inputs 0
+ name Shuffle2
+ selected true
+ xpos 7770
+ ypos -130
+}
+RendermanShader {
+ inputs 0
+ name RendermanShader1
+ selected true
+ xpos 7220
+ ypos -34
+}
+Shuffle2 {
+ inputs 0
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle3
+ selected true
+ xpos 7880
+ ypos -130
+}
+Shuffle {
+ inputs 0
+ name Shuffle1
+ selected true
+ xpos 7660
+ ypos -130
+}
+StarField {
+ inputs 0
+ name StarField1
+ selected true
+ xpos 7660
+ ypos 1238
+}
+StickyNote {
+ inputs 0
+ name StickyNote74
+ label SimpleAxis
+ selected true
+ xpos 7660
+ ypos -34
+}
+SimpleAxis {
+ inputs 0
+ name SimpleAxis1
+ selected true
+ xpos 7670
+ ypos -6
+}
+StickyNote {
+ inputs 0
+ name StickyNote99
+ label Axis
+ selected true
+ xpos 7770
+ ypos -34
+}
+Axis {
+ inputs 0
+ name Axis5
+ selected true
+ xpos 7780
+ ypos -6
+}
+SphereObj {
+ inputs 0
+ name SphereObj1
+ selected true
+ xpos 7660
+ ypos 158
+}
+Read {
+ inputs 0
+ file_type dpx
+ file D:/05_Projects/PAPIRLELEK/ASSETS/Alagut_1/Alagut_#########.dpx
+ format "3200 1800 0 0 3200 1800 1 "
+ first 100281976
+ last 100283327
+ origfirst 100281976
+ origlast 100283327
+ origset true
+ name Read3
+ label "Fr. range: \[value first] - \[value last]\nRes: \[value width] * \[value height]"
+ selected true
+ xpos -1250
+ ypos -269
+}
+Retime {
+ input.first 100281976
+ input.last 100283327
+ output.first 1001
+ output.first_lock true
+ output.last 2352
+ time ""
+ name Retime2
+ label "Out: \[value output.first] - \[value output.last]"
+ selected true
+ xpos -1250
+ ypos -64
+}
