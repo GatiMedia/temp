@@ -3,8 +3,9 @@ def changeChannels():
     if len(sel_nodes) > 0:
         ok_channels = ['all', 'none', 'rgba', 'rgb', 'alpha']
 
-        # setting up for channels knob
         for sel_node in sel_nodes:
+            
+            # setting up for channels knob
             if sel_node.knob('channels'):
                 if not sel_node['channels'].value() == "alpha" and sel_node.knob('channels').value() in ok_channels:
                     channel_index = ok_channels.index(sel_node['channels'].value())
