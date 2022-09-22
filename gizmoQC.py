@@ -58,6 +58,24 @@ print(isBlinkInside(nuke.selectedNode()))
 # Check for expression errors on knobs:
 # https://community.foundry.com/discuss/topic/160172/how-to-print-expression-errors-like-it-s-in-the-error-console#1238910
 
+node = nuke.selectedNode()
+errorList = []
+for n in node.nodes():
+    for knob in n.allKnobs():
+        if knob.hasExpression():
+            expression = shlex.split(knob.toScript().strip('{}').replace(" ",""))
+            full_name = knob.fullyQualifiedName()
+            try:
+                nuke.tcl('in {} {{expression {}}}'.format(full_name, expression[0]))
+                result = "great! No expression error!"
+            except RuntimeError as tcl_error:
+                errorList.append('ERROR: {}: {}'.format(full_name, tcl_error))
+if not errorList:
+    print('Great! No expression error in the node!')
+else:
+    print('\n'.join(errorList))
+
+
 # Check Py 3 compatibility:
 # https://stackoverflow.com/questions/40886456/how-to-detect-if-code-is-python-3-compatible
 
