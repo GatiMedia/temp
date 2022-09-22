@@ -7,7 +7,6 @@ if not len(nuke.selectedNodes()) == 1:
     nuke.message("\n<font color=yellow><b>Select a <u>single</u> node first!</font></b>\n")
 else:
     userName = os.getenv('USER').split(".")[0].capitalize() + " " + os.getenv('USER').split(".")[1].capitalize()
-
     
     currDate = str(date.today())
 
@@ -65,5 +64,4 @@ else:
         node.addKnob(knobTodo)
         knobTodo.setValue("TODO:\n" + nodeTodo )
     else:
-        pass    
-    
+        pass
