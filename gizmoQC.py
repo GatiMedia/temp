@@ -65,3 +65,6 @@ print(isBlinkInside(nuke.selectedNode()))
 # https://www.leafpictures.de/code/gizmo-to-group
 # https://fredrikaverpil.github.io/2018/06/25/nuke-gizmos-to-groups/
 # http://www.nukepedia.com/python/nodegraph/convertgizmostogroups
+
+# NukeX compatibility
+# https://www.foundry.com/products/nuke-family/nuke/features
