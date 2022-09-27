@@ -1,5 +1,7 @@
 #### WIP gizmo QC functions ####
 
+# GOAL: Build a set of functions that checks/fixes common Gizmo mistakes that artists would check before adding new tools to the global toolset.
+# Inspiration: https://benmcewan.com/blog/2019/10/21/back-to-basics-common-errors-when-creating-a-gizmo/ 
 
 # Check if node a Gizmo 
 # TODO need to check if Group too
@@ -96,3 +98,5 @@ else:
 # https://www.foundry.com/products/nuke-family/nuke/features
 
 # Try to add part that checks if Copy would error without an "![exist parent.input]" part
+
+# Check if there's a knobChanged() value
