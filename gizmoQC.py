@@ -88,6 +88,8 @@ else:
 
 # Check Py 3 compatibility:
 # https://stackoverflow.com/questions/40886456/how-to-detect-if-code-is-python-3-compatible
+# Turn code Py3 compatibile if needed:
+# https://docs.python.org/3/library/2to3.html
 
 # Convert Gizmo to Group
 # https://www.leafpictures.de/code/gizmo-to-group
