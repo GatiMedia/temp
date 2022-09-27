@@ -1,6 +1,9 @@
 #### WIP gizmo QC functions ####
 
-# Check if node a Gizmo
+
+# Check if node a Gizmo 
+# TODO need to check if Group too
+
 def isGizmo(node):
     gizmo = isinstance(node, nuke.Gizmo)
     if gizmo:
@@ -12,6 +15,8 @@ def isGizmo(node):
 print (isGizmo(nuke.selectedNode()))
 
 # Check if node has Viewer inside
+# TODO need to find a smarter iteration mode
+
 def isViewerInside(node):
     viewerList = []
     for n in node.nodes():
@@ -41,6 +46,8 @@ def isViewerInside(node):
 print(isViewerInside(nuke.selectedNode()))
 
 # Check if node has blink script inside
+# TODO need to look Groups within Groups too
+
 def isBlinkInside(node):
     msg = 'No blink script inside'
     for n in node.nodes():
@@ -53,10 +60,11 @@ def isBlinkInside(node):
 print(isBlinkInside(nuke.selectedNode()))
 
 
-##### WIP PARTS #####
+##### (MORE) WIP PARTS #####
 
 # Check for expression errors on knobs:
 # https://community.foundry.com/discuss/topic/160172/how-to-print-expression-errors-like-it-s-in-the-error-console#1238910
+# TODO need to turn into a def 
 
 node = nuke.selectedNode()
 errorList = []
@@ -86,3 +94,5 @@ else:
 
 # NukeX compatibility
 # https://www.foundry.com/products/nuke-family/nuke/features
+
+# Try to add part that checks if Copy would error without an "![exist parent.input]" part
