@@ -62,7 +62,7 @@ print(isBlinkInside(nuke.selectedNode()))
 
 ##### (MORE) WIP PARTS #####
 
-# Check for expression errors on knobs:
+# Check for expression errors on knobs ( solution from Erwan Leroy )
 # https://community.foundry.com/discuss/topic/160172/how-to-print-expression-errors-like-it-s-in-the-error-console#1238910
 # TODO need to turn into a def 
 
