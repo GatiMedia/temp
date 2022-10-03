@@ -16,48 +16,37 @@ def isGizmo(node):
 
 print (isGizmo(nuke.selectedNode()))
 
-# Check if node has Viewer inside
-# TODO need to find a smarter iteration mode
 
+# Check if node has Viewer inside
 def isViewerInside(node):
     viewerList = []
-    for n in node.nodes():
-        if n.Class() == 'Viewer':
-            viewerList.append(n.name())
-        if n.Class() == 'Group':
-            for i in n.nodes():
-                if i.Class() == 'Viewer':
-                    viewerList.append(i.name())
-                if i.Class() == 'Group':
-                    for x in n.nodes():
-                        if x.Class() == 'Viewer':
-                            viewerList.append(x.name())
-                        if x.Class() == 'Group':
-                            for y in n.nodes():
-                                if y.Class() == 'Viewer':
-                                    viewerList.append(y.name())
-                                if y.Class() == 'Group':
-                                    for z in n.nodes():
-                                        if z.Class() == 'Viewer':
-                                            viewerList.append(z.name())
-    viewerList = 'There are Viewer node(s) inside:\n' + ', '.join(viewerList)
+    with node:
+        nodes = nuke.allNodes(recurseGroups=True)
+        for n in nodes:
+            if n.Class() == 'Viewer':
+                viewerList.append(n.name())
     if not viewerList:
         viewerList = 'Great! No Viewer node inside'
+    else:
+        viewerList = 'There are Viewer node(s) inside:\n' + ', '.join(viewerList)
     return (viewerList)
 
 print(isViewerInside(nuke.selectedNode()))
 
-# Check if node has blink script inside
-# TODO need to look Groups within Groups too
 
+# Check if node has blink script inside
 def isBlinkInside(node):
-    msg = 'No blink script inside'
-    for n in node.nodes():
-        if n.Class() == 'BlinkScript' or n.Class() == 'ParticleBlinkScript':
-            msg = 'There is a node with blink script inside'
-        else:
-            continue
-    return msg
+    blinkList = []
+    with node:
+        nodes = nuke.allNodes(recurseGroups=True)
+        for n in nodes:
+            if n.Class() == 'BlinkScript' or n.Class() == 'ParticleBlinkScript':
+                blinkList.append(n.name())
+    if not blinkList:
+        blinkList = 'No Blink node inside'
+    else:
+        blinkList = 'There are Blink node(s) inside:\n' + ', '.join(blinkList)
+    return (blinkList)
 
 print(isBlinkInside(nuke.selectedNode()))
 
