@@ -50,9 +50,6 @@ def isBlinkInside(node):
 
 print(isBlinkInside(nuke.selectedNode()))
 
-
-##### (MORE) WIP PARTS #####
-
 # Check for expression errors on knobs ( solution from Erwan Leroy )
 # https://community.foundry.com/discuss/topic/160172/how-to-print-expression-errors-like-it-s-in-the-error-console#1238910
 # TODO need to turn into a def 
@@ -74,20 +71,21 @@ if not errorList:
 else:
     print('\n'.join(errorList))
 
+##### (MORE) WIP PARTS #####
 
 # Check Py 3 compatibility:
 # https://stackoverflow.com/questions/40886456/how-to-detect-if-code-is-python-3-compatible
 # Turn code Py3 compatibile if needed:
 # https://docs.python.org/3/library/2to3.html
 
-# Convert Gizmo to Group
+# Convert Gizmo to Group - also making sure that if ppl brought the node as a Gizmo{ somewhere it still does something as it is more likely an empty shell
 # https://www.leafpictures.de/code/gizmo-to-group
 # https://fredrikaverpil.github.io/2018/06/25/nuke-gizmos-to-groups/
 # http://www.nukepedia.com/python/nodegraph/convertgizmostogroups
 
-# NukeX compatibility
+# NukeX compatibility - didn't find a function that sorts this so probably need to hard code the list of nodes only running on X
 # https://www.foundry.com/products/nuke-family/nuke/features
 
-# Try to add part that checks if Copy would error without an "![exist parent.input]" part
+# Check if there's a knobChanged() value or other callbacks
 
-# Check if there's a knobChanged() value
+# Try to add part that checks if Copy would error without an "![exist parent.input]" part
