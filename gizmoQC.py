@@ -55,6 +55,7 @@ print(isBlinkInside(nuke.selectedNode()))
 # TODO need to turn into a def 
 
 node = nuke.selectedNode()
+import shlex
 errorList = []
 for n in node.nodes():
     for knob in n.allKnobs():
