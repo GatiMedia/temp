@@ -90,3 +90,5 @@ else:
 # Check if there's a knobChanged() value or other callbacks
 
 # Try to add part that checks if Copy would error without an "![exist parent.input]" part
+
+# Disconnected nodes
