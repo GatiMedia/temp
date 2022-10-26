@@ -1,3 +1,11 @@
+## TODO ##
+## add warning messages
+# message for not having a node selected OR multiple nodes are selected OR not Read node
+nuke.message('<font color=orange><h3>Please, select a single Read node first!')
+# message when no color passes
+nuke.message('<font color=orange><h3>No color passes found!\nAvailable layers are:</h3>'+str(channelLayers))
+
+
 curSel = nuke.toNode('Read2')
 curSelChannels = curSel.channels()
 layersList = []
@@ -12,6 +20,7 @@ for c in channelLayers:
     else:
         continue
 LayersNames = '' + '\n'.join(colorGroup)
+print(channelLayers)
 
 xDist = 800
 yDist = 200
@@ -177,6 +186,7 @@ mergePlusSide.setInput(1, dotExprSide)
 mergePlusSide.setInput(0, mergePlusOld)
 
 # creating dotMsg
+## TODO - add NAN_INF_KILLER _ nuke.createNode('NST_NAN_INF_Killer')
 dotMsg = nuke.nodes.Dot()
 dotMsg['xpos'].setValue(int(mergePlusSide['xpos'].value())+36)
 dotMsg['ypos'].setValue(int(mergePlusSide['ypos'].value())+(yDist*4))
