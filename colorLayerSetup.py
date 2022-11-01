@@ -143,9 +143,9 @@ def colorLayerSetup():
                     dotgrade2.setInput(0, prem)
 
                     # creating expAlpha
-                    expAlpha = nuke.createNode('Expression', EXPR_ALPHA, inpanel=False)
+                    expAlpha = nuke.nodes.Expression()
                     expAlpha['channel0'].setValue('alpha')
-                    #expAlpha['expr0'].setValue('clamp(r+g+b)')
+                    expAlpha['expr0'].setValue('clamp(r+g+b)')
                     expAlpha['xpos'].setValue(int(shuffle['xpos'].value()))
                     expAlpha['ypos'].setValue(int(dotgrade2['ypos'].value()) + 200)
                     expAlpha.setSelected(SELECT_VAL)
@@ -183,9 +183,9 @@ def colorLayerSetup():
                 shuffle.setInput(0, mergeFrom)
 
                 # creating expAlphaSide
-                expAlphaSide = nuke.createNode('Expression', EXPR_ALPHA, inpanel=False)
+                expAlphaSide = nuke.nodes.Expression()
                 expAlphaSide['channel0'].setValue('alpha')
-                #expAlphaSide['expr0'].setValue('clamp(r+g+b)')
+                expAlphaSide['expr0'].setValue('clamp(r+g+b)')
                 expAlphaSide['xpos'].setValue(int(shuffle['xpos'].value()))
                 expAlphaSide['ypos'].setValue(int(expAlpha['ypos'].value()))
                 expAlphaSide.setSelected(SELECT_VAL)
