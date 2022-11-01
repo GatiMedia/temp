@@ -5,6 +5,14 @@ nuke.message('<font color=orange><h3>Please, select a single Read node first!')
 # message when no color passes
 nuke.message('<font color=orange><h3>No color passes found!\nAvailable layers are:</h3>'+str(channelLayers))
 
+nodes = nuke.selectedNodes()
+if not len(nodes) == 1:
+    nuke.message('<font color=orange><h3>Please, select a single Read node first!')
+else:
+    if not nodes[0].Class() == "Read":
+        nuke.message('<font color=orange><h3>Please, select a single Read node first!')
+    else:
+        print("yay")
 
 
 curSel = nuke.toNode('Read2')
