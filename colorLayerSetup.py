@@ -1,7 +1,6 @@
 import nuke
 
 COLOR_LAYER_PREFIX = 'C_'
-EXPR_ALPHA = 'channel0 alpha expr0 clamp(r+g+b)'
 X_DIST = 1000
 Y_DIST = 200
 GRADE_DIST = 2500
