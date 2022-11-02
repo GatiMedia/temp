@@ -1,6 +1,7 @@
 import nuke
 
 COLOR_LAYER_PREFIX = 'C_'
+EXPR_ALPHA = 'channel0 alpha expr0 clamp(r+g+b)'
 X_DIST = 1000
 Y_DIST = 200
 GRADE_DIST = 2500
@@ -28,7 +29,6 @@ def colorLayerSetup():
                 else:
                     continue
             LayersNames = '' + '\n'.join(colorGroup)
-            print(channelLayers)
 
             if not colorGroup:
                 nuke.message('<font color=orange><h3>No color passes found!\nAvailable layers are:</h3>\n' + str(channelLayers))
@@ -117,6 +117,8 @@ def colorLayerSetup():
                     dotgrade = nuke.nodes.Dot()
                     dotgrade['xpos'].setValue(int(dotshuf['xpos'].value()))
                     dotgrade['ypos'].setValue(int(dot['ypos'].value()) + int((len(colorGroup) + 2) * Y_DIST) + 250)
+                    dotgrade['label'].setValue("  <h1>[value input.input.in1]</h1>")
+                    dotgrade['note_font_size'].setValue(30)
                     dotgrade.setSelected(SELECT_VAL)
                     dotgrade.setInput(0, dotshuf)
 
@@ -181,6 +183,17 @@ def colorLayerSetup():
                 shuffle.setSelected(SELECT_VAL)
                 shuffle.setInput(0, mergeFrom)
 
+                # creating shuffleExtraRGB
+                shuffleExtraRGB = nuke.nodes.Shuffle2()
+                shuffleExtraRGB['in1'].setValue('C_Extra_Light')
+                shuffleExtraRGB['out1'].setValue('rgba')
+                shuffleExtraRGB['label'].setValue("<b>[value in1] -> [value out1]")
+                shuffleExtraRGB['note_font_size'].setValue(25)
+                shuffleExtraRGB['xpos'].setValue(int(mergeFrom['xpos'].value()))
+                shuffleExtraRGB['ypos'].setValue(int(shuffle['ypos'].value()) + 100)
+                shuffleExtraRGB.setSelected(SELECT_VAL)
+                shuffleExtraRGB.setInput(0, shuffle)
+
                 # creating expAlphaSide
                 expAlphaSide = nuke.nodes.Expression()
                 expAlphaSide['channel0'].setValue('alpha')
@@ -188,7 +201,7 @@ def colorLayerSetup():
                 expAlphaSide['xpos'].setValue(int(shuffle['xpos'].value()))
                 expAlphaSide['ypos'].setValue(int(expAlpha['ypos'].value()))
                 expAlphaSide.setSelected(SELECT_VAL)
-                expAlphaSide.setInput(0, shuffle)
+                expAlphaSide.setInput(0, shuffleExtraRGB)
 
                 # creating dotExprSide
                 dotExprSide = nuke.nodes.Dot()
