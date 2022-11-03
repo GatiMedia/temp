@@ -117,7 +117,7 @@ def colorLayerSetup():
                     dotgrade = nuke.nodes.Dot()
                     dotgrade['xpos'].setValue(int(dotshuf['xpos'].value()))
                     dotgrade['ypos'].setValue(int(dot['ypos'].value()) + int((len(colorGroup) + 2) * Y_DIST) + 250)
-                    dotgrade['label'].setValue("  <h1>[value input.input.in1]</h1>")
+                    dotgrade['label'].setValue("  <h1>" + n +"</h1>")
                     dotgrade['note_font_size'].setValue(30)
                     dotgrade.setSelected(SELECT_VAL)
                     dotgrade.setInput(0, dotshuf)
@@ -140,6 +140,8 @@ def colorLayerSetup():
                     dotgrade2 = nuke.nodes.Dot()
                     dotgrade2['xpos'].setValue(int(dotgrade['xpos'].value()))
                     dotgrade2['ypos'].setValue(int(dotgrade['ypos'].value()) + GRADE_DIST)
+                    dotgrade2['label'].setValue("  <h1>" + n +"</h1>")
+                    dotgrade2['note_font_size'].setValue(30)
                     dotgrade2.setSelected(SELECT_VAL)
                     dotgrade2.setInput(0, prem)
 
