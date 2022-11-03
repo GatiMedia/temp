@@ -29,6 +29,8 @@ def colorLayerSetup():
                 else:
                     continue
             LayersNames = '' + '\n'.join(colorGroup)
+            channelLayers.sort()
+            noteVal = '' + '\n'.join(channelLayers)
 
             if not colorGroup:
                 nuke.message('<font color=orange><h3>No color passes found!\nAvailable layers are:</h3>\n' + str(channelLayers))
@@ -246,3 +248,18 @@ def colorLayerSetup():
                 copyNode.setSelected(SELECT_VAL)
                 copyNode.setInput(1, dotCorner)
                 copyNode.setInput(0, dotMain)
+
+                # creating layerContact
+                layerContact = nuke.nodes.LayerContactSheet()
+                layerContact['xpos'].setValue(int(dotMain['xpos'].value())+400)
+                layerContact['ypos'].setValue(int(dotMain['ypos'].value()))
+                layerContact['showLayerNames'].setValue(True)
+                layerContact.setSelected(SELECT_VAL)
+                layerContact.setInput(0, dotMain)
+
+                # creating stickyNote
+                stickyNote = nuke.nodes.StickyNote()
+                stickyNote['xpos'].setValue(int(layerContact['xpos'].value())-40)
+                stickyNote['ypos'].setValue(int(layerContact['ypos'].value())+200)
+                stickyNote['label'].setValue("<h2><center>Available layers:\n\n" + noteVal + "\n\n")
+                stickyNote.setSelected(SELECT_VAL)
