@@ -1,7 +1,6 @@
 import nuke
 
 COLOR_LAYER_PREFIX = 'C_'
-EXPR_ALPHA = 'channel0 alpha expr0 clamp(r+g+b)'
 X_DIST = 1000
 Y_DIST = 200
 GRADE_DIST = 2500
@@ -10,10 +9,10 @@ SELECT_VAL = True
 def colorLayerSetup():
     nodes = nuke.selectedNodes()
     if not len(nodes) == 1:
-        nuke.message('<font color=orange><h3>Please, select a single Read node first!')
+        nuke.alert('<font color=orange><h3>Please, select a single Read node first!')
     else:
         if not nodes[0].Class() == "Read":
-            nuke.message('<font color=orange><h3>Please, select a single Read node first!')
+            nuke.alert('<font color=orange><h3>Please, select a single Read node first!')
         else:
             curSel = nuke.selectedNode()
             curSelChannels = curSel.channels()
@@ -22,6 +21,7 @@ def colorLayerSetup():
                 splitRawChannels = rawChannels.split('.')
                 layersList.append(splitRawChannels[0])
             channelLayers = list(set(layersList))
+            channelLayers.sort()
             colorGroup = []
             for c in channelLayers:
                 if c.startswith(COLOR_LAYER_PREFIX):
@@ -29,11 +29,10 @@ def colorLayerSetup():
                 else:
                     continue
             LayersNames = '' + '\n'.join(colorGroup)
-            channelLayers.sort()
             noteVal = '' + '\n'.join(channelLayers)
 
             if not colorGroup:
-                nuke.message('<font color=orange><h3>No color passes found!\nAvailable layers are:</h3>\n' + str(channelLayers))
+                nuke.alert('<font color=orange><h3><center>No color passes found!\n\nAvailable layers are:\n\n<font color=yellow><h4>' + ',\n'.join(channelLayers))
             else:
                 # create dotMain
                 dotMain = nuke.nodes.Dot()
