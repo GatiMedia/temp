@@ -6,7 +6,7 @@ SLAP_PATH_PREFIX = "/LYR_030_cameraLayout/versions/"
 def loadCam():
     nodes = nuke.selectedNodes('Read')
     if not len(nodes) == 1:
-        nuke.alert('<font color=orange><h3>Please, select a single Read node\n of a Lighting Slapcomp first!')
+        nuke.alert('<font color=orange><h3>Please, select a single Read node\n of a Beauty render first!')
     else:
         for n in nodes:
             shotdir = os.path.dirname(n['file'].value())
@@ -30,5 +30,6 @@ def loadCam():
                     cam['xpos'].setValue(n['xpos'].value())
                     cam['ypos'].setValue(n['ypos'].value()+200)
                     cam['label'].setValue("Version: " + last_version_folder + "\nShot: " + "_".join(file.split("_")[2:]))
+                    cam.showControlPanel()
                     cam.setSelected(True)
                     n.setSelected(False)
