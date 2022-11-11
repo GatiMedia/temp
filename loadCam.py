@@ -12,7 +12,7 @@ def loadCam():
             shotdir = os.path.dirname(n['file'].value())
             slapcompdir = "/".join(shotdir.split("/")[:-4]) + SLAP_PATH_PREFIX
             if not os.path.isdir(slapcompdir):
-                nuke.alert('<font color=orange><h3>Can`t find a slapcomp folder at:\n\n<h4>' + slapcompdir + '<h3>\n\n:((((')
+                nuke.alert('<font color=orange><h3>Can`t find a camera folder at:\n\n<h4>' + slapcompdir + '<h3>\n\n:((((')
             else:
                 folders = []
             for folder in os.listdir(slapcompdir):
@@ -30,3 +30,5 @@ def loadCam():
                     cam['xpos'].setValue(n['xpos'].value())
                     cam['ypos'].setValue(n['ypos'].value()+200)
                     cam['label'].setValue("Version: " + last_version_folder + "\nShot: " + "_".join(file.split("_")[2:]))
+                    cam.setSelected(True)
+                    n.setSelected(False)
