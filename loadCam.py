@@ -30,11 +30,11 @@ def loadCam():
                         cam['file'].setValue(cam_path)
                         cam['xpos'].setValue(n['xpos'].value())
                         cam['ypos'].setValue(n['ypos'].value()+200)
-                        cam['label'].setValue("Version: " + last_version_folder + "\nShot: " + "_".join(file.split("_")[2:]))
+                        cam['label'].setValue("\Shot: " + "_".join(file.split("_")[2:]) + "\nVersion: " + last_version_folder)
                         cam.showControlPanel()
                         cameras.append(cam.name())
         for node in nuke.selectedNodes():
             node.setSelected(False) 
         print(cameras)
         for camera in cameras:
-            nuke.toNode(camera).setSelected(True) 
+            nuke.toNode(camera).setSelected(True)
