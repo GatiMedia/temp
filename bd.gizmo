@@ -1,5 +1,5 @@
 set cut_paste_input [stack 0]
-version 12.2 v10
+version 13.2 v2
 BackdropNode {
  inputs 0
  name Backdrop_Adjust34
@@ -8,8 +8,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2"
  note_font_size 72
  selected true
- xpos 30014
- ypos -15854
+ xpos 33826
+ ypos 96
  bdwidth 500
  bdheight 500
  addUserKnob {20 User}
@@ -69,14 +69,13 @@ BackdropNode {
  addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
  addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
  addUserKnob {20 re_size l "Re Size" n 1}
- re_size 0
  addUserKnob {26 upscale l Upscale}
  addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
  addUserKnob {26 space1 l "" -STARTLINE T "         "}
  addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
  addUserKnob {26 space1_1 l "" -STARTLINE T "         "}
  addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
- addUserKnob {26 space2 l "" +STARTLINE T "                                   "}
+ addUserKnob {26 space2 l "" +STARTLINE T "<font color=grey>............................"}
  addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
  addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
  addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
