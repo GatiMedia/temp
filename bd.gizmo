@@ -1,15 +1,15 @@
 set cut_paste_input [stack 0]
-version 13.2 v2
+version 12.2 v10
 BackdropNode {
  inputs 0
- name Backdrop_Adjust34
+ name Backdrop_Adjust54
  tile_color 0x666666ff
  label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
  note_font "MS Shell Dlg 2"
  note_font_size 72
  selected true
- xpos 33826
- ypos 96
+ xpos 31479
+ ypos -14298
  bdwidth 500
  bdheight 500
  addUserKnob {20 User}
@@ -75,7 +75,7 @@ BackdropNode {
  addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
  addUserKnob {26 space1_1 l "" -STARTLINE T "         "}
  addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
- addUserKnob {26 space2 l "" +STARTLINE T "<p style=\"font-size:20px\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"}
+ addUserKnob {26 space2 l "" +STARTLINE T "<p style=\"font-size:20px\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"}
  addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
  addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
  addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
