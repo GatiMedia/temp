@@ -75,10 +75,9 @@ BackdropNode {
  addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
  addUserKnob {26 space1_1 l "" -STARTLINE T "         "}
  addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
- addUserKnob {22 upleft100 l "<font color=orange><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()" +STARTLINE}
- addUserKnob {26 space2 l "" -STARTLINE T "         "}
+ addUserKnob {26 space2 l "" +STARTLINE T "<p style=\"font-size:20px\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
  addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
- addUserKnob {26 space2_1 l "" -STARTLINE T "         "}
  addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
  addUserKnob {22 left500 l "<font color=yellow><big>◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
  addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
