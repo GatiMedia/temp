@@ -62,10 +62,11 @@ def createBDASearchPopup():
     for node in nuke.allNodes():
         node.setSelected(False)
     selBDnode = nuke.toNode(sorted_names[index])
+    print(selBDnode.getNodes())
     selBDnode.setSelected(True)
-#    if selBDnode.getNodes():
-#        for n in selBDnode.getNodes()
-#            n.setSelected(True)
+    if selBDnode.getNodes():
+        for n in selBDnode.getNodes():
+            n.setSelected(True)
 
     nuke.zoomToFitSelected()
 
