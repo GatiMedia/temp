@@ -1,8 +1,8 @@
 #encoding=utf-8
 # --------------------------------------------------------------
 #  Backdrop_Adjust_utils.py
-#  Version: 1.7
-#  Last Updated: 16/11/2022
+#  Version: 1.8
+#  Last Updated: 21/11/2022
 # --------------------------------------------------------------
 
 ## Imports
@@ -12,9 +12,9 @@ import colorsys
 import nukescripts
 import os
 
-######################################
-### FUNCTIONS CREATING ON THE NODE ###
-######################################
+###################################
+### FUNCTIONS CREATING THE NODE ###
+###################################
 
 ## Z_order from https://learn.foundry.com/nuke/developers/120/pythonreference/nukescripts.autobackdrop-pysrc.html
 def nodeIsInside(node, backdropNode):
@@ -55,7 +55,7 @@ def zOrderAlt(node):
     zOrderA = node["bdwidth"].getValue() * node["bdheight"].getValue() * -1
     return (zOrderA)
 
-# Creating PyPanel popup for createBDApopup
+## Creating PyPanel popup for createBDApopup
 class CreateBDAdjust(nukescripts.PythonPanel):
     def __init__(self):
         nukescripts.PythonPanel.__init__(self, 'Create Backdrop_Adjust')
@@ -178,6 +178,7 @@ def create_BD_Adj():
         return (bd_this)
 
 
+## Opening BDApopup
 def createBDApopup():
     p = CreateBDAdjust()
     if p.showModalDialog():
