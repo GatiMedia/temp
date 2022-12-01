@@ -1,0 +1,313 @@
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust1
+ tile_color 0x81818100
+ label "<p align=\"\[value align]\"><font color=\[value note_color]>\[if \{\[value strike]==true && \[value under]==true\} \{return <s><u>\[value note]\} \{return \"\"\}] \[if \{\[value strike]==false && \[value under]==false\} \{return \[value note]\} \{return \"\"\}]  \[if \{\[value strike]==true && \[value under]==false\} \{return <s>\[value note]\} \{return \"\"\}]  \[if \{\[value strike]==false && \[value under]==true\} \{return <u>\[value note]\} \{return \"\"\}]"
+ note_font "MS Shell Dlg 2 Bold"
+ note_font_size 72
+ selected true
+ xpos -2325
+ ypos -1192
+ bdwidth 500
+ bdheight 368
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T coverSelectedArea() +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T extendSelectedArea()}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note "MiscRender\nproposal"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Black
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 under l Underline -STARTLINE}
+ addUserKnob {6 strike l Strikethrough -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T fontPlusTen()}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T fontMinusTen()}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Foreground</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Background</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')" +STARTLINE}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" -STARTLINE T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T dullVividColor() +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T darkenTileColor()}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T brightenTileColor()}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100</font>" T addY100() +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500</font>" -STARTLINE T addY500()}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100</font>" T takeY100() +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500</font>" -STARTLINE T takeY500()}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100</font>" T addX100() +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500</font>" -STARTLINE T addX500()}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100</font>" T takeX100() +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500</font>" -STARTLINE T takeX500()}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.6 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T openWebsite()}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+push $cut_paste_input
+Group {
+ name MiscWrite
+ tile_color 0xff0000ff
+ label "Fr Range: \[value firstFrame] - \[value lastFrame]\nChannels: \[value channels]\nBatch: \[value batchSize]\nLic: \[value lic]\n\[if \{\[value firstFrame]!=\[value root.first_frame] || \[value lastFrame]!=\[value root.last_frame]\} \{return \[knob tile_color 4278190335]\} \{return \[knob tile_color 3216965632]\}]"
+ selected true
+ xpos -2226
+ ypos -994
+ addUserKnob {20 miscwrite l MiscWrite}
+ addUserKnob {3 firstFrame l First}
+ firstFrame 1001
+ addUserKnob {3 lastFrame l Last -STARTLINE}
+ lastFrame 1010
+ addUserKnob {26 ""}
+ addUserKnob {41 channels l Channels T Write1.channels}
+ addUserKnob {41 file l File T Write1.file}
+ addUserKnob {41 colorspace l Colorspace T Write1.colorspace}
+ addUserKnob {41 raw l "Raw Data" T Write1.raw}
+ addUserKnob {1 task l Task}
+ task comp
+ addUserKnob {1 subTask l "Sub Task"}
+ addUserKnob {3 version l Version}
+ version 27
+ addUserKnob {26 space3 l "" -STARTLINE T " | "}
+ addUserKnob {22 latestVersion l "Update to latest" -STARTLINE}
+ addUserKnob {26 "" l "<b>EXR Options</b>"}
+ addUserKnob {41 datatype l Datatype T Write1.datatype}
+ addUserKnob {41 compression l Compression T Write1.compression}
+ addUserKnob {26 farm l <b>Farm</b>}
+ addUserKnob {3 priority l Priority}
+ priority 50
+ addUserKnob {3 batchSize l " | Batch" -STARTLINE}
+ batchSize 5
+ addUserKnob {3 concurrentTasks l "Concurrent Tasks"}
+ addUserKnob {6 suspendPublish l "Suspend Publish" -STARTLINE}
+ addUserKnob {6 lic l "Need License ( Neat Video, Optical Flares, Keen Tools )" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {22 localRender l "<b>Local Render</b>" +STARTLINE}
+ addUserKnob {26 space2 l "" -STARTLINE T " | "}
+ addUserKnob {22 farmRender l "<b>Farm Render</b>" -STARTLINE}
+ addUserKnob {20 info0 l Info n 1}
+ info0 0
+ addUserKnob {26 info1 l "" +STARTLINE T "<font color=#bfbf00><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MiscWrite - 2022</font></b>"}
+ addUserKnob {26 info2 l "" +STARTLINE T "<font color=#bfbf00><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version: 1.0 BETA&nbsp;&nbsp;</font></b>"}
+ addUserKnob {22 openWiki l "<b>Open Wiki</b>" -STARTLINE}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {20 advanced l Advanced}
+ addUserKnob {1 exprKey l "Expr Key"}
+ addUserKnob {20 OpenpypeDataGroup l "Openpype Data Group" n 2}
+ OpenpypeDataGroup 1
+ addUserKnob {26 divd l "" +STARTLINE}
+ addUserKnob {41 avalon:family l family T renderCompositingMain.avalon:family}
+ addUserKnob {41 avalon:families l families T renderCompositingMain.avalon:families}
+ addUserKnob {41 avalon:id l id T renderCompositingMain.avalon:id}
+ addUserKnob {41 avalon:asset l asset T renderCompositingMain.avalon:asset}
+ addUserKnob {41 avalon:subset l subset T renderCompositingMain.avalon:subset}
+ addUserKnob {41 avalon:active l active T renderCompositingMain.avalon:active}
+ addUserKnob {41 avalon:variant l variant T renderCompositingMain.avalon:variant}
+ addUserKnob {41 avalon:creator l creator T renderCompositingMain.avalon:creator}
+ addUserKnob {20 OpenpypeDataGroup_End l "Openpype Data Group" n -1}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 112
+  ypos -30
+ }
+ Write {
+  colorspace linear
+  raw true
+  file_type exr
+  autocrop true
+  first_part rgba
+  create_directories true
+  checkHashOnRead false
+  name Write1
+  tile_color 0xba2323ff
+  xpos 112
+  ypos 10
+ }
+ Output {
+  name Output1
+  xpos 112
+  ypos 110
+ }
+ Group {
+  inputs 0
+  name renderCompositingMain
+  tile_color 0xba2323ff
+  xpos 28
+  ypos 60
+  addUserKnob {20 OpenPype}
+  addUserKnob {20 OpenpypeDataGroup l "Openpype Data Group" n 2}
+  addUserKnob {26 warn l "" +STARTLINE T "Warning! Do not change following data!"}
+  addUserKnob {26 divd l "" +STARTLINE}
+  addUserKnob {1 avalon:family l family}
+  avalon:family render
+  addUserKnob {1 avalon:families l families}
+  avalon:families Write
+  addUserKnob {1 avalon:id l id}
+  avalon:id pyblish.avalon.instance
+  addUserKnob {1 avalon:asset l asset}
+  avalon:asset sh_101_003Z_070
+  addUserKnob {1 avalon:subset l subset}
+  avalon:subset renderCompositingMain
+  addUserKnob {1 avalon:active l active}
+  avalon:active True
+  addUserKnob {1 avalon:variant l variant}
+  avalon:variant Main
+  addUserKnob {1 avalon:creator l creator}
+  avalon:creator CreateWriteRender
+  addUserKnob {20 OpenpypeDataGroup_End l "Openpype Data Group" n -1}
+  addUserKnob {6 publish l Publish +STARTLINE}
+  publish true
+  addUserKnob {4 render l "" -STARTLINE M {"Use existing frames" Local "On farm"}}
+  render Local
+  addUserKnob {6 review l Review -STARTLINE}
+  review true
+  addUserKnob {26 "" l Rendering}
+  addUserKnob {41 Render l "Render Local" T inside_renderCompositingMain.Render}
+  addUserKnob {22 createReadNode l "Read From Rendered" -STARTLINE T "import write_to_read;        write_to_read.write_to_read(nuke.thisNode(), allow_relative=False)"}
+  addUserKnob {22 clearRendered l "Clear Rendered" -STARTLINE T "import clear_rendered;        clear_rendered.clear_rendered(\"/jobs//OPENPYPE_DEV/ep_101/seq_101_003Z/sh_101_003Z_070/WORKSPACE/compositing/renders/nuke/renderCompositingMain\")"}
+  addUserKnob {20 Deadline}
+  addUserKnob {3 deadlinePriority l Priority}
+  deadlinePriority 50
+  addUserKnob {3 deadlineChunkSize l "Chunk Size"}
+  addUserKnob {3 deadlineConcurrentTasks l "Concurrent tasks"}
+  addUserKnob {6 suspend_publish l "Suspend publish" -STARTLINE}
+ }
+  Input {
+   inputs 0
+   name LoadClip_exr
+   xpos 290
+   ypos -10
+  }
+  Reformat {
+   resize none
+   black_outside true
+   name Reformat01
+   xpos 290
+   ypos 14
+  }
+  Write {
+   file /jobs//OPENPYPE_DEV/ep_101/seq_101_003Z/sh_101_003Z_070/WORKSPACE/compositing/renders/nuke/renderCompositingMain/renderCompositingMain.####.exr
+   colorspace linear
+   raw true
+   file_type exr
+   autocrop true
+   first_part rgba
+   create_directories true
+   version 4
+   in_colorspace scene_linear
+   out_colorspace scene_linear
+   name inside_renderCompositingMain
+   tile_color 0xba2323ff
+   xpos 290
+   ypos 50
+  }
+  Output {
+   name Output1
+   xpos 290
+   ypos 86
+  }
+ end_group
+end_group
+push $cut_paste_input
+Group {
+ name MiscPublish
+ label "\[python \{\"\\n\".join(\[\"Input: %s\" % node.name() for node in nuke.thisNode().dependencies()])\}]"
+ selected true
+ xpos -2005
+ ypos -976
+ addUserKnob {20 miscPublish l MiscPublish}
+ addUserKnob {75 shotList l "Shot List"}
+ shotList {{0} imported: 0 1 selected:}
+ addUserKnob {26 ""}
+ addUserKnob {26 shtname l "Shot Name" T 101_003Z_070}
+ addUserKnob {26 space3 l "" -STARTLINE T "  |  "}
+ addUserKnob {6 shotNameOverwrite l Overwrite -STARTLINE}
+ addUserKnob {26 tskType l "Task Type" T FinalComp}
+ addUserKnob {26 space4 l "" -STARTLINE T "  |  "}
+ addUserKnob {6 taskTypeOverwrite l Overwrite -STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {43 addNote l "Add Note"}
+ addNote "TC notes:\n- fixed edges\n- improved despill"
+ addUserKnob {26 ""}
+ addUserKnob {41 moveFiles l "Move Files" T proxy.moveFiles}
+ addUserKnob {41 copyFiles l "Copy Files" -STARTLINE T proxy.copyFiles}
+ addUserKnob {26 ""}
+ addUserKnob {41 publish l <b>Publish</b> T proxy.publish}
+ addUserKnob {26 space l "" -STARTLINE T " | "}
+ addUserKnob {41 publishDailies l "<b>Publish & Add Dailies</b>" -STARTLINE T proxy.publishDailies}
+ addUserKnob {26 space2 l "" -STARTLINE T " | "}
+ addUserKnob {22 openSG l "<b>Open on SG</b>" -STARTLINE}
+ addUserKnob {20 advanced l Advanced}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 290
+  ypos -82
+ }
+ NoOp {
+  name proxy
+  xpos 290
+  ypos -34
+  addUserKnob {20 miscPublish l MiscPublish}
+  addUserKnob {26 ""}
+  addUserKnob {6 moveFiles l "Move Files" +STARTLINE}
+  moveFiles true
+  addUserKnob {6 copyFiles l "Copy Files" -STARTLINE}
+  addUserKnob {22 publish l <b>Publish</b> +STARTLINE}
+  addUserKnob {26 space l "" -STARTLINE T " | "}
+  addUserKnob {22 publishDailies l "<b>Publish & Add Dailies</b>" -STARTLINE}
+  addUserKnob {20 advanced l Advanced}
+ }
+ Output {
+  name Output1
+  xpos 290
+  ypos 62
+ }
+ Input {
+  inputs 0
+  name Input2
+  xpos 400
+  ypos -82
+  number 1
+ }
+end_group
