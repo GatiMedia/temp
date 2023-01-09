@@ -1,0 +1,1203 @@
+BackdropNode {
+ inputs 0
+ name BackdropNode90
+ tile_color 0x415555ff
+ label <center>010
+ note_font_size 42
+ selected true
+ xpos 3857
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode91
+ tile_color 0x415555ff
+ label <center>030
+ note_font_size 42
+ selected true
+ xpos 4737
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode92
+ tile_color 0x415555ff
+ label <center>050
+ note_font_size 42
+ selected true
+ xpos 5617
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode93
+ tile_color 0x415555ff
+ label <center>070
+ note_font_size 42
+ selected true
+ xpos 6497
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode94
+ tile_color 0x5e5555ff
+ label <center>020
+ note_font_size 42
+ selected true
+ xpos 4297
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode95
+ tile_color 0x5e5555ff
+ label <center>040
+ note_font_size 42
+ selected true
+ xpos 5177
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode96
+ tile_color 0x5e5555ff
+ label <center>060
+ note_font_size 42
+ selected true
+ xpos 6057
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode97
+ tile_color 0x5e5555ff
+ label <center>080
+ note_font_size 42
+ selected true
+ xpos 6937
+ ypos -1133
+ bdwidth 427
+ bdheight 778
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode100
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 6962
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode101
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 4102
+ ypos -1058
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode102
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 4542
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode103
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 4982
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode104
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 5422
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode105
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 5862
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode106
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 6302
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode107
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 6742
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode108
+ tile_color 0x748888ff
+ label <center><u>COMP
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 7182
+ ypos -1034
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode109
+ tile_color 0x947199ff
+ label "<center><u>MAIN SWITCH"
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 3319
+ ypos -876
+ bdwidth 403
+ bdheight 503
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode110
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 3882
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode111
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 4322
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode112
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 4762
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode113
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 5202
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode114
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 5642
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode98
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 6082
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode99
+ tile_color 0x888888ff
+ label <center><i>SCAN
+ note_font "DejaVu Sans Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ note_font_size 42
+ selected true
+ xpos 6522
+ ypos -914
+ bdwidth 157
+ bdheight 531
+}
+push $cut_paste_input
+NoOp {
+ name MainSwitch2
+ tile_color 0xffffff
+ note_font_size 51
+ selected true
+ xpos 3480
+ ypos -581
+ addUserKnob {20 User}
+ addUserKnob {4 scan l "<font size=5><font color=aqua>Options" M {Scan Comp "" "" ""}}
+ scan Comp
+ addUserKnob {7 scale l "<font size=5><font color=aqua>Scale" R 0.1 1}
+ scale 0.5
+ addUserKnob {4 text l "<font size=5><font color=aqua>Text" M {"On " Off ""}}
+ addUserKnob {7 textmix l "<font size=5><font color=aqua>Text Mix"}
+ textmix 0.8
+ addUserKnob {7 cores l "<font size=5><font color=aqua>Contact Res"}
+ cores 1
+}
+Dot {
+ inputs 0
+ name Dot20
+ selected true
+ xpos 7254
+ ypos -894
+}
+set N86930380 [stack 0]
+push $N86930380
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 56 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 49 48 48 10 86 101 114 115 105 111 110 58 32 118 48 48 51 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text59
+ selected true
+ xpos 7220
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone node1c18a40a700|Dissolve|10516 Dissolve {
+ inputs 2
+ which {{1-MainSwitch2.textmix}}
+ name Dissolve3
+ selected true
+ xpos 7220
+ ypos -688
+}
+set C8a40a700 [stack 0]
+Dot {
+ inputs 0
+ name Dot19
+ selected true
+ xpos 7034
+ ypos -798
+}
+set N86930700 [stack 0]
+push $N86930700
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 56 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 49 48 48}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text60
+ selected true
+ xpos 7000
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 7000
+ ypos -616
+ selected true
+}
+clone node1c18a44b500|Switch|10516 Switch {
+ inputs 2
+ which {{MainSwitch2.scan}}
+ name Switch3
+ selected true
+ xpos 7000
+ ypos -490
+}
+set C8a44b500 [stack 0]
+clone node1c18a44b180|Reformat|10516 Reformat {
+ type scale
+ scale {{MainSwitch2.scale}}
+ name Reformat2
+ selected true
+ xpos 7000
+ ypos -442
+}
+set C8a44b180 [stack 0]
+Dot {
+ inputs 0
+ name Dot6
+ selected true
+ xpos 6814
+ ypos -894
+}
+set N86930a80 [stack 0]
+push $N86930a80
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 55 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 55 53 10 86 101 114 115 105 111 110 58 32 118 48 48 49 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text61
+ selected true
+ xpos 6780
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 6780
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot5
+ selected true
+ xpos 6594
+ ypos -798
+}
+set N86930e00 [stack 0]
+push $N86930e00
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 55 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 55 53}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text62
+ selected true
+ xpos 6560
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 6560
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 6560
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 6560
+ ypos -442
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot8
+ selected true
+ xpos 6374
+ ypos -894
+}
+set N86931180 [stack 0]
+push $N86931180
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 54 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 54 55 10 86 101 114 115 105 111 110 58 32 118 48 48 53 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text63
+ selected true
+ xpos 6340
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 6340
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot7
+ selected true
+ xpos 6154
+ ypos -798
+}
+set N86931500 [stack 0]
+push $N86931500
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 54 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 54 55}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text64
+ selected true
+ xpos 6120
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 6120
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 6120
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 6120
+ ypos -442
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot18
+ selected true
+ xpos 5934
+ ypos -894
+}
+set N86931880 [stack 0]
+push $N86931880
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 53 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 56 48 10 86 101 114 115 105 111 110 58 32 118 48 48 52 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text65
+ selected true
+ xpos 5900
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 5900
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot17
+ selected true
+ xpos 5714
+ ypos -798
+}
+set N86931c00 [stack 0]
+push $N86931c00
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 53 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 56 48}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text66
+ selected true
+ xpos 5680
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 5680
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 5680
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 5680
+ ypos -442
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot16
+ selected true
+ xpos 5494
+ ypos -894
+}
+set N8691a000 [stack 0]
+push $N8691a000
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 52 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 49 48 54 10 86 101 114 115 105 111 110 58 32 118 48 48 50 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text67
+ selected true
+ xpos 5460
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 5460
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot15
+ selected true
+ xpos 5274
+ ypos -798
+}
+set N8691a380 [stack 0]
+push $N8691a380
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 52 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 49 48 54}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text68
+ selected true
+ xpos 5240
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 5240
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 5240
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 5240
+ ypos -442
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot14
+ selected true
+ xpos 5054
+ ypos -894
+}
+set N8691a700 [stack 0]
+push $N8691a700
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 51 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 53 49 10 86 101 114 115 105 111 110 58 32 118 48 48 50 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text69
+ selected true
+ xpos 5020
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 5020
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot13
+ selected true
+ xpos 4834
+ ypos -798
+}
+set N8691aa80 [stack 0]
+push $N8691aa80
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 51 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 48 53 49}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text70
+ selected true
+ xpos 4800
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 4800
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 4800
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 4800
+ ypos -442
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot12
+ selected true
+ xpos 4614
+ ypos -894
+}
+set N8691ae00 [stack 0]
+push $N8691ae00
+Text2 {
+ font_size_toolbar 160
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 50 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 49 52 53 10 86 101 114 115 105 111 110 58 32 118 48 48 54 10}
+   }
+ old_expression_markers {{11 17 32 35 39 42 53 56}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{44 160 45 160 46 160 47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160}
+   }
+ cursor_position 230
+ font_size 160
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text71
+ selected true
+ xpos 4580
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 4580
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot10
+ selected true
+ xpos 4394
+ ypos -798
+}
+set N8691b180 [stack 0]
+push $N8691b180
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 48 54 32 48 50 48 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 48 49 32 45 32 49 49 52 53}
+   }
+ old_expression_markers {{11 17 32 35 39 42}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text72
+ selected true
+ xpos 4360
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 4360
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 4360
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 4360
+ ypos -442
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot9
+ selected true
+ xpos 4174
+ ypos -894
+}
+set N8691b500 [stack 0]
+push $N8691b500
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]\nVersion: \[lindex \[split \[lindex \[split \[lindex \[split \[value \[topnode].file] /] end] _] end] .] 0]\n"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 49 32 112 114 101 99 111 109 112 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 49 49 32 45 32 49 48 52 48 10 86 101 114 115 105 111 110 58 32 118 48 48 51 10}
+   }
+ old_expression_markers {{11 20 35 38 42 45 56 59}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ font_size_values {{47 160 48 160 49 160 50 160 51 160 52 160 53 160 54 160 55 160 56 160 57 160 58 160 59 160 60 160 0 100 1 100 2 100 3 100 4 100 5 100 6 100 7 100 8 100 9 100 10 100 11 100 12 100 13 100 14 100 15 100 16 100 17 100 21 100 0 110 1 110 2 110 3 110 4 110 5 110 6 110 7 110 8 110 9 110 10 110 11 110 12 110 13 110 14 110 15 110 16 110 17 110 21 110}
+   }
+ cursor_position 70
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text73
+ selected true
+ xpos 4140
+ ypos -778
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 4140
+ ypos -688
+ selected true
+}
+Dot {
+ inputs 0
+ name Dot11
+ selected true
+ xpos 3954
+ ypos -798
+}
+set N8691b880 [stack 0]
+push $N8691b880
+Text2 {
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "Shot name: \[lrange \[split \[file tail \[knob \[topnode].file]] _ ] 1 2 ]\nFrame Range: \[value \[topnode].first] - \[value \[topnode].last]"
+ old_message {{83 104 111 116 32 110 97 109 101 58 32 48 49 32 112 114 101 99 111 109 112 10 70 114 97 109 101 32 82 97 110 103 101 58 32 49 48 49 49 32 45 32 49 48 52 48}
+   }
+ old_expression_markers {{11 20 35 38 42 45}
+   }
+ box {{"input.format.x + 20"} {"input.format.y + 20"} {input.format.r-20} {"input.format.t - 20"}}
+ xjustify right
+ transforms {{0 2}
+   }
+ center {1920 1080}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{65.60009766 299.2997437}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1920 1080 0 0 1 1 0 0 0 0}
+   }
+ enable_shadows true
+ shadow_opacity 0.8
+ shadow_angle 317
+ name Text74
+ selected true
+ xpos 3920
+ ypos -682
+ disable {{MainSwitch2.text}}
+}
+clone $C8a40a700 {
+ inputs 2
+ xpos 3920
+ ypos -616
+ selected true
+}
+clone $C8a44b500 {
+ inputs 2
+ xpos 3920
+ ypos -490
+ selected true
+}
+clone $C8a44b180 {
+ xpos 3920
+ ypos -442
+ selected true
+}
+ContactSheet {
+ inputs 8
+ width {{"(\[value \[topnode input0].format.r] * rows) * MainSwitch2.cores"}}
+ height {{"(\[value \[topnode input0].format.t]*columns) * MainSwitch2.cores"}}
+ name ContactSheet1
+ label "Res In \[value \[topnode input0].format.r] *  \[value \[topnode input0].format.t]\n\n\n"
+ selected true
+ xpos 5680
+ ypos -136
+}
