@@ -12,8 +12,8 @@ nuke.knobDefault('TimeOffset.label', "Value: [value time_offset]")
 nuke.knobDefault('Retime.label', "Out: [value output.first] - [value output.last]")
 
 #channel
-nuke.knobDefault('Shuffle.label', "[string toupper [value in1]]")
-nuke.knobDefault('ShuffleCopy.label', "[string toupper [value in]]")
+nuke.knobDefault('Shuffle.label', "[value in1]")
+nuke.knobDefault('ShuffleCopy.label', "[value in]")
 
 #color
 nuke.knobDefault('Colorspace.label', "[value colorspace_in] to [value colorspace_out]")
@@ -47,9 +47,8 @@ nuke.knobDefault('Reformat.label', '''[if {[value this.type]=="scale"} {return "
 #3D
 nuke.knobDefault('Camera2.label', "File: [file tail [value file]]")
 nuke.knobDefault('ReadGeo2.label', "File: [file tail [value file]]\n[string toupper [value display]]\nRender: [string toupper [value render_mode]]")
-nuke.knobDefault('Card2.label', "Display: [string toupper [value display]]\nRender: [string toupper [value render_mode]]")
-nuke.knobDefault('Cube.label', "Display: [string toupper [value display]]\nRender: [string toupper [value render_mode]]")
-nuke.knobDefault('Cylinder.label', "Display: [string toupper [value display]]\nRender: [string toupper [value render_mode]]")
-nuke.knobDefault('Sphere.label', "Display: [string toupper [value display]]\nRender: [string toupper [value render_mode]]")
-nuke.knobDefault('Scene.label', "Display: [string toupper [value display]]\nRender: [string toupper [value render_mode]]")
-
+nuke.knobDefault('Card2.label', "Display: [value display]\nRender: [value render_mode]")
+nuke.knobDefault('Cube.label', "Display: [value display]\nRender: [value render_mode]")
+nuke.knobDefault('Cylinder.label', "Display: [value display]\nRender: [value render_mode]")
+nuke.knobDefault('Sphere.label', "Display: [value display]\nRender: [value render_mode]")
+nuke.knobDefault('Scene.label', "Display: [value display]\nRender: [value render_mode]")
