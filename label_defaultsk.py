@@ -1,9 +1,9 @@
 # -------- LABEL ---------------
 
 #image
-nuke.knobDefault('Read.label', "Fr. range: [value first] - [value last]\nRes: [value width] x [value height]")
-nuke.knobDefault('Constant.label', "Res: [value width] x [value height]")
-nuke.knobDefault('CheckerBoard2.label', "Res: [value width] x [value height]")
+nuke.knobDefault('Read.label', "Fr.Range:[value first]-[value last]\nRes:[value width]x[value height]")
+nuke.knobDefault('Constant.label', "Res:[value width]x[value height]")
+nuke.knobDefault('CheckerBoard2.label', "Res:[value width]x[value height]")
 
 #draw
 
