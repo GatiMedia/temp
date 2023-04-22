@@ -1,0 +1,3709 @@
+set cut_paste_input [stack 0]
+version 14.0 v2
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust1
+ tile_color 0x55994d00
+ label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
+ note_font "MS Shell Dlg 2"
+ note_font_size 112
+ selected true
+ xpos 9987
+ ypos -4107
+ bdwidth 707
+ bdheight 534
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.coverSelectedArea()" +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.extendSelectedArea()"}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note BEAUTY
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Aqua
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 bold l "<b>&nbsp;&nbsp;T" +STARTLINE}
+ bold true
+ addUserKnob {6 italian l "&nbsp;&nbsp;<i>T" -STARTLINE}
+ addUserKnob {6 under l "&nbsp;&nbsp;<u>T" -STARTLINE}
+ addUserKnob {6 strike l "&nbsp;&nbsp;<s>T" -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontPlusTen()"}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontMinusTen()"}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.dullVividColor()" +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.darkenTileColor()"}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.brightenTileColor()"}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ addUserKnob {26 upscale l Upscale}
+ addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
+ addUserKnob {22 space1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
+ addUserKnob {22 space1_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
+ addUserKnob {22 space2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
+ addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
+ addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
+ addUserKnob {22 space2_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500 l "<font color=yellow><big>&nbsp;◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
+ addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
+ addUserKnob {22 center1 l "<font color=crimson><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center()"}
+ addUserKnob {22 right100 l "<font color=orange><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100()"}
+ addUserKnob {22 right500 l "<font color=yellow><big>►&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500()"}
+ addUserKnob {22 space3 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100 l "<font color=orange><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100()"}
+ addUserKnob {22 down100 l "<font color=orange><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100()"}
+ addUserKnob {22 downright100 l "<font color=orange><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100()"}
+ addUserKnob {22 space3_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500 l "<font color=yellow><big>↙" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500()" +STARTLINE}
+ addUserKnob {22 space4 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500 l "<font color=yellow><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500()"}
+ addUserKnob {22 space4_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500 l "<font color=yellow><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500()"}
+ addUserKnob {26 downscale l Downscale}
+ addUserKnob {22 upleft500_2 l "<font color=LightSkyBlue><big>↘" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500_2()" +STARTLINE}
+ addUserKnob {22 space1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500_2 l "<font color=LightSkyBlue><h3>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500_2()"}
+ addUserKnob {22 space1_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500_2 l "<font color=LightSkyBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500_2()"}
+ addUserKnob {22 space2_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100_2 l "<font color=SteelBlue><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100_2()"}
+ addUserKnob {22 up100_2 l "<font color=SteelBlue><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100_2()"}
+ addUserKnob {22 upright100_2 l "<font color=SteelBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100_2()"}
+ addUserKnob {22 space2_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500_2 l "<font color=LightSkyBlue><big>&nbsp;►" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500_2()" +STARTLINE}
+ addUserKnob {22 left100_2 l "<font color=SteelBlue><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100_2()"}
+ addUserKnob {22 center1_2 l "<font color=blue><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center_2()"}
+ addUserKnob {22 right100_2 l "<font color=SteelBlue><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100_2()"}
+ addUserKnob {22 right500_2 l "<font color=LightSkyBlue><big>◄&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500_2()"}
+ addUserKnob {22 space3_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100_2 l "<font color=SteelBlue><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100_2()"}
+ addUserKnob {22 down100_2 l "<font color=SteelBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100_2()"}
+ addUserKnob {22 downright100_2 l "<font color=SteelBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100_2()"}
+ addUserKnob {22 space3_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500_2 l "<font color=LightSkyBlue><big>↗" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500_2()" +STARTLINE}
+ addUserKnob {22 space4_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500_2 l "<font color=LightSkyBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500_2()"}
+ addUserKnob {22 space4_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500_2 l "<font color=LightSkyBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500_2()"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.8 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.openWebsite()"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust2
+ tile_color 0x80746000
+ label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
+ note_font "MS Shell Dlg 2"
+ note_font_size 192
+ selected true
+ xpos -5915
+ ypos -2852
+ bdwidth 14250
+ bdheight 4071
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.coverSelectedArea()" +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.extendSelectedArea()"}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note "LIGHTING GROUPS"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Yellow
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 bold l "<b>&nbsp;&nbsp;T" +STARTLINE}
+ bold true
+ addUserKnob {6 italian l "&nbsp;&nbsp;<i>T" -STARTLINE}
+ addUserKnob {6 under l "&nbsp;&nbsp;<u>T" -STARTLINE}
+ addUserKnob {6 strike l "&nbsp;&nbsp;<s>T" -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontPlusTen()"}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontMinusTen()"}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.dullVividColor()" +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.darkenTileColor()"}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.brightenTileColor()"}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ addUserKnob {26 upscale l Upscale}
+ addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
+ addUserKnob {22 space1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
+ addUserKnob {22 space1_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
+ addUserKnob {22 space2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
+ addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
+ addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
+ addUserKnob {22 space2_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500 l "<font color=yellow><big>&nbsp;◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
+ addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
+ addUserKnob {22 center1 l "<font color=crimson><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center()"}
+ addUserKnob {22 right100 l "<font color=orange><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100()"}
+ addUserKnob {22 right500 l "<font color=yellow><big>►&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500()"}
+ addUserKnob {22 space3 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100 l "<font color=orange><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100()"}
+ addUserKnob {22 down100 l "<font color=orange><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100()"}
+ addUserKnob {22 downright100 l "<font color=orange><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100()"}
+ addUserKnob {22 space3_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500 l "<font color=yellow><big>↙" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500()" +STARTLINE}
+ addUserKnob {22 space4 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500 l "<font color=yellow><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500()"}
+ addUserKnob {22 space4_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500 l "<font color=yellow><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500()"}
+ addUserKnob {26 downscale l Downscale}
+ addUserKnob {22 upleft500_2 l "<font color=LightSkyBlue><big>↘" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500_2()" +STARTLINE}
+ addUserKnob {22 space1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500_2 l "<font color=LightSkyBlue><h3>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500_2()"}
+ addUserKnob {22 space1_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500_2 l "<font color=LightSkyBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500_2()"}
+ addUserKnob {22 space2_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100_2 l "<font color=SteelBlue><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100_2()"}
+ addUserKnob {22 up100_2 l "<font color=SteelBlue><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100_2()"}
+ addUserKnob {22 upright100_2 l "<font color=SteelBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100_2()"}
+ addUserKnob {22 space2_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500_2 l "<font color=LightSkyBlue><big>&nbsp;►" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500_2()" +STARTLINE}
+ addUserKnob {22 left100_2 l "<font color=SteelBlue><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100_2()"}
+ addUserKnob {22 center1_2 l "<font color=blue><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center_2()"}
+ addUserKnob {22 right100_2 l "<font color=SteelBlue><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100_2()"}
+ addUserKnob {22 right500_2 l "<font color=LightSkyBlue><big>◄&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500_2()"}
+ addUserKnob {22 space3_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100_2 l "<font color=SteelBlue><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100_2()"}
+ addUserKnob {22 down100_2 l "<font color=SteelBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100_2()"}
+ addUserKnob {22 downright100_2 l "<font color=SteelBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100_2()"}
+ addUserKnob {22 space3_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500_2 l "<font color=LightSkyBlue><big>↗" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500_2()" +STARTLINE}
+ addUserKnob {22 space4_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500_2 l "<font color=LightSkyBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500_2()"}
+ addUserKnob {22 space4_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500_2 l "<font color=LightSkyBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500_2()"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.8 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.openWebsite()"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust3
+ tile_color 0x80746000
+ label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
+ note_font "MS Shell Dlg 2"
+ note_font_size 192
+ selected true
+ xpos -18455
+ ypos -2973
+ bdwidth 7210
+ bdheight 3066
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.coverSelectedArea()" +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.extendSelectedArea()"}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note "MATERIAL GROUPS"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Yellow
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 bold l "<b>&nbsp;&nbsp;T" +STARTLINE}
+ bold true
+ addUserKnob {6 italian l "&nbsp;&nbsp;<i>T" -STARTLINE}
+ addUserKnob {6 under l "&nbsp;&nbsp;<u>T" -STARTLINE}
+ addUserKnob {6 strike l "&nbsp;&nbsp;<s>T" -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontPlusTen()"}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontMinusTen()"}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.dullVividColor()" +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.darkenTileColor()"}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.brightenTileColor()"}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ addUserKnob {26 upscale l Upscale}
+ addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
+ addUserKnob {22 space1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
+ addUserKnob {22 space1_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
+ addUserKnob {22 space2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
+ addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
+ addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
+ addUserKnob {22 space2_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500 l "<font color=yellow><big>&nbsp;◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
+ addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
+ addUserKnob {22 center1 l "<font color=crimson><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center()"}
+ addUserKnob {22 right100 l "<font color=orange><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100()"}
+ addUserKnob {22 right500 l "<font color=yellow><big>►&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500()"}
+ addUserKnob {22 space3 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100 l "<font color=orange><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100()"}
+ addUserKnob {22 down100 l "<font color=orange><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100()"}
+ addUserKnob {22 downright100 l "<font color=orange><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100()"}
+ addUserKnob {22 space3_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500 l "<font color=yellow><big>↙" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500()" +STARTLINE}
+ addUserKnob {22 space4 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500 l "<font color=yellow><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500()"}
+ addUserKnob {22 space4_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500 l "<font color=yellow><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500()"}
+ addUserKnob {26 downscale l Downscale}
+ addUserKnob {22 upleft500_2 l "<font color=LightSkyBlue><big>↘" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500_2()" +STARTLINE}
+ addUserKnob {22 space1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500_2 l "<font color=LightSkyBlue><h3>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500_2()"}
+ addUserKnob {22 space1_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500_2 l "<font color=LightSkyBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500_2()"}
+ addUserKnob {22 space2_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100_2 l "<font color=SteelBlue><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100_2()"}
+ addUserKnob {22 up100_2 l "<font color=SteelBlue><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100_2()"}
+ addUserKnob {22 upright100_2 l "<font color=SteelBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100_2()"}
+ addUserKnob {22 space2_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500_2 l "<font color=LightSkyBlue><big>&nbsp;►" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500_2()" +STARTLINE}
+ addUserKnob {22 left100_2 l "<font color=SteelBlue><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100_2()"}
+ addUserKnob {22 center1_2 l "<font color=blue><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center_2()"}
+ addUserKnob {22 right100_2 l "<font color=SteelBlue><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100_2()"}
+ addUserKnob {22 right500_2 l "<font color=LightSkyBlue><big>◄&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500_2()"}
+ addUserKnob {22 space3_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100_2 l "<font color=SteelBlue><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100_2()"}
+ addUserKnob {22 down100_2 l "<font color=SteelBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100_2()"}
+ addUserKnob {22 downright100_2 l "<font color=SteelBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100_2()"}
+ addUserKnob {22 space3_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500_2 l "<font color=LightSkyBlue><big>↗" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500_2()" +STARTLINE}
+ addUserKnob {22 space4_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500_2 l "<font color=LightSkyBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500_2()"}
+ addUserKnob {22 space4_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500_2 l "<font color=LightSkyBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500_2()"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.8 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.openWebsite()"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust4
+ tile_color 0x607a8000
+ label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
+ note_font "MS Shell Dlg 2"
+ note_font_size 192
+ selected true
+ xpos -18671
+ ypos 346
+ bdwidth 7642
+ bdheight 4924
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.coverSelectedArea()" +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.extendSelectedArea()"}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note GRADE
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Black
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 bold l "<b>&nbsp;&nbsp;T" +STARTLINE}
+ bold true
+ addUserKnob {6 italian l "&nbsp;&nbsp;<i>T" -STARTLINE}
+ addUserKnob {6 under l "&nbsp;&nbsp;<u>T" -STARTLINE}
+ addUserKnob {6 strike l "&nbsp;&nbsp;<s>T" -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontPlusTen()"}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontMinusTen()"}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.dullVividColor()" +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.darkenTileColor()"}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.brightenTileColor()"}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ addUserKnob {26 upscale l Upscale}
+ addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
+ addUserKnob {22 space1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
+ addUserKnob {22 space1_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
+ addUserKnob {22 space2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
+ addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
+ addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
+ addUserKnob {22 space2_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500 l "<font color=yellow><big>&nbsp;◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
+ addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
+ addUserKnob {22 center1 l "<font color=crimson><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center()"}
+ addUserKnob {22 right100 l "<font color=orange><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100()"}
+ addUserKnob {22 right500 l "<font color=yellow><big>►&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500()"}
+ addUserKnob {22 space3 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100 l "<font color=orange><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100()"}
+ addUserKnob {22 down100 l "<font color=orange><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100()"}
+ addUserKnob {22 downright100 l "<font color=orange><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100()"}
+ addUserKnob {22 space3_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500 l "<font color=yellow><big>↙" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500()" +STARTLINE}
+ addUserKnob {22 space4 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500 l "<font color=yellow><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500()"}
+ addUserKnob {22 space4_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500 l "<font color=yellow><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500()"}
+ addUserKnob {26 downscale l Downscale}
+ addUserKnob {22 upleft500_2 l "<font color=LightSkyBlue><big>↘" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500_2()" +STARTLINE}
+ addUserKnob {22 space1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500_2 l "<font color=LightSkyBlue><h3>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500_2()"}
+ addUserKnob {22 space1_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500_2 l "<font color=LightSkyBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500_2()"}
+ addUserKnob {22 space2_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100_2 l "<font color=SteelBlue><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100_2()"}
+ addUserKnob {22 up100_2 l "<font color=SteelBlue><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100_2()"}
+ addUserKnob {22 upright100_2 l "<font color=SteelBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100_2()"}
+ addUserKnob {22 space2_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500_2 l "<font color=LightSkyBlue><big>&nbsp;►" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500_2()" +STARTLINE}
+ addUserKnob {22 left100_2 l "<font color=SteelBlue><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100_2()"}
+ addUserKnob {22 center1_2 l "<font color=blue><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center_2()"}
+ addUserKnob {22 right100_2 l "<font color=SteelBlue><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100_2()"}
+ addUserKnob {22 right500_2 l "<font color=LightSkyBlue><big>◄&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500_2()"}
+ addUserKnob {22 space3_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100_2 l "<font color=SteelBlue><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100_2()"}
+ addUserKnob {22 down100_2 l "<font color=SteelBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100_2()"}
+ addUserKnob {22 downright100_2 l "<font color=SteelBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100_2()"}
+ addUserKnob {22 space3_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500_2 l "<font color=LightSkyBlue><big>↗" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500_2()" +STARTLINE}
+ addUserKnob {22 space4_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500_2 l "<font color=LightSkyBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500_2()"}
+ addUserKnob {22 space4_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500_2 l "<font color=LightSkyBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500_2()"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.8 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.openWebsite()"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust5
+ tile_color 0x607a8000
+ label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
+ note_font "MS Shell Dlg 2"
+ note_font_size 192
+ selected true
+ xpos -6305
+ ypos 1551
+ bdwidth 15250
+ bdheight 5010
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.coverSelectedArea()" +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.extendSelectedArea()"}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note GRADE
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Black
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 bold l "<b>&nbsp;&nbsp;T" +STARTLINE}
+ bold true
+ addUserKnob {6 italian l "&nbsp;&nbsp;<i>T" -STARTLINE}
+ addUserKnob {6 under l "&nbsp;&nbsp;<u>T" -STARTLINE}
+ addUserKnob {6 strike l "&nbsp;&nbsp;<s>T" -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontPlusTen()"}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontMinusTen()"}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.dullVividColor()" +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.darkenTileColor()"}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.brightenTileColor()"}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ addUserKnob {26 upscale l Upscale}
+ addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
+ addUserKnob {22 space1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
+ addUserKnob {22 space1_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
+ addUserKnob {22 space2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
+ addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
+ addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
+ addUserKnob {22 space2_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500 l "<font color=yellow><big>&nbsp;◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
+ addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
+ addUserKnob {22 center1 l "<font color=crimson><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center()"}
+ addUserKnob {22 right100 l "<font color=orange><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100()"}
+ addUserKnob {22 right500 l "<font color=yellow><big>►&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500()"}
+ addUserKnob {22 space3 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100 l "<font color=orange><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100()"}
+ addUserKnob {22 down100 l "<font color=orange><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100()"}
+ addUserKnob {22 downright100 l "<font color=orange><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100()"}
+ addUserKnob {22 space3_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500 l "<font color=yellow><big>↙" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500()" +STARTLINE}
+ addUserKnob {22 space4 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500 l "<font color=yellow><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500()"}
+ addUserKnob {22 space4_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500 l "<font color=yellow><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500()"}
+ addUserKnob {26 downscale l Downscale}
+ addUserKnob {22 upleft500_2 l "<font color=LightSkyBlue><big>↘" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500_2()" +STARTLINE}
+ addUserKnob {22 space1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500_2 l "<font color=LightSkyBlue><h3>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500_2()"}
+ addUserKnob {22 space1_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500_2 l "<font color=LightSkyBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500_2()"}
+ addUserKnob {22 space2_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100_2 l "<font color=SteelBlue><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100_2()"}
+ addUserKnob {22 up100_2 l "<font color=SteelBlue><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100_2()"}
+ addUserKnob {22 upright100_2 l "<font color=SteelBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100_2()"}
+ addUserKnob {22 space2_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500_2 l "<font color=LightSkyBlue><big>&nbsp;►" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500_2()" +STARTLINE}
+ addUserKnob {22 left100_2 l "<font color=SteelBlue><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100_2()"}
+ addUserKnob {22 center1_2 l "<font color=blue><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center_2()"}
+ addUserKnob {22 right100_2 l "<font color=SteelBlue><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100_2()"}
+ addUserKnob {22 right500_2 l "<font color=LightSkyBlue><big>◄&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500_2()"}
+ addUserKnob {22 space3_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100_2 l "<font color=SteelBlue><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100_2()"}
+ addUserKnob {22 down100_2 l "<font color=SteelBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100_2()"}
+ addUserKnob {22 downright100_2 l "<font color=SteelBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100_2()"}
+ addUserKnob {22 space3_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500_2 l "<font color=LightSkyBlue><big>↗" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500_2()" +STARTLINE}
+ addUserKnob {22 space4_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500_2 l "<font color=LightSkyBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500_2()"}
+ addUserKnob {22 space4_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500_2 l "<font color=LightSkyBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500_2()"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.8 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.openWebsite()"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust6
+ tile_color 0x6d608000
+ label "<p align=\"\[value align]\"><font color=\[value note_color]> \[if \{\[value bold]==true\} \{return <b>\} \{return \"\"\}] \[if \{\[value italian]==true\} \{return <i>\} \{return \"\"\}] \[if \{\[value under]==true\} \{return <u>\} \{return \"\"\}] \[if \{\[value strike]==true\} \{return <s>\} \{return \"\"\}] \[value note]"
+ note_font "MS Shell Dlg 2"
+ note_font_size 72
+ selected true
+ xpos 11618
+ ypos -609
+ bdwidth 964
+ bdheight 978
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.coverSelectedArea()" +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.extendSelectedArea()"}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note "FLICKER FIX"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Fuchsia
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 bold l "<b>&nbsp;&nbsp;T" +STARTLINE}
+ bold true
+ addUserKnob {6 italian l "&nbsp;&nbsp;<i>T" -STARTLINE}
+ addUserKnob {6 under l "&nbsp;&nbsp;<u>T" -STARTLINE}
+ addUserKnob {6 strike l "&nbsp;&nbsp;<s>T" -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontPlusTen()"}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.fontMinusTen()"}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.dullVividColor()" +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.darkenTileColor()"}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.brightenTileColor()"}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 upscale l Upscale}
+ addUserKnob {22 upleft500 l "<font color=yellow><big>↖" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500()" +STARTLINE}
+ addUserKnob {22 space1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500 l "<font color=yellow><h3>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500()"}
+ addUserKnob {22 space1_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500 l "<font color=yellow><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500()"}
+ addUserKnob {22 space2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100 l "<font color=orange><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100()"}
+ addUserKnob {22 up100 l "<font color=orange><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100()"}
+ addUserKnob {22 upright100 l "<font color=orange><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100()"}
+ addUserKnob {22 space2_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500 l "<font color=yellow><big>&nbsp;◄" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500()" +STARTLINE}
+ addUserKnob {22 left100 l "<font color=orange><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100()"}
+ addUserKnob {22 center1 l "<font color=crimson><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center()"}
+ addUserKnob {22 right100 l "<font color=orange><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100()"}
+ addUserKnob {22 right500 l "<font color=yellow><big>►&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500()"}
+ addUserKnob {22 space3 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100 l "<font color=orange><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100()"}
+ addUserKnob {22 down100 l "<font color=orange><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100()"}
+ addUserKnob {22 downright100 l "<font color=orange><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100()"}
+ addUserKnob {22 space3_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500 l "<font color=yellow><big>↙" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500()" +STARTLINE}
+ addUserKnob {22 space4 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500 l "<font color=yellow><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500()"}
+ addUserKnob {22 space4_1 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500 l "<font color=yellow><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500()"}
+ addUserKnob {26 downscale l Downscale}
+ addUserKnob {22 upleft500_2 l "<font color=LightSkyBlue><big>↘" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft500_2()" +STARTLINE}
+ addUserKnob {22 space1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 up500_2 l "<font color=LightSkyBlue><h3>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up500_2()"}
+ addUserKnob {22 space1_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 upright500_2 l "<font color=LightSkyBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright500_2()"}
+ addUserKnob {22 space2_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 upleft100_2 l "<font color=SteelBlue><big>↘" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upleft100_2()"}
+ addUserKnob {22 up100_2 l "<font color=SteelBlue><big>▼" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.up100_2()"}
+ addUserKnob {22 upright100_2 l "<font color=SteelBlue><big>↙" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.upright100_2()"}
+ addUserKnob {22 space2_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 left500_2 l "<font color=LightSkyBlue><big>&nbsp;►" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left500_2()" +STARTLINE}
+ addUserKnob {22 left100_2 l "<font color=SteelBlue><big>►" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.left100_2()"}
+ addUserKnob {22 center1_2 l "<font color=blue><big>⦿" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.center_2()"}
+ addUserKnob {22 right100_2 l "<font color=SteelBlue><big>◄" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right100_2()"}
+ addUserKnob {22 right500_2 l "<font color=LightSkyBlue><big>◄&nbsp;" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.right500_2()"}
+ addUserKnob {22 space3_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" +STARTLINE}
+ addUserKnob {22 downleft100_2 l "<font color=SteelBlue><big>↗" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft100_2()"}
+ addUserKnob {22 down100_2 l "<font color=SteelBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down100_2()"}
+ addUserKnob {22 downright100_2 l "<font color=SteelBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright100_2()"}
+ addUserKnob {22 space3_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downleft500_2 l "<font color=LightSkyBlue><big>↗" T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downleft500_2()" +STARTLINE}
+ addUserKnob {22 space4_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 down500_2 l "<font color=LightSkyBlue><big>▲" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.down500_2()"}
+ addUserKnob {22 space4_1_2 l "<big>&nbsp;&nbsp;&nbsp;&nbsp;" -STARTLINE}
+ addUserKnob {22 downright500_2 l "<font color=LightSkyBlue><big>↖" -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.downright500_2()"}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.8 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T "import Backdrop_Adjust_utils\n\nBackdrop_Adjust_utils.openWebsite()"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+BackdropNode {
+ inputs 0
+ name Backdrop_Adjust76
+ tile_color 0x80606900
+ label "<p align=\"\[value align]\"><font color=\[value note_color]>\[if \{\[value strike]==true && \[value under]==true\} \{return <s><u>\[value note]\} \{return \"\"\}] \[if \{\[value strike]==false && \[value under]==false\} \{return \[value note]\} \{return \"\"\}]  \[if \{\[value strike]==true && \[value under]==false\} \{return <s>\[value note]\} \{return \"\"\}]  \[if \{\[value strike]==false && \[value under]==true\} \{return <u>\[value note]\} \{return \"\"\}]"
+ note_font "MS Shell Dlg 2 Bold"
+ note_font_size 122
+ selected true
+ xpos 11077
+ ypos -2481
+ bdwidth 2266
+ bdheight 1553
+ addUserKnob {20 User}
+ addUserKnob {22 cover l "<big><font color=yellow>Cover Selected Area</big></font>" T coverSelectedArea() +STARTLINE}
+ addUserKnob {26 _1 l "" -STARTLINE T "   "}
+ addUserKnob {22 extend l "<big><font color=yellow>Extend to Selected Area</big></font>" -STARTLINE T extendSelectedArea()}
+ addUserKnob {26 label_1 l <b>Label</b>}
+ addUserKnob {43 note l Note}
+ note "Current layers"
+ addUserKnob {4 note_color l "Note Color" M {Orange White Silver Gray Black Red Maroon Yellow Olive Lime Green Aqua Teal Blue Navy Fuchsia Purple}}
+ note_color Black
+ addUserKnob {4 align l Align -STARTLINE M {Center Left Right "" "" ""}}
+ addUserKnob {6 under l Underline -STARTLINE}
+ addUserKnob {6 strike l Strikethrough -STARTLINE}
+ addUserKnob {26 font_size l "Note size"}
+ addUserKnob {22 size_plus_10 l "<font color=orange>▲ 10</font>" -STARTLINE T fontPlusTen()}
+ addUserKnob {22 size_min_10 l "<font color=aqua>▼ 10</font>" -STARTLINE T fontMinusTen()}
+ addUserKnob {26 tasks l <b>Tasks</b>}
+ addUserKnob {22 plate l "<big><font style=\"background-color:#559d63;\">&nbsp;<font color=black>Plate</font>&nbsp;" T "# plate\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1436110080)\nbd\['note'].setValue('PLATE')\nbd\['note_font_size'].setValue(102)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 denoise l "<big><font style=\"background-color:#85994d;\">&nbsp;<font color=black>Denoise</font>&nbsp;" -STARTLINE T "# denoise\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2241416448)\nbd\['note'].setValue('DENOISE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 reference l "<big><font style=\"background-color:#4d9976;\">&nbsp;<font color=black>Reference</font>&nbsp;" -STARTLINE T "# reference\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301902848)\nbd\['note'].setValue('REF')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 precomp l "<big><font style=\"background-color:#994d63;\">&nbsp;<font color=black>Precomp</font>&nbsp;" T "# precomp\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2571985664)\nbd\['note'].setValue('PRECOMP')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')" +STARTLINE}
+ addUserKnob {22 merge l "<big><font style=\"background-color:#4d8c99;\">&nbsp;<font color=black>Merge</font>&nbsp;" -STARTLINE T "# merge\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1301059840)\nbd\['note'].setValue('MERGE')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 output l "<big><font style=\"background-color:#997d4d;\">&nbsp;<font color=black>Output</font>&nbsp;" -STARTLINE T "# output\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2575125760)\nbd\['note'].setValue('OUTPUT')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 Foreground l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>FG</font>&nbsp;" T "# fg\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('FG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 background l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>BG</font>&nbsp;" -STARTLINE T "# background\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('BG')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 versions l "<big><font style=\"background-color:#777777;\">&nbsp;<font color=black>Versions</font>&nbsp;" -STARTLINE T "# versions\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(1717987071)\nbd\['note'].setValue('VERSIONS')\nbd\['note_font_size'].setValue(82)\nbd\['note_color'].setValue('Black')"}
+ addUserKnob {22 threed l "<big><font style=\"background-color:#806069;\">&nbsp;<font color=black>3D</font>&nbsp;" T "# 3d\n\nbd = nuke.thisNode()\nbd\['tile_color'].setValue(2153801984)\nbd\['note'].setValue('3D')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n" +STARTLINE}
+ addUserKnob {22 camera l "<big><font style=\"background-color:#806060;\">&nbsp;<font color=black>Camera</font>&nbsp;" -STARTLINE T "# camera\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153799680)\nbd\['note'].setValue('CAMERA')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 track l "<big><font style=\"background-color:#80607d;\">&nbsp;<font color=black>Track</font>&nbsp;" -STARTLINE T "# track\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2153807104)\nbd\['note'].setValue('TRACK')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 matte l "<big><font style=\"background-color:#807460;\">&nbsp;<font color=black>DMP</font>&nbsp;" T "# matte\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2155110400)\nbd\['note'].setValue('DMP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 grade l "<big><font style=\"background-color:#607a80;\">&nbsp;<font color=black>Grade</font>&nbsp;" -STARTLINE T "# grade\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1618640896)\nbd\['note'].setValue('GRADE')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')\n"}
+ addUserKnob {22 lens_effect l "<big><font style=\"background-color:#6d6080;\">&nbsp;<font color=black>Lens Effect</font>&nbsp;" -STARTLINE T "# lens effect\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1835040768)\nbd\['note'].setValue('LENS\\nEFFECT')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 key l "<big><font style=\"background-color:#608071;\">&nbsp;<font color=black>Key</font>&nbsp;" T "# key\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1619030272)\nbd\['note'].setValue('KEY')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')" +STARTLINE}
+ addUserKnob {22 roto l "<big><font style=\"background-color:#638060;\">&nbsp;<font color=black>Roto</font>&nbsp;" -STARTLINE T "# roto\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(1669357568)\nbd\['note'].setValue('ROTO')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 prep l "<big><font style=\"background-color:#778060;\">&nbsp;<font color=black>Prep</font>&nbsp;" -STARTLINE T "# prep\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2004901888)\nbd\['note'].setValue('PREP')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('Silver')"}
+ addUserKnob {22 grain l "<big><font style=\"background-color:#AAAAAA;\">&nbsp;<font color=black>Grain</font>&nbsp;" -STARTLINE T "# grain\n\nbd = nuke.thisNode()\n\nbd\['tile_color'].setValue(2576980479)\nbd\['note'].setValue('GRAIN')\nbd\['note_font_size'].setValue(72)\nbd\['note_color'].setValue('White')"}
+ addUserKnob {26 node_color l "<b>Node Color</b>"}
+ addUserKnob {22 change_colors l "<big><font style=\"background-color:#806060;\">D<font style=\"background-color:#807460;\">u<font style=\"background-color:#778060;\">l<font style=\"background-color:#608071;\">l<font style=\"background-color:#607a80;\"> <font style=\"background-color:#606680;\">C<font style=\"background-color:#606680;\">o<font style=\"background-color:#6d6080;\">l<font style=\"background-color:#80607d;\">o<font style=\"background-color:#806069;\">r<font style=\"background-color:#806060;\">s" t "By clicking on it can toggle between the \"Dull Colors\" and the \"Vivid Colors\" palettes" T dullVividColor() +STARTLINE}
+ addUserKnob {22 darken l "<big><font style=\"background-color:#333333;\">&nbsp;<font color=#cccccc>Darken</font>&nbsp;" -STARTLINE T darkenTileColor()}
+ addUserKnob {22 brighten l "<big><font style=\"background-color:#aaaaaa;\">&nbsp;<font color=black>Brighten</font>&nbsp;" -STARTLINE T brightenTileColor()}
+ addUserKnob {22 color_0 l "<font color=#806060><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(2153799680)" +STARTLINE}
+ addUserKnob {22 color_1 l "<font color=#807460><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2155110400)"}
+ addUserKnob {22 color_2 l "<font color=#778060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2004901888)"}
+ addUserKnob {22 color_3 l "<font color=#638060><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1669357568)"}
+ addUserKnob {22 color_4 l "<font color=#608071><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1619030272)"}
+ addUserKnob {22 color_5 l "<font color=#607a80><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(1618640896)" +STARTLINE}
+ addUserKnob {22 color_6 l "<font color=#606680><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1617330176)"}
+ addUserKnob {22 color_7 l "<font color=#6d6080><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1835040768)"}
+ addUserKnob {22 color_8 l "<font color=#80607d><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153807104)"}
+ addUserKnob {22 color_9 l "<font color=#806069><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2153801984)"}
+ addUserKnob {22 grey_1 l "<font color=#DDDDDD><big>█</big></font>" T "nuke.thisNode()\['tile_color'].setValue(3149642751)" +STARTLINE}
+ addUserKnob {22 grey_2 l "<font color=#AAAAAA><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(2576980479)"}
+ addUserKnob {22 grey_3 l "<font color=#777777><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1717987071)"}
+ addUserKnob {22 grey_4 l "<font color=#333333><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(1145324799)"}
+ addUserKnob {22 grey_5 l "<font color=#222222><big>█</big></font>" -STARTLINE T "nuke.thisNode()\['tile_color'].setValue(572662527)"}
+ addUserKnob {20 re_size l "Re Size" n 1}
+ re_size 0
+ addUserKnob {26 y l Height}
+ addUserKnob {22 add_y_100 l "<font color=orange>Add Y 100</font>" T addY100() +STARTLINE}
+ addUserKnob {22 add_y_500 l "<font color=orange>Add Y 500</font>" -STARTLINE T addY500()}
+ addUserKnob {22 take_y_100 l "<font color=aqua>Take Y 100</font>" T takeY100() +STARTLINE}
+ addUserKnob {22 take_y_500 l "<font color=aqua>Take Y 500</font>" -STARTLINE T takeY500()}
+ addUserKnob {26 x l Width}
+ addUserKnob {22 add_x_100 l "<font color=orange>Add X 100</font>" T addX100() +STARTLINE}
+ addUserKnob {22 add_x_500 l "<font color=orange>Add X 500</font>" -STARTLINE T addX500()}
+ addUserKnob {22 take_x_100 l "<font color=aqua>Take X 100</font>" T takeX100() +STARTLINE}
+ addUserKnob {22 take_x_500 l "<font color=aqua>Take X 500</font>" -STARTLINE T takeX500()}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" -STARTLINE T "<font color=#808080 size=\"5\" >1.6 version</font>"}
+ addUserKnob {26 _2 l "" -STARTLINE T "   "}
+ addUserKnob {22 info l Tutorial/Info -STARTLINE T openWebsite()}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Backdrop_Adjust by Attila Gasparetz</font>"}
+}
+StickyNote {
+ inputs 0
+ name StickyNote18
+ label "Don't add anys nodes within this box."
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 160
+ selected true
+ xpos -647
+ ypos 338
+}
+Input {
+ inputs 0
+ name BEAUTY
+ note_font "Verdana Bold"
+ note_font_size 51
+ selected true
+ xpos 10300
+ ypos -3799
+}
+Dot {
+ name Dot422
+ selected true
+ xpos 10334
+ ypos -2262
+}
+set Nf7237800 [stack 0]
+Dot {
+ name Dot423
+ note_font_size 22
+ selected true
+ xpos 12204
+ ypos -2262
+}
+LayerContactSheet {
+ name LayerContactSheet5
+ selected true
+ xpos 12170
+ ypos -2097
+}
+StickyNote {
+ inputs 0
+ name StickyNote7
+ label "Don't add any nodes within this box."
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 160
+ selected true
+ xpos -16449
+ ypos -454
+}
+push $Nf7237800
+Dot {
+ name Dot424
+ selected true
+ xpos 9344
+ ypos -2262
+}
+set Nf727b000 [stack 0]
+Dot {
+ name Dot427
+ selected true
+ xpos 8244
+ ypos -2262
+}
+set Nf727b400 [stack 0]
+Dot {
+ name Dot445
+ selected true
+ xpos 7254
+ ypos -2262
+}
+set Nf727b800 [stack 0]
+Dot {
+ name Dot446
+ selected true
+ xpos 6264
+ ypos -2262
+}
+set Nf727bc00 [stack 0]
+Dot {
+ name Dot451
+ selected true
+ xpos 5274
+ ypos -2262
+}
+set Nf7294000 [stack 0]
+Dot {
+ name Dot452
+ selected true
+ xpos 4284
+ ypos -2262
+}
+set Nf7294400 [stack 0]
+Dot {
+ name Dot485
+ selected true
+ xpos 3294
+ ypos -2262
+}
+set Nf7294800 [stack 0]
+Dot {
+ name Dot486
+ selected true
+ xpos 2304
+ ypos -2262
+}
+set Nf7294c00 [stack 0]
+Dot {
+ name Dot487
+ selected true
+ xpos 1314
+ ypos -2262
+}
+set Nf7295000 [stack 0]
+Dot {
+ name Dot488
+ selected true
+ xpos 324
+ ypos -2262
+}
+set Nf7295400 [stack 0]
+Dot {
+ name Dot489
+ selected true
+ xpos -666
+ ypos -2262
+}
+set Nf7295800 [stack 0]
+Dot {
+ name Dot490
+ selected true
+ xpos -1656
+ ypos -2262
+}
+set Nf7295c00 [stack 0]
+Dot {
+ name Dot491
+ selected true
+ xpos -2756
+ ypos -2262
+}
+set Nf72b2000 [stack 0]
+Dot {
+ name Dot492
+ selected true
+ xpos -3746
+ ypos -2262
+}
+set Nf72b2400 [stack 0]
+Dot {
+ name Dot493
+ selected true
+ xpos -4736
+ ypos -2262
+}
+set Nf72b2800 [stack 0]
+Dot {
+ name Dot494
+ selected true
+ xpos -5726
+ ypos -2262
+}
+set Nf72b2c00 [stack 0]
+Dot {
+ name Dot495
+ selected true
+ xpos -8476
+ ypos -2262
+}
+set Nf72b3000 [stack 0]
+Dot {
+ name Dot496
+ selected true
+ xpos -11446
+ ypos -2262
+}
+set Nf72b3400 [stack 0]
+Dot {
+ name Dot497
+ note_font_size 22
+ selected true
+ xpos -12436
+ ypos -2262
+}
+set Nf72b3800 [stack 0]
+Dot {
+ name Dot498
+ note_font_size 22
+ selected true
+ xpos -13096
+ ypos -2262
+}
+set Nf72b3c00 [stack 0]
+Dot {
+ name Dot499
+ note_font_size 22
+ selected true
+ xpos -13646
+ ypos -2262
+}
+set Nf72c8000 [stack 0]
+Dot {
+ name Dot500
+ note_font_size 22
+ selected true
+ xpos -14306
+ ypos -2262
+}
+set Nf72c8400 [stack 0]
+Dot {
+ name Dot501
+ note_font_size 22
+ selected true
+ xpos -14966
+ ypos -2262
+}
+set Nf72c8800 [stack 0]
+Dot {
+ name Dot502
+ note_font_size 22
+ selected true
+ xpos -15626
+ ypos -2262
+}
+set Nf72c8c00 [stack 0]
+Dot {
+ name Dot503
+ note_font_size 22
+ selected true
+ xpos -16176
+ ypos -2262
+}
+set Nf72c9000 [stack 0]
+Dot {
+ name Dot504
+ note_font_size 22
+ selected true
+ xpos -16836
+ ypos -2262
+}
+set Nf72c9400 [stack 0]
+Dot {
+ name Dot505
+ note_font_size 22
+ selected true
+ xpos -17386
+ ypos -2262
+}
+set Nf72c9800 [stack 0]
+add_layer {glossytransmission glossytransmission.red glossytransmission.green glossytransmission.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 glossytransmission
+ fromInput2 {{0} B}
+ mappings "4 glossytransmission.red 0 0 rgba.red 0 0 glossytransmission.green 0 1 rgba.green 0 1 glossytransmission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle47
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -17420
+ ypos -1858
+}
+Dot {
+ name Dot506
+ note_font_size 22
+ selected true
+ xpos -17386
+ ypos -534
+}
+set Nf2b22000 [stack 0]
+push $Nf72c9400
+add_layer {combinedvolume combinedvolume.red combinedvolume.green combinedvolume.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 combinedvolume
+ fromInput2 {{0} B}
+ mappings "4 combinedvolume.red 0 0 rgba.red 0 0 combinedvolume.green 0 1 rgba.green 0 1 combinedvolume.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle50
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -16870
+ ypos -1858
+}
+Dot {
+ name Dot507
+ note_font_size 22
+ selected true
+ xpos -16836
+ ypos -702
+}
+set Nf2b22800 [stack 0]
+push $Nf72c8c00
+add_layer {combinedglossyreflection combinedglossyreflection.red combinedglossyreflection.green combinedglossyreflection.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 combinedglossyreflection
+ fromInput2 {{0} B}
+ mappings "4 combinedglossyreflection.red 0 0 rgba.red 0 0 combinedglossyreflection.green 0 1 rgba.green 0 1 combinedglossyreflection.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle89
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -15660
+ ypos -1858
+}
+Dot {
+ name Dot508
+ note_font_size 22
+ selected true
+ xpos -15626
+ ypos -822
+}
+set Nf2b23000 [stack 0]
+push $Nf72c8400
+add_layer {combinedemission combinedemission.red combinedemission.green combinedemission.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 combinedemission
+ fromInput2 {{0} B}
+ mappings "4 combinedemission.red 0 0 rgba.red 0 0 combinedemission.green 0 1 rgba.green 0 1 combinedemission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle97
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -14340
+ ypos -1858
+}
+Dot {
+ name Dot509
+ note_font_size 22
+ selected true
+ xpos -14306
+ ypos -942
+}
+set Nf2b23800 [stack 0]
+push $Nf72b3c00
+add_layer {combineddiffuse combineddiffuse.red combineddiffuse.green combineddiffuse.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 combineddiffuse
+ fromInput2 {{0} B}
+ mappings "4 combineddiffuse.red 0 0 rgba.red 0 0 combineddiffuse.green 0 1 rgba.green 0 1 combineddiffuse.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle98
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -13130
+ ypos -1834
+}
+Dot {
+ name Dot510
+ note_font_size 22
+ selected true
+ xpos -13096
+ ypos -1062
+}
+set Nf2b46000 [stack 0]
+push $Nf72b3400
+Remove {
+ name Base_Black4
+ selected true
+ xpos -11480
+ ypos -1863
+}
+Dot {
+ name Dot511
+ selected true
+ xpos -11446
+ ypos -1182
+}
+set Nf2b46800 [stack 0]
+push $Nf72c9800
+Dot {
+ name Dot512
+ selected true
+ xpos -18376
+ ypos -2262
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge50
+ selected true
+ xpos -18410
+ ypos -1185
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge157
+ selected true
+ xpos -18410
+ ypos -1065
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge158
+ selected true
+ xpos -18410
+ ypos -945
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge159
+ selected true
+ xpos -18410
+ ypos -825
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge160
+ selected true
+ xpos -18410
+ ypos -705
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge166
+ selected true
+ xpos -18410
+ ypos -537
+}
+add_layer {Extra_Material Extra_Material.red Extra_Material.green Extra_Material.blue Extra_Material.alpha}
+Shuffle2 {
+ fromInput1 {{0} B}
+ out1 Extra_Material
+ fromInput2 {{0} B}
+ mappings "4 rgba.red 0 0 Extra_Material.red 0 0 rgba.green 0 1 Extra_Material.green 0 1 rgba.blue 0 2 Extra_Material.blue 0 2 rgba.alpha 0 3 Extra_Material.alpha 0 3"
+ name Shuffle99
+ label "\[value in1] -> \[value out1]"
+ note_font "Verdana Bold"
+ note_font_size 25
+ selected true
+ xpos -18410
+ ypos -221
+}
+Shuffle {
+ in Extra_Material
+ name Shuffle100
+ label "\[value in]"
+ note_font "Verdana Bold"
+ note_font_size 21
+ selected true
+ xpos -18410
+ ypos -52
+}
+Dot {
+ name Dot514
+ note_font_size 22
+ selected true
+ xpos -18376
+ ypos 1002
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression70
+ selected true
+ xpos -18410
+ ypos 8871
+}
+Dot {
+ name Dot521
+ selected true
+ xpos -18376
+ ypos 9114
+}
+push $Nf2b22000
+Dot {
+ name Dot522
+ label "  <h1>glossytransmission</h1>"
+ note_font_size 30
+ selected true
+ xpos -17386
+ ypos 738
+}
+Dot {
+ name Dot523
+ label "  <h1>glossytransmission</h1>"
+ note_font_size 30
+ selected true
+ xpos -17386
+ ypos 5106
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression71
+ selected true
+ xpos -17420
+ ypos 7863
+}
+Dot {
+ name Dot524
+ selected true
+ xpos -17386
+ ypos 8106
+}
+push $Nf72c9000
+add_layer {albedo albedo.red albedo.green albedo.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 albedo
+ fromInput2 {{0} B}
+ mappings "4 albedo.red 0 0 rgba.red 0 0 albedo.green 0 1 rgba.green 0 1 albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle101
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -16210
+ ypos -1858
+}
+Dot {
+ name Dot525
+ label "  <h1>albedo</h1>"
+ note_font_size 30
+ selected true
+ xpos -16176
+ ypos 738
+}
+Grade {
+ add 0.0001
+ black_clamp false
+ name Grade58
+ selected true
+ xpos -16210
+ ypos 1023
+}
+set Nf2badc00 [stack 0]
+push $Nf2b22800
+Dot {
+ name Dot526
+ label "  <h1>combinedvolume</h1>"
+ note_font_size 30
+ selected true
+ xpos -16836
+ ypos 738
+}
+Dot {
+ name Dot527
+ selected true
+ xpos -16836
+ ypos 1338
+}
+push $Nf2badc00
+Dot {
+ name Dot528
+ selected true
+ xpos -16616
+ ypos 1026
+}
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge178
+ selected true
+ xpos -16650
+ ypos 1335
+}
+Dot {
+ name Dot529
+ selected true
+ xpos -16616
+ ypos 4050
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge179
+ selected true
+ xpos -16210
+ ypos 4047
+}
+Dot {
+ name Dot530
+ label "  <h1>combinedvolume</h1>"
+ note_font_size 30
+ selected true
+ xpos -16176
+ ypos 5130
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression72
+ selected true
+ xpos -16210
+ ypos 7311
+}
+Dot {
+ name Dot531
+ selected true
+ xpos -16176
+ ypos 7554
+}
+push $Nf72c8800
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 albedo
+ fromInput2 {{0} B}
+ mappings "4 albedo.red 0 0 rgba.red 0 0 albedo.green 0 1 rgba.green 0 1 albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle102
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -15000
+ ypos -1858
+}
+Dot {
+ name Dot532
+ label "  <h1>albedo</h1>"
+ note_font_size 30
+ selected true
+ xpos -14966
+ ypos 738
+}
+Grade {
+ add 0.0001
+ black_clamp false
+ name Grade62
+ selected true
+ xpos -15000
+ ypos 1023
+}
+set Nf2bfec00 [stack 0]
+push $Nf2b23000
+Dot {
+ name Dot533
+ label "  <h1>combinedglossyreflection</h1>"
+ note_font_size 30
+ selected true
+ xpos -15626
+ ypos 738
+}
+Dot {
+ name Dot534
+ selected true
+ xpos -15626
+ ypos 1338
+}
+push $Nf2bfec00
+Dot {
+ name Dot535
+ selected true
+ xpos -15406
+ ypos 1026
+}
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge180
+ selected true
+ xpos -15440
+ ypos 1335
+}
+Dot {
+ name Dot536
+ selected true
+ xpos -15406
+ ypos 4050
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge181
+ selected true
+ xpos -15000
+ ypos 4047
+}
+Dot {
+ name Dot537
+ label "  <h1>combinedglossyreflection</h1>"
+ note_font_size 30
+ selected true
+ xpos -14966
+ ypos 5130
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression73
+ selected true
+ xpos -15000
+ ypos 6735
+}
+Dot {
+ name Dot538
+ selected true
+ xpos -14966
+ ypos 6978
+}
+push $Nf72c8000
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 albedo
+ fromInput2 {{0} B}
+ mappings "4 albedo.red 0 0 rgba.red 0 0 albedo.green 0 1 rgba.green 0 1 albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle103
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -13680
+ ypos -1858
+}
+Dot {
+ name Dot539
+ label "  <h1>albedo</h1>"
+ note_font_size 30
+ selected true
+ xpos -13646
+ ypos 738
+}
+Grade {
+ add 0.0001
+ black_clamp false
+ name Grade66
+ selected true
+ xpos -13680
+ ypos 1023
+}
+set Nf2c2bc00 [stack 0]
+push $Nf2b23800
+Dot {
+ name Dot540
+ label "  <h1>combinedemission</h1>"
+ note_font_size 30
+ selected true
+ xpos -14306
+ ypos 738
+}
+Dot {
+ name Dot541
+ selected true
+ xpos -14306
+ ypos 1338
+}
+push $Nf2c2bc00
+Dot {
+ name Dot542
+ selected true
+ xpos -14086
+ ypos 1026
+}
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge182
+ selected true
+ xpos -14120
+ ypos 1335
+}
+Dot {
+ name Dot543
+ selected true
+ xpos -14086
+ ypos 4050
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge183
+ selected true
+ xpos -13680
+ ypos 4047
+}
+Dot {
+ name Dot544
+ label "  <h1>combinedemission</h1>"
+ note_font_size 30
+ selected true
+ xpos -13646
+ ypos 5130
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression74
+ selected true
+ xpos -13680
+ ypos 6207
+}
+Dot {
+ name Dot545
+ selected true
+ xpos -13646
+ ypos 6450
+}
+push $Nf72b3800
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 albedo
+ fromInput2 {{0} B}
+ mappings "4 albedo.red 0 0 rgba.red 0 0 albedo.green 0 1 rgba.green 0 1 albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle104
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -12470
+ ypos -1858
+}
+Dot {
+ name Dot546
+ label "  <h1>albedo</h1>"
+ note_font_size 30
+ selected true
+ xpos -12436
+ ypos 738
+}
+Grade {
+ add 0.0001
+ black_clamp false
+ name Grade68
+ selected true
+ xpos -12470
+ ypos 1023
+}
+set Nf2c80c00 [stack 0]
+push $Nf2b46000
+Dot {
+ name Dot547
+ label "  <h1>combineddiffuse</h1>"
+ note_font_size 30
+ selected true
+ xpos -13096
+ ypos 738
+}
+Dot {
+ name Dot548
+ selected true
+ xpos -13096
+ ypos 1362
+}
+push $Nf2c80c00
+Dot {
+ name Dot549
+ selected true
+ xpos -12876
+ ypos 1026
+}
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge184
+ selected true
+ xpos -12910
+ ypos 1359
+}
+Dot {
+ name Dot550
+ selected true
+ xpos -12876
+ ypos 4098
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge185
+ selected true
+ xpos -12470
+ ypos 4095
+}
+Dot {
+ name Dot551
+ label "  <h1>combineddiffuse</h1>"
+ note_font_size 30
+ selected true
+ xpos -12436
+ ypos 5130
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression75
+ selected true
+ xpos -12470
+ ypos 5727
+}
+Dot {
+ name Dot552
+ selected true
+ xpos -12436
+ ypos 5970
+}
+push $Nf2b46800
+Dot {
+ name Dot553
+ selected true
+ xpos -11446
+ ypos -102
+}
+Dot {
+ name Dot554
+ note_font_size 22
+ selected true
+ xpos -11446
+ ypos 5250
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge186
+ selected true
+ xpos -11480
+ ypos 5967
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge187
+ selected true
+ xpos -11480
+ ypos 6447
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge188
+ selected true
+ xpos -11480
+ ypos 6975
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge189
+ selected true
+ xpos -11480
+ ypos 7551
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge190
+ selected true
+ xpos -11480
+ ypos 8103
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge191
+ selected true
+ xpos -11480
+ ypos 9087
+}
+Dot {
+ name Dot555
+ selected true
+ xpos -11446
+ ypos 10362
+}
+push $Nf72b3000
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Beauty_2
+ selected true
+ xpos -8510
+ ypos -1881
+}
+Remove {
+ operation keep
+ channels rgba
+ name Keep_RBGA2
+ selected true
+ xpos -8510
+ ypos -1761
+}
+Dot {
+ name Dot556
+ note_font_size 22
+ selected true
+ xpos -8476
+ ypos 9882
+}
+push $Nf72b2800
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle105
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -4770
+ ypos -2074
+}
+Dot {
+ name Dot557
+ selected true
+ xpos -4736
+ ypos 858
+}
+set Nf2d10800 [stack 0]
+push $Nf72b2400
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle106
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -3780
+ ypos -2074
+}
+Dot {
+ name Dot558
+ selected true
+ xpos -3746
+ ypos 666
+}
+set Nf2d11000 [stack 0]
+push $Nf72b2000
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle107
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -2790
+ ypos -2074
+}
+Dot {
+ name Dot559
+ selected true
+ xpos -2756
+ ypos 450
+}
+set Nf2d11800 [stack 0]
+push $Nf7295c00
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle108
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -1690
+ ypos -2074
+}
+Dot {
+ name Dot560
+ selected true
+ xpos -1656
+ ypos 258
+}
+set Nf2d34000 [stack 0]
+push $Nf7295800
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle109
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos -700
+ ypos -2074
+}
+Dot {
+ name Dot561
+ selected true
+ xpos -666
+ ypos 66
+}
+set Nf2d34800 [stack 0]
+push $Nf7295400
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle110
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos 290
+ ypos -2074
+}
+Dot {
+ name Dot562
+ selected true
+ xpos 324
+ ypos -150
+}
+set Nf2d35000 [stack 0]
+push $Nf7295000
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle111
+ label "<b>\[value in1]"
+ note_font_size 25
+ selected true
+ xpos 1280
+ ypos -2074
+}
+Dot {
+ name Dot563
+ selected true
+ xpos 1314
+ ypos -342
+}
+set Nf2d35800 [stack 0]
+push $Nf7294c00
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle7
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 2270
+ ypos -2082
+}
+Dot {
+ name Dot564
+ selected true
+ xpos 2304
+ ypos -534
+}
+set Nf2d58000 [stack 0]
+push $Nf7294800
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle6
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 3260
+ ypos -2082
+}
+Dot {
+ name Dot565
+ selected true
+ xpos 3294
+ ypos -750
+}
+set Nf2d58800 [stack 0]
+push $Nf7294400
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle5
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 4250
+ ypos -2082
+}
+Dot {
+ name Dot566
+ selected true
+ xpos 4284
+ ypos -942
+}
+set Nf2d59000 [stack 0]
+push $Nf7294000
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle4
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 5240
+ ypos -2082
+}
+Dot {
+ name Dot567
+ selected true
+ xpos 5274
+ ypos -1134
+}
+set Nf2d59800 [stack 0]
+push $Nf727bc00
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle3
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 6230
+ ypos -2082
+}
+Dot {
+ name Dot568
+ selected true
+ xpos 6264
+ ypos -1350
+}
+set Nf2d7e000 [stack 0]
+push $Nf727b800
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle2
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 7220
+ ypos -2082
+}
+Dot {
+ name Dot569
+ selected true
+ xpos 7254
+ ypos -1542
+}
+set Nf2d7e800 [stack 0]
+push $Nf727b400
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle1
+ label "<b>\[value in1]"
+ note_font_size 30
+ selected true
+ xpos 8210
+ ypos -2058
+}
+Dot {
+ name Dot570
+ selected true
+ xpos 8244
+ ypos -1734
+}
+set Nf2d7f000 [stack 0]
+push $Nf72b2c00
+Merge2 {
+ inputs 2
+ operation from
+ name Merge192
+ selected true
+ xpos -5760
+ ypos -1737
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge193
+ selected true
+ xpos -5760
+ ypos -1545
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge194
+ selected true
+ xpos -5760
+ ypos -1353
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge195
+ selected true
+ xpos -5760
+ ypos -1137
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge196
+ selected true
+ xpos -5760
+ ypos -945
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge197
+ selected true
+ xpos -5760
+ ypos -753
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge198
+ selected true
+ xpos -5760
+ ypos -537
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge199
+ selected true
+ xpos -5760
+ ypos -345
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge200
+ selected true
+ xpos -5760
+ ypos -153
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge201
+ selected true
+ xpos -5760
+ ypos 63
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge202
+ selected true
+ xpos -5760
+ ypos 255
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge203
+ selected true
+ xpos -5760
+ ypos 447
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge204
+ selected true
+ xpos -5760
+ ypos 663
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge205
+ selected true
+ xpos -5760
+ ypos 855
+}
+add_layer {Extra_Light Extra_Light.red Extra_Light.green Extra_Light.blue Extra_Light.alpha}
+Shuffle2 {
+ fromInput1 {{0} B}
+ out1 Extra_Light
+ fromInput2 {{0} B}
+ mappings "4 rgba.red 0 0 Extra_Light.red 0 0 rgba.green 0 1 Extra_Light.green 0 1 rgba.blue 0 2 Extra_Light.blue 0 2 rgba.alpha 0 3 Extra_Light.alpha 0 3"
+ name Shuffle119
+ label "<b>\[value in1] -> \[value out1]"
+ note_font_size 25
+ selected true
+ xpos -5760
+ ypos 950
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 Extra_Light
+ fromInput2 {{0} B}
+ mappings "4 Extra_Light.red 0 0 rgba.red 0 0 Extra_Light.green 0 1 rgba.green 0 1 Extra_Light.blue 0 2 rgba.blue 0 2 Extra_Light.alpha 0 3 rgba.alpha 0 3"
+ name Shuffle8
+ label "\[value in1]"
+ note_font "Verdana Bold"
+ note_font_size 25
+ selected true
+ xpos -5760
+ ypos 1051
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression76
+ selected true
+ xpos -5760
+ ypos 6351
+}
+Dot {
+ name Dot573
+ selected true
+ xpos -5726
+ ypos 9402
+}
+push $Nf2d10800
+Unpremult {
+ name Unpremult67
+ selected true
+ xpos -4770
+ ypos 1959
+}
+Premult {
+ name Premult67
+ selected true
+ xpos -4770
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression77
+ selected true
+ xpos -4770
+ ypos 6351
+}
+Dot {
+ name Dot576
+ selected true
+ xpos -4736
+ ypos 9186
+}
+push $Nf2d11000
+Unpremult {
+ name Unpremult70
+ selected true
+ xpos -3780
+ ypos 1959
+}
+Premult {
+ name Premult68
+ selected true
+ xpos -3780
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression78
+ selected true
+ xpos -3780
+ ypos 6351
+}
+Dot {
+ name Dot579
+ selected true
+ xpos -3746
+ ypos 8994
+}
+push $Nf2d11800
+Unpremult {
+ name Unpremult71
+ selected true
+ xpos -2790
+ ypos 1959
+}
+Premult {
+ name Premult72
+ selected true
+ xpos -2790
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression79
+ selected true
+ xpos -2790
+ ypos 6351
+}
+Dot {
+ name Dot582
+ selected true
+ xpos -2756
+ ypos 8802
+}
+push $Nf2d34000
+Unpremult {
+ name Unpremult72
+ selected true
+ xpos -1690
+ ypos 1959
+}
+Premult {
+ name Premult76
+ selected true
+ xpos -1690
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression80
+ selected true
+ xpos -1690
+ ypos 6351
+}
+Dot {
+ name Dot585
+ selected true
+ xpos -1656
+ ypos 8586
+}
+push $Nf2d34800
+Unpremult {
+ name Unpremult73
+ selected true
+ xpos -700
+ ypos 1959
+}
+Premult {
+ name Premult77
+ selected true
+ xpos -700
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression81
+ selected true
+ xpos -700
+ ypos 6351
+}
+Dot {
+ name Dot588
+ selected true
+ xpos -666
+ ypos 8394
+}
+push $Nf2d35000
+Unpremult {
+ name Unpremult74
+ selected true
+ xpos 290
+ ypos 1959
+}
+Premult {
+ name Premult78
+ selected true
+ xpos 290
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression82
+ selected true
+ xpos 290
+ ypos 6351
+}
+Dot {
+ name Dot593
+ selected true
+ xpos 324
+ ypos 8202
+}
+push $Nf2d35800
+Unpremult {
+ name Unpremult75
+ selected true
+ xpos 1280
+ ypos 1959
+}
+Premult {
+ name Premult79
+ selected true
+ xpos 1280
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression83
+ selected true
+ xpos 1280
+ ypos 6351
+}
+Dot {
+ name Dot596
+ selected true
+ xpos 1314
+ ypos 7986
+}
+push $Nf2d58000
+Unpremult {
+ name Unpremult76
+ selected true
+ xpos 2270
+ ypos 1959
+}
+Premult {
+ name Premult80
+ selected true
+ xpos 2270
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression84
+ selected true
+ xpos 2270
+ ypos 6351
+}
+Dot {
+ name Dot601
+ selected true
+ xpos 2304
+ ypos 7794
+}
+push $Nf2d58800
+Unpremult {
+ name Unpremult77
+ selected true
+ xpos 3260
+ ypos 1959
+}
+Premult {
+ name Premult81
+ selected true
+ xpos 3260
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression85
+ selected true
+ xpos 3260
+ ypos 6351
+}
+Dot {
+ name Dot604
+ selected true
+ xpos 3294
+ ypos 7602
+}
+push $Nf2d59000
+Unpremult {
+ name Unpremult78
+ selected true
+ xpos 4250
+ ypos 1959
+}
+Premult {
+ name Premult82
+ selected true
+ xpos 4250
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression86
+ selected true
+ xpos 4250
+ ypos 6351
+}
+Dot {
+ name Dot607
+ selected true
+ xpos 4284
+ ypos 7386
+}
+push $Nf2d59800
+Unpremult {
+ name Unpremult79
+ selected true
+ xpos 5240
+ ypos 1959
+}
+Premult {
+ name Premult83
+ selected true
+ xpos 5240
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression87
+ selected true
+ xpos 5240
+ ypos 6351
+}
+Dot {
+ name Dot610
+ selected true
+ xpos 5274
+ ypos 7194
+}
+push $Nf2d7e000
+Unpremult {
+ name Unpremult80
+ selected true
+ xpos 6230
+ ypos 1959
+}
+Premult {
+ name Premult84
+ selected true
+ xpos 6230
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression88
+ selected true
+ xpos 6230
+ ypos 6351
+}
+Dot {
+ name Dot613
+ selected true
+ xpos 6264
+ ypos 7002
+}
+push $Nf2d7e800
+Unpremult {
+ name Unpremult81
+ selected true
+ xpos 7220
+ ypos 1959
+}
+Premult {
+ name Premult85
+ selected true
+ xpos 7220
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression89
+ selected true
+ xpos 7220
+ ypos 6351
+}
+Dot {
+ name Dot616
+ selected true
+ xpos 7254
+ ypos 6786
+}
+push $Nf2d7f000
+Unpremult {
+ name Unpremult82
+ selected true
+ xpos 8210
+ ypos 1959
+}
+Premult {
+ name Premult86
+ selected true
+ xpos 8210
+ ypos 5871
+}
+Expression {
+ channel0 alpha
+ expr0 clamp(r+g+b)
+ name Expression90
+ selected true
+ xpos 8210
+ ypos 6351
+}
+Dot {
+ name Dot619
+ selected true
+ xpos 8244
+ ypos 6594
+}
+push $Nf727b000
+Remove {
+ name Remove15
+ selected true
+ xpos 9310
+ ypos -2031
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge206
+ selected true
+ xpos 9310
+ ypos 6591
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge207
+ selected true
+ xpos 9310
+ ypos 6783
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge208
+ selected true
+ xpos 9310
+ ypos 6999
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge209
+ selected true
+ xpos 9310
+ ypos 7191
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge210
+ selected true
+ xpos 9310
+ ypos 7383
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge211
+ selected true
+ xpos 9310
+ ypos 7599
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge212
+ selected true
+ xpos 9310
+ ypos 7791
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge213
+ selected true
+ xpos 9310
+ ypos 7983
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge214
+ selected true
+ xpos 9310
+ ypos 8199
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge215
+ selected true
+ xpos 9310
+ ypos 8391
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge216
+ selected true
+ xpos 9310
+ ypos 8583
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge217
+ selected true
+ xpos 9310
+ ypos 8799
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge218
+ selected true
+ xpos 9310
+ ypos 8991
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge219
+ selected true
+ xpos 9310
+ ypos 9183
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge220
+ selected true
+ xpos 9310
+ ypos 9399
+}
+Merge2 {
+ inputs 2
+ operation from
+ name Merge221
+ selected true
+ xpos 9310
+ ypos 9879
+}
+Merge2 {
+ inputs 2
+ operation plus
+ also_merge all
+ name Merge222
+ selected true
+ xpos 9310
+ ypos 10407
+}
+Group {
+ name NAN_INF_Killer11
+ tile_color 0xff6200ff
+ label "\[value which]"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_color 0xffffffff
+ selected true
+ xpos 9310
+ ypos 11529
+ addUserKnob {20 NAN_INF_Killer}
+ addUserKnob {26 text l " " T "<big><b><font color=darkorange>Detects and Kills <font color=white>NAN <font color=darkorange>and <font color=white>INF <font color=darkorange>pixels"}
+ addUserKnob {41 channels T Shuffle1.in}
+ addUserKnob {4 which l Method M {"Replace with 0" "Replace with Color" "Clone Over" "Blur Unpremult" TimeOffset "" "" "" ""}}
+ which "Blur Unpremult"
+ addUserKnob {6 keepAlpha l "Keep Alpha" +STARTLINE}
+ keepAlpha true
+ addUserKnob {26 ""}
+ addUserKnob {19 replaceColor l "Replace Color"}
+ replaceColor {0 0 0 0}
+ addUserKnob {6 replaceColor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 replaceColor_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 color_rgba_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {26 ""}
+ addUserKnob {41 translateText_1 l Translate T Transform1.translate}
+ addUserKnob {20 extraTranslate l "Extra tranlate Options" n 1}
+ extraTranslate 0
+ addUserKnob {41 rotate T Transform1.rotate}
+ addUserKnob {41 scale T Transform1.scale}
+ addUserKnob {41 skewX l "skew X" T Transform1.skewX}
+ addUserKnob {41 skewY l "skew Y" T Transform1.skewY}
+ addUserKnob {41 skew_order l "skew order" T Transform1.skew_order}
+ addUserKnob {41 center T Transform1.center}
+ addUserKnob {41 invert_matrix l invert T Transform1.invert_matrix}
+ addUserKnob {41 filter T Transform1.filter}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 blurUnpremult l Blur/Unpremult T " "}
+ addUserKnob {41 size l "Blur Size" T Blur1.size}
+ addUserKnob {26 ""}
+ addUserKnob {3 timeOffset l TimeOffset}
+ timeOffset -1
+ addUserKnob {26 ""}
+ addUserKnob {26 "" l mask T ""}
+ addUserKnob {41 maskChannelInput l "" -STARTLINE T Merge1.maskChannelInput}
+ addUserKnob {41 inject -STARTLINE T Merge1.inject}
+ addUserKnob {41 invert_mask l invert -STARTLINE T Merge1.invert_mask}
+ addUserKnob {41 fringe -STARTLINE T Merge1.fringe}
+ addUserKnob {20 info l Info}
+ addUserKnob {26 creator l Creator: T "<b><big>Tony Lyons"}
+ addUserKnob {26 desc l Description: t "kills NANs with options of how to replace" T NAN_Killer}
+ addUserKnob {26 ver l Version: T v04}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x383b5000
+  label "Replace with Color"
+  note_font_size 36
+  note_font_color 0xffffffff
+  xpos 439
+  ypos 455
+  bdwidth 331
+  bdheight 349
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode2
+  tile_color 0x4f4b4200
+  label "Replace\nwith 0"
+  note_font_size 40
+  note_font_color 0xffffffff
+  xpos 53
+  ypos 259
+  bdwidth 372
+  bdheight 214
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode3
+  tile_color 0x634c7400
+  label "Clone Over"
+  note_font_size 30
+  note_font_color 0xffffffff
+  xpos 823
+  ypos 458
+  bdwidth 187
+  bdheight 176
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode4
+  tile_color 0x3f2d4100
+  label Blur/Unpremult
+  note_font_size 50
+  note_font_color 0xffffffff
+  xpos 1097
+  ypos 434
+  bdwidth 368
+  bdheight 726
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode5
+  tile_color 0x3c4d4400
+  label Timeoffset
+  note_font_size 50
+  note_font_color 0xffffffff
+  xpos 1760
+  ypos 727
+  bdwidth 270
+  bdheight 312
+ }
+ Input {
+  inputs 0
+  name Inputmask
+  xpos 314
+  ypos 1901
+  number 1
+ }
+ Input {
+  inputs 0
+  name Input
+  xpos 168
+  ypos -227
+ }
+ Dot {
+  name Dot26
+  note_font_size 41
+  xpos 202
+  ypos -90
+ }
+set Nf306f800 [stack 0]
+ Reformat {
+  type scale
+  scale 2
+  resize none
+  pbb true
+  name Reformat142
+  xpos 166
+  ypos -23
+ }
+ Shuffle {
+  name Shuffle1
+  label "\[value in]"
+  xpos 166
+  ypos 21
+ }
+ AddChannels {
+  channels rgba
+  name AddChannels1
+  xpos 166
+  ypos 79
+ }
+set Nf308a800 [stack 0]
+ Dot {
+  name Dot29
+  note_font_size 41
+  xpos 200
+  ypos 191
+ }
+set Nf308ac00 [stack 0]
+ Dot {
+  name Dot30
+  note_font_size 41
+  xpos 337
+  ypos 191
+ }
+ Expression {
+  expr3 isnan(a)||isinf(a)?0:a
+  name nan_killer_ReplaceWithZero1
+  selected true
+  xpos 303
+  ypos 354
+ }
+push $Nf308ac00
+ Expression {
+  expr0 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))?0:r
+  expr1 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))?0:g
+  expr2 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))?0:b
+  expr3 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))?0:a
+  name nan_killer_ReplaceWithZero
+  xpos 166
+  ypos 305
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy4
+  xpos 166
+  ypos 350
+  disable {{!parent.keepAlpha}}
+ }
+ Dot {
+  name Dot1301
+  note_font_size 41
+  xpos 200
+  ypos 404
+ }
+set Nf30bc000 [stack 0]
+ Dot {
+  name Dot11
+  note_font_size 41
+  xpos 200
+  ypos 774
+ }
+set Nf30bc400 [stack 0]
+ Dot {
+  name Dot7
+  note_font_size 41
+  xpos 57
+  ypos 774
+ }
+ Dot {
+  name Dot16
+  note_font_size 41
+  xpos 57
+  ypos 1642
+ }
+set Nf30bcc00 [stack 0]
+ Dot {
+  name Dot9
+  note_font_size 41
+  xpos 56
+  ypos 1712
+ }
+set Nf30bd000 [stack 0]
+ Dot {
+  name Dot10
+  note_font_size 41
+  xpos 57
+  ypos 1765
+ }
+push $Nf30bd000
+push $Nf308a800
+ Dot {
+  name Dot28
+  note_font_size 41
+  xpos 1620
+  ypos 82
+ }
+ Expression {
+  expr3 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))
+  name nan_killer_Alpha1
+  xpos 1586
+  ypos 456
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle2
+  tile_color 0xffffffff
+  note_font_size 21
+  note_font_color 0xffffffff
+  xpos 1586
+  ypos 520
+ }
+ Dot {
+  name Dot1
+  label mask
+  note_font_size 41
+  xpos 1620
+  ypos 578
+ }
+set Nf30dc400 [stack 0]
+ Dot {
+  name Dot20
+  note_font_size 41
+  xpos 1620
+  ypos 659
+ }
+set Nf30dc800 [stack 0]
+ Dot {
+  name Dot13
+  note_font_size 41
+  xpos 1620
+  ypos 982
+ }
+set Nf30dcc00 [stack 0]
+ Dot {
+  name Dot2
+  label mask
+  note_font_size 41
+  xpos 1704
+  ypos 982
+ }
+push $Nf30bc000
+ Dot {
+  name Dot19
+  note_font_size 41
+  xpos 519
+  ypos 404
+ }
+set Nf30dd400 [stack 0]
+ Dot {
+  name Dot22
+  note_font_size 41
+  xpos 629
+  ypos 404
+ }
+set Nf30dd800 [stack 0]
+ Dot {
+  name Dot24
+  note_font_size 41
+  xpos 904
+  ypos 404
+ }
+set Nf30ddc00 [stack 0]
+ Dot {
+  name Dot5
+  note_font_size 41
+  xpos 1188
+  ypos 404
+ }
+set Nf30fa000 [stack 0]
+ Dot {
+  name Dot14
+  note_font_size 41
+  xpos 1834
+  ypos 404
+ }
+set Nf30fa400 [stack 0]
+ TimeOffset {
+  time_offset {{parent.timeOffset}}
+  time ""
+  name TimeOffset1
+  label "\[value time_offset]"
+  xpos 1800
+  ypos 827
+ }
+ Dot {
+  name Dot17
+  note_font_size 41
+  xpos 1834
+  ypos 914
+ }
+push $Nf30fa400
+ Dot {
+  name Dot15
+  note_font_size 41
+  xpos 1944
+  ypos 404
+ }
+ Merge2 {
+  inputs 2+1
+  operation copy
+  name Merge3
+  xpos 1910
+  ypos 979
+ }
+ Dot {
+  name Dot18
+  note_font_size 41
+  xpos 1944
+  ypos 1132
+ }
+push $Nf30dcc00
+push $Nf30dc800
+ Dot {
+  name Dot6
+  note_font_size 41
+  xpos 1308
+  ypos 659
+ }
+set Nf30fb800 [stack 0]
+ Invert {
+  channels rgba
+  name Invert1
+  xpos 1274
+  ypos 758
+ }
+push $Nf30fa000
+ Dot {
+  name Dot12
+  note_font_size 41
+  xpos 1188
+  ypos 834
+ }
+set Nf5472000 [stack 0]
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy2
+  xpos 1274
+  ypos 827
+ }
+ Blur {
+  channels rgba
+  size 3
+  name Blur1
+  label "\[value size]"
+  xpos 1274
+  ypos 873
+ }
+ Unpremult {
+  name Unpremult1
+  xpos 1274
+  ypos 922
+ }
+push $Nf5472000
+ Merge2 {
+  inputs 2+1
+  operation copy
+  name Merge4
+  xpos 1154
+  ypos 979
+ }
+ Dot {
+  name Dot8
+  note_font_size 41
+  xpos 1188
+  ypos 1079
+ }
+push $Nf30dc400
+push $Nf30ddc00
+ TransformMasked {
+  inputs 1+1
+  channels rgba
+  translate {4 4}
+  center {2362 1116}
+  shutteroffset centred
+  name Transform1
+  xpos 870
+  ypos 575
+ }
+ Dot {
+  name Dot4
+  note_font_size 41
+  xpos 904
+  ypos 937
+ }
+push $Nf30fb800
+ Dot {
+  name Dot3
+  label mask
+  note_font_size 41
+  xpos 705
+  ypos 659
+ }
+push $Nf30dd400
+ Grade {
+  multiply 0
+  add {{parent.replaceColor} {parent.replaceColor} {parent.replaceColor} {parent.replaceColor}}
+  name Grade1
+  xpos 485
+  ypos 569
+ }
+ Dot {
+  name Dot21
+  note_font_size 41
+  xpos 519
+  ypos 660
+ }
+push $Nf30dd800
+ Merge2 {
+  inputs 2+1
+  operation copy
+  name Merge2
+  xpos 595
+  ypos 656
+ }
+ Dot {
+  name Dot23
+  note_font_size 41
+  xpos 629
+  ypos 846
+ }
+push $Nf30bc400
+ Switch {
+  inputs 5
+  which {{parent.which}}
+  name Switch20
+  label "\[value which]"
+  xpos 166
+  ypos 1439
+ }
+push $Nf30bcc00
+ ShuffleCopy {
+  inputs 2
+  alpha alpha2
+  black red
+  white green
+  red2 blue
+  green2 alpha
+  out2 {{{parent.Shuffle1.in}}}
+  name ShuffleCopy1
+  xpos 166
+  ypos 1639
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  xpos 166
+  ypos 1705
+  disable {{!parent.keepAlpha}}
+ }
+ CopyBBox {
+  inputs 2
+  name CopyBBox1
+  xpos 166
+  ypos 1761
+ }
+ Reformat {
+  type scale
+  scale {{1/parent.Reformat142.scale}}
+  resize none
+  pbb true
+  name Reformat143
+  xpos 166
+  ypos 1826
+ }
+push $Nf306f800
+ Dot {
+  name Dot27
+  note_font_size 41
+  xpos -33
+  ypos -90
+ }
+ Dot {
+  name Dot25
+  note_font_size 41
+  xpos -33
+  ypos 1905
+ }
+ Merge2 {
+  inputs 2+1
+  operation copy
+  also_merge all
+  name Merge1
+  xpos 166
+  ypos 1901
+ }
+ Output {
+  name Output1
+  xpos 167
+  ypos 2027
+ }
+end_group
+Dot {
+ name Dot620
+ selected true
+ xpos 9344
+ ypos 11850
+}
+push $Nf7237800
+Copy {
+ inputs 2
+ channels rgb
+ name Copy2
+ selected true
+ xpos 10300
+ ypos 11835
+}
+Dot {
+ name Dot1
+ selected true
+ xpos 10334
+ ypos 12762
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ label "\n<center><u>Texture Groups</u>\n\nalbedo\n\n\n\n\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 32
+ selected true
+ xpos 12304
+ ypos -1880
+}
+StickyNote {
+ inputs 0
+ name StickyNote8
+ label "\n<center><u>Material Groups</u>\n\ncombinedglossyreflection\ncombinedvolume\ncombineddiffuse\ncombinedemission\nglossytransmission\n\n\n\n\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 32
+ selected true
+ xpos 11787
+ ypos -1880
+}
+StickyNote {
+ inputs 0
+ name StickyNote21
+ label "\n<center><u>Color Groups</u>\n\n\n\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 32
+ selected true
+ xpos 11442
+ ypos -1886
+}
+StickyNote {
+ inputs 0
+ name StickyNote9
+ label "\n<center><u>Utility Groups</u>\n\nCryptoMaterial\nCryptoMaterial00\nCryptoMaterial01\nCryptoMaterial02\nCryptoObject\nCryptoObject00\nCryptoObject01\nCryptoObject02\nN\nP\ndepth\nmotionvectors\nsss\nuv_extra\n\n\n\n\n"
+ note_font "Bitstream Vera Sans Bold"
+ note_font_size 32
+ selected true
+ xpos 12729
+ ypos -1874
+}
+push $cut_paste_input
+Dot {
+ name Dot98
+ selected true
+ xpos 12424
+ ypos -414
+}
+set Nfb323400 [stack 0]
+Dot {
+ name Dot100
+ selected true
+ xpos 12204
+ ypos -414
+}
+push $Nfb323400
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 albedo
+ fromInput2 {{0} B}
+ mappings "4 albedo.red 0 0 rgba.red 0 0 albedo.green 0 1 rgba.green 0 1 albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle10
+ label "\[value in1]"
+ note_font "Verdana Bold"
+ selected true
+ xpos 12390
+ ypos -327
+}
+set Nfb323c00 [stack 0]
+Merge2 {
+ inputs 2
+ operation divide
+ bbox B
+ name Merge33
+ selected true
+ xpos 12170
+ ypos -321
+}
+Dot {
+ name Dot102
+ selected true
+ xpos 12204
+ ypos -222
+}
+set Nffcc4400 [stack 0]
+Dot {
+ name Dot105
+ selected true
+ xpos 11984
+ ypos -222
+}
+Log2Lin {
+ operation lin2log
+ name Log2Lin8
+ selected true
+ xpos 11950
+ ypos -177
+}
+Dot {
+ name Dot106
+ selected true
+ xpos 11984
+ ypos -150
+}
+set Nffcc5000 [stack 0]
+Group {
+ name Fast_Median22
+ tile_color 0xcc804eff
+ selected true
+ xpos 11730
+ ypos -105
+ addUserKnob {20 Median}
+ addUserKnob {41 "Local GPU: " T BlinkScript1.gpuName}
+ addUserKnob {41 "Use GPU if Available" T BlinkScript1.useGPUIfAvailable}
+ addUserKnob {26 ""}
+ addUserKnob {41 channels T BlinkScript1.channels}
+ addUserKnob {26 ""}
+ addUserKnob {14 kernel_size l size R 0 6}
+ kernel_size 1
+ addUserKnob {41 Size_X l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_X}
+ addUserKnob {41 Size_Y l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_Y}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 148
+  ypos 164
+ }
+ BlinkScript {
+  recompileCount 2
+  ProgramGroup 1
+  KernelDescription "2 \"Median\" iterate componentWise 72e3d871e04a02c4287cf418d70db7783acfa08378ab97e29ad599ff41f78ed2 2 \"imageIn\" Read Ranged2D \"imageOut\" Write Point 2 \"Size_X\" Int 1 AwAAAA== \"Size_Y\" Int 1 AwAAAA== 2 \"x\" 1 1 \"y\" 1 1 3 \"imageInrangeMin\" Int 2 1 AAAAAAAAAAA= \"imageInrangeMax\" Int 2 1 AAAAAAAAAAA= \"_filterSize\" Int 1 1 AAAAAA=="
+  kernelSource "kernel Median : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> imageIn; \n  Image<eWrite, eAccessPoint> imageOut;          \n\nparam:\n  int x;  //The horizontal radius of the median\n  int y;  //The vertical radius of the median\n\nlocal:\n  int _filterSize;\n  \n  void define() \{\n    defineParam(x, \"Size_X\", 3); \n    defineParam(y, \"Size_Y\", 3); \n  \}\n\n  void init() \{\n    //Set the range we need to access from the source \n\n    imageIn.setRange(-x, -y, x, y);\n    _filterSize = (2 * x + 1) * (2 * y + 1);\n\n  \}\n  void process(int2 pos)\n  \{\n    float vals\[25];\n\n    for (int j = -y, index = 0; j <= y; j++) \{\n      for (int i = -x; i <= x; i++, index++) \{\n        vals\[index] = imageIn(i, j);\n      \}\n    \}\n   \n    //The median function takes an array of floating-point values and an array length.\n    imageOut() = median(vals, _filterSize);\n    \n  \}\n\};"
+  rebuild ""
+  Median_Size_X {{"clamp(parent.kernel_size, 0 , 6)"}}
+  Median_Size_Y {{"clamp(parent.kernel_size, 0 , 6)"}}
+  rebuild_finalise ""
+  name BlinkScript1
+  selected true
+  xpos 146
+  ypos 251
+ }
+ Output {
+  name Output1
+  xpos 148
+  ypos 360
+ }
+end_group
+push $Nffcc5000
+Merge2 {
+ inputs 2
+ operation difference
+ bbox B
+ name Merge36
+ selected true
+ xpos 11950
+ ypos -105
+}
+set Nffcf6000 [stack 0]
+Group {
+ name Fast_Median23
+ tile_color 0xcc804eff
+ selected true
+ xpos 11730
+ ypos -57
+ addUserKnob {20 Median}
+ addUserKnob {41 "Local GPU: " T BlinkScript1.gpuName}
+ addUserKnob {41 "Use GPU if Available" T BlinkScript1.useGPUIfAvailable}
+ addUserKnob {26 ""}
+ addUserKnob {41 channels T BlinkScript1.channels}
+ addUserKnob {26 ""}
+ addUserKnob {14 kernel_size l size R 0 6}
+ kernel_size 1
+ addUserKnob {41 Size_X l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_X}
+ addUserKnob {41 Size_Y l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_Y}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 148
+  ypos 164
+ }
+ BlinkScript {
+  recompileCount 2
+  ProgramGroup 1
+  KernelDescription "2 \"Median\" iterate componentWise 72e3d871e04a02c4287cf418d70db7783acfa08378ab97e29ad599ff41f78ed2 2 \"imageIn\" Read Ranged2D \"imageOut\" Write Point 2 \"Size_X\" Int 1 AwAAAA== \"Size_Y\" Int 1 AwAAAA== 2 \"x\" 1 1 \"y\" 1 1 3 \"imageInrangeMin\" Int 2 1 AAAAAAAAAAA= \"imageInrangeMax\" Int 2 1 AAAAAAAAAAA= \"_filterSize\" Int 1 1 AAAAAA=="
+  kernelSource "kernel Median : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> imageIn; \n  Image<eWrite, eAccessPoint> imageOut;          \n\nparam:\n  int x;  //The horizontal radius of the median\n  int y;  //The vertical radius of the median\n\nlocal:\n  int _filterSize;\n  \n  void define() \{\n    defineParam(x, \"Size_X\", 3); \n    defineParam(y, \"Size_Y\", 3); \n  \}\n\n  void init() \{\n    //Set the range we need to access from the source \n\n    imageIn.setRange(-x, -y, x, y);\n    _filterSize = (2 * x + 1) * (2 * y + 1);\n\n  \}\n  void process(int2 pos)\n  \{\n    float vals\[25];\n\n    for (int j = -y, index = 0; j <= y; j++) \{\n      for (int i = -x; i <= x; i++, index++) \{\n        vals\[index] = imageIn(i, j);\n      \}\n    \}\n   \n    //The median function takes an array of floating-point values and an array length.\n    imageOut() = median(vals, _filterSize);\n    \n  \}\n\};"
+  rebuild ""
+  Median_Size_X {{"clamp(parent.kernel_size, 0 , 6)"}}
+  Median_Size_Y {{"clamp(parent.kernel_size, 0 , 6)"}}
+  rebuild_finalise ""
+  name BlinkScript1
+  selected true
+  xpos 146
+  ypos 251
+ }
+ Output {
+  name Output1
+  xpos 148
+  ypos 360
+ }
+end_group
+push $Nffcf6000
+Merge2 {
+ inputs 2
+ operation difference
+ bbox B
+ name Merge37
+ selected true
+ xpos 11950
+ ypos -57
+}
+set Nffcf7000 [stack 0]
+Group {
+ name Fast_Median24
+ tile_color 0xcc804eff
+ selected true
+ xpos 11730
+ ypos -9
+ addUserKnob {20 Median}
+ addUserKnob {41 "Local GPU: " T BlinkScript1.gpuName}
+ addUserKnob {41 "Use GPU if Available" T BlinkScript1.useGPUIfAvailable}
+ addUserKnob {26 ""}
+ addUserKnob {41 channels T BlinkScript1.channels}
+ addUserKnob {26 ""}
+ addUserKnob {14 kernel_size l size R 0 6}
+ kernel_size 1
+ addUserKnob {41 Size_X l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_X}
+ addUserKnob {41 Size_Y l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_Y}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 148
+  ypos 164
+ }
+ BlinkScript {
+  recompileCount 2
+  ProgramGroup 1
+  KernelDescription "2 \"Median\" iterate componentWise 72e3d871e04a02c4287cf418d70db7783acfa08378ab97e29ad599ff41f78ed2 2 \"imageIn\" Read Ranged2D \"imageOut\" Write Point 2 \"Size_X\" Int 1 AwAAAA== \"Size_Y\" Int 1 AwAAAA== 2 \"x\" 1 1 \"y\" 1 1 3 \"imageInrangeMin\" Int 2 1 AAAAAAAAAAA= \"imageInrangeMax\" Int 2 1 AAAAAAAAAAA= \"_filterSize\" Int 1 1 AAAAAA=="
+  kernelSource "kernel Median : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> imageIn; \n  Image<eWrite, eAccessPoint> imageOut;          \n\nparam:\n  int x;  //The horizontal radius of the median\n  int y;  //The vertical radius of the median\n\nlocal:\n  int _filterSize;\n  \n  void define() \{\n    defineParam(x, \"Size_X\", 3); \n    defineParam(y, \"Size_Y\", 3); \n  \}\n\n  void init() \{\n    //Set the range we need to access from the source \n\n    imageIn.setRange(-x, -y, x, y);\n    _filterSize = (2 * x + 1) * (2 * y + 1);\n\n  \}\n  void process(int2 pos)\n  \{\n    float vals\[25];\n\n    for (int j = -y, index = 0; j <= y; j++) \{\n      for (int i = -x; i <= x; i++, index++) \{\n        vals\[index] = imageIn(i, j);\n      \}\n    \}\n   \n    //The median function takes an array of floating-point values and an array length.\n    imageOut() = median(vals, _filterSize);\n    \n  \}\n\};"
+  rebuild ""
+  Median_Size_X {{"clamp(parent.kernel_size, 0 , 6)"}}
+  Median_Size_Y {{"clamp(parent.kernel_size, 0 , 6)"}}
+  rebuild_finalise ""
+  name BlinkScript1
+  selected true
+  xpos 146
+  ypos 251
+ }
+ Output {
+  name Output1
+  xpos 148
+  ypos 360
+ }
+end_group
+push $Nffcf7000
+Merge2 {
+ inputs 2
+ operation difference
+ bbox B
+ name Merge39
+ selected true
+ xpos 11950
+ ypos -9
+}
+set Nffd30000 [stack 0]
+Group {
+ name Fast_Median25
+ tile_color 0xcc804eff
+ selected true
+ xpos 11730
+ ypos 39
+ addUserKnob {20 Median}
+ addUserKnob {41 "Local GPU: " T BlinkScript1.gpuName}
+ addUserKnob {41 "Use GPU if Available" T BlinkScript1.useGPUIfAvailable}
+ addUserKnob {26 ""}
+ addUserKnob {41 channels T BlinkScript1.channels}
+ addUserKnob {26 ""}
+ addUserKnob {14 kernel_size l size R 0 6}
+ kernel_size 1
+ addUserKnob {41 Size_X l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_X}
+ addUserKnob {41 Size_Y l INVISIBLE +INVISIBLE T BlinkScript1.Median_Size_Y}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 148
+  ypos 164
+ }
+ BlinkScript {
+  recompileCount 2
+  ProgramGroup 1
+  KernelDescription "2 \"Median\" iterate componentWise 72e3d871e04a02c4287cf418d70db7783acfa08378ab97e29ad599ff41f78ed2 2 \"imageIn\" Read Ranged2D \"imageOut\" Write Point 2 \"Size_X\" Int 1 AwAAAA== \"Size_Y\" Int 1 AwAAAA== 2 \"x\" 1 1 \"y\" 1 1 3 \"imageInrangeMin\" Int 2 1 AAAAAAAAAAA= \"imageInrangeMax\" Int 2 1 AAAAAAAAAAA= \"_filterSize\" Int 1 1 AAAAAA=="
+  kernelSource "kernel Median : public ImageComputationKernel<eComponentWise>\n\{\n  Image<eRead, eAccessRanged2D, eEdgeClamped> imageIn; \n  Image<eWrite, eAccessPoint> imageOut;          \n\nparam:\n  int x;  //The horizontal radius of the median\n  int y;  //The vertical radius of the median\n\nlocal:\n  int _filterSize;\n  \n  void define() \{\n    defineParam(x, \"Size_X\", 3); \n    defineParam(y, \"Size_Y\", 3); \n  \}\n\n  void init() \{\n    //Set the range we need to access from the source \n\n    imageIn.setRange(-x, -y, x, y);\n    _filterSize = (2 * x + 1) * (2 * y + 1);\n\n  \}\n  void process(int2 pos)\n  \{\n    float vals\[25];\n\n    for (int j = -y, index = 0; j <= y; j++) \{\n      for (int i = -x; i <= x; i++, index++) \{\n        vals\[index] = imageIn(i, j);\n      \}\n    \}\n   \n    //The median function takes an array of floating-point values and an array length.\n    imageOut() = median(vals, _filterSize);\n    \n  \}\n\};"
+  rebuild ""
+  Median_Size_X {{"clamp(parent.kernel_size, 0 , 6)"}}
+  Median_Size_Y {{"clamp(parent.kernel_size, 0 , 6)"}}
+  rebuild_finalise ""
+  name BlinkScript1
+  selected true
+  xpos 146
+  ypos 251
+ }
+ Output {
+  name Output1
+  xpos 148
+  ypos 360
+ }
+end_group
+push $Nffd30000
+Merge2 {
+ inputs 2
+ operation difference
+ bbox B
+ name Merge40
+ selected true
+ xpos 11950
+ ypos 39
+}
+Expression {
+ expr0 clamp(r+g+b)
+ expr1 clamp(r+g+b)
+ expr2 clamp(r+g+b)
+ expr3 clamp(r+g+b)
+ name Expression3
+ selected true
+ xpos 11950
+ ypos 87
+}
+Log2Lin {
+ channels rgba
+ name Log2Lin9
+ selected true
+ xpos 11950
+ ypos 135
+}
+Grade {
+ channels rgba
+ blackpoint 0.008
+ whitepoint 0.08
+ white_clamp true
+ name Grade76
+ selected true
+ xpos 11950
+ ypos 183
+}
+Dot {
+ name Dot115
+ selected true
+ xpos 11984
+ ypos 234
+}
+push $Nffcc4400
+Median {
+ inputs 1+1
+ ignore_top_line false
+ name Median7
+ selected true
+ xpos 12170
+ ypos 231
+}
+Dot {
+ name Dot116
+ selected true
+ xpos 12204
+ ypos 306
+}
+push $Nfb323c00
+Merge2 {
+ inputs 2
+ operation multiply
+ bbox B
+ name Merge41
+ selected true
+ xpos 12390
+ ypos 303
+}
