@@ -16,11 +16,19 @@ for node in nuke.allNodes():
 
 
 # Setting up selected node's size value ( with/without try )
+
+for node in nuke.selectedNodes():
+    node['size'].setValue(50)
+    node['channels'].setValue('rgba')
+
+
+###
+
 for node in nuke.selectedNodes():
     try:
-        node['size'].setValue(5)
+        node['size'].setValue(10)
         node['channels'].setValue('rgb')
-    except Exception:
+    except:
         pass
 
 
@@ -43,7 +51,7 @@ for node in nuke.selectedNodes():
         retime['xpos'].setValue(node['xpos'].value())
         retime['ypos'].setValue(node['ypos'].value() + 100)
         retime.setInput(0, node)
-    except Exception:
+    except:
         pass
 
 
@@ -53,7 +61,7 @@ for node in nuke.selectedNodes():
         dot['xpos'].setValue(node['xpos'].value() + 35)
         dot['ypos'].setValue(node['ypos'].value() + 100)
         dot.setInput(0, node)
-    except Exception:
+    except:
         pass
 
 
@@ -114,7 +122,7 @@ nodes = nuke.selectedNodes()
 for node in nodes:
     try:
         node.knob("size").setValue(5) 
-    except Exception:
+    except:
         pass
 
 # Setting a value on all nodes in a specific Class
@@ -123,7 +131,7 @@ nodes = nuke.allNodes(“Merge2”)
 for node in nodes:
     try:
         node.knob("mix").setValue(.5)
-    except Exception:
+    except:
         pass
 
 # Setting multiple values on all nodes in a specific Class
@@ -134,7 +142,7 @@ for node in nodes:
         node['size'].setExpression('t/80')
         node['channels'].setValue('rgb')
         node['label'].setValue('Just Adjusted')
-    except Exception:
+    except:
         pass
 
 
