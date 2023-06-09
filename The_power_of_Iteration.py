@@ -31,17 +31,18 @@ for node in nuke.selectedNodes():
     except:
         pass
 
-
 # Check specific Read node's colrospace
-print (nuke.toNode('Read16')['colorspace'].value())
+print (nuke.toNode('render_Comp_Output1')['colorspace'].value())
 
+####
 
 for node in nuke.selectedNodes():
     try:
-        node['colorspace'].setValue('ACES - ACES2065-1')
+        node['colorspace'].setValue('ACEScg')
     except Exception:
         pass
-
+    
+####
 
 for node in nuke.selectedNodes():
     try:
@@ -53,7 +54,8 @@ for node in nuke.selectedNodes():
         retime.setInput(0, node)
     except:
         pass
-
+    
+####
 
 for node in nuke.selectedNodes():
     try:
