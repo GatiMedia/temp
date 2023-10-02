@@ -1,5 +1,5 @@
 set cut_paste_input [stack 0]
-version 13.2 v4
+version 14.0 v2
 BackdropNode {
  inputs 0
  name Backdrop_Adjust21
@@ -8,8 +8,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 172
  selected true
- xpos 83485
- ypos -4986
+ xpos 22875
+ ypos -16770
  bdwidth 14750
  bdheight 3780
  z_order -4
@@ -93,8 +93,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 192
  selected true
- xpos 71229
- ypos -1831
+ xpos 10619
+ ypos -13615
  bdwidth 7142
  bdheight 4862
  z_order -3
@@ -179,8 +179,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 192
  selected true
- xpos 71085
- ypos -4983
+ xpos 10475
+ ypos -16767
  bdwidth 7210
  bdheight 2766
  z_order -1
@@ -264,8 +264,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 82
  selected true
- xpos 98801
- ypos 8973
+ xpos 38191
+ ypos -2811
  bdwidth 399
  bdheight 341
  addUserKnob {20 User}
@@ -349,8 +349,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 192
  selected true
- xpos 83845
- ypos -854
+ xpos 23235
+ ypos -12638
  bdwidth 14250
  bdheight 4972
  addUserKnob {20 User}
@@ -434,8 +434,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 122
  selected true
- xpos 100723
- ypos -4825
+ xpos 40113
+ ypos -16609
  bdwidth 2055
  bdheight 1345
  addUserKnob {20 User}
@@ -519,8 +519,8 @@ BackdropNode {
  note_font "MS Shell Dlg 2 Bold"
  note_font_size 82
  selected true
- xpos 99719
- ypos -6399
+ xpos 39109
+ ypos -18183
  bdwidth 542
  bdheight 462
  addUserKnob {20 User}
@@ -603,8 +603,8 @@ StickyNote {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 160
  selected true
- xpos 89072
- ypos -2009
+ xpos 28503
+ ypos -13798
 }
 StickyNote {
  inputs 0
@@ -613,289 +613,274 @@ StickyNote {
  note_font "Bitstream Vera Sans Bold"
  note_font_size 32
  selected true
- xpos 100803
- ypos -4255
+ xpos 40205
+ ypos -16058
 }
-Read {
- inputs 0
- file_type exr
- file /jobs/NTLS/EPISODES/101/SEQUENCES/016A/SHOTS/020/PUBLISH/renders/BEAUTY/v003/BEAUTY.%04d.exr
- localizationPolicy off
- format "2064 1161 0 0 2064 1161 1 u_050138_DISN_Nautilus"
- first 1001
- last 1088
- origfirst 1001
- origlast 1088
- origset true
- colorspace ACEScg
- name uRead54
- tile_color 0x656565ff
- label v003
- note_font_size 12
- note_font_color 0x101010ff
+push $cut_paste_input
+Dot {
+ name Dot12
  selected true
- xpos 99950
- ypos -6149
- postage_stamp_frame 545
+ xpos 39374
+ ypos -17819
 }
 Dot {
  name Dot58
  selected true
- xpos 99984
- ypos -4614
+ xpos 39374
+ ypos -16398
 }
-set N15ccd260 [stack 0]
+set N77898c00 [stack 0]
 Dot {
  name Dot398
  note_font_size 22
  selected true
- xpos 101854
- ypos -4614
+ xpos 41244
+ ypos -16398
 }
 LayerContactSheet {
  name LayerContactSheet1
  selected true
- xpos 101820
- ypos -4450
+ xpos 41210
+ ypos -16233
 }
 StickyNote {
  inputs 0
- name StickyNote1
+ name StickyNote9
  label "Don't add any nodes within this box."
  note_font "Bitstream Vera Sans Bold"
  note_font_size 160
  selected true
- xpos 73276
- ypos -2801
+ xpos 12701
+ ypos -14590
 }
 StickyNote {
  inputs 0
- name StickyNote3
+ name StickyNote10
  label "\n<center><u>Material Groups</u>\n\ncombinedglossyreflection\nalbedo\ncombinedvolume\ncombineddiffuse\ncombinedemission\nglossytransmission\n\n\n\n\n"
  note_font "Bitstream Vera Sans Bold"
  note_font_size 32
  selected true
- xpos 101640
- ypos -4239
+ xpos 41047
+ ypos -16034
 }
 StickyNote {
  inputs 0
- name StickyNote4
+ name StickyNote11
  label "\n<center><u>Utility Groups</u>\n\nCryptoMaterial\nCryptoMaterial00\nCryptoMaterial01\nCryptoMaterial02\nCryptoObject\nCryptoObject00\nCryptoObject01\nCryptoObject02\nN\nP\ndepth\nmotionvectors\nsss\nuv_extra\n\n\n\n\n"
  note_font "Bitstream Vera Sans Bold"
  note_font_size 32
  selected true
- xpos 102368
- ypos -4255
+ xpos 41769
+ ypos -16058
 }
 StickyNote {
  inputs 0
- name StickyNote5
+ name StickyNote12
  label "\nBy request lighting is increasing the exposure\nby 2 Stops for the  renders.\nBringing it down will match the original look!\n"
  note_font_size 22
  selected true
- xpos 99207
- ypos 9107
+ xpos 38595
+ ypos -2682
 }
-push $N15ccd260
-Dot {
- name Dot1
- selected true
- xpos 98994
- ypos -4614
-}
-set N11ed2750 [stack 0]
+push $N77898c00
 Dot {
  name Dot2
  selected true
- xpos 97894
- ypos -4614
+ xpos 38384
+ ypos -16398
 }
-set N15c75ad0 [stack 0]
+set N778bc800 [stack 0]
 Dot {
  name Dot3
  selected true
- xpos 96904
- ypos -4614
+ xpos 37284
+ ypos -16398
 }
-set N15e6ae00 [stack 0]
+set N778bcc00 [stack 0]
 Dot {
  name Dot4
  selected true
- xpos 95914
- ypos -4614
+ xpos 36294
+ ypos -16398
 }
-set N15cf6070 [stack 0]
+set N778bd000 [stack 0]
 Dot {
  name Dot5
  selected true
- xpos 94924
- ypos -4614
+ xpos 35304
+ ypos -16398
 }
-set N15cc45f0 [stack 0]
+set N778bd400 [stack 0]
 Dot {
  name Dot6
  selected true
- xpos 93934
- ypos -4614
+ xpos 34314
+ ypos -16398
 }
-set N15fee840 [stack 0]
+set N778bd800 [stack 0]
 Dot {
  name Dot7
  selected true
- xpos 92944
- ypos -4614
+ xpos 33324
+ ypos -16398
 }
-set N13495750 [stack 0]
-Dot {
- name Dot70
- selected true
- xpos 91954
- ypos -4614
-}
-set Nc17df40 [stack 0]
+set N778bdc00 [stack 0]
 Dot {
  name Dot8
  selected true
- xpos 90964
- ypos -4614
+ xpos 32334
+ ypos -16398
 }
-set N1354fad0 [stack 0]
+set N778d6000 [stack 0]
 Dot {
- name Dot72
+ name Dot70
  selected true
- xpos 89974
- ypos -4614
+ xpos 31344
+ ypos -16398
 }
-set N15e9d070 [stack 0]
+set N778d6400 [stack 0]
 Dot {
  name Dot9
  selected true
- xpos 88984
- ypos -4614
+ xpos 30354
+ ypos -16398
 }
-set Nd971900 [stack 0]
+set N778d6800 [stack 0]
+Dot {
+ name Dot72
+ selected true
+ xpos 29364
+ ypos -16398
+}
+set N778d6c00 [stack 0]
 Dot {
  name Dot10
  selected true
- xpos 87994
- ypos -4614
+ xpos 28374
+ ypos -16398
 }
-set N15cd9f30 [stack 0]
+set N778d7000 [stack 0]
+Dot {
+ name Dot11
+ selected true
+ xpos 27384
+ ypos -16398
+}
+set N778d7400 [stack 0]
 Dot {
  name Dot75
  selected true
- xpos 86894
- ypos -4614
+ xpos 26284
+ ypos -16398
 }
-set N15e98490 [stack 0]
+set N778d7800 [stack 0]
 Dot {
  name Dot76
  selected true
- xpos 85904
- ypos -4614
+ xpos 25294
+ ypos -16398
 }
-set N15cb99d0 [stack 0]
+set N778d7c00 [stack 0]
 Dot {
  name Dot77
  selected true
- xpos 84914
- ypos -4614
+ xpos 24304
+ ypos -16398
 }
-set N15cdcd40 [stack 0]
+set N778ee000 [stack 0]
 Dot {
  name Dot78
  selected true
- xpos 83924
- ypos -4614
+ xpos 23314
+ ypos -16398
 }
-set N16071770 [stack 0]
+set N778ee400 [stack 0]
 Dot {
  name Dot79
  selected true
- xpos 81174
- ypos -4614
+ xpos 20564
+ ypos -16398
 }
-set N160419e0 [stack 0]
+set N778ee800 [stack 0]
 Dot {
  name Dot80
  selected true
- xpos 78204
- ypos -4614
+ xpos 17594
+ ypos -16398
 }
-set N16046bb0 [stack 0]
+set N778eec00 [stack 0]
 Dot {
  name Dot81
  note_font_size 22
  selected true
- xpos 77214
- ypos -4614
+ xpos 16604
+ ypos -16398
 }
-set N1604bb70 [stack 0]
+set N778ef000 [stack 0]
 Dot {
  name Dot82
  note_font_size 22
  selected true
- xpos 76554
- ypos -4614
+ xpos 15944
+ ypos -16398
 }
-set N15c4bd00 [stack 0]
+set N778ef400 [stack 0]
 Dot {
  name Dot83
  note_font_size 22
  selected true
- xpos 76004
- ypos -4614
+ xpos 15394
+ ypos -16398
 }
-set N15c50cc0 [stack 0]
+set N778ef800 [stack 0]
 Dot {
  name Dot84
  note_font_size 22
  selected true
- xpos 75344
- ypos -4614
+ xpos 14734
+ ypos -16398
 }
-set N15c55c80 [stack 0]
+set N778efc00 [stack 0]
 Dot {
  name Dot85
  note_font_size 22
  selected true
- xpos 74684
- ypos -4614
+ xpos 14074
+ ypos -16398
 }
-set N15c5ac40 [stack 0]
+set N7790a000 [stack 0]
 Dot {
  name Dot86
  note_font_size 22
  selected true
- xpos 74024
- ypos -4614
+ xpos 13414
+ ypos -16398
 }
-set N15c5fc00 [stack 0]
+set N7790a400 [stack 0]
 Dot {
  name Dot87
  note_font_size 22
  selected true
- xpos 73474
- ypos -4614
+ xpos 12864
+ ypos -16398
 }
-set N15c64bc0 [stack 0]
+set N7790a800 [stack 0]
 Dot {
  name Dot88
  note_font_size 22
  selected true
- xpos 72814
- ypos -4614
+ xpos 12204
+ ypos -16398
 }
-set N16142d10 [stack 0]
+set N7790ac00 [stack 0]
 Dot {
  name Dot89
  note_font_size 22
  selected true
- xpos 72264
- ypos -4614
+ xpos 11654
+ ypos -16398
 }
-set N16147cd0 [stack 0]
+set N7790b000 [stack 0]
 add_layer {glossytransmission glossytransmission.red glossytransmission.green glossytransmission.blue}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -906,18 +891,18 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 72230
- ypos -4211
+ xpos 11620
+ ypos -15994
 }
 Dot {
  name Dot90
  note_font_size 22
  selected true
- xpos 72264
- ypos -2886
+ xpos 11654
+ ypos -14670
 }
-set N16156a50 [stack 0]
-push $N16142d10
+set N7790b800 [stack 0]
+push $N7790ac00
 add_layer {combinedvolume combinedvolume.red combinedvolume.green combinedvolume.blue}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -928,18 +913,18 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 72780
- ypos -4211
+ xpos 12170
+ ypos -15994
 }
 Dot {
  name Dot91
  note_font_size 22
  selected true
- xpos 72814
- ypos -3054
+ xpos 12204
+ ypos -14838
 }
-set N161648a0 [stack 0]
-push $N15c5fc00
+set N764a4000 [stack 0]
+push $N7790a400
 add_layer {combinedglossyreflection combinedglossyreflection.red combinedglossyreflection.green combinedglossyreflection.blue}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -950,18 +935,18 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 73990
- ypos -4211
+ xpos 13380
+ ypos -15994
 }
 Dot {
  name Dot92
  note_font_size 22
  selected true
- xpos 74024
- ypos -3174
+ xpos 13414
+ ypos -14958
 }
-set N16172750 [stack 0]
-push $N15c55c80
+set N764a4800 [stack 0]
+push $N778efc00
 add_layer {combinedemission combinedemission.red combinedemission.green combinedemission.blue}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -972,18 +957,18 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 75310
- ypos -4211
+ xpos 14700
+ ypos -15994
 }
 Dot {
  name Dot93
  note_font_size 22
  selected true
- xpos 75344
- ypos -3294
+ xpos 14734
+ ypos -15078
 }
-set N16280710 [stack 0]
-push $N15c4bd00
+set N764a5000 [stack 0]
+push $N778ef400
 add_layer {combineddiffuse combineddiffuse.red combineddiffuse.green combineddiffuse.blue}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -994,85 +979,85 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 76520
- ypos -4211
+ xpos 15910
+ ypos -15994
 }
 Dot {
  name Dot117
  note_font_size 22
  selected true
- xpos 76554
- ypos -3414
+ xpos 15944
+ ypos -15198
 }
-set N1628ea90 [stack 0]
-push $N16046bb0
+set N764a5800 [stack 0]
+push $N778eec00
 Remove {
  name Base_Black4
  selected true
- xpos 78170
- ypos -4216
+ xpos 17560
+ ypos -15999
 }
 Dot {
  name Dot272
  selected true
- xpos 78204
- ypos -3534
+ xpos 17594
+ ypos -15318
 }
-set N1629bbe0 [stack 0]
-push $N16147cd0
+set N764c6000 [stack 0]
+push $N7790b000
 Dot {
  name Dot273
  selected true
- xpos 71274
- ypos -4614
+ xpos 10664
+ ypos -16398
 }
 Merge2 {
  inputs 2
  operation from
  name Merge1
  selected true
- xpos 71240
- ypos -3538
+ xpos 10630
+ ypos -15321
 }
 Merge2 {
  inputs 2
  operation from
  name Merge15
  selected true
- xpos 71240
- ypos -3418
+ xpos 10630
+ ypos -15201
 }
 Merge2 {
  inputs 2
  operation from
  name Merge16
  selected true
- xpos 71240
- ypos -3298
+ xpos 10630
+ ypos -15081
 }
 Merge2 {
  inputs 2
  operation from
  name Merge18
  selected true
- xpos 71240
- ypos -3178
+ xpos 10630
+ ypos -14961
 }
 Merge2 {
  inputs 2
  operation from
  name Merge19
  selected true
- xpos 71240
- ypos -3058
+ xpos 10630
+ ypos -14841
 }
 Merge2 {
  inputs 2
  operation from
  name Merge20
  selected true
- xpos 71240
- ypos -2890
+ xpos 10630
+ ypos -14673
 }
 add_layer {C_Extra_Material C_Extra_Material.red C_Extra_Material.green C_Extra_Material.blue C_Extra_Material.alpha}
 Shuffle2 {
@@ -1083,86 +1068,86 @@ Shuffle2 {
  name Shuffle7
  label "\[value in1]\n\[value out1]"
  selected true
- xpos 71240
- ypos -2566
+ xpos 10630
+ ypos -14349
 }
 Shuffle {
  in C_Extra_Material
  name Shuffle8
  label "\[value in]"
  selected true
- xpos 71240
- ypos -2416
+ xpos 10630
+ ypos -14199
 }
 Dot {
  name Dot275
  label "  <h1>C_Extra_Material</h1>"
  note_font_size 30
  selected true
- xpos 71274
- ypos -1638
+ xpos 10664
+ ypos -13422
 }
 Dot {
  name Dot276
  note_font_size 22
  selected true
- xpos 71274
- ypos -1350
+ xpos 10664
+ ypos -13134
 }
 Dot {
  name Dot277
  label "  <h1>C_Extra_Material</h1>"
  note_font_size 30
  selected true
- xpos 71274
- ypos 2778
+ xpos 10664
+ ypos -9006
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression42
  selected true
- xpos 71240
- ypos 6518
+ xpos 10630
+ ypos -5265
 }
 Dot {
  name Dot278
  selected true
- xpos 71274
- ypos 6762
+ xpos 10664
+ ypos -5022
 }
-push $N16156a50
+push $N7790b800
 Dot {
  name Dot279
  label "  <h1>glossytransmission</h1>"
  note_font_size 30
  selected true
- xpos 72264
- ypos -1614
+ xpos 11654
+ ypos -13398
 }
 Dot {
  name Dot280
  label "  <h1>glossytransmission</h1>"
  note_font_size 30
  selected true
- xpos 72264
- ypos 2754
+ xpos 11654
+ ypos -9030
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression3
  selected true
- xpos 72230
- ypos 5510
+ xpos 11620
+ ypos -6273
 }
 Dot {
  name Dot281
  selected true
- xpos 72264
- ypos 5754
+ xpos 11654
+ ypos -6030
 }
-push $N15c64bc0
+push $N7790a800
 add_layer {albedo albedo.red albedo.green albedo.blue}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1173,93 +1158,93 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 73440
- ypos -4211
+ xpos 12830
+ ypos -15994
 }
 Dot {
  name Dot282
  label "  <h1>albedo</h1>"
  note_font_size 30
  selected true
- xpos 73474
- ypos -1614
+ xpos 12864
+ ypos -13398
 }
 Grade {
  add 0.0001
  black_clamp false
  name Grade13
  selected true
- xpos 73440
- ypos -1330
+ xpos 12830
+ ypos -13113
 }
-set N1636c7b0 [stack 0]
-push $N161648a0
+set N76529400 [stack 0]
+push $N764a4000
 Dot {
  name Dot283
  label "  <h1>combinedvolume</h1>"
  note_font_size 30
  selected true
- xpos 72814
- ypos -1614
+ xpos 12204
+ ypos -13398
 }
 Dot {
  name Dot284
  selected true
- xpos 72814
- ypos -1014
+ xpos 12204
+ ypos -12798
 }
-push $N1636c7b0
+push $N76529400
 Dot {
  name Dot285
  selected true
- xpos 73034
- ypos -1326
+ xpos 12424
+ ypos -13110
 }
 Merge2 {
  inputs 2
  operation divide
  name Merge21
  selected true
- xpos 73000
- ypos -1018
+ xpos 12390
+ ypos -12801
 }
 Dot {
  name Dot286
  selected true
- xpos 73034
- ypos 1698
+ xpos 12424
+ ypos -10086
 }
 Merge2 {
  inputs 2
  operation multiply
  name Merge22
  selected true
- xpos 73440
- ypos 1694
+ xpos 12830
+ ypos -10089
 }
 Dot {
  name Dot287
  label "  <h1>combinedvolume</h1>"
  note_font_size 30
  selected true
- xpos 73474
- ypos 2778
+ xpos 12864
+ ypos -9006
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression4
  selected true
- xpos 73440
- ypos 4958
+ xpos 12830
+ ypos -6825
 }
 Dot {
  name Dot288
  selected true
- xpos 73474
- ypos 5202
+ xpos 12864
+ ypos -6582
 }
-push $N15c5ac40
+push $N7790a000
 Shuffle2 {
  fromInput1 {{0} B}
  in1 albedo
@@ -1269,93 +1254,93 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 74650
- ypos -4211
+ xpos 14040
+ ypos -15994
 }
 Dot {
  name Dot289
  label "  <h1>albedo</h1>"
  note_font_size 30
  selected true
- xpos 74684
- ypos -1614
+ xpos 14074
+ ypos -13398
 }
 Grade {
  add 0.0001
  black_clamp false
  name Grade14
  selected true
- xpos 74650
- ypos -1330
+ xpos 14040
+ ypos -13113
 }
-set N163d8030 [stack 0]
-push $N16172750
+set N76580400 [stack 0]
+push $N764a4800
 Dot {
  name Dot290
  label "  <h1>combinedglossyreflection</h1>"
  note_font_size 30
  selected true
- xpos 74024
- ypos -1614
+ xpos 13414
+ ypos -13398
 }
 Dot {
  name Dot291
  selected true
- xpos 74024
- ypos -1014
+ xpos 13414
+ ypos -12798
 }
-push $N163d8030
+push $N76580400
 Dot {
  name Dot292
  selected true
- xpos 74244
- ypos -1326
+ xpos 13634
+ ypos -13110
 }
 Merge2 {
  inputs 2
  operation divide
  name Merge23
  selected true
- xpos 74210
- ypos -1018
+ xpos 13600
+ ypos -12801
 }
 Dot {
  name Dot293
  selected true
- xpos 74244
- ypos 1698
+ xpos 13634
+ ypos -10086
 }
 Merge2 {
  inputs 2
  operation multiply
  name Merge24
  selected true
- xpos 74650
- ypos 1694
+ xpos 14040
+ ypos -10089
 }
 Dot {
  name Dot294
  label "  <h1>combinedglossyreflection</h1>"
  note_font_size 30
  selected true
- xpos 74684
- ypos 2778
+ xpos 14074
+ ypos -9006
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression5
  selected true
- xpos 74650
- ypos 4382
+ xpos 14040
+ ypos -7401
 }
 Dot {
  name Dot295
  selected true
- xpos 74684
- ypos 4626
+ xpos 14074
+ ypos -7158
 }
-push $N15c50cc0
+push $N778ef800
 Shuffle2 {
  fromInput1 {{0} B}
  in1 albedo
@@ -1365,93 +1350,93 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 75970
- ypos -4211
+ xpos 15360
+ ypos -15994
 }
 Dot {
  name Dot296
  label "  <h1>albedo</h1>"
  note_font_size 30
  selected true
- xpos 76004
- ypos -1614
+ xpos 15394
+ ypos -13398
 }
 Grade {
  add 0.0001
  black_clamp false
  name Grade58
  selected true
- xpos 75970
- ypos -1330
+ xpos 15360
+ ypos -13113
 }
-set N164442c0 [stack 0]
-push $N16280710
+set N765ad400 [stack 0]
+push $N764a5000
 Dot {
  name Dot297
  label "  <h1>combinedemission</h1>"
  note_font_size 30
  selected true
- xpos 75344
- ypos -1614
+ xpos 14734
+ ypos -13398
 }
 Dot {
  name Dot298
  selected true
- xpos 75344
- ypos -1014
+ xpos 14734
+ ypos -12798
 }
-push $N164442c0
+push $N765ad400
 Dot {
  name Dot299
  selected true
- xpos 75564
- ypos -1326
+ xpos 14954
+ ypos -13110
 }
 Merge2 {
  inputs 2
  operation divide
  name Merge26
  selected true
- xpos 75530
- ypos -1018
+ xpos 14920
+ ypos -12801
 }
 Dot {
  name Dot300
  selected true
- xpos 75564
- ypos 1698
+ xpos 14954
+ ypos -10086
 }
 Merge2 {
  inputs 2
  operation multiply
  name Merge27
  selected true
- xpos 75970
- ypos 1694
+ xpos 15360
+ ypos -10089
 }
 Dot {
  name Dot301
  label "  <h1>combinedemission</h1>"
  note_font_size 30
  selected true
- xpos 76004
- ypos 2778
+ xpos 15394
+ ypos -9006
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression6
  selected true
- xpos 75970
- ypos 3854
+ xpos 15360
+ ypos -7929
 }
 Dot {
  name Dot316
  selected true
- xpos 76004
- ypos 4098
+ xpos 15394
+ ypos -7686
 }
-push $N1604bb70
+push $N778ef000
 Shuffle2 {
  fromInput1 {{0} B}
  in1 albedo
@@ -1461,186 +1446,186 @@ Shuffle2 {
  label "<b>\[value in1]"
  note_font_size 25
  selected true
- xpos 77180
- ypos -4211
+ xpos 16570
+ ypos -15994
 }
 Dot {
  name Dot317
  label "  <h1>albedo</h1>"
  note_font_size 30
  selected true
- xpos 77214
- ypos -1614
+ xpos 16604
+ ypos -13398
 }
 Grade {
  add 0.0001
  black_clamp false
  name Grade59
  selected true
- xpos 77180
- ypos -1330
+ xpos 16570
+ ypos -13113
 }
-set N164b0530 [stack 0]
-push $N1628ea90
+set N76600400 [stack 0]
+push $N764a5800
 Dot {
  name Dot318
  label "  <h1>combineddiffuse</h1>"
  note_font_size 30
  selected true
- xpos 76554
- ypos -1614
+ xpos 15944
+ ypos -13398
 }
 Dot {
  name Dot319
  selected true
- xpos 76554
- ypos -990
+ xpos 15944
+ ypos -12774
 }
-push $N164b0530
+push $N76600400
 Dot {
  name Dot320
  selected true
- xpos 76774
- ypos -1326
+ xpos 16164
+ ypos -13110
 }
 Merge2 {
  inputs 2
  operation divide
  name Merge117
  selected true
- xpos 76740
- ypos -994
+ xpos 16130
+ ypos -12777
 }
 Dot {
  name Dot321
  selected true
- xpos 76774
- ypos 1746
+ xpos 16164
+ ypos -10038
 }
 Merge2 {
  inputs 2
  operation multiply
  name Merge118
  selected true
- xpos 77180
- ypos 1742
+ xpos 16570
+ ypos -10041
 }
 Dot {
  name Dot322
  label "  <h1>combineddiffuse</h1>"
  note_font_size 30
  selected true
- xpos 77214
- ypos 2778
+ xpos 16604
+ ypos -9006
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression24
  selected true
- xpos 77180
- ypos 3374
+ xpos 16570
+ ypos -8409
 }
 Dot {
  name Dot323
  selected true
- xpos 77214
- ypos 3618
+ xpos 16604
+ ypos -8166
 }
-push $N1629bbe0
+push $N764c6000
 Dot {
  name Dot326
  selected true
- xpos 78204
- ypos -2454
+ xpos 17594
+ ypos -14238
 }
 Dot {
  name Dot327
  note_font_size 22
  selected true
- xpos 78204
- ypos 2898
+ xpos 17594
+ ypos -8886
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge119
  selected true
- xpos 78170
- ypos 3614
+ xpos 17560
+ ypos -8169
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge120
  selected true
- xpos 78170
- ypos 4094
+ xpos 17560
+ ypos -7689
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge121
  selected true
- xpos 78170
- ypos 4622
+ xpos 17560
+ ypos -7161
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge122
  selected true
- xpos 78170
- ypos 5198
+ xpos 17560
+ ypos -6585
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge123
  selected true
- xpos 78170
- ypos 5750
+ xpos 17560
+ ypos -6033
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge124
  selected true
- xpos 78170
- ypos 6734
+ xpos 17560
+ ypos -5049
 }
 Dot {
  name Dot328
  selected true
- xpos 78204
- ypos 8010
+ xpos 17594
+ ypos -3774
 }
-push $N160419e0
+push $N778ee800
 Shuffle2 {
  fromInput1 {{0} B}
  fromInput2 {{0} B}
  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
  name Beauty_2
  selected true
- xpos 81140
- ypos -4234
+ xpos 20530
+ ypos -16017
 }
 Remove {
  operation keep
  channels rgba
  name Keep_RBGA2
  selected true
- xpos 81140
- ypos -4114
+ xpos 20530
+ ypos -15897
 }
 Dot {
  name Dot329
  note_font_size 22
  selected true
- xpos 81174
- ypos 7530
+ xpos 20564
+ ypos -4254
 }
-push $N15cdcd40
+push $N778ee000
 add_layer {C_Nautilus_underTail_Light_Group C_Nautilus_underTail_Light_Group.red C_Nautilus_underTail_Light_Group.green C_Nautilus_underTail_Light_Group.blue C_Nautilus_underTail_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1651,17 +1636,17 @@ Shuffle2 {
  label <b>C_Nautilus_underTail_Light_Group
  note_font_size 25
  selected true
- xpos 84880
- ypos -4427
+ xpos 24270
+ ypos -16210
 }
 Dot {
  name Dot330
  selected true
- xpos 84914
- ypos -1494
+ xpos 24304
+ ypos -13278
 }
-set N165a2380 [stack 0]
-push $N15cb99d0
+set N76690000 [stack 0]
+push $N778d7c00
 add_layer {C_RuinsOverhead_Light_Group C_RuinsOverhead_Light_Group.red C_RuinsOverhead_Light_Group.green C_RuinsOverhead_Light_Group.blue C_RuinsOverhead_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1672,17 +1657,17 @@ Shuffle2 {
  label <b>C_RuinsOverhead_Light_Group
  note_font_size 25
  selected true
- xpos 85870
- ypos -4427
+ xpos 25260
+ ypos -16210
 }
 Dot {
  name Dot331
  selected true
- xpos 85904
- ypos -1686
+ xpos 25294
+ ypos -13470
 }
-set N165b09c0 [stack 0]
-push $N15e98490
+set N76690800 [stack 0]
+push $N778d7800
 add_layer {C_Nautilus_Fill_Light C_Nautilus_Fill_Light.red C_Nautilus_Fill_Light.green C_Nautilus_Fill_Light.blue C_Nautilus_Fill_Light.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1693,17 +1678,17 @@ Shuffle2 {
  label <b>C_Nautilus_Fill_Light
  note_font_size 25
  selected true
- xpos 86860
- ypos -4427
+ xpos 26250
+ ypos -16210
 }
 Dot {
  name Dot332
  selected true
- xpos 86894
- ypos -1902
+ xpos 26284
+ ypos -13686
 }
-set N165bf120 [stack 0]
-push $N15cd9f30
+set N76691000 [stack 0]
+push $N778d7400
 add_layer {C_CraneMoon_Light_001_Group C_CraneMoon_Light_001_Group.red C_CraneMoon_Light_001_Group.green C_CraneMoon_Light_001_Group.blue C_CraneMoon_Light_001_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1714,17 +1699,17 @@ Shuffle2 {
  label <b>C_CraneMoon_Light_001_Group
  note_font_size 25
  selected true
- xpos 87960
- ypos -4427
+ xpos 27350
+ ypos -16210
 }
 Dot {
  name Dot333
  selected true
- xpos 87994
- ypos -2094
+ xpos 27384
+ ypos -13878
 }
-set N165cd6a0 [stack 0]
-push $Nd971900
+set N76691800 [stack 0]
+push $N778d7000
 add_layer {C_Nautilus_underArc_Light_Group C_Nautilus_underArc_Light_Group.red C_Nautilus_underArc_Light_Group.green C_Nautilus_underArc_Light_Group.blue C_Nautilus_underArc_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1735,17 +1720,17 @@ Shuffle2 {
  label <b>C_Nautilus_underArc_Light_Group
  note_font_size 25
  selected true
- xpos 88950
- ypos -4427
+ xpos 28340
+ ypos -16210
 }
 Dot {
  name Dot334
  selected true
- xpos 88984
- ypos -2286
+ xpos 28374
+ ypos -14070
 }
-set N165dbfc0 [stack 0]
-push $N15e9d070
+set N766b2000 [stack 0]
+push $N778d6c00
 add_layer {C_Furnace_Light_Group C_Furnace_Light_Group.red C_Furnace_Light_Group.green C_Furnace_Light_Group.blue C_Furnace_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1756,17 +1741,17 @@ Shuffle2 {
  label <b>C_Furnace_Light_Group
  note_font_size 25
  selected true
- xpos 89940
- ypos -4427
+ xpos 29330
+ ypos -16210
 }
 Dot {
  name Dot335
  selected true
- xpos 89974
- ypos -2502
+ xpos 29364
+ ypos -14286
 }
-set N165ea4c0 [stack 0]
-push $N1354fad0
+set N766b2800 [stack 0]
+push $N778d6800
 add_layer {C_Dock_Light_Group C_Dock_Light_Group.red C_Dock_Light_Group.green C_Dock_Light_Group.blue C_Dock_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1777,17 +1762,17 @@ Shuffle2 {
  label <b>C_Dock_Light_Group
  note_font_size 25
  selected true
- xpos 90930
- ypos -4427
+ xpos 30320
+ ypos -16210
 }
 Dot {
  name Dot336
  selected true
- xpos 90964
- ypos -2694
+ xpos 30354
+ ypos -14478
 }
-set N165f8ae0 [stack 0]
-push $Nc17df40
+set N766b3000 [stack 0]
+push $N778d6400
 add_layer {C_Main_Overhead C_Main_Overhead.red C_Main_Overhead.green C_Main_Overhead.blue C_Main_Overhead.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1798,17 +1783,17 @@ Shuffle2 {
  label <b>C_Main_Overhead
  note_font_size 25
  selected true
- xpos 91920
- ypos -4427
+ xpos 31310
+ ypos -16210
 }
 Dot {
  name Dot337
  selected true
- xpos 91954
- ypos -2886
+ xpos 31344
+ ypos -14670
 }
-set N166070f0 [stack 0]
-push $N13495750
+set N766b3800 [stack 0]
+push $N778d6000
 add_layer {C_NautilusBlue_Light_Group C_NautilusBlue_Light_Group.red C_NautilusBlue_Light_Group.green C_NautilusBlue_Light_Group.blue C_NautilusBlue_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1819,17 +1804,17 @@ Shuffle2 {
  label <b>C_NautilusBlue_Light_Group
  note_font_size 25
  selected true
- xpos 92910
- ypos -4427
+ xpos 32300
+ ypos -16210
 }
 Dot {
  name Dot338
  selected true
- xpos 92944
- ypos -3102
+ xpos 32334
+ ypos -14886
 }
-set N16615630 [stack 0]
-push $N15fee840
+set N766d4000 [stack 0]
+push $N778bdc00
 add_layer {C_DockBuilding_Light_Group C_DockBuilding_Light_Group.red C_DockBuilding_Light_Group.green C_DockBuilding_Light_Group.blue C_DockBuilding_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1840,17 +1825,17 @@ Shuffle2 {
  label <b>C_DockBuilding_Light_Group
  note_font_size 25
  selected true
- xpos 93900
- ypos -4427
+ xpos 33290
+ ypos -16210
 }
 Dot {
  name Dot339
  selected true
- xpos 93934
- ypos -3294
+ xpos 33324
+ ypos -15078
 }
-set N16623cc0 [stack 0]
-push $N15cc45f0
+set N766d4800 [stack 0]
+push $N778bd800
 add_layer {C_Ruins_Light_Group C_Ruins_Light_Group.red C_Ruins_Light_Group.green C_Ruins_Light_Group.blue C_Ruins_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1861,17 +1846,17 @@ Shuffle2 {
  label <b>C_Ruins_Light_Group
  note_font_size 25
  selected true
- xpos 94890
- ypos -4427
+ xpos 34280
+ ypos -16210
 }
 Dot {
  name Dot340
  selected true
- xpos 94924
- ypos -3486
+ xpos 34314
+ ypos -15270
 }
-set N16632470 [stack 0]
-push $N15cf6070
+set N766d5000 [stack 0]
+push $N778bd400
 add_layer {C_dryDock_Light_Group C_dryDock_Light_Group.red C_dryDock_Light_Group.green C_dryDock_Light_Group.blue C_dryDock_Light_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1882,17 +1867,17 @@ Shuffle2 {
  label <b>C_dryDock_Light_Group
  note_font_size 25
  selected true
- xpos 95880
- ypos -4427
+ xpos 35270
+ ypos -16210
 }
 Dot {
  name Dot341
  selected true
- xpos 95914
- ypos -3702
+ xpos 35304
+ ypos -15486
 }
-set N16640ad0 [stack 0]
-push $N15e6ae00
+set N766d5800 [stack 0]
+push $N778bd000
 add_layer {C_fillLight_Group C_fillLight_Group.red C_fillLight_Group.green C_fillLight_Group.blue C_fillLight_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1903,17 +1888,17 @@ Shuffle2 {
  label <b>C_fillLight_Group
  note_font_size 25
  selected true
- xpos 96870
- ypos -4427
+ xpos 36260
+ ypos -16210
 }
 Dot {
  name Dot342
  selected true
- xpos 96904
- ypos -3894
+ xpos 36294
+ ypos -15678
 }
-set N1664f0f0 [stack 0]
-push $N15c75ad0
+set N766f8000 [stack 0]
+push $N778bcc00
 add_layer {C_MainCavern_HoleLight_Group C_MainCavern_HoleLight_Group.red C_MainCavern_HoleLight_Group.green C_MainCavern_HoleLight_Group.blue C_MainCavern_HoleLight_Group.alpha}
 Shuffle2 {
  fromInput1 {{0} B}
@@ -1924,128 +1909,128 @@ Shuffle2 {
  label <b>C_MainCavern_HoleLight_Group
  note_font_size 25
  selected true
- xpos 97860
- ypos -4427
+ xpos 37250
+ ypos -16210
 }
 Dot {
  name Dot343
  selected true
- xpos 97894
- ypos -4086
+ xpos 37284
+ ypos -15870
 }
-set N16660cf0 [stack 0]
-push $N16071770
+set N766f8800 [stack 0]
+push $N778ee400
 Merge2 {
  inputs 2
  operation from
  name Merge125
  selected true
- xpos 83890
- ypos -4090
+ xpos 23280
+ ypos -15873
 }
 Merge2 {
  inputs 2
  operation from
  name Merge126
  selected true
- xpos 83890
- ypos -3898
+ xpos 23280
+ ypos -15681
 }
 Merge2 {
  inputs 2
  operation from
  name Merge127
  selected true
- xpos 83890
- ypos -3706
+ xpos 23280
+ ypos -15489
 }
 Merge2 {
  inputs 2
  operation from
  name Merge128
  selected true
- xpos 83890
- ypos -3490
+ xpos 23280
+ ypos -15273
 }
 Merge2 {
  inputs 2
  operation from
  name Merge129
  selected true
- xpos 83890
- ypos -3298
+ xpos 23280
+ ypos -15081
 }
 Merge2 {
  inputs 2
  operation from
  name Merge130
  selected true
- xpos 83890
- ypos -3106
+ xpos 23280
+ ypos -14889
 }
 Merge2 {
  inputs 2
  operation from
  name Merge131
  selected true
- xpos 83890
- ypos -2890
+ xpos 23280
+ ypos -14673
 }
 Merge2 {
  inputs 2
  operation from
  name Merge132
  selected true
- xpos 83890
- ypos -2698
+ xpos 23280
+ ypos -14481
 }
 Merge2 {
  inputs 2
  operation from
  name Merge133
  selected true
- xpos 83890
- ypos -2506
+ xpos 23280
+ ypos -14289
 }
 Merge2 {
  inputs 2
  operation from
  name Merge134
  selected true
- xpos 83890
- ypos -2290
+ xpos 23280
+ ypos -14073
 }
 Merge2 {
  inputs 2
  operation from
  name Merge135
  selected true
- xpos 83890
- ypos -2098
+ xpos 23280
+ ypos -13881
 }
 Merge2 {
  inputs 2
  operation from
  name Merge136
  selected true
- xpos 83890
- ypos -1906
+ xpos 23280
+ ypos -13689
 }
 Merge2 {
  inputs 2
  operation from
  name Merge137
  selected true
- xpos 83890
- ypos -1690
+ xpos 23280
+ ypos -13473
 }
 Merge2 {
  inputs 2
  operation from
  name Merge138
  selected true
- xpos 83890
- ypos -1498
+ xpos 23280
+ ypos -13281
 }
 add_layer {C_Extra_Light C_Extra_Light.red C_Extra_Light.green C_Extra_Light.blue C_Extra_Light.alpha}
 Shuffle2 {
@@ -2057,2388 +2042,783 @@ Shuffle2 {
  label "<b>\[value in1] -> \[value out1]"
  note_font_size 25
  selected true
- xpos 83890
- ypos -1355
+ xpos 23280
+ ypos -13138
 }
 Shuffle {
  in C_Extra_Light
  name Shuffle40
  label "\[value in]"
  selected true
- xpos 83890
- ypos -1264
+ xpos 23280
+ ypos -13047
 }
 Dot {
  name Dot344
  label "  <h1>C_Extra_Light</h1>"
  note_font_size 30
  selected true
- xpos 83924
- ypos -654
+ xpos 23314
+ ypos -12438
 }
 Dot {
  name Dot345
  label "  <h1>C_Extra_Light</h1>"
  note_font_size 30
  selected true
- xpos 83924
- ypos 3810
+ xpos 23314
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression7
  selected true
- xpos 83890
- ypos 3998
+ xpos 23280
+ ypos -7785
 }
 Dot {
  name Dot346
  selected true
- xpos 83924
- ypos 7050
+ xpos 23314
+ ypos -4734
 }
-push $N165a2380
+push $N76690000
 Dot {
  name Dot347
  label "  <h1>C_Nautilus_underTail_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 84914
- ypos -654
+ xpos 24304
+ ypos -12438
 }
 Unpremult {
  name Unpremult14
  selected true
- xpos 84880
- ypos -562
+ xpos 24270
+ ypos -12345
 }
 Premult {
  name Premult14
  selected true
- xpos 84880
- ypos 3686
+ xpos 24270
+ ypos -8097
 }
 Dot {
  name Dot348
  label "  <h1>C_Nautilus_underTail_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 84914
- ypos 3810
+ xpos 24304
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression8
  selected true
- xpos 84880
- ypos 3998
+ xpos 24270
+ ypos -7785
 }
 Dot {
  name Dot353
  selected true
- xpos 84914
- ypos 6834
+ xpos 24304
+ ypos -4950
 }
-push $N165b09c0
+push $N76690800
 Dot {
  name Dot354
  label "  <h1>C_RuinsOverhead_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 85904
- ypos -654
+ xpos 25294
+ ypos -12438
 }
 Unpremult {
  name Unpremult1
  selected true
- xpos 85870
- ypos -562
+ xpos 25260
+ ypos -12345
 }
 Premult {
  name Premult13
  selected true
- xpos 85870
- ypos 3686
+ xpos 25260
+ ypos -8097
 }
 Dot {
  name Dot355
  label "  <h1>C_RuinsOverhead_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 85904
- ypos 3810
+ xpos 25294
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression9
  selected true
- xpos 85870
- ypos 3998
+ xpos 25260
+ ypos -7785
 }
 Dot {
  name Dot356
  selected true
- xpos 85904
- ypos 6642
+ xpos 25294
+ ypos -5142
 }
-push $N165bf120
+push $N76691000
 Dot {
  name Dot357
  label "  <h1>C_Nautilus_Fill_Light</h1>"
  note_font_size 30
  selected true
- xpos 86894
- ypos -654
+ xpos 26284
+ ypos -12438
 }
 Unpremult {
  name Unpremult15
  selected true
- xpos 86860
- ypos -562
+ xpos 26250
+ ypos -12345
 }
 Premult {
  name Premult15
  selected true
- xpos 86860
- ypos 3686
+ xpos 26250
+ ypos -8097
 }
 Dot {
  name Dot358
  label "  <h1>C_Nautilus_Fill_Light</h1>"
  note_font_size 30
  selected true
- xpos 86894
- ypos 3810
+ xpos 26284
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression21
  selected true
- xpos 86860
- ypos 3998
+ xpos 26250
+ ypos -7785
 }
 Dot {
  name Dot359
  selected true
- xpos 86894
- ypos 6450
+ xpos 26284
+ ypos -5334
 }
-push $N165cd6a0
+push $N76691800
 Dot {
  name Dot360
  label "  <h1>C_CraneMoon_Light_001_Group</h1>"
  note_font_size 30
  selected true
- xpos 87994
- ypos -654
+ xpos 27384
+ ypos -12438
 }
 Unpremult {
  name Unpremult16
  selected true
- xpos 87960
- ypos -562
+ xpos 27350
+ ypos -12345
 }
 Premult {
  name Premult16
  selected true
- xpos 87960
- ypos 3686
+ xpos 27350
+ ypos -8097
 }
 Dot {
  name Dot361
  label "  <h1>C_CraneMoon_Light_001_Group</h1>"
  note_font_size 30
  selected true
- xpos 87994
- ypos 3810
+ xpos 27384
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression22
  selected true
- xpos 87960
- ypos 3998
+ xpos 27350
+ ypos -7785
 }
 Dot {
  name Dot362
  selected true
- xpos 87994
- ypos 6234
+ xpos 27384
+ ypos -5550
 }
-push $N165dbfc0
+push $N766b2000
 Dot {
  name Dot363
  label "  <h1>C_Nautilus_underArc_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 88984
- ypos -654
+ xpos 28374
+ ypos -12438
 }
 Unpremult {
  name Unpremult17
  selected true
- xpos 88950
- ypos -562
+ xpos 28340
+ ypos -12345
 }
 Premult {
  name Premult17
  selected true
- xpos 88950
- ypos 3686
+ xpos 28340
+ ypos -8097
 }
 Dot {
  name Dot364
  label "  <h1>C_Nautilus_underArc_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 88984
- ypos 3810
+ xpos 28374
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression23
  selected true
- xpos 88950
- ypos 3998
+ xpos 28340
+ ypos -7785
 }
 Dot {
  name Dot365
  selected true
- xpos 88984
- ypos 6042
+ xpos 28374
+ ypos -5742
 }
-push $N165ea4c0
+push $N766b2800
 Dot {
  name Dot366
  label "  <h1>C_Furnace_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 89974
- ypos -654
+ xpos 29364
+ ypos -12438
 }
 Unpremult {
  name Unpremult20
  selected true
- xpos 89940
- ypos -562
-}
-Dot {
- name Dot367
- selected true
- xpos 89974
- ypos 570
-}
-set N16878ce0 [stack 0]
-Dot {
- name Dot368
- note_font_size 22
- selected true
- xpos 90194
- ypos 570
-}
-add_layer {P P.x P.y P.z P.X P.Y P.Z P.red P.green P.blue P.alpha}
-Group {
- name aPMatte7
- help "aPMatte v2.0 by Adrian Pueyo\n\nCreates a matte of different shapes, based on a Position pass. Includes transformation and falloff controls, and the option to output or overlay a Position 4D noise.\n\nv2.0 has the code more optimized, new available shapes and modes, includes a 3D-space view of the matte and point cloud, and accepts an Axis or Camera input. Also, lets you preview the p-matte over an image input and merge the alpha with the incoming one.\n\nadrianpueyo.com, 2017-2019"
- onCreate "n = nuke.thisNode()\n\nfor k in \[\"radius\",\"card_scale\",\"noise_size\"]:\n    n\[k].setFlag(0x00000004)"
- knobChanged "n = nuke.thisNode()\nk = nuke.thisKnob()\nkn = k.name()\n\nif kn in \['xpos','ypos','selected']:\n    pass\nelif kn == \"shape\":\n    ramp_on = k.value() in \['linear ramp', 'radial ramp']\n    n\['radius'].setVisible(not ramp_on)\n    n.knobs()\[\"black\"].setVisible(ramp_on)\n    n\[\"axis\"].setVisible(k.value()==\"plane\")\n    n\[\"card_scale\"].setVisible(k.getValue() in \[3,5] and n\[\"preview_in_3d\"].value())\n    picker = n.knobs()\[\"picker\"]\n    if ramp_on:\n        picker.setLabel(\"white\")\n    elif k.value() == \"plane\":\n        picker.setLabel(\"pivot\")\n    else:\n        picker.setLabel(\"center\")\n\n    # Connect Scene\n    sc = nuke.toNode(\"SceneGeo\")\n    kv = k.getValue()\n    if kv in \[0,1,2]:\n        sc.setInput(1,nuke.toNode(\"DotSphereCube\"))\n    elif kv in \[3,5]:\n        sc.setInput(1,nuke.toNode(\"DotPlanes\"))\n    else:\n        sc.setInput(1,nuke.toNode(\"DotRadialRamp\"))\n\nelif kn == \"use_axis\":\n    ianame = \"Inputaxis\"\n    if k.value():\n        a = nuke.toNode(\"AxisInput\")\n        if not nuke.exists(ianame):\n            ia = nuke.nodes.Input(name=ianame)\n            ia.setXYpos(a.xpos()-10,a.ypos()-60)\n            a.setInput(0,ia)\n    else:\n        if nuke.exists(ianame):\n            n.setInput(3,None)\n            ia = nuke.toNode(ianame)\n            nuke.delete(ia)\n\nelif kn == \"preview_in_3d\":\n    kv = k.value()\n    n.knobs()\[\"point_detail\"].setVisible(kv)\n    n.knobs()\[\"point_size\"].setVisible(kv)\n    n\[\"card_scale\"].setVisible(n\[\"shape\"].getValue() in \[3,5] and k.value())\n    nuke.toNode(\"RenderPC\").setInput(1,nuke.toNode(\"SceneGeo\") if kv else None)\nelif kn == \"noise\":\n    noise_on = k.value() != 'off'\n    for t in \['noise_rel','noise_persistance','noise_octaves','noise_lacunarity','noise_size','noise_offset','noise_add','noise_gain','noise_gamma','noise_mix']:\n        n\[t].setVisible(noise_on)\np_input = n.input(1) is not None\nn\[\"img_in\"].setEnabled(not p_input)\nn\[\"img_txt\"].setEnabled(not p_input)\nn.knobs()\[\"p_in\"].setEnabled(p_input)\nn.knobs()\[\"p_txt\"].setEnabled(p_input)\n"
- tile_color 0x898989ff
- selected true
- xpos 90160
- ypos 782
- addUserKnob {20 aPMatte}
- addUserKnob {26 position_from l "" +STARTLINE T " Position from:"}
- addUserKnob {26 img_txt l img T " "}
- addUserKnob {41 img_in l "" -STARTLINE T ShuffleInImg.in}
- addUserKnob {26 p_txt l "P (optional)" +DISABLED T " "}
- addUserKnob {41 p_in l "" -STARTLINE +DISABLED T ShuffleIn.in}
- addUserKnob {6 premultiplied +STARTLINE}
- premultiplied true
- addUserKnob {6 alpha_masking l "alpha masking" t "Multiply the output by the input's alpha." -STARTLINE}
- addUserKnob {26 text l "" +STARTLINE}
- addUserKnob {4 outChannels l output M {alpha rgba ""}}
- addUserKnob {6 mergeAlpha l "merge with input alpha" -STARTLINE}
- addUserKnob {41 Channeloperation l "" -STARTLINE T ChannelMerge1.operation}
- addUserKnob {6 preview l "preview over image" +STARTLINE}
- preview true
- addUserKnob {26 ""}
- addUserKnob {4 shape M {sphere "cusped box" "rounded box" "linear ramp" "radial ramp" plane}}
- addUserKnob {4 axis l "" -STARTLINE +HIDDEN M {X Y Z "" "" "" ""}}
- axis Y
- addUserKnob {6 mirrored -STARTLINE}
- addUserKnob {6 invert -STARTLINE}
- addUserKnob {41 picker l center T BlinkScriptPMatte.picker}
- addUserKnob {6 use_axis l "use axis" -STARTLINE}
- addUserKnob {7 radius R 0.1 1000}
- radius 58
- addUserKnob {41 black t "Black point of your ramp." +HIDDEN T BlinkScriptPMatte.black_point}
- addUserKnob {26 ""}
- addUserKnob {6 preview_in_3d l "preview in 3d space" t "Recreates a 3D-space preview of the point cloud and the P-matte. After activating this, simply press the Tab key on the active viewer to change to 3D space." +STARTLINE}
- addUserKnob {41 point_detail l "point detail" +HIDDEN T PositionToPointsPC.detail}
- addUserKnob {41 point_size l "point size" +HIDDEN T PositionToPointsPC.pointSize}
- addUserKnob {7 card_scale l "card scale" +HIDDEN R 0 100}
- card_scale 100
- addUserKnob {26 ""}
- addUserKnob {4 falloff t "Fallof type for the matte." M {linear smooth quadratic cubic "inv. cubic" "" ""}}
- falloff cubic
- addUserKnob {7 hardness}
- hardness 0.29
- addUserKnob {7 mix}
- mix 1
- addUserKnob {26 ""}
- addUserKnob {41 xform_order l "transform order" T Axis.xform_order}
- addUserKnob {41 rot_order l "rotation order" T Axis.rot_order}
- addUserKnob {41 translate T Axis.translate}
- addUserKnob {41 rotate T Axis.rotate}
- addUserKnob {41 scaling l scale T Axis.scaling}
- addUserKnob {41 uniform_scale l "uniform scale" T Axis.uniform_scale}
- addUserKnob {41 skew T Axis.skew}
- addUserKnob {41 pivot +INVISIBLE T Axis.pivot}
- addUserKnob {22 reset_transformations l "  reset transformations  " T "a = nuke.toNode(\"Axis\")\na.readKnobs(\"xform_order SRT rot_order ZXY translate \{0 0 0\} rotate \{0 0 0\} scaling \{1 1 1\} uniform_scale 1 skew \{0 0 0\} pivot \{0 0 0\} useMatrix false\")" +STARTLINE}
- addUserKnob {26 ""}
- addUserKnob {4 noise t "overlay: uses the noise in overlay blend mode over the resulting mask, to make it more organic and less obvious for grading.\nnoise only: ignore the mask, output a 4D noise." M {off overlay "noise only" ""}}
- addUserKnob {6 noise_rel l relative t "On: Pick world transformations and positioning of the shape.\nOff: Pick absolute world transformations.\n\nTip: Check when you want the mask to always be affected by the same noise, uncheck when you want to lock the noise to your scene." -STARTLINE +HIDDEN}
- noise_rel true
- addUserKnob {7 noise_size l size t "Size of the noise pattern." +HIDDEN R 0 100}
- noise_size 10
- addUserKnob {7 noise_offset l offset t "Spatial offset of the noise pattern (use to find a sweet spot for your matte)." +HIDDEN R 0 100}
- addUserKnob {3 noise_octaves l octaves t "Number of noise iterations." +HIDDEN}
- noise_octaves 8
- addUserKnob {7 noise_lacunarity l lacunarity t "Each octave gets downscaled by this value." +HIDDEN R 0 10}
- noise_lacunarity 1.8
- addUserKnob {7 noise_persistance l persistance t "Each octave gets multiplied by this value." +HIDDEN}
- noise_persistance 0.5
- addUserKnob {7 noise_add l add t "Add a value to the noise." +HIDDEN}
- noise_add 0.5
- addUserKnob {7 noise_gain l gain t "Multiply the resulting noise by this value." +HIDDEN R 0 4}
- noise_gain 1
- addUserKnob {7 noise_gamma l gamma t "Gamma the resulting value." +HIDDEN R 0 4}
- noise_gamma 0.3
- addUserKnob {7 noise_mix l mix +HIDDEN}
- noise_mix 1
- addUserKnob {26 version_author l " " t "aPMatte v2.0\n24 Sep 2019" T "<span style=\"color:#666\"><b>aPMatte v2.0</b> - <a href=\"http://www.adrianpueyo.com\" style=\"color:#666;text-decoration: none;\">adrianpueyo.com</a>, 2015-2019</span>"}
- addUserKnob {6 BlinkScriptPMatte_black_point_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
-}
- Axis2 {
-  inputs 0
-  display off
-  selectable false
-  translate {{parent.BlinkScriptPMatte.aPMatteKernel_picked} {parent.BlinkScriptPMatte.aPMatteKernel_picked} {parent.BlinkScriptPMatte.aPMatteKernel_picked}}
-  name AxisPicked
-  xpos 211
-  ypos 364
- }
- Axis2 {
-  display off
-  selectable false
-  useMatrix true
-  matrix {
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-    }
-  name AxisInputCopy1
-  xpos 211
-  ypos 430
- }
- Axis2 {
-  name Axis
-  xpos 211
-  ypos 496
- }
- Dot {
-  name Dot18
-  note_font_size 41
-  xpos 235
-  ypos 635
- }
-set N168d86c0 [stack 0]
- Axis2 {
-  display off
-  selectable false
-  uniform_scale {{sqrt(pow2(BlinkScriptPMatte.aPMatteKernel_picked.x-BlinkScriptPMatte.aPMatteKernel_pickedB.x)+pow2(BlinkScriptPMatte.aPMatteKernel_picked.y-BlinkScriptPMatte.aPMatteKernel_pickedB.y)+pow2(BlinkScriptPMatte.aPMatteKernel_picked.z-BlinkScriptPMatte.aPMatteKernel_pickedB.z))}}
-  name Axis2
-  xpos 211
-  ypos 870
- }
- Card2 {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  image_aspect false
-  rows 1
-  columns 1
-  uniform_scale {{parent.card_scale}}
-  control_points {3 3 3 6 
-
-1 {-0.5 -0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0 0 0} 
-1 {0 -0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0.5 0 0} 
-1 {0.5 -0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {1 0 0} 
-1 {-0.5 0 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0 0.5 0} 
-1 {0 0 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0.5 0.5 0} 
-1 {0.5 0 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {1 0.5 0} 
-1 {-0.5 0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0 1 0} 
-1 {0 0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0.5 1 0} 
-1 {0.5 0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {1 1 0} }
-  name Card2
-  xpos 617
-  ypos 438
- }
- Dot {
-  name Dot29
-  note_font_size 41
-  xpos 651
-  ypos 484
- }
-set N169288c0 [stack 0]
- Dot {
-  name Dot30
-  note_font_size 41
-  xpos 651
-  ypos 537
- }
- Sphere {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  rows 6
-  columns 6
-  name Sphere2
-  xpos 709
-  ypos 438
- }
- Dot {
-  name Dot31
-  note_font_size 41
-  xpos 743
-  ypos 563
- }
-push $N169288c0
- Cube {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  rows 1
-  columns 1
-  cube {-1 -1 -1 1 1 1}
-  name Cube1
-  xpos 523
-  ypos 438
- }
-set N1694c690 [stack 0]
- Dot {
-  name Dot20
-  note_font_size 41
-  xpos 591
-  ypos 484
- }
-push $N1694c690
- Sphere {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  rows 6
-  columns 6
-  name Sphere1
-  xpos 433
-  ypos 438
- }
- Dot {
-  name Dot21
-  note_font_size 41
-  xpos 467
-  ypos 499
- }
- Switch {
-  inputs 6
-  which {{parent.shape}}
-  name SwitchShapeGeo
-  xpos 523
-  ypos 559
- }
- Dot {
-  name Dot25
-  note_font_size 41
-  xpos 557
-  ypos 756
- }
-set N16982550 [stack 0]
- Dot {
-  name Dot28
-  note_font_size 41
-  xpos 331
-  ypos 756
- }
- TransformGeo {
-  inputs 2
-  selectable false
-  name TransformGeoRadius1
-  xpos 297
-  ypos 890
- }
- Dot {
-  name DotRadialRamp
-  label "\[value name]"
-  note_font_size 12
-  xpos 331
-  ypos 922
- }
-push $N168d86c0
- Dot {
-  name Dot26
-  note_font_size 41
-  xpos 466
-  ypos 635
- }
-set N169a3bb0 [stack 0]
- Axis2 {
-  display off
-  selectable false
-  uniform_scale {{parent.BlinkScriptPMatte.aPMatteKernel_radius}}
-  name Axis1
-  xpos 442
-  ypos 868
- }
-push $N16982550
- TransformGeo {
-  inputs 2
-  selectable false
-  name TransformGeoAxis1
-  xpos 523
-  ypos 888
- }
- Dot {
-  name DotSphereCube
-  label "\[value name]"
-  note_font_size 12
-  xpos 557
-  ypos 967
- }
- Input {
-  inputs 0
-  name Inputimg
-  xpos -528
-  ypos 176
- }
- Dot {
-  name Dot1
-  note_font_size 41
-  xpos -494
-  ypos 257
- }
-set N169d90d0 [stack 0]
- Dot {
-  name Dot5
-  note_font_size 41
-  xpos -350
-  ypos 257
- }
-set N169ddfe0 [stack 0]
- Dot {
-  name Dot4
-  note_font_size 41
-  xpos -240
-  ypos 257
- }
-set N169e2f10 [stack 0]
- Dot {
-  name Dot6
-  note_font_size 41
-  xpos -157
-  ypos 257
- }
-set N169e7e40 [stack 0]
- Input {
-  inputs 0
-  name InputP
-  xpos -73
-  ypos 178
-  number 1
- }
-set N169ecd70 [stack 0]
- Dot {
-  name Dot7
-  note_font_size 41
-  xpos 100
-  ypos 182
- }
- Switch {
-  inputs 2
-  which {{"\[exists parent.input0]"}}
-  name SwitchAlpha
-  label "\[value which]"
-  xpos 66
-  ypos 247
- }
- Dot {
-  name Dot8
-  xpos 100
-  ypos 356
- }
-push $N169e7e40
- Shuffle {
-  in P
-  in2 rgba
-  alpha alpha2
-  name ShuffleInImg
-  xpos -191
-  ypos 296
- }
-push $N169ecd70
- Shuffle {
-  in2 rgba
-  alpha alpha2
-  name ShuffleIn
-  xpos -73
-  ypos 225
- }
- Switch {
-  inputs 2
-  which {{"!\[exists parent.input1]"}}
-  name Switch1
-  label "\[value which]"
-  xpos -73
-  ypos 290
- }
- Copy {
-  inputs 2
-  from0 rgba.alpha
-  to0 rgba.alpha
-  name Copy2
-  xpos -73
-  ypos 346
-  disable {{!parent.alpha_masking}}
- }
- Unpremult {
-  name UnpremultP
-  xpos -73
-  ypos 384
-  disable {{!parent.premultiplied}}
- }
- Dot {
-  name Dot15
-  note_font_size 41
-  xpos -39
-  ypos 440
- }
-set N16a43ae0 [stack 0]
- Dot {
-  name Dot16
-  note_font_size 41
-  xpos -132
-  ypos 440
- }
- Blur {
-  channels rgba
-  name Blur1
-  xpos -166
-  ypos 827
- }
- Input {
-  inputs 0
-  name Inputmask
-  xpos -679
-  ypos 579
-  number 2
- }
- Dot {
-  name Dot14
-  note_font_size 41
-  xpos -645
-  ypos 629
- }
-set N16a603a0 [stack 0]
-push $N16a43ae0
- BlinkScript {
-  recompileCount 9
-  ProgramGroup 1
-  KernelDescription "2 \"aPMatteKernel\" iterate pixelWise a9e2f4ce494401f56bb6fe8816e2389016c58248ae203f67227e1334a7acbe47 2 \"p\" Read Point \"dst\" Write Point 21 \"picked\" Float 3 AAAAAAAAAAAAAAAAAAAAAA== \"pickedB\" Float 3 AAAAAAAAAAAAAAAAAAAAAA== \"m\" Float 16 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"radius\" Float 1 AAAAAA== \"shape\" Int 1 AAAAAA== \"invert_shape\" Int 1 AAAAAA== \"use_alpha\" Int 1 AAAAAA== \"mirrored\" Int 1 AAAAAA== \"falloff\" Int 1 AQAAAA== \"hardness\" Float 1 AAAAAA== \"use noise\" Int 1 AAAAAA== \"noise_relative\" Int 1 AAAAAA== \"noise octaves\" Int 1 CAAAAA== \"noise persistence\" Float 1 AAAAPw== \"lacunarity\" Float 1 AAAAQA== \"noise scale\" Float 1 CtcjPA== \"noise_offset\" Float 1 AAAAAA== \"noise_add\" Float 1 AAAAAA== \"noise_gain\" Float 1 AAAAAA== \"noise_gamma\" Float 1 AAAAAA== \"noise_mix\" Float 1 AAAAAA== 21 \"picked\" 3 1 \"pickedB\" 3 1 \"m\" 16 1 \"radius\" 1 1 \"shape\" 1 1 \"invert_shape\" 1 1 \"use_alpha\" 1 1 \"mirrored\" 1 1 \"falloff\" 1 1 \"hardness\" 1 1 \"use_noise\" 1 1 \"noise_relative\" 1 1 \"noise_octaves\" 1 1 \"noise_persistence\" 1 1 \"noise_lacunarity\" 1 1 \"noise_scale\" 1 1 \"noise_offset\" 1 1 \"noise_add\" 1 1 \"noise_gain\" 1 1 \"noise_gamma\" 1 1 \"noise_mix\" 1 1 0"
-  kernelSource "// ----------------------------------------------------------------\n// aPMatte v1.0 by Adrian Pueyo\n//\n// Generate a matte of different shapes, based on a Position pass.\n// Includes options to transform the mask and change its falloff.\n// Also includes the option to output or overlay a P-based noise.\n//\n// adrianpueyo.com, 2017-2019\n// ----------------------------------------------------------------\n\n\n// Noise algorithm adapted by Adrian Pueyo from Noise4D function by Mads Hagbarth Lund\n// Noise4D function Ported by Mads Hagbarth Lund 2014\n// Based on https://github.com/Draradech/csworldgen/blob/master/simplexnoise.cpp\n\n/* Copyright (c) 2007-2012 Eliot Eshelman\n *\n * This program is free software: you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or\n * (at your option) any later version.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License\n * along with this program. If not, see <http://www.gnu.org/licenses/>.\n *\n */\n\n\nint fastfloor( const float x ) \{ return x > 0 ? (int) x : (int) x - 1; \}\ninline float raw_noise_4d( const float x, const float y, const float z, const float w ) \n\{\nint simplex\[64]\[4] = \{\n    \{0,1,2,3\},\{0,1,3,2\},\{0,0,0,0\},\{0,2,3,1\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{1,2,3,0\},\n    \{0,2,1,3\},\{0,0,0,0\},\{0,3,1,2\},\{0,3,2,1\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{1,3,2,0\},\n    \{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\n    \{1,2,0,3\},\{0,0,0,0\},\{1,3,0,2\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{2,3,0,1\},\{2,3,1,0\},\n    \{1,0,2,3\},\{1,0,3,2\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{2,0,3,1\},\{0,0,0,0\},\{2,1,3,0\},\n    \{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\n    \{2,0,1,3\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{3,0,1,2\},\{3,0,2,1\},\{0,0,0,0\},\{3,1,2,0\},\n    \{2,1,0,3\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{3,1,0,2\},\{0,0,0,0\},\{3,2,0,1\},\{3,2,1,0\}\n\};\n    int perm\[512] = \{\n        151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,\n        8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,\n        35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,\n        134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,\n        55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208, 89,\n        18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,\n        250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,\n        189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,\n        172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,\n        228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,\n        107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,\n        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180,\n\n        151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,\n        8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,\n        35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,\n        134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,\n        55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208, 89,\n        18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,\n        250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,\n        189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,\n        172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,\n        228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,\n        107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,\n        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180\n    \};\n  int grad4\[32]\[4]= \{\n    \{0,1,1,1\},  \{0,1,1,-1\},  \{0,1,-1,1\},  \{0,1,-1,-1\},\n    \{0,-1,1,1\}, \{0,-1,1,-1\}, \{0,-1,-1,1\}, \{0,-1,-1,-1\},\n    \{1,0,1,1\},  \{1,0,1,-1\},  \{1,0,-1,1\},  \{1,0,-1,-1\},\n    \{-1,0,1,1\}, \{-1,0,1,-1\}, \{-1,0,-1,1\}, \{-1,0,-1,-1\},\n    \{1,1,0,1\},  \{1,1,0,-1\},  \{1,-1,0,1\},  \{1,-1,0,-1\},\n    \{-1,1,0,1\}, \{-1,1,0,-1\}, \{-1,-1,0,1\}, \{-1,-1,0,-1\},\n    \{1,1,1,0\},  \{1,1,-1,0\},  \{1,-1,1,0\},  \{1,-1,-1,0\},\n    \{-1,1,1,0\}, \{-1,1,-1,0\}, \{-1,-1,1,0\}, \{-1,-1,-1,0\}\n  \};\n    float F4 = (sqrt(5.0f)-1.0)/4.0;\n    float G4 = (5.0-sqrt(5.0f))/20.0;\n    float n0, n1, n2, n3, n4;\n    float s = (x + y + z + w) * F4;\n    int i = fastfloor(x + s);\n    int j = fastfloor(y + s);\n    int k = fastfloor(z + s);\n    int l = fastfloor(w + s);\n    float t = (i + j + k + l) * G4;\n    float X0 = i - t;\n    float Y0 = j - t;\n    float Z0 = k - t;\n    float W0 = l - t;\n\n    float x0 = x - X0;\n    float y0 = y - Y0;\n    float z0 = z - Z0;\n    float w0 = w - W0;\n    int c1 = (x0 > y0) ? 32 : 0;\n    int c2 = (x0 > z0) ? 16 : 0;\n    int c3 = (y0 > z0) ? 8 : 0;\n    int c4 = (x0 > w0) ? 4 : 0;\n    int c5 = (y0 > w0) ? 2 : 0;\n    int c6 = (z0 > w0) ? 1 : 0;\n    int c = c1 + c2 + c3 + c4 + c5 + c6;\n\n    int i1, j1, k1, l1;\n    int i2, j2, k2, l2;\n    int i3, j3, k3, l3;\n    i1 = simplex\[c]\[0]>=3 ? 1 : 0;\n    j1 = simplex\[c]\[1]>=3 ? 1 : 0;\n    k1 = simplex\[c]\[2]>=3 ? 1 : 0;\n    l1 = simplex\[c]\[3]>=3 ? 1 : 0;\n    i2 = simplex\[c]\[0]>=2 ? 1 : 0;\n    j2 = simplex\[c]\[1]>=2 ? 1 : 0;\n    k2 = simplex\[c]\[2]>=2 ? 1 : 0;\n    l2 = simplex\[c]\[3]>=2 ? 1 : 0;\n    i3 = simplex\[c]\[0]>=1 ? 1 : 0;\n    j3 = simplex\[c]\[1]>=1 ? 1 : 0;\n    k3 = simplex\[c]\[2]>=1 ? 1 : 0;\n    l3 = simplex\[c]\[3]>=1 ? 1 : 0;\n    float x1 = x0 - i1 + G4;\n    float y1 = y0 - j1 + G4;\n    float z1 = z0 - k1 + G4;\n    float w1 = w0 - l1 + G4;\n    float x2 = x0 - i2 + 2.0*G4;\n    float y2 = y0 - j2 + 2.0*G4;\n    float z2 = z0 - k2 + 2.0*G4;\n    float w2 = w0 - l2 + 2.0*G4;\n    float x3 = x0 - i3 + 3.0*G4;\n    float y3 = y0 - j3 + 3.0*G4;\n    float z3 = z0 - k3 + 3.0*G4;\n    float w3 = w0 - l3 + 3.0*G4;\n    float x4 = x0 - 1.0 + 4.0*G4;\n    float y4 = y0 - 1.0 + 4.0*G4;\n    float z4 = z0 - 1.0 + 4.0*G4;\n    float w4 = w0 - 1.0 + 4.0*G4;\n    int ii = i & 255;\n    int jj = j & 255;\n    int kk = k & 255;\n    int ll = l & 255;\n    int gi0 = perm\[ii+perm\[jj+perm\[kk+perm\[ll]]]] % 32;\n    int gi1 = perm\[ii+i1+perm\[jj+j1+perm\[kk+k1+perm\[ll+l1]]]] % 32;\n    int gi2 = perm\[ii+i2+perm\[jj+j2+perm\[kk+k2+perm\[ll+l2]]]] % 32;\n    int gi3 = perm\[ii+i3+perm\[jj+j3+perm\[kk+k3+perm\[ll+l3]]]] % 32;\n    int gi4 = perm\[ii+1+perm\[jj+1+perm\[kk+1+perm\[ll+1]]]] % 32;\n    float t0 = 0.6 - x0*x0 - y0*y0 - z0*z0 - w0*w0;\n    if(t0<0) n0 = 0.0;\n    else \{\n        t0 *= t0;\n        n0 = t0 * t0 * dot(float4(grad4\[gi0]\[0],grad4\[gi0]\[2],grad4\[gi0]\[3],grad4\[gi0]\[3]), float4(x0, y0, z0, w0));\n    \}\n    float t1 = 0.6 - x1*x1 - y1*y1 - z1*z1 - w1*w1;\n    if(t1<0) n1 = 0.0;\n    else \{\n        t1 *= t1;\n        n1 = t1 * t1 * dot(float4(grad4\[gi1]\[0],grad4\[gi1]\[2],grad4\[gi1]\[3],grad4\[gi1]\[3]), float4(x1, y1, z1, w1));\n    \}\n    float t2 = 0.6 - x2*x2 - y2*y2 - z2*z2 - w2*w2;\n    if(t2<0) n2 = 0.0;\n    else \{\n        t2 *= t2;\n        n2 = t2 * t2 * dot(float4(grad4\[gi2]\[0],grad4\[gi2]\[2],grad4\[gi2]\[3],grad4\[gi2]\[3]), float4(x2, y2, z2, w2));\n    \}\n    float t3 = 0.6 - x3*x3 - y3*y3 - z3*z3 - w3*w3;\n    if(t3<0) n3 = 0.0;\n    else \{\n        t3 *= t3;\n        n3 = t3 * t3 * dot(float4(grad4\[gi3]\[0],grad4\[gi3]\[2],grad4\[gi3]\[3],grad4\[gi3]\[3]), float4(x3, y3, z3, w3));\n    \}\n    float t4 = 0.6 - x4*x4 - y4*y4 - z4*z4 - w4*w4;\n    if(t4<0) n4 = 0.0;\n    else \{\n        t4 *= t4;\n        n4 = t4 * t4 * dot(float4(grad4\[gi4]\[0],grad4\[gi4]\[2],grad4\[gi4]\[3],grad4\[gi4]\[3]), float4(x4, y4, z4, w4));\n    \}\n    return 27.0 * (n0 + n1 + n2 + n3 + n4);\n\}\ninline float octave_noise_4d( const float octaves, const float persistence, const float scale, const float x, const float y, const float z, const float w, const float lacunarity=2 ) \n\{\n    float total = 0;\n    float frequency = scale;\n    float amplitude = 1;\n    float maxAmplitude = 0;\n    for( int i=0; i < octaves; i++ ) \{\n        total += (float)raw_noise_4d( x * frequency, y * frequency, z * frequency, w * frequency ) * amplitude;\n\n        frequency *= lacunarity;\n        maxAmplitude += amplitude;\n        amplitude *= persistence;\n    \}\n    return float(total / maxAmplitude);\n\}\n\nkernel aPMatteKernel : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> p;\n  Image<eWrite> dst;\n\n  param:\n    float3 picked; //Center, or white for ramps\n    float3 pickedB; //Black for ramps\n    float4x4 m; //Camera or axis matrix.\n    float radius;\n    int shape; //0=sphere,1=cusped box,2=rounded box,3=ramp, 4=rad.ramp\n    int invert_shape;\n    int use_alpha;\n    int mirrored;\n    int falloff; //0=linear,1=smooth,2=square,3=inv.square\n    float hardness;\n\n    // Noise parameters here\n    int use_noise; //0=off,1=overlay,2=noise only\n    int noise_relative;\n    int noise_octaves;\n    float noise_persistence;\n    float noise_lacunarity;\n    float noise_scale;\n    float noise_offset;\n    float noise_add;\n    float noise_gain;\n    float noise_gamma;\n    float noise_mix;\n\n  void define() \{\n    defineParam(falloff, \"falloff\", 1);\n    defineParam(use_noise, \"use noise\", 0);\n    defineParam(noise_octaves, \"noise octaves\", 8);\n    defineParam(noise_persistence, \"noise persistence\",  0.5f);\n    defineParam(noise_lacunarity, \"lacunarity\",  2.0f);\n    defineParam(noise_scale, \"noise scale\", 0.01f);\n  \}\n\n  inline float rad(float deg)\{ \n    return deg*PI/180;\n  \}\n\n  inline float smoothstep(float edge0, float edge1, float x)\{\n    x = clamp((x - edge0)/(edge1 - edge0), 0.0f, 1.0f);\n    return x*x*x*(x*(x*6-15)+10);\n  \}\n\n  inline float cl(float val)\{\n  return clamp(val,0.0f,1.0f); \n  \}\n\n\n  void process() \{\n    //1. P WORLD\n    // Center the coordinates\n    float3 color = float3(p(0)-picked.x,p(1)-picked.y,p(2)-picked.z);\n    int black = 0;\n\n    // Matrix!\n    float4x4 mi = m;\n    mi = mi.invert();\n    for(int c = 0; c<dst.kComps; c++)\{\n      color\[c] = mi\[c]\[0]*color\[0] + mi\[c]\[1]*color\[1] + mi\[c]\[2]*color\[2] + mi\[c]\[3]*1.0f;\n    \}\n\n    //2. SHAPES\n    float dist;\n    float result;\n\n    if(shape==0)\{//Sphere\n      dist = sqrt(pow(color\[0],2) + pow(color\[1],2) + pow(color\[2],2));\n      result = radius==0.0f? 0:cl(1-dist/radius);\n    \} else if(shape==1)\{//Cusped Box\n      result = min( min( cl((radius-fabs(color.x))/radius) , cl((radius-fabs(color.y))/radius)) , cl((radius-fabs(color.z))/radius)) ;\n      result = hardness>=1? float(result>0) : result;\n    \} else if(shape==2)\{//Rounded Box\n      result = radius==0.0f? 0: smoothstep(0,1-hardness, cl(1-fabs(float(color.x)/radius)) ) * smoothstep(0,1-hardness, cl(1-fabs(float(color.y)/radius)) ) * smoothstep(0,1-hardness, cl(1-fabs(float(color.z)/radius)) );\n      result = hardness>=1? float(result>0) : result;\n    \} else if(shape==3)\{//Linear Ramp\n      dist = sqrt(pow(color\[0],2) + pow(color\[1],2) + pow(color\[2],2));\n      float distB = sqrt(pow(color\[0]-(pickedB.x-picked.x),2) + pow(color\[1]-(pickedB.y-picked.y),2) + pow(color\[2]-(pickedB.z-picked.z),2));\n      float distWB = sqrt(pow(pickedB.x-picked.x,2) + pow(pickedB.y-picked.y,2) + pow(pickedB.z-picked.z,2));\n      float angWB = acos( clamp((pow(dist,2)-pow(distB,2)+pow(distWB,2))/(2*dist*distWB),-1.0f,1.0f) );\n      float cosAngWB = dist==0.0f? 0:cos(angWB);\n      result = distWB==0? 0.0f: cl((dist * cosAngWB) / distWB );\n      result = 1-result;\n    \} else if(shape==4)\{//Radial Ramp\n      dist = sqrt(pow(color\[0],2) + pow(color\[1],2) + pow(color\[2],2));\n      float distB = sqrt(pow(color\[0]-(pickedB.x-picked.x),2) + pow(color\[1]-(pickedB.y-picked.y),2) + pow(color\[2]-(pickedB.z-picked.z),2));\n      float distWB = sqrt(pow(pickedB.x-picked.x,2) + pow(pickedB.y-picked.y,2) + pow(pickedB.z-picked.z,2));\n      result = distWB==0? 0.0f: cl((dist) / distWB );\n      result = 1-result;\n    \}\n    result = mirrored ? result*(1-result)*4:result;\n    result = invert_shape? 1-result:result;\n\n    //3. FALLOFF\n    if(falloff==0)\{//Linear\n      result = hardness>=1? float(result>0) : cl(result/(1-hardness));\n    \}else if(falloff==1)\{//Smooth\n      result = hardness>=1? float(result>0) : smoothstep(0,1-hardness,result);\n    \}else if(falloff==2)\{//Quadratic\n      result = hardness>=1? float(result>0) : cl(pow(float(result/(1-hardness)),2));\n    \}else if(falloff==3)\{//Cubic\n      result = hardness>=1? float(result>0) : cl(pow(float(result/(1-hardness)),3));\n    \}else if(falloff==4)\{//Inv. Cubic\n      result = hardness>=1? float(result>0) : 1-cl(pow(float(cl(1-(result/(1-hardness)))),3));\n    \}\n\n    //4. GENERATE NOISE\n    float noise;\n    if(use_noise!=0)\{//Avoid calculations if possible\n      if(noise_relative!=1)\{\n        noise = (float)octave_noise_4d(float(noise_octaves),noise_persistence,noise_scale==0?10000.0f:1/noise_scale,p(0),p(1),p(2),noise_offset,noise_lacunarity);\n      \}else\{\n        noise = (float)octave_noise_4d(float(noise_octaves),noise_persistence,noise_scale==0?10000.0f:1/noise_scale,color\[0],color\[1],color\[2],noise_offset,noise_lacunarity);\n      \}\n      noise = cl(pow(max((noise+noise_add)*noise_gain,0.0f),noise_gamma==0?1:1/noise_gamma));\n    \}\n\n\n    //5. ALPHA MASK AND APPLY NOISE\n    result = max(result,0.0f); //Clamp negative values\n    if(use_noise==1)\{//Overlay\n      result = result<0.5f? noise_mix*(2*noise*result)+(1-noise_mix)*result : noise_mix*(1-2*(1-result)*(1-noise))+(1-noise_mix)*result;\n    \}else if(use_noise>=2)\{\n      result = noise*noise_mix;\n    \}\n\n    if(use_alpha > 0) result=result*p(3);\n\n    //6. WE'RE DONE\n    dst() = result;\n  \}\n\};"
-  useGPUIfAvailable false
-  rebuild ""
-  aPMatteKernel_picked {{(parent.shape==3&&parent.mirrored)?picker-(black_point-picker):(parent.shape==5&&parent.mirrored)?picker-radius:picker} {(parent.shape==3&&parent.mirrored)?picker-(black_point-picker):(parent.shape==5&&parent.mirrored)?picker-radius:picker} {(parent.shape==3&&parent.mirrored)?picker-(black_point-picker):(parent.shape==5&&parent.mirrored)?picker-radius:picker}}
-  aPMatteKernel_pickedB {{parent.shape==5?parent.axis==0?picker+radius+0.0001:picker:black_point} {parent.shape==5?parent.axis==1?picker+radius+0.0001:picker:black_point} {parent.shape==5?parent.axis==2?picker+radius+0.0001:picker+0.00001:black_point}}
-  group_aPMatteKernel_m 1
-  aPMatteKernel_m {
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-    }
-  aPMatteKernel_radius {{parent.radius}}
-  aPMatteKernel_shape {{parent.shape==5?3:parent.shape}}
-  aPMatteKernel_invert_shape {{parent.invert}}
-  aPMatteKernel_use_alpha {{parent.alpha_masking}}
-  aPMatteKernel_mirrored {{parent.mirrored}}
-  aPMatteKernel_falloff {{parent.falloff}}
-  aPMatteKernel_hardness {{parent.hardness}}
-  "aPMatteKernel_use noise" {{parent.noise}}
-  aPMatteKernel_noise_relative {{parent.noise_rel}}
-  "aPMatteKernel_noise octaves" {{parent.noise_octaves}}
-  "aPMatteKernel_noise persistence" {{parent.noise_persistance}}
-  aPMatteKernel_lacunarity {{parent.noise_lacunarity}}
-  "aPMatteKernel_noise scale" {{parent.noise_size}}
-  aPMatteKernel_noise_offset {{parent.noise_offset}}
-  aPMatteKernel_noise_add {{parent.noise_add}}
-  aPMatteKernel_noise_gain {{parent.noise_gain}}
-  aPMatteKernel_noise_gamma {{parent.noise_gamma}}
-  aPMatteKernel_noise_mix {{parent.noise_mix}}
-  rebuild_finalise ""
-  name BlinkScriptPMatte
-  xpos -73
-  ypos 489
-  addUserKnob {20 User}
-  addUserKnob {18 picker}
-  picker {-33.615906 -6.598752 -29.276371}
-  addUserKnob {6 picker_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
-  addUserKnob {6 picker_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
-  addUserKnob {18 black_point l black}
-  black_point {0 0 0}
-  addUserKnob {6 black_point_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
-  addUserKnob {6 black_point_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
- }
- Multiply {
-  channels rgba
-  value {{parent.mix}}
-  name Multiply1
-  label "\[value value]"
-  selected true
-  xpos -73
-  ypos 553
- }
- Dot {
-  name Dot13
-  note_font_size 41
-  xpos -39
-  ypos 629
- }
-set N16aa8340 [stack 0]
-push $N169e2f10
- Merge2 {
-  inputs 2+1
-  Achannels {rgba.red -rgba.green -rgba.blue rgba.alpha}
-  name Merge1
-  label "\[ expr \{ \[value mix] == 1 ? \" \" : \[concat Mix: \[value mix]] \}]"
-  xpos -274
-  ypos 625
- }
- Dot {
-  name Dot9
-  xpos -240
-  ypos 894
- }
-set N16abd080 [stack 0]
- PositionToPoints2 {
-  inputs 2
-  display textured
-  selectable false
-  render_mode off
-  detail 1
-  name PositionToPointsPC
-  xpos -166
-  ypos 890
-  disable {{!parent.preview_in_3d}}
- }
- Scene {
-  inputs 2
-  name SceneGeo
-  xpos -156
-  ypos 983
-  disable {{!parent.preview_in_3d}}
- }
- ScanlineRender {
-  inputs 0
-  conservative_shader_sampling false
-  motion_vectors_type distance
-  name RenderPC
-  xpos -166
-  ypos 1102
-  disable {{!parent.preview_in_3d}}
- }
- Dot {
-  name Dot17
-  note_font_size 41
-  xpos -132
-  ypos 1172
- }
-push $N16abd080
-push $N16a603a0
- Dot {
-  name Dot12
-  note_font_size 41
-  xpos -645
-  ypos 800
- }
-set N16afcdd0 [stack 0]
- Dot {
-  name Dot11
-  note_font_size 41
-  xpos -645
-  ypos 844
- }
-push $N16aa8340
- Dot {
-  name Dot3
-  note_font_size 41
-  xpos -39
-  ypos 700
- }
-set N16b06b90 [stack 0]
-push $N169ddfe0
- ChannelMerge {
-  inputs 2
-  name ChannelMerge1
-  xpos -384
-  ypos 684
- }
-push $N16b06b90
- Dot {
-  name Dot2
-  note_font_size 41
-  xpos -39
-  ypos 768
- }
- Switch {
-  inputs 2
-  which {{parent.mergeAlpha}}
-  name Switch2
-  label "\[value which]"
-  xpos -384
-  ypos 758
- }
- Shuffle {
-  red alpha
-  green alpha
-  blue alpha
-  name ShuffleToRGBA
-  tile_color 0xffffffff
-  xpos -384
-  ypos 796
- }
-set N16b25c80 [stack 0]
- Dot {
-  name Dot10
-  note_font_size 41
-  xpos -350
-  ypos 844
- }
-push $N16afcdd0
-push $N16b25c80
-push $N169d90d0
- Copy {
-  inputs 2+1
-  from0 rgba.alpha
-  to0 rgba.alpha
-  name CopyA
-  xpos -528
-  ypos 790
- }
- Copy {
-  inputs 2+1
-  channels rgb
-  name CopyRGB
-  xpos -528
-  ypos 828
-  disable {{parent.outChannels==0}}
- }
- Copy {
-  inputs 2
-  channels rgb
-  name CopyPreview
-  xpos -528
-  ypos 878
-  disable {{!parent.preview}}
- }
- Dissolve {
-  inputs 2
-  channels rgba
-  name DissolvePC
-  xpos -528
-  ypos 1168
-  disable {{!parent.preview_in_3d}}
- }
- Output {
-  name Output
-  xpos -528
-  ypos 1254
- }
-push $N169a3bb0
- Dot {
-  name Dot27
-  note_font_size 41
-  xpos 691
-  ypos 635
- }
-set N16b78530 [stack 0]
- Dot {
-  name Dot24
-  note_font_size 41
-  xpos 994
-  ypos 635
- }
- Axis2 {
-  display off
-  selectable false
-  translate {{-parent.BlinkScriptPMatte.aPMatteKernel_picked} {-parent.BlinkScriptPMatte.aPMatteKernel_picked} {-parent.BlinkScriptPMatte.aPMatteKernel_picked}}
-  name AxisPickedReversed
-  xpos 970
-  ypos 719
- }
- Axis2 {
-  display off
-  selectable false
-  translate {{parent.BlinkScriptPMatte.aPMatteKernel_pickedB} {parent.BlinkScriptPMatte.aPMatteKernel_pickedB} {parent.BlinkScriptPMatte.aPMatteKernel_pickedB}}
-  name AxisPickedBlack1
-  xpos 970
-  ypos 785
- }
-set N16b967e0 [stack 0]
-push $N16b78530
- Axis2 {
-  display off
-  selectable false
-  name AxisWhite
-  xpos 667
-  ypos 795
- }
-set N16babd30 [stack 0]
- Dot {
-  name Dot34
-  note_font_size 41
-  xpos 691
-  ypos 914
- }
-push $N16982550
- Dot {
-  name Dot23
-  note_font_size 41
-  xpos 783
-  ypos 756
- }
-set N16bc4d20 [stack 0]
- TransformGeo {
-  inputs 3
-  selectable false
-  name TransformGeoWhite
-  xpos 749
-  ypos 910
- }
-push $N16babd30
-push $N16b967e0
- Dot {
-  name Dot33
-  note_font_size 41
-  xpos 994
-  ypos 913
- }
-push $N16bc4d20
- Dot {
-  name Dot32
-  note_font_size 41
-  xpos 909
-  ypos 756
- }
- TransformGeo {
-  inputs 3
-  name TransformGeo1
-  xpos 875
-  ypos 909
- }
- Dot {
-  name Dot19
-  note_font_size 41
-  xpos 909
-  ypos 940
- }
- MergeGeo {
-  inputs 2
-  selectable false
-  name MergeGeo2
-  xpos 749
-  ypos 936
- }
- Dot {
-  name DotPlanes
-  label "\[value name]"
-  note_font_size 12
-  xpos 783
-  ypos 1011
- }
- Axis2 {
-  inputs 0
-  display off
-  selectable false
-  useMatrix true
-  matrix {
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-    }
-  name AxisInputCopy2
-  xpos 102
-  ypos 428
- }
- Axis2 {
-  display off
-  useMatrix true
-  matrix {
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-    }
-  name AxisCopy
-  xpos 102
-  ypos 494
- }
- Axis2 {
-  inputs 0
-  display off
-  selectable false
-  name AxisInput
-  xpos 333
-  ypos 432
- }
-end_group
-push $N16878ce0
-Grade {
- inputs 1+1
- white 0.055
- multiply {1.435000062 1 0.5650000572 1}
- gamma 1.2
- black_clamp false
- name Grade60
- selected true
- xpos 89940
- ypos 782
+ xpos 29330
+ ypos -12345
 }
 Premult {
  name Premult21
  selected true
- xpos 89940
- ypos 3686
+ xpos 29330
+ ypos -8097
 }
 Dot {
  name Dot369
  label "  <h1>C_Furnace_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 89974
- ypos 3810
+ xpos 29364
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression40
  selected true
- xpos 89940
- ypos 3998
+ xpos 29330
+ ypos -7785
 }
 Dot {
  name Dot370
  selected true
- xpos 89974
- ypos 5850
+ xpos 29364
+ ypos -5934
 }
-push $N165f8ae0
+push $N766b3000
 Dot {
  name Dot371
  label "  <h1>C_Dock_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 90964
- ypos -654
+ xpos 30354
+ ypos -12438
 }
 Unpremult {
  name Unpremult21
  selected true
- xpos 90930
- ypos -562
+ xpos 30320
+ ypos -12345
 }
 Premult {
  name Premult22
  selected true
- xpos 90930
- ypos 3686
+ xpos 30320
+ ypos -8097
 }
 Dot {
  name Dot372
  label "  <h1>C_Dock_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 90964
- ypos 3810
+ xpos 30354
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression41
  selected true
- xpos 90930
- ypos 3998
+ xpos 30320
+ ypos -7785
 }
 Dot {
  name Dot373
  selected true
- xpos 90964
- ypos 5634
+ xpos 30354
+ ypos -6150
 }
-push $N166070f0
+push $N766b3800
 Dot {
  name Dot374
  label "  <h1>C_Main_Overhead</h1>"
  note_font_size 30
  selected true
- xpos 91954
- ypos -654
+ xpos 31344
+ ypos -12438
 }
 Unpremult {
  name Unpremult22
  selected true
- xpos 91920
- ypos -562
-}
-Dot {
- name Dot375
- selected true
- xpos 91954
- ypos 570
-}
-set N16cbe0a0 [stack 0]
-Dot {
- name Dot376
- note_font_size 22
- selected true
- xpos 92174
- ypos 570
-}
-Group {
- name aPMatte20
- help "aPMatte v2.0 by Adrian Pueyo\n\nCreates a matte of different shapes, based on a Position pass. Includes transformation and falloff controls, and the option to output or overlay a Position 4D noise.\n\nv2.0 has the code more optimized, new available shapes and modes, includes a 3D-space view of the matte and point cloud, and accepts an Axis or Camera input. Also, lets you preview the p-matte over an image input and merge the alpha with the incoming one.\n\nadrianpueyo.com, 2017-2019"
- onCreate "n = nuke.thisNode()\n\nfor k in \[\"radius\",\"card_scale\",\"noise_size\"]:\n    n\[k].setFlag(0x00000004)"
- knobChanged "n = nuke.thisNode()\nk = nuke.thisKnob()\nkn = k.name()\n\nif kn in \['xpos','ypos','selected']:\n    pass\nelif kn == \"shape\":\n    ramp_on = k.value() in \['linear ramp', 'radial ramp']\n    n\['radius'].setVisible(not ramp_on)\n    n.knobs()\[\"black\"].setVisible(ramp_on)\n    n\[\"axis\"].setVisible(k.value()==\"plane\")\n    n\[\"card_scale\"].setVisible(k.getValue() in \[3,5] and n\[\"preview_in_3d\"].value())\n    picker = n.knobs()\[\"picker\"]\n    if ramp_on:\n        picker.setLabel(\"white\")\n    elif k.value() == \"plane\":\n        picker.setLabel(\"pivot\")\n    else:\n        picker.setLabel(\"center\")\n\n    # Connect Scene\n    sc = nuke.toNode(\"SceneGeo\")\n    kv = k.getValue()\n    if kv in \[0,1,2]:\n        sc.setInput(1,nuke.toNode(\"DotSphereCube\"))\n    elif kv in \[3,5]:\n        sc.setInput(1,nuke.toNode(\"DotPlanes\"))\n    else:\n        sc.setInput(1,nuke.toNode(\"DotRadialRamp\"))\n\nelif kn == \"use_axis\":\n    ianame = \"Inputaxis\"\n    if k.value():\n        a = nuke.toNode(\"AxisInput\")\n        if not nuke.exists(ianame):\n            ia = nuke.nodes.Input(name=ianame)\n            ia.setXYpos(a.xpos()-10,a.ypos()-60)\n            a.setInput(0,ia)\n    else:\n        if nuke.exists(ianame):\n            n.setInput(3,None)\n            ia = nuke.toNode(ianame)\n            nuke.delete(ia)\n\nelif kn == \"preview_in_3d\":\n    kv = k.value()\n    n.knobs()\[\"point_detail\"].setVisible(kv)\n    n.knobs()\[\"point_size\"].setVisible(kv)\n    n\[\"card_scale\"].setVisible(n\[\"shape\"].getValue() in \[3,5] and k.value())\n    nuke.toNode(\"RenderPC\").setInput(1,nuke.toNode(\"SceneGeo\") if kv else None)\nelif kn == \"noise\":\n    noise_on = k.value() != 'off'\n    for t in \['noise_rel','noise_persistance','noise_octaves','noise_lacunarity','noise_size','noise_offset','noise_add','noise_gain','noise_gamma','noise_mix']:\n        n\[t].setVisible(noise_on)\np_input = n.input(1) is not None\nn\[\"img_in\"].setEnabled(not p_input)\nn\[\"img_txt\"].setEnabled(not p_input)\nn.knobs()\[\"p_in\"].setEnabled(p_input)\nn.knobs()\[\"p_txt\"].setEnabled(p_input)\n"
- tile_color 0x898989ff
- selected true
- xpos 92140
- ypos 734
- addUserKnob {20 aPMatte}
- addUserKnob {26 position_from l "" +STARTLINE T " Position from:"}
- addUserKnob {26 img_txt l img T " "}
- addUserKnob {41 img_in l "" -STARTLINE T ShuffleInImg.in}
- addUserKnob {26 p_txt l "P (optional)" +DISABLED T " "}
- addUserKnob {41 p_in l "" -STARTLINE +DISABLED T ShuffleIn.in}
- addUserKnob {6 premultiplied +STARTLINE}
- premultiplied true
- addUserKnob {6 alpha_masking l "alpha masking" t "Multiply the output by the input's alpha." -STARTLINE}
- addUserKnob {26 text l "" +STARTLINE}
- addUserKnob {4 outChannels l output M {alpha rgba ""}}
- addUserKnob {6 mergeAlpha l "merge with input alpha" -STARTLINE}
- addUserKnob {41 Channeloperation l "" -STARTLINE T ChannelMerge1.operation}
- addUserKnob {6 preview l "preview over image" +STARTLINE}
- preview true
- addUserKnob {26 ""}
- addUserKnob {4 shape M {sphere "cusped box" "rounded box" "linear ramp" "radial ramp" plane}}
- addUserKnob {4 axis l "" -STARTLINE +HIDDEN M {X Y Z "" "" "" ""}}
- axis Y
- addUserKnob {6 mirrored -STARTLINE}
- addUserKnob {6 invert -STARTLINE}
- addUserKnob {41 picker l center T BlinkScriptPMatte.picker}
- addUserKnob {6 use_axis l "use axis" -STARTLINE}
- addUserKnob {7 radius R 0.1 1000}
- radius 22
- addUserKnob {41 black t "Black point of your ramp." +HIDDEN T BlinkScriptPMatte.black_point}
- addUserKnob {26 ""}
- addUserKnob {6 preview_in_3d l "preview in 3d space" t "Recreates a 3D-space preview of the point cloud and the P-matte. After activating this, simply press the Tab key on the active viewer to change to 3D space." +STARTLINE}
- addUserKnob {41 point_detail l "point detail" +HIDDEN T PositionToPointsPC.detail}
- addUserKnob {41 point_size l "point size" +HIDDEN T PositionToPointsPC.pointSize}
- addUserKnob {7 card_scale l "card scale" +HIDDEN R 0 100}
- card_scale 100
- addUserKnob {26 ""}
- addUserKnob {4 falloff t "Fallof type for the matte." M {linear smooth quadratic cubic "inv. cubic" "" ""}}
- addUserKnob {7 hardness}
- addUserKnob {7 mix}
- mix 1
- addUserKnob {26 ""}
- addUserKnob {41 xform_order l "transform order" T Axis.xform_order}
- addUserKnob {41 rot_order l "rotation order" T Axis.rot_order}
- addUserKnob {41 translate T Axis.translate}
- addUserKnob {41 rotate T Axis.rotate}
- addUserKnob {41 scaling l scale T Axis.scaling}
- addUserKnob {41 uniform_scale l "uniform scale" T Axis.uniform_scale}
- addUserKnob {41 skew T Axis.skew}
- addUserKnob {41 pivot +INVISIBLE T Axis.pivot}
- addUserKnob {22 reset_transformations l "  reset transformations  " T "a = nuke.toNode(\"Axis\")\na.readKnobs(\"xform_order SRT rot_order ZXY translate \{0 0 0\} rotate \{0 0 0\} scaling \{1 1 1\} uniform_scale 1 skew \{0 0 0\} pivot \{0 0 0\} useMatrix false\")" +STARTLINE}
- addUserKnob {26 ""}
- addUserKnob {4 noise t "overlay: uses the noise in overlay blend mode over the resulting mask, to make it more organic and less obvious for grading.\nnoise only: ignore the mask, output a 4D noise." M {off overlay "noise only" ""}}
- addUserKnob {6 noise_rel l relative t "On: Pick world transformations and positioning of the shape.\nOff: Pick absolute world transformations.\n\nTip: Check when you want the mask to always be affected by the same noise, uncheck when you want to lock the noise to your scene." -STARTLINE +HIDDEN}
- noise_rel true
- addUserKnob {7 noise_size l size t "Size of the noise pattern." +HIDDEN R 0 100}
- noise_size 10
- addUserKnob {7 noise_offset l offset t "Spatial offset of the noise pattern (use to find a sweet spot for your matte)." +HIDDEN R 0 100}
- addUserKnob {3 noise_octaves l octaves t "Number of noise iterations." +HIDDEN}
- noise_octaves 8
- addUserKnob {7 noise_lacunarity l lacunarity t "Each octave gets downscaled by this value." +HIDDEN R 0 10}
- noise_lacunarity 1.8
- addUserKnob {7 noise_persistance l persistance t "Each octave gets multiplied by this value." +HIDDEN}
- noise_persistance 0.5
- addUserKnob {7 noise_add l add t "Add a value to the noise." +HIDDEN}
- noise_add 0.5
- addUserKnob {7 noise_gain l gain t "Multiply the resulting noise by this value." +HIDDEN R 0 4}
- noise_gain 1
- addUserKnob {7 noise_gamma l gamma t "Gamma the resulting value." +HIDDEN R 0 4}
- noise_gamma 0.3
- addUserKnob {7 noise_mix l mix +HIDDEN}
- noise_mix 1
- addUserKnob {26 version_author l " " t "aPMatte v2.0\n24 Sep 2019" T "<span style=\"color:#666\"><b>aPMatte v2.0</b> - <a href=\"http://www.adrianpueyo.com\" style=\"color:#666;text-decoration: none;\">adrianpueyo.com</a>, 2015-2019</span>"}
- addUserKnob {6 BlinkScriptPMatte_black_point_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
-}
- Axis2 {
-  inputs 0
-  display off
-  selectable false
-  translate {{parent.BlinkScriptPMatte.aPMatteKernel_picked} {parent.BlinkScriptPMatte.aPMatteKernel_picked} {parent.BlinkScriptPMatte.aPMatteKernel_picked}}
-  name AxisPicked
-  xpos 211
-  ypos 364
- }
- Axis2 {
-  display off
-  selectable false
-  useMatrix true
-  matrix {
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-    }
-  name AxisInputCopy1
-  xpos 211
-  ypos 430
- }
- Axis2 {
-  scaling {1 1 1.1}
-  name Axis
-  xpos 211
-  ypos 496
- }
- Dot {
-  name Dot18
-  note_font_size 41
-  xpos 235
-  ypos 635
- }
-set N16d1d8e0 [stack 0]
- Axis2 {
-  display off
-  selectable false
-  uniform_scale {{sqrt(pow2(BlinkScriptPMatte.aPMatteKernel_picked.x-BlinkScriptPMatte.aPMatteKernel_pickedB.x)+pow2(BlinkScriptPMatte.aPMatteKernel_picked.y-BlinkScriptPMatte.aPMatteKernel_pickedB.y)+pow2(BlinkScriptPMatte.aPMatteKernel_picked.z-BlinkScriptPMatte.aPMatteKernel_pickedB.z))}}
-  name Axis2
-  xpos 211
-  ypos 870
- }
- Card2 {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  image_aspect false
-  rows 1
-  columns 1
-  uniform_scale {{parent.card_scale}}
-  control_points {3 3 3 6 
-
-1 {-0.5 -0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0 0 0} 
-1 {0 -0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0.5 0 0} 
-1 {0.5 -0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {1 0 0} 
-1 {-0.5 0 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0 0.5 0} 
-1 {0 0 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0.5 0.5 0} 
-1 {0.5 0 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {1 0.5 0} 
-1 {-0.5 0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0 1 0} 
-1 {0 0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0.5 1 0} 
-1 {0.5 0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {1 1 0} }
-  name Card2
-  xpos 617
-  ypos 438
- }
- Dot {
-  name Dot29
-  note_font_size 41
-  xpos 651
-  ypos 484
- }
-set N16d6d750 [stack 0]
- Dot {
-  name Dot30
-  note_font_size 41
-  xpos 651
-  ypos 537
- }
- Sphere {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  rows 6
-  columns 6
-  name Sphere2
-  xpos 709
-  ypos 438
- }
- Dot {
-  name Dot31
-  note_font_size 41
-  xpos 743
-  ypos 563
- }
-push $N16d6d750
- Cube {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  rows 1
-  columns 1
-  cube {-1 -1 -1 1 1 1}
-  name Cube1
-  xpos 523
-  ypos 438
- }
-set N16d8e910 [stack 0]
- Dot {
-  name Dot20
-  note_font_size 41
-  xpos 591
-  ypos 484
- }
-push $N16d8e910
- Sphere {
-  inputs 0
-  display wireframe
-  selectable false
-  render_mode off
-  cast_shadow false
-  receive_shadow false
-  rows 6
-  columns 6
-  name Sphere1
-  xpos 433
-  ypos 438
- }
- Dot {
-  name Dot21
-  note_font_size 41
-  xpos 467
-  ypos 499
- }
- Switch {
-  inputs 6
-  which {{parent.shape}}
-  name SwitchShapeGeo
-  xpos 523
-  ypos 559
- }
- Dot {
-  name Dot25
-  note_font_size 41
-  xpos 557
-  ypos 756
- }
-set N16dc4c40 [stack 0]
- Dot {
-  name Dot28
-  note_font_size 41
-  xpos 331
-  ypos 756
- }
- TransformGeo {
-  inputs 2
-  selectable false
-  name TransformGeoRadius1
-  xpos 297
-  ypos 890
- }
- Dot {
-  name DotRadialRamp
-  label "\[value name]"
-  note_font_size 12
-  xpos 331
-  ypos 922
- }
-push $N16d1d8e0
- Dot {
-  name Dot26
-  note_font_size 41
-  xpos 466
-  ypos 635
- }
-set N16de64e0 [stack 0]
- Axis2 {
-  display off
-  selectable false
-  uniform_scale {{parent.BlinkScriptPMatte.aPMatteKernel_radius}}
-  name Axis1
-  xpos 442
-  ypos 868
- }
-push $N16dc4c40
- TransformGeo {
-  inputs 2
-  selectable false
-  name TransformGeoAxis1
-  xpos 523
-  ypos 888
- }
- Dot {
-  name DotSphereCube
-  label "\[value name]"
-  note_font_size 12
-  xpos 557
-  ypos 967
- }
- Input {
-  inputs 0
-  name Inputimg
-  xpos -528
-  ypos 176
- }
- Dot {
-  name Dot1
-  note_font_size 41
-  xpos -494
-  ypos 257
- }
-set N16e1ba00 [stack 0]
- Dot {
-  name Dot5
-  note_font_size 41
-  xpos -350
-  ypos 257
- }
-set N16e20910 [stack 0]
- Dot {
-  name Dot4
-  note_font_size 41
-  xpos -240
-  ypos 257
- }
-set N16e25840 [stack 0]
- Dot {
-  name Dot6
-  note_font_size 41
-  xpos -157
-  ypos 257
- }
-set N16e2a770 [stack 0]
- Input {
-  inputs 0
-  name InputP
-  xpos -73
-  ypos 178
-  number 1
- }
-set N16e2f6a0 [stack 0]
- Dot {
-  name Dot7
-  note_font_size 41
-  xpos 100
-  ypos 182
- }
- Switch {
-  inputs 2
-  which {{"\[exists parent.input0]"}}
-  name SwitchAlpha
-  label "\[value which]"
-  xpos 66
-  ypos 247
- }
- Dot {
-  name Dot8
-  xpos 100
-  ypos 356
- }
-push $N16e2a770
- Shuffle {
-  in P
-  in2 rgba
-  alpha alpha2
-  name ShuffleInImg
-  xpos -191
-  ypos 296
- }
-push $N16e2f6a0
- Shuffle {
-  in2 rgba
-  alpha alpha2
-  name ShuffleIn
-  xpos -73
-  ypos 225
- }
- Switch {
-  inputs 2
-  which {{"!\[exists parent.input1]"}}
-  name Switch1
-  label "\[value which]"
-  xpos -73
-  ypos 290
- }
- Copy {
-  inputs 2
-  from0 rgba.alpha
-  to0 rgba.alpha
-  name Copy2
-  xpos -73
-  ypos 346
-  disable {{!parent.alpha_masking}}
- }
- Unpremult {
-  name UnpremultP
-  xpos -73
-  ypos 384
-  disable {{!parent.premultiplied}}
- }
- Dot {
-  name Dot15
-  note_font_size 41
-  xpos -39
-  ypos 440
- }
-set N16e85bf0 [stack 0]
- Dot {
-  name Dot16
-  note_font_size 41
-  xpos -132
-  ypos 440
- }
- Blur {
-  channels rgba
-  name Blur1
-  xpos -166
-  ypos 827
- }
- Input {
-  inputs 0
-  name Inputmask
-  xpos -679
-  ypos 579
-  number 2
- }
- Dot {
-  name Dot14
-  note_font_size 41
-  xpos -645
-  ypos 629
- }
-set N16ea24b0 [stack 0]
-push $N16e85bf0
- BlinkScript {
-  recompileCount 9
-  ProgramGroup 1
-  KernelDescription "2 \"aPMatteKernel\" iterate pixelWise a9e2f4ce494401f56bb6fe8816e2389016c58248ae203f67227e1334a7acbe47 2 \"p\" Read Point \"dst\" Write Point 21 \"picked\" Float 3 AAAAAAAAAAAAAAAAAAAAAA== \"pickedB\" Float 3 AAAAAAAAAAAAAAAAAAAAAA== \"m\" Float 16 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== \"radius\" Float 1 AAAAAA== \"shape\" Int 1 AAAAAA== \"invert_shape\" Int 1 AAAAAA== \"use_alpha\" Int 1 AAAAAA== \"mirrored\" Int 1 AAAAAA== \"falloff\" Int 1 AQAAAA== \"hardness\" Float 1 AAAAAA== \"use noise\" Int 1 AAAAAA== \"noise_relative\" Int 1 AAAAAA== \"noise octaves\" Int 1 CAAAAA== \"noise persistence\" Float 1 AAAAPw== \"lacunarity\" Float 1 AAAAQA== \"noise scale\" Float 1 CtcjPA== \"noise_offset\" Float 1 AAAAAA== \"noise_add\" Float 1 AAAAAA== \"noise_gain\" Float 1 AAAAAA== \"noise_gamma\" Float 1 AAAAAA== \"noise_mix\" Float 1 AAAAAA== 21 \"picked\" 3 1 \"pickedB\" 3 1 \"m\" 16 1 \"radius\" 1 1 \"shape\" 1 1 \"invert_shape\" 1 1 \"use_alpha\" 1 1 \"mirrored\" 1 1 \"falloff\" 1 1 \"hardness\" 1 1 \"use_noise\" 1 1 \"noise_relative\" 1 1 \"noise_octaves\" 1 1 \"noise_persistence\" 1 1 \"noise_lacunarity\" 1 1 \"noise_scale\" 1 1 \"noise_offset\" 1 1 \"noise_add\" 1 1 \"noise_gain\" 1 1 \"noise_gamma\" 1 1 \"noise_mix\" 1 1 0"
-  kernelSource "// ----------------------------------------------------------------\n// aPMatte v1.0 by Adrian Pueyo\n//\n// Generate a matte of different shapes, based on a Position pass.\n// Includes options to transform the mask and change its falloff.\n// Also includes the option to output or overlay a P-based noise.\n//\n// adrianpueyo.com, 2017-2019\n// ----------------------------------------------------------------\n\n\n// Noise algorithm adapted by Adrian Pueyo from Noise4D function by Mads Hagbarth Lund\n// Noise4D function Ported by Mads Hagbarth Lund 2014\n// Based on https://github.com/Draradech/csworldgen/blob/master/simplexnoise.cpp\n\n/* Copyright (c) 2007-2012 Eliot Eshelman\n *\n * This program is free software: you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or\n * (at your option) any later version.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License\n * along with this program. If not, see <http://www.gnu.org/licenses/>.\n *\n */\n\n\nint fastfloor( const float x ) \{ return x > 0 ? (int) x : (int) x - 1; \}\ninline float raw_noise_4d( const float x, const float y, const float z, const float w ) \n\{\nint simplex\[64]\[4] = \{\n    \{0,1,2,3\},\{0,1,3,2\},\{0,0,0,0\},\{0,2,3,1\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{1,2,3,0\},\n    \{0,2,1,3\},\{0,0,0,0\},\{0,3,1,2\},\{0,3,2,1\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{1,3,2,0\},\n    \{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\n    \{1,2,0,3\},\{0,0,0,0\},\{1,3,0,2\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{2,3,0,1\},\{2,3,1,0\},\n    \{1,0,2,3\},\{1,0,3,2\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{2,0,3,1\},\{0,0,0,0\},\{2,1,3,0\},\n    \{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\n    \{2,0,1,3\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{3,0,1,2\},\{3,0,2,1\},\{0,0,0,0\},\{3,1,2,0\},\n    \{2,1,0,3\},\{0,0,0,0\},\{0,0,0,0\},\{0,0,0,0\},\{3,1,0,2\},\{0,0,0,0\},\{3,2,0,1\},\{3,2,1,0\}\n\};\n    int perm\[512] = \{\n        151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,\n        8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,\n        35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,\n        134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,\n        55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208, 89,\n        18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,\n        250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,\n        189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,\n        172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,\n        228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,\n        107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,\n        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180,\n\n        151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,\n        8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,\n        35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,\n        134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,\n        55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208, 89,\n        18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,\n        250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,\n        189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,\n        172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,\n        228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,\n        107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,\n        138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180\n    \};\n  int grad4\[32]\[4]= \{\n    \{0,1,1,1\},  \{0,1,1,-1\},  \{0,1,-1,1\},  \{0,1,-1,-1\},\n    \{0,-1,1,1\}, \{0,-1,1,-1\}, \{0,-1,-1,1\}, \{0,-1,-1,-1\},\n    \{1,0,1,1\},  \{1,0,1,-1\},  \{1,0,-1,1\},  \{1,0,-1,-1\},\n    \{-1,0,1,1\}, \{-1,0,1,-1\}, \{-1,0,-1,1\}, \{-1,0,-1,-1\},\n    \{1,1,0,1\},  \{1,1,0,-1\},  \{1,-1,0,1\},  \{1,-1,0,-1\},\n    \{-1,1,0,1\}, \{-1,1,0,-1\}, \{-1,-1,0,1\}, \{-1,-1,0,-1\},\n    \{1,1,1,0\},  \{1,1,-1,0\},  \{1,-1,1,0\},  \{1,-1,-1,0\},\n    \{-1,1,1,0\}, \{-1,1,-1,0\}, \{-1,-1,1,0\}, \{-1,-1,-1,0\}\n  \};\n    float F4 = (sqrt(5.0f)-1.0)/4.0;\n    float G4 = (5.0-sqrt(5.0f))/20.0;\n    float n0, n1, n2, n3, n4;\n    float s = (x + y + z + w) * F4;\n    int i = fastfloor(x + s);\n    int j = fastfloor(y + s);\n    int k = fastfloor(z + s);\n    int l = fastfloor(w + s);\n    float t = (i + j + k + l) * G4;\n    float X0 = i - t;\n    float Y0 = j - t;\n    float Z0 = k - t;\n    float W0 = l - t;\n\n    float x0 = x - X0;\n    float y0 = y - Y0;\n    float z0 = z - Z0;\n    float w0 = w - W0;\n    int c1 = (x0 > y0) ? 32 : 0;\n    int c2 = (x0 > z0) ? 16 : 0;\n    int c3 = (y0 > z0) ? 8 : 0;\n    int c4 = (x0 > w0) ? 4 : 0;\n    int c5 = (y0 > w0) ? 2 : 0;\n    int c6 = (z0 > w0) ? 1 : 0;\n    int c = c1 + c2 + c3 + c4 + c5 + c6;\n\n    int i1, j1, k1, l1;\n    int i2, j2, k2, l2;\n    int i3, j3, k3, l3;\n    i1 = simplex\[c]\[0]>=3 ? 1 : 0;\n    j1 = simplex\[c]\[1]>=3 ? 1 : 0;\n    k1 = simplex\[c]\[2]>=3 ? 1 : 0;\n    l1 = simplex\[c]\[3]>=3 ? 1 : 0;\n    i2 = simplex\[c]\[0]>=2 ? 1 : 0;\n    j2 = simplex\[c]\[1]>=2 ? 1 : 0;\n    k2 = simplex\[c]\[2]>=2 ? 1 : 0;\n    l2 = simplex\[c]\[3]>=2 ? 1 : 0;\n    i3 = simplex\[c]\[0]>=1 ? 1 : 0;\n    j3 = simplex\[c]\[1]>=1 ? 1 : 0;\n    k3 = simplex\[c]\[2]>=1 ? 1 : 0;\n    l3 = simplex\[c]\[3]>=1 ? 1 : 0;\n    float x1 = x0 - i1 + G4;\n    float y1 = y0 - j1 + G4;\n    float z1 = z0 - k1 + G4;\n    float w1 = w0 - l1 + G4;\n    float x2 = x0 - i2 + 2.0*G4;\n    float y2 = y0 - j2 + 2.0*G4;\n    float z2 = z0 - k2 + 2.0*G4;\n    float w2 = w0 - l2 + 2.0*G4;\n    float x3 = x0 - i3 + 3.0*G4;\n    float y3 = y0 - j3 + 3.0*G4;\n    float z3 = z0 - k3 + 3.0*G4;\n    float w3 = w0 - l3 + 3.0*G4;\n    float x4 = x0 - 1.0 + 4.0*G4;\n    float y4 = y0 - 1.0 + 4.0*G4;\n    float z4 = z0 - 1.0 + 4.0*G4;\n    float w4 = w0 - 1.0 + 4.0*G4;\n    int ii = i & 255;\n    int jj = j & 255;\n    int kk = k & 255;\n    int ll = l & 255;\n    int gi0 = perm\[ii+perm\[jj+perm\[kk+perm\[ll]]]] % 32;\n    int gi1 = perm\[ii+i1+perm\[jj+j1+perm\[kk+k1+perm\[ll+l1]]]] % 32;\n    int gi2 = perm\[ii+i2+perm\[jj+j2+perm\[kk+k2+perm\[ll+l2]]]] % 32;\n    int gi3 = perm\[ii+i3+perm\[jj+j3+perm\[kk+k3+perm\[ll+l3]]]] % 32;\n    int gi4 = perm\[ii+1+perm\[jj+1+perm\[kk+1+perm\[ll+1]]]] % 32;\n    float t0 = 0.6 - x0*x0 - y0*y0 - z0*z0 - w0*w0;\n    if(t0<0) n0 = 0.0;\n    else \{\n        t0 *= t0;\n        n0 = t0 * t0 * dot(float4(grad4\[gi0]\[0],grad4\[gi0]\[2],grad4\[gi0]\[3],grad4\[gi0]\[3]), float4(x0, y0, z0, w0));\n    \}\n    float t1 = 0.6 - x1*x1 - y1*y1 - z1*z1 - w1*w1;\n    if(t1<0) n1 = 0.0;\n    else \{\n        t1 *= t1;\n        n1 = t1 * t1 * dot(float4(grad4\[gi1]\[0],grad4\[gi1]\[2],grad4\[gi1]\[3],grad4\[gi1]\[3]), float4(x1, y1, z1, w1));\n    \}\n    float t2 = 0.6 - x2*x2 - y2*y2 - z2*z2 - w2*w2;\n    if(t2<0) n2 = 0.0;\n    else \{\n        t2 *= t2;\n        n2 = t2 * t2 * dot(float4(grad4\[gi2]\[0],grad4\[gi2]\[2],grad4\[gi2]\[3],grad4\[gi2]\[3]), float4(x2, y2, z2, w2));\n    \}\n    float t3 = 0.6 - x3*x3 - y3*y3 - z3*z3 - w3*w3;\n    if(t3<0) n3 = 0.0;\n    else \{\n        t3 *= t3;\n        n3 = t3 * t3 * dot(float4(grad4\[gi3]\[0],grad4\[gi3]\[2],grad4\[gi3]\[3],grad4\[gi3]\[3]), float4(x3, y3, z3, w3));\n    \}\n    float t4 = 0.6 - x4*x4 - y4*y4 - z4*z4 - w4*w4;\n    if(t4<0) n4 = 0.0;\n    else \{\n        t4 *= t4;\n        n4 = t4 * t4 * dot(float4(grad4\[gi4]\[0],grad4\[gi4]\[2],grad4\[gi4]\[3],grad4\[gi4]\[3]), float4(x4, y4, z4, w4));\n    \}\n    return 27.0 * (n0 + n1 + n2 + n3 + n4);\n\}\ninline float octave_noise_4d( const float octaves, const float persistence, const float scale, const float x, const float y, const float z, const float w, const float lacunarity=2 ) \n\{\n    float total = 0;\n    float frequency = scale;\n    float amplitude = 1;\n    float maxAmplitude = 0;\n    for( int i=0; i < octaves; i++ ) \{\n        total += (float)raw_noise_4d( x * frequency, y * frequency, z * frequency, w * frequency ) * amplitude;\n\n        frequency *= lacunarity;\n        maxAmplitude += amplitude;\n        amplitude *= persistence;\n    \}\n    return float(total / maxAmplitude);\n\}\n\nkernel aPMatteKernel : ImageComputationKernel<ePixelWise>\n\{\n  Image<eRead, eAccessPoint, eEdgeClamped> p;\n  Image<eWrite> dst;\n\n  param:\n    float3 picked; //Center, or white for ramps\n    float3 pickedB; //Black for ramps\n    float4x4 m; //Camera or axis matrix.\n    float radius;\n    int shape; //0=sphere,1=cusped box,2=rounded box,3=ramp, 4=rad.ramp\n    int invert_shape;\n    int use_alpha;\n    int mirrored;\n    int falloff; //0=linear,1=smooth,2=square,3=inv.square\n    float hardness;\n\n    // Noise parameters here\n    int use_noise; //0=off,1=overlay,2=noise only\n    int noise_relative;\n    int noise_octaves;\n    float noise_persistence;\n    float noise_lacunarity;\n    float noise_scale;\n    float noise_offset;\n    float noise_add;\n    float noise_gain;\n    float noise_gamma;\n    float noise_mix;\n\n  void define() \{\n    defineParam(falloff, \"falloff\", 1);\n    defineParam(use_noise, \"use noise\", 0);\n    defineParam(noise_octaves, \"noise octaves\", 8);\n    defineParam(noise_persistence, \"noise persistence\",  0.5f);\n    defineParam(noise_lacunarity, \"lacunarity\",  2.0f);\n    defineParam(noise_scale, \"noise scale\", 0.01f);\n  \}\n\n  inline float rad(float deg)\{ \n    return deg*PI/180;\n  \}\n\n  inline float smoothstep(float edge0, float edge1, float x)\{\n    x = clamp((x - edge0)/(edge1 - edge0), 0.0f, 1.0f);\n    return x*x*x*(x*(x*6-15)+10);\n  \}\n\n  inline float cl(float val)\{\n  return clamp(val,0.0f,1.0f); \n  \}\n\n\n  void process() \{\n    //1. P WORLD\n    // Center the coordinates\n    float3 color = float3(p(0)-picked.x,p(1)-picked.y,p(2)-picked.z);\n    int black = 0;\n\n    // Matrix!\n    float4x4 mi = m;\n    mi = mi.invert();\n    for(int c = 0; c<dst.kComps; c++)\{\n      color\[c] = mi\[c]\[0]*color\[0] + mi\[c]\[1]*color\[1] + mi\[c]\[2]*color\[2] + mi\[c]\[3]*1.0f;\n    \}\n\n    //2. SHAPES\n    float dist;\n    float result;\n\n    if(shape==0)\{//Sphere\n      dist = sqrt(pow(color\[0],2) + pow(color\[1],2) + pow(color\[2],2));\n      result = radius==0.0f? 0:cl(1-dist/radius);\n    \} else if(shape==1)\{//Cusped Box\n      result = min( min( cl((radius-fabs(color.x))/radius) , cl((radius-fabs(color.y))/radius)) , cl((radius-fabs(color.z))/radius)) ;\n      result = hardness>=1? float(result>0) : result;\n    \} else if(shape==2)\{//Rounded Box\n      result = radius==0.0f? 0: smoothstep(0,1-hardness, cl(1-fabs(float(color.x)/radius)) ) * smoothstep(0,1-hardness, cl(1-fabs(float(color.y)/radius)) ) * smoothstep(0,1-hardness, cl(1-fabs(float(color.z)/radius)) );\n      result = hardness>=1? float(result>0) : result;\n    \} else if(shape==3)\{//Linear Ramp\n      dist = sqrt(pow(color\[0],2) + pow(color\[1],2) + pow(color\[2],2));\n      float distB = sqrt(pow(color\[0]-(pickedB.x-picked.x),2) + pow(color\[1]-(pickedB.y-picked.y),2) + pow(color\[2]-(pickedB.z-picked.z),2));\n      float distWB = sqrt(pow(pickedB.x-picked.x,2) + pow(pickedB.y-picked.y,2) + pow(pickedB.z-picked.z,2));\n      float angWB = acos( clamp((pow(dist,2)-pow(distB,2)+pow(distWB,2))/(2*dist*distWB),-1.0f,1.0f) );\n      float cosAngWB = dist==0.0f? 0:cos(angWB);\n      result = distWB==0? 0.0f: cl((dist * cosAngWB) / distWB );\n      result = 1-result;\n    \} else if(shape==4)\{//Radial Ramp\n      dist = sqrt(pow(color\[0],2) + pow(color\[1],2) + pow(color\[2],2));\n      float distB = sqrt(pow(color\[0]-(pickedB.x-picked.x),2) + pow(color\[1]-(pickedB.y-picked.y),2) + pow(color\[2]-(pickedB.z-picked.z),2));\n      float distWB = sqrt(pow(pickedB.x-picked.x,2) + pow(pickedB.y-picked.y,2) + pow(pickedB.z-picked.z,2));\n      result = distWB==0? 0.0f: cl((dist) / distWB );\n      result = 1-result;\n    \}\n    result = mirrored ? result*(1-result)*4:result;\n    result = invert_shape? 1-result:result;\n\n    //3. FALLOFF\n    if(falloff==0)\{//Linear\n      result = hardness>=1? float(result>0) : cl(result/(1-hardness));\n    \}else if(falloff==1)\{//Smooth\n      result = hardness>=1? float(result>0) : smoothstep(0,1-hardness,result);\n    \}else if(falloff==2)\{//Quadratic\n      result = hardness>=1? float(result>0) : cl(pow(float(result/(1-hardness)),2));\n    \}else if(falloff==3)\{//Cubic\n      result = hardness>=1? float(result>0) : cl(pow(float(result/(1-hardness)),3));\n    \}else if(falloff==4)\{//Inv. Cubic\n      result = hardness>=1? float(result>0) : 1-cl(pow(float(cl(1-(result/(1-hardness)))),3));\n    \}\n\n    //4. GENERATE NOISE\n    float noise;\n    if(use_noise!=0)\{//Avoid calculations if possible\n      if(noise_relative!=1)\{\n        noise = (float)octave_noise_4d(float(noise_octaves),noise_persistence,noise_scale==0?10000.0f:1/noise_scale,p(0),p(1),p(2),noise_offset,noise_lacunarity);\n      \}else\{\n        noise = (float)octave_noise_4d(float(noise_octaves),noise_persistence,noise_scale==0?10000.0f:1/noise_scale,color\[0],color\[1],color\[2],noise_offset,noise_lacunarity);\n      \}\n      noise = cl(pow(max((noise+noise_add)*noise_gain,0.0f),noise_gamma==0?1:1/noise_gamma));\n    \}\n\n\n    //5. ALPHA MASK AND APPLY NOISE\n    result = max(result,0.0f); //Clamp negative values\n    if(use_noise==1)\{//Overlay\n      result = result<0.5f? noise_mix*(2*noise*result)+(1-noise_mix)*result : noise_mix*(1-2*(1-result)*(1-noise))+(1-noise_mix)*result;\n    \}else if(use_noise>=2)\{\n      result = noise*noise_mix;\n    \}\n\n    if(use_alpha > 0) result=result*p(3);\n\n    //6. WE'RE DONE\n    dst() = result;\n  \}\n\};"
-  useGPUIfAvailable false
-  rebuild ""
-  aPMatteKernel_picked {{(parent.shape==3&&parent.mirrored)?picker-(black_point-picker):(parent.shape==5&&parent.mirrored)?picker-radius:picker} {(parent.shape==3&&parent.mirrored)?picker-(black_point-picker):(parent.shape==5&&parent.mirrored)?picker-radius:picker} {(parent.shape==3&&parent.mirrored)?picker-(black_point-picker):(parent.shape==5&&parent.mirrored)?picker-radius:picker}}
-  aPMatteKernel_pickedB {{parent.shape==5?parent.axis==0?picker+radius+0.0001:picker:black_point} {parent.shape==5?parent.axis==1?picker+radius+0.0001:picker:black_point} {parent.shape==5?parent.axis==2?picker+radius+0.0001:picker+0.00001:black_point}}
-  group_aPMatteKernel_m 1
-  aPMatteKernel_m {
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-      {{parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix} {parent.AxisCopy.world_matrix}}
-    }
-  aPMatteKernel_radius {{parent.radius}}
-  aPMatteKernel_shape {{parent.shape==5?3:parent.shape}}
-  aPMatteKernel_invert_shape {{parent.invert}}
-  aPMatteKernel_use_alpha {{parent.alpha_masking}}
-  aPMatteKernel_mirrored {{parent.mirrored}}
-  aPMatteKernel_falloff {{parent.falloff}}
-  aPMatteKernel_hardness {{parent.hardness}}
-  "aPMatteKernel_use noise" {{parent.noise}}
-  aPMatteKernel_noise_relative {{parent.noise_rel}}
-  "aPMatteKernel_noise octaves" {{parent.noise_octaves}}
-  "aPMatteKernel_noise persistence" {{parent.noise_persistance}}
-  aPMatteKernel_lacunarity {{parent.noise_lacunarity}}
-  "aPMatteKernel_noise scale" {{parent.noise_size}}
-  aPMatteKernel_noise_offset {{parent.noise_offset}}
-  aPMatteKernel_noise_add {{parent.noise_add}}
-  aPMatteKernel_noise_gain {{parent.noise_gain}}
-  aPMatteKernel_noise_gamma {{parent.noise_gamma}}
-  aPMatteKernel_noise_mix {{parent.noise_mix}}
-  rebuild_finalise ""
-  name BlinkScriptPMatte
-  xpos -73
-  ypos 489
-  addUserKnob {20 User}
-  addUserKnob {18 picker}
-  picker {-65.82247925 5.481684208 -39.35875702}
-  addUserKnob {6 picker_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
-  addUserKnob {6 picker_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
-  addUserKnob {18 black_point l black}
-  black_point {0 0 0}
-  addUserKnob {6 black_point_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
-  addUserKnob {6 black_point_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
- }
- Multiply {
-  channels rgba
-  value {{parent.mix}}
-  name Multiply1
-  label "\[value value]"
-  selected true
-  xpos -73
-  ypos 553
- }
- Dot {
-  name Dot13
-  note_font_size 41
-  xpos -39
-  ypos 629
- }
-set N16eea5b0 [stack 0]
-push $N16e25840
- Merge2 {
-  inputs 2+1
-  Achannels {rgba.red -rgba.green -rgba.blue rgba.alpha}
-  name Merge1
-  label "\[ expr \{ \[value mix] == 1 ? \" \" : \[concat Mix: \[value mix]] \}]"
-  xpos -274
-  ypos 625
- }
- Dot {
-  name Dot9
-  xpos -240
-  ypos 894
- }
-set N16eff2f0 [stack 0]
- PositionToPoints2 {
-  inputs 2
-  display textured
-  selectable false
-  render_mode off
-  detail 1
-  name PositionToPointsPC
-  xpos -166
-  ypos 890
-  disable {{!parent.preview_in_3d}}
- }
- Scene {
-  inputs 2
-  name SceneGeo
-  xpos -156
-  ypos 983
-  disable {{!parent.preview_in_3d}}
- }
- ScanlineRender {
-  inputs 0
-  conservative_shader_sampling false
-  motion_vectors_type distance
-  name RenderPC
-  xpos -166
-  ypos 1102
-  disable {{!parent.preview_in_3d}}
- }
- Dot {
-  name Dot17
-  note_font_size 41
-  xpos -132
-  ypos 1172
- }
-push $N16eff2f0
-push $N16ea24b0
- Dot {
-  name Dot12
-  note_font_size 41
-  xpos -645
-  ypos 800
- }
-set N16f3d170 [stack 0]
- Dot {
-  name Dot11
-  note_font_size 41
-  xpos -645
-  ypos 844
- }
-push $N16eea5b0
- Dot {
-  name Dot3
-  note_font_size 41
-  xpos -39
-  ypos 700
- }
-set N16f46f30 [stack 0]
-push $N16e20910
- ChannelMerge {
-  inputs 2
-  name ChannelMerge1
-  xpos -384
-  ypos 684
- }
-push $N16f46f30
- Dot {
-  name Dot2
-  note_font_size 41
-  xpos -39
-  ypos 768
- }
- Switch {
-  inputs 2
-  which {{parent.mergeAlpha}}
-  name Switch2
-  label "\[value which]"
-  xpos -384
-  ypos 758
- }
- Shuffle {
-  red alpha
-  green alpha
-  blue alpha
-  name ShuffleToRGBA
-  tile_color 0xffffffff
-  xpos -384
-  ypos 796
- }
-set N16f66020 [stack 0]
- Dot {
-  name Dot10
-  note_font_size 41
-  xpos -350
-  ypos 844
- }
-push $N16f3d170
-push $N16f66020
-push $N16e1ba00
- Copy {
-  inputs 2+1
-  from0 rgba.alpha
-  to0 rgba.alpha
-  name CopyA
-  xpos -528
-  ypos 790
- }
- Copy {
-  inputs 2+1
-  channels rgb
-  name CopyRGB
-  xpos -528
-  ypos 828
-  disable {{parent.outChannels==0}}
- }
- Copy {
-  inputs 2
-  channels rgb
-  name CopyPreview
-  xpos -528
-  ypos 878
-  disable {{!parent.preview}}
- }
- Dissolve {
-  inputs 2
-  channels rgba
-  name DissolvePC
-  xpos -528
-  ypos 1168
-  disable {{!parent.preview_in_3d}}
- }
- Output {
-  name Output
-  xpos -528
-  ypos 1254
- }
-push $N16de64e0
- Dot {
-  name Dot27
-  note_font_size 41
-  xpos 691
-  ypos 635
- }
-set N16fb7e00 [stack 0]
- Dot {
-  name Dot24
-  note_font_size 41
-  xpos 994
-  ypos 635
- }
- Axis2 {
-  display off
-  selectable false
-  translate {{-parent.BlinkScriptPMatte.aPMatteKernel_picked} {-parent.BlinkScriptPMatte.aPMatteKernel_picked} {-parent.BlinkScriptPMatte.aPMatteKernel_picked}}
-  name AxisPickedReversed
-  xpos 970
-  ypos 719
- }
- Axis2 {
-  display off
-  selectable false
-  translate {{parent.BlinkScriptPMatte.aPMatteKernel_pickedB} {parent.BlinkScriptPMatte.aPMatteKernel_pickedB} {parent.BlinkScriptPMatte.aPMatteKernel_pickedB}}
-  name AxisPickedBlack1
-  xpos 970
-  ypos 785
- }
-set N16fd60b0 [stack 0]
-push $N16fb7e00
- Axis2 {
-  display off
-  selectable false
-  name AxisWhite
-  xpos 667
-  ypos 795
- }
-set N16fea5e0 [stack 0]
- Dot {
-  name Dot34
-  note_font_size 41
-  xpos 691
-  ypos 914
- }
-push $N16dc4c40
- Dot {
-  name Dot23
-  note_font_size 41
-  xpos 783
-  ypos 756
- }
-set N170035d0 [stack 0]
- TransformGeo {
-  inputs 3
-  selectable false
-  name TransformGeoWhite
-  xpos 749
-  ypos 910
- }
-push $N16fea5e0
-push $N16fd60b0
- Dot {
-  name Dot33
-  note_font_size 41
-  xpos 994
-  ypos 913
- }
-push $N170035d0
- Dot {
-  name Dot32
-  note_font_size 41
-  xpos 909
-  ypos 756
- }
- TransformGeo {
-  inputs 3
-  name TransformGeo1
-  xpos 875
-  ypos 909
- }
- Dot {
-  name Dot19
-  note_font_size 41
-  xpos 909
-  ypos 940
- }
- MergeGeo {
-  inputs 2
-  selectable false
-  name MergeGeo2
-  xpos 749
-  ypos 936
- }
- Dot {
-  name DotPlanes
-  label "\[value name]"
-  note_font_size 12
-  xpos 783
-  ypos 1011
- }
- Axis2 {
-  inputs 0
-  display off
-  selectable false
-  useMatrix true
-  matrix {
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-      {{parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix} {parent.AxisInput.world_matrix}}
-    }
-  name AxisInputCopy2
-  xpos 102
-  ypos 428
- }
- Axis2 {
-  display off
-  useMatrix true
-  matrix {
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-      {{parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix} {parent.Axis.matrix}}
-    }
-  name AxisCopy
-  xpos 102
-  ypos 494
- }
- Axis2 {
-  inputs 0
-  display off
-  selectable false
-  name AxisInput
-  xpos 333
-  ypos 432
- }
-end_group
-push $N16cbe0a0
-Grade {
- inputs 1+1
- white 1.46
- multiply {1.050999999 1 0.949000001 1}
- black_clamp false
- name Grade61
- selected true
- xpos 91920
- ypos 734
+ xpos 31310
+ ypos -12345
 }
 Premult {
  name Premult23
  selected true
- xpos 91920
- ypos 3686
+ xpos 31310
+ ypos -8097
 }
 Dot {
  name Dot377
  label "  <h1>C_Main_Overhead</h1>"
  note_font_size 30
  selected true
- xpos 91954
- ypos 3810
+ xpos 31344
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression43
  selected true
- xpos 91920
- ypos 3998
+ xpos 31310
+ ypos -7785
 }
 Dot {
  name Dot378
  selected true
- xpos 91954
- ypos 5442
+ xpos 31344
+ ypos -6342
 }
-push $N16615630
+push $N766d4000
 Dot {
  name Dot379
  label "  <h1>C_NautilusBlue_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 92944
- ypos -654
+ xpos 32334
+ ypos -12438
 }
 Unpremult {
  name Unpremult23
  selected true
- xpos 92910
- ypos -562
+ xpos 32300
+ ypos -12345
 }
 Premult {
  name Premult24
  selected true
- xpos 92910
- ypos 3686
+ xpos 32300
+ ypos -8097
 }
 Dot {
  name Dot380
  label "  <h1>C_NautilusBlue_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 92944
- ypos 3810
+ xpos 32334
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression44
  selected true
- xpos 92910
- ypos 3998
+ xpos 32300
+ ypos -7785
 }
 Dot {
  name Dot381
  selected true
- xpos 92944
- ypos 5250
+ xpos 32334
+ ypos -6534
 }
-push $N16623cc0
+push $N766d4800
 Dot {
  name Dot382
  label "  <h1>C_DockBuilding_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 93934
- ypos -654
+ xpos 33324
+ ypos -12438
 }
 Unpremult {
  name Unpremult24
  selected true
- xpos 93900
- ypos -562
+ xpos 33290
+ ypos -12345
 }
 Premult {
  name Premult25
  selected true
- xpos 93900
- ypos 3686
+ xpos 33290
+ ypos -8097
 }
 Dot {
  name Dot383
  label "  <h1>C_DockBuilding_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 93934
- ypos 3810
+ xpos 33324
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression45
  selected true
- xpos 93900
- ypos 3998
+ xpos 33290
+ ypos -7785
 }
 Dot {
  name Dot384
  selected true
- xpos 93934
- ypos 5034
+ xpos 33324
+ ypos -6750
 }
-push $N16632470
+push $N766d5000
 Dot {
  name Dot385
  label "  <h1>C_Ruins_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 94924
- ypos -654
+ xpos 34314
+ ypos -12438
 }
 Unpremult {
  name Unpremult25
  selected true
- xpos 94890
- ypos -562
+ xpos 34280
+ ypos -12345
 }
 Premult {
  name Premult26
  selected true
- xpos 94890
- ypos 3686
+ xpos 34280
+ ypos -8097
 }
 Dot {
  name Dot386
  label "  <h1>C_Ruins_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 94924
- ypos 3810
+ xpos 34314
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression49
  selected true
- xpos 94890
- ypos 3998
+ xpos 34280
+ ypos -7785
 }
 Dot {
  name Dot387
  selected true
- xpos 94924
- ypos 4842
+ xpos 34314
+ ypos -6942
 }
-push $N16640ad0
+push $N766d5800
 Dot {
  name Dot388
  label "  <h1>C_dryDock_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 95914
- ypos -654
+ xpos 35304
+ ypos -12438
 }
 Unpremult {
  name Unpremult26
  selected true
- xpos 95880
- ypos -562
+ xpos 35270
+ ypos -12345
 }
 Premult {
  name Premult27
  selected true
- xpos 95880
- ypos 3686
+ xpos 35270
+ ypos -8097
 }
 Dot {
  name Dot389
  label "  <h1>C_dryDock_Light_Group</h1>"
  note_font_size 30
  selected true
- xpos 95914
- ypos 3810
+ xpos 35304
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression50
  selected true
- xpos 95880
- ypos 3998
+ xpos 35270
+ ypos -7785
 }
 Dot {
  name Dot390
  selected true
- xpos 95914
- ypos 4650
+ xpos 35304
+ ypos -7134
 }
-push $N1664f0f0
+push $N766f8000
 Dot {
  name Dot391
  label "  <h1>C_fillLight_Group</h1>"
  note_font_size 30
  selected true
- xpos 96904
- ypos -654
+ xpos 36294
+ ypos -12438
 }
 Unpremult {
  name Unpremult27
  selected true
- xpos 96870
- ypos -562
+ xpos 36260
+ ypos -12345
 }
 Premult {
  name Premult28
  selected true
- xpos 96870
- ypos 3686
+ xpos 36260
+ ypos -8097
 }
 Dot {
  name Dot392
  label "  <h1>C_fillLight_Group</h1>"
  note_font_size 30
  selected true
- xpos 96904
- ypos 3810
+ xpos 36294
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression51
  selected true
- xpos 96870
- ypos 3998
+ xpos 36260
+ ypos -7785
 }
 Dot {
  name Dot393
  selected true
- xpos 96904
- ypos 4434
+ xpos 36294
+ ypos -7350
 }
-push $N16660cf0
+push $N766f8800
 Dot {
  name Dot394
  label "  <h1>C_MainCavern_HoleLight_Group</h1>"
  note_font_size 30
  selected true
- xpos 97894
- ypos -654
+ xpos 37284
+ ypos -12438
 }
 Unpremult {
  name Unpremult28
  selected true
- xpos 97860
- ypos -562
+ xpos 37250
+ ypos -12345
 }
 Premult {
  name Premult29
  selected true
- xpos 97860
- ypos 3686
+ xpos 37250
+ ypos -8097
 }
 Dot {
  name Dot395
  label "  <h1>C_MainCavern_HoleLight_Group</h1>"
  note_font_size 30
  selected true
- xpos 97894
- ypos 3810
+ xpos 37284
+ ypos -7974
 }
 Expression {
  channel0 alpha
  expr0 clamp(r+g+b)
  name Expression52
  selected true
- xpos 97860
- ypos 3998
+ xpos 37250
+ ypos -7785
 }
 Dot {
  name Dot396
  selected true
- xpos 97894
- ypos 4242
+ xpos 37284
+ ypos -7542
 }
-push $N11ed2750
+push $N778bc800
 Remove {
  name Remove2
  selected true
- xpos 98960
- ypos -4144
+ xpos 38350
+ ypos -15927
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge139
  selected true
- xpos 98960
- ypos 4238
+ xpos 38350
+ ypos -7545
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge140
  selected true
- xpos 98960
- ypos 4430
+ xpos 38350
+ ypos -7353
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge141
  selected true
- xpos 98960
- ypos 4646
+ xpos 38350
+ ypos -7137
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge142
  selected true
- xpos 98960
- ypos 4838
+ xpos 38350
+ ypos -6945
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge143
  selected true
- xpos 98960
- ypos 5030
+ xpos 38350
+ ypos -6753
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge144
  selected true
- xpos 98960
- ypos 5246
+ xpos 38350
+ ypos -6537
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge145
  selected true
- xpos 98960
- ypos 5438
+ xpos 38350
+ ypos -6345
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge146
  selected true
- xpos 98960
- ypos 5630
+ xpos 38350
+ ypos -6153
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge147
  selected true
- xpos 98960
- ypos 5846
+ xpos 38350
+ ypos -5937
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge148
  selected true
- xpos 98960
- ypos 6038
+ xpos 38350
+ ypos -5745
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge149
  selected true
- xpos 98960
- ypos 6230
+ xpos 38350
+ ypos -5553
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge150
  selected true
- xpos 98960
- ypos 6446
+ xpos 38350
+ ypos -5337
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge151
  selected true
- xpos 98960
- ypos 6638
+ xpos 38350
+ ypos -5145
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge152
  selected true
- xpos 98960
- ypos 6830
+ xpos 38350
+ ypos -4953
 }
 Merge2 {
  inputs 2
  operation plus
  name Merge153
  selected true
- xpos 98960
- ypos 7046
+ xpos 38350
+ ypos -4737
 }
 Merge2 {
  inputs 2
  operation from
  name Merge154
  selected true
- xpos 98960
- ypos 7526
+ xpos 38350
+ ypos -4257
 }
 Merge2 {
  inputs 2
@@ -4446,8 +2826,8 @@ Merge2 {
  also_merge all
  name Merge155
  selected true
- xpos 98960
- ypos 8054
+ xpos 38350
+ ypos -3729
 }
 EXPTool {
  mode Stops
@@ -4457,8 +2837,8 @@ EXPTool {
  name Exposure29
  label "Stops: \[value red]"
  selected true
- xpos 98960
- ypos 9200
+ xpos 38350
+ ypos -2583
 }
 Group {
  name NAN_INF_Killer11
@@ -4467,8 +2847,8 @@ Group {
  note_font "Bitstream Vera Sans Bold"
  note_font_color 0xffffffff
  selected true
- xpos 98960
- ypos 9392
+ xpos 38350
+ ypos -2391
  addUserKnob {20 NAN_INF_Killer}
  addUserKnob {26 text l " " T "<big><b><font color=darkorange>Detects and Kills <font color=white>NAN <font color=darkorange>and <font color=white>INF <font color=darkorange>pixels"}
  addUserKnob {41 channels T Shuffle1.in}
@@ -4591,7 +2971,7 @@ Group {
   xpos 202
   ypos -90
  }
-set N173428a0 [stack 0]
+set N76e63400 [stack 0]
  Reformat {
   type scale
   scale 2
@@ -4613,14 +2993,14 @@ set N173428a0 [stack 0]
   xpos 166
   ypos 79
  }
-set N17367cb0 [stack 0]
+set N76e7e400 [stack 0]
  Dot {
   name Dot29
   note_font_size 41
   xpos 200
   ypos 191
  }
-set N173708a0 [stack 0]
+set N76e7e800 [stack 0]
  Dot {
   name Dot30
   note_font_size 41
@@ -4634,7 +3014,7 @@ set N173708a0 [stack 0]
   xpos 303
   ypos 354
  }
-push $N173708a0
+push $N76e7e800
  Expression {
   expr0 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))?0:r
   expr1 (isnan(r)||isnan(g)||isnan(b)||isnan(a))||(isinf(r)||isinf(g)||isinf(b)||isinf(a))?0:g
@@ -4659,14 +3039,14 @@ push $N173708a0
   xpos 200
   ypos 404
  }
-set N173a52c0 [stack 0]
+set N76e7fc00 [stack 0]
  Dot {
   name Dot11
   note_font_size 41
   xpos 200
   ypos 774
  }
-set N173aa2d0 [stack 0]
+set N76eb2000 [stack 0]
  Dot {
   name Dot7
   note_font_size 41
@@ -4679,22 +3059,22 @@ set N173aa2d0 [stack 0]
   xpos 57
   ypos 1642
  }
-set N173b41b0 [stack 0]
+set N76eb2800 [stack 0]
  Dot {
   name Dot9
   note_font_size 41
   xpos 56
   ypos 1712
  }
-set N173b90e0 [stack 0]
+set N76eb2c00 [stack 0]
  Dot {
   name Dot10
   note_font_size 41
   xpos 57
   ypos 1765
  }
-push $N173b90e0
-push $N17367cb0
+push $N76eb2c00
+push $N76e7e400
  Dot {
   name Dot28
   note_font_size 41
@@ -4725,21 +3105,21 @@ push $N17367cb0
   xpos 1620
   ypos 578
  }
-set N173e69f0 [stack 0]
+set N76ed2000 [stack 0]
  Dot {
   name Dot20
   note_font_size 41
   xpos 1620
   ypos 659
  }
-set N173eb9c0 [stack 0]
+set N76ed2400 [stack 0]
  Dot {
   name Dot13
   note_font_size 41
   xpos 1620
   ypos 982
  }
-set N173f08f0 [stack 0]
+set N76ed2800 [stack 0]
  Dot {
   name Dot2
   label mask
@@ -4747,42 +3127,42 @@ set N173f08f0 [stack 0]
   xpos 1704
   ypos 982
  }
-push $N173a52c0
+push $N76e7fc00
  Dot {
   name Dot19
   note_font_size 41
   xpos 519
   ypos 404
  }
-set N173fa840 [stack 0]
+set N76ed3000 [stack 0]
  Dot {
   name Dot22
   note_font_size 41
   xpos 629
   ypos 404
  }
-set N173ff6b0 [stack 0]
+set N76ed3400 [stack 0]
  Dot {
   name Dot24
   note_font_size 41
   xpos 904
   ypos 404
  }
-set N174045e0 [stack 0]
+set N76ed3800 [stack 0]
  Dot {
   name Dot5
   note_font_size 41
   xpos 1188
   ypos 404
  }
-set N17409510 [stack 0]
+set N76ed3c00 [stack 0]
  Dot {
   name Dot14
   note_font_size 41
   xpos 1834
   ypos 404
  }
-set N1740e440 [stack 0]
+set N76ef0000 [stack 0]
  TimeOffset {
   time_offset {{parent.timeOffset}}
   time ""
@@ -4797,7 +3177,7 @@ set N1740e440 [stack 0]
   xpos 1834
   ypos 914
  }
-push $N1740e440
+push $N76ef0000
  Dot {
   name Dot15
   note_font_size 41
@@ -4817,29 +3197,29 @@ push $N1740e440
   xpos 1944
   ypos 1132
  }
-push $N173f08f0
-push $N173eb9c0
+push $N76ed2800
+push $N76ed2400
  Dot {
   name Dot6
   note_font_size 41
   xpos 1308
   ypos 659
  }
-set N1743c060 [stack 0]
+set N76ef1400 [stack 0]
  Invert {
   channels rgba
   name Invert1
   xpos 1274
   ypos 758
  }
-push $N17409510
+push $N76ed3c00
  Dot {
   name Dot12
   note_font_size 41
   xpos 1188
   ypos 834
  }
-set N1744c7b0 [stack 0]
+set N76ef1c00 [stack 0]
  Copy {
   inputs 2
   from0 rgba.alpha
@@ -4861,7 +3241,7 @@ set N1744c7b0 [stack 0]
   xpos 1274
   ypos 922
  }
-push $N1744c7b0
+push $N76ef1c00
  Merge2 {
   inputs 2+1
   operation copy
@@ -4875,8 +3255,8 @@ push $N1744c7b0
   xpos 1188
   ypos 1079
  }
-push $N173e69f0
-push $N174045e0
+push $N76ed2000
+push $N76ed3800
  TransformMasked {
   inputs 1+1
   channels rgba
@@ -4893,7 +3273,7 @@ push $N174045e0
   xpos 904
   ypos 937
  }
-push $N1743c060
+push $N76ef1400
  Dot {
   name Dot3
   label mask
@@ -4901,7 +3281,7 @@ push $N1743c060
   xpos 705
   ypos 659
  }
-push $N173fa840
+push $N76ed3000
  Grade {
   multiply 0
   add {{parent.replaceColor} {parent.replaceColor} {parent.replaceColor} {parent.replaceColor}}
@@ -4915,7 +3295,7 @@ push $N173fa840
   xpos 519
   ypos 660
  }
-push $N173ff6b0
+push $N76ed3400
  Merge2 {
   inputs 2+1
   operation copy
@@ -4929,7 +3309,7 @@ push $N173ff6b0
   xpos 629
   ypos 846
  }
-push $N173aa2d0
+push $N76eb2000
  Switch {
   inputs 5
   which {{parent.which}}
@@ -4938,7 +3318,7 @@ push $N173aa2d0
   xpos 166
   ypos 1439
  }
-push $N173b41b0
+push $N76eb2800
  ShuffleCopy {
   inputs 2
   alpha alpha2
@@ -4975,7 +3355,7 @@ push $N173b41b0
   xpos 166
   ypos 1826
  }
-push $N173428a0
+push $N76e63400
  Dot {
   name Dot27
   note_font_size 41
@@ -5005,24 +3385,24 @@ end_group
 Dot {
  name Dot397
  selected true
- xpos 98994
- ypos 9498
+ xpos 38384
+ ypos -2286
 }
-push $N15ccd260
+push $N77898c00
 Copy {
  inputs 2
  channels rgb
  name Copy13
  selected true
- xpos 99950
- ypos 9482
+ xpos 39340
+ ypos -2301
 }
 Group {
  name LensSim1
  tile_color 0x3592eeff
  selected true
- xpos 99950
- ypos 10142
+ xpos 39340
+ ypos -1641
  addUserKnob {20 LensSim t "Quick tool to add some level of 'lens simulation' to any image, preferably CG imagery. You would want to match lens irregularities to the camera that was used to shoot you plates or a target camera look."}
  addUserKnob {20 Diffusion n 1}
  Diffusion 0
@@ -5064,14 +3444,14 @@ Group {
   xpos 544
   ypos -558
  }
-set N1755be60 [stack 0]
-push $N1755be60
+set N76fa8400 [stack 0]
+push $N76fa8400
  Dot {
   name Dot30
   xpos 654
   ypos -558
  }
-set N17560b80 [stack 0]
+set N76fa8800 [stack 0]
  Dot {
   name Dot31
   xpos 874
@@ -5084,7 +3464,7 @@ set N17560b80 [stack 0]
   xpos 840
   ypos -465
  }
-push $N17560b80
+push $N76fa8800
  Merge2 {
   inputs 2
   operation minus
@@ -5097,7 +3477,7 @@ push $N17560b80
   xpos 654
   ypos -390
  }
-push $N1755be60
+push $N76fa8400
  Merge2 {
   inputs 2
   operation plus
@@ -5117,14 +3497,14 @@ push $N1755be60
   xpos 544
   ypos -198
  }
-set N175a6700 [stack 0]
+set N76fd2400 [stack 0]
  Dot {
   name Dot2
   xpos 387
   ypos 26
  }
-set N175ab670 [stack 0]
-push $N175a6700
+set N76fd2800 [stack 0]
+push $N76fd2400
  Dot {
   name Dot35
   xpos 874
@@ -5139,8 +3519,8 @@ push $N175a6700
   xpos 840
   ypos 137
  }
-set N175b54d0 [stack 0]
-push $N175a6700
+set N76fd3000 [stack 0]
+push $N76fd2400
  GodRays {
   channels {-rgba.red -rgba.green rgba.blue none}
   scale 1.003
@@ -5179,7 +3559,7 @@ push $N175a6700
   xpos 730
   ypos 75
  }
-push $N175a6700
+push $N76fd2400
  GodRays {
   channels {-rgba.red -rgba.green rgba.blue none}
   scale 1.0015
@@ -5220,7 +3600,7 @@ push $N175a6700
   xpos 510
   ypos 137
  }
-push $N175ab670
+push $N76fd2800
  Dissolve {
   inputs 2
   which 1
@@ -5235,20 +3615,20 @@ push $N175ab670
   xpos 510
   ypos 229
  }
-set N176600b0 [stack 0]
+set N7704c000 [stack 0]
  Dot {
   name Dot1
   xpos 434
   ypos 330
  }
-set N176684b0 [stack 0]
-push $N175b54d0
+set N7704c400 [stack 0]
+push $N76fd3000
  Dot {
   name Dot36
   xpos 874
   ypos 282
  }
-set N1766d580 [stack 0]
+set N7704c800 [stack 0]
  Dot {
   name Dot37
   xpos 874
@@ -5269,7 +3649,7 @@ set N1766d580 [stack 0]
   xpos 620
   ypos 351
  }
-push $N1766d580
+push $N7704c800
  Glint {
   length 32
   to_color {0.05999999866 0.02231999859 0 0}
@@ -5284,7 +3664,7 @@ push $N1766d580
   xpos 620
   ypos 277
  }
-push $N176600b0
+push $N7704c000
  Merge2 {
   inputs 2
   operation plus
@@ -5303,7 +3683,7 @@ push $N176600b0
   xpos 510
   ypos 351
  }
-push $N176684b0
+push $N7704c400
  Dissolve {
   inputs 2
   which 1
@@ -5323,13 +3703,13 @@ push $N176684b0
   xpos 544
   ypos 498
  }
-set N176e7eb0 [stack 0]
+set N77085000 [stack 0]
  Dot {
   name Dot3
   xpos 669
   ypos 606
  }
-push $N176e7eb0
+push $N77085000
  Crop {
   box {{curve i} {curve i} {width i} {height i}}
   crop false
@@ -5343,7 +3723,7 @@ push $N176e7eb0
   xpos 400
   ypos 519
  }
-set N176fca30 [stack 0]
+set N77085c00 [stack 0]
  Blur {
   channels rgba
   size 100
@@ -5352,7 +3732,7 @@ set N176fca30 [stack 0]
   xpos 428
   ypos 565
  }
-push $N176fca30
+push $N77085c00
  Blur {
   channels rgba
   size 33
@@ -5367,7 +3747,7 @@ push $N176fca30
   xpos 400
   ypos 610
  }
-push $N176e7eb0
+push $N77085000
  Merge2 {
   inputs 2
   operation plus
@@ -5384,13 +3764,13 @@ push $N176e7eb0
   xpos 510
   ypos 685
  }
-set N17745080 [stack 0]
+set N770b9000 [stack 0]
  Dot {
   name Dot4
   xpos 444
   ypos 874
  }
-push $N17745080
+push $N770b9000
  Shuffle {
   red black
   green black
@@ -5407,7 +3787,7 @@ push $N17745080
   xpos 730
   ypos 877
  }
-push $N17745080
+push $N770b9000
  Grade {
   inputs 1+1
   multiply 0.62
@@ -5423,10 +3803,10 @@ push $N17745080
   xpos 510
   ypos 949
  }
-set N177835c0 [stack 0]
+set N770f2400 [stack 0]
  LensDistortion1_0 {
   serializeKnob ""
-  serialiseKnob "22 serialization::archive 17 0 0 0 0 0 0 0 0 0 0 0 0"
+  serialiseKnob "22 serialization::archive 19 0 0 0 0 0 0 0 0 0 0 0 0"
   distortion1 -0.011
   cardScale {0.4952021837 0.4952021837 1}
   a 1.711844683
@@ -5436,7 +3816,7 @@ set N177835c0 [stack 0]
   xpos 424
   ypos 1036
  }
-push $N177835c0
+push $N770f2400
  Switch {
   inputs 2
   which {{lensD i}}
