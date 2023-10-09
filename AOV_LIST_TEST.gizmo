@@ -1,0 +1,129 @@
+set cut_paste_input [stack 0]
+version 14.0 v5
+push $cut_paste_input
+Group {
+ name AOV_LIST_TEST1
+ selected true
+ xpos 2593
+ ypos 111
+ addUserKnob {20 User l AOV}
+ addUserKnob {26 grid_settings l "<b>Grid Settings"}
+ addUserKnob {41 rows l "Rows & Columns" +INVISIBLE T proxy.rows}
+ addUserKnob {41 columns l Columns -STARTLINE +INVISIBLE T proxy.columns}
+ addUserKnob {41 border l "Border Thickness" T proxy.border}
+ addUserKnob {7 format_scale l Scale}
+ format_scale 1
+ addUserKnob {22 match_input_res l "<b>Match Input Res" -STARTLINE T "this_node = nuke.thisNode()\nif this_node.dependencies():\n    with nuke.thisGroup():\n        new_scale = nuke.toNode('proxy')\['scale'].value()\n    this_node\['format_scale'].setValue(new_scale)\nelse:\n    this_node\['format_scale'].setValue(1)"}
+ addUserKnob {26 text_settings l "<b>Text Settings"}
+ addUserKnob {41 text_pos l "Text Position" T proxy.text_pos}
+ addUserKnob {41 font_scale l "Font Scale" T proxy.font_scale}
+ addUserKnob {41 background l Background T proxy.background}
+ addUserKnob {41 bg_color l "BG Color" T proxy.bg_color}
+ addUserKnob {41 bg_opacity l "BG Opacity" T proxy.bg_opacity}
+ addUserKnob {26 layers l <b>Layers}
+ addUserKnob {22 populate l "<b>Populate Layers" T "#################################\n### AOV LIST ###\n#################################\n\nX_DIST = nuke.toNode('preferences')\['GridWidth'].value()\nY_DIST = nuke.toNode('preferences')\['GridHeight'].value()\nTHIS_GROUP = nuke.thisNode()\nSELECT_VAL = True\n\nthis_channels = THIS_GROUP.input(0).channels()\nlayersList = \[]\nfor rawChannels in this_channels:\n    splitRawChannels = rawChannels.split('.')\n    layersList.append(splitRawChannels\[0])\nchannelLayers = list(set(layersList))\nchannelLayers.sort()\nchannel_num = (len(channelLayers))\n\nwith THIS_GROUP:\n    proxy = nuke.toNode('proxy')\n    start_dot = dot = nuke.toNode('START_DOT')\n    crop_to_format = nuke.toNode('Crop_TO_FORMAT')\n    end_dot = nuke.toNode('END_DOT')\n    reformat_to_scale = nuke.toNode('Reformat_TO_SCALE')\n    output = nuke.toNode('Output1')\n    TMP_PREFIX = \"tmp_\"\n    proxy\['aov_num'].setValue(channel_num)\n\n    for index, n in enumerate(channelLayers):\n        # creating dot\n        newX = dot\['xpos'].value()\n        newY = dot\['ypos'].value()\n        oldDot = dot\n        dot = nuke.nodes.Dot()\n        dot\['name'].setValue(\"\{0\}Dot_\{1\}\".format(TMP_PREFIX, index))\n        dot\['xpos'].setValue(int(newX) + (X_DIST*3))\n        dot\['ypos'].setValue(newY)\n        dot.setSelected(SELECT_VAL)\n        newDot = dot\n        newDot.setInput(0, oldDot)\n\n        # creating shuffle\n        shuffle = nuke.nodes.Shuffle2()\n        shuffle\['name'].setValue(\"\{0\}Shuffle_\{1\}\".format(TMP_PREFIX, index))\n        shuffle\['in1'].setValue(n)\n        shuffle\['label'].setValue(n)\n        shuffle\['xpos'].setValue(int(dot\['xpos'].value()) - 39)\n        shuffle\['ypos'].setValue(int(dot\['ypos'].value()) + (Y_DIST*3))\n        shuffle.setSelected(SELECT_VAL)\n        shuffle.setInput(0, newDot)\n\n        # creating remove\n        remove = nuke.nodes.Remove()\n        remove\['name'].setValue(\"\{0\}Remove_\{1\}\".format(TMP_PREFIX, index))\n        remove\['operation'].setValue('remove')\n        remove\['channels'].setValue('all')\n        remove\['xpos'].setValue(int(shuffle\['xpos'].value()) - 110)\n        remove\['ypos'].setValue(int(shuffle\['ypos'].value()))\n        remove.setSelected(SELECT_VAL)\n        remove.setInput(0, shuffle)\n\n        # creating text\n        text = nuke.nodes.Text2()\n        text\['name'].setValue(\"\{0\}Text_\{1\}\".format(TMP_PREFIX, index))\n        text\['message'].setValue('\[value input.input.in1]')\n        text\['box'].setExpression('input.format.x+(input.format.r*.03)', 0)\n        text\['box'].setExpression('input.format.y + (input.format.t*.03)', 1)\n        text\['box'].setExpression('input.format.r-(input.format.r*.03)', 2)\n        text\['box'].setExpression('input.format.t-(input.format.t*.03)', 3)\n        text\['xjustify'].setExpression(\"proxy.text_pos == 0 || proxy.text_pos == 2 ? 0 :2\")\n        text\['yjustify'].setExpression(\"proxy.text_pos == 2 || proxy.text_pos == 3 ? 2 :0\")\n        text\['global_font_scale'].setExpression('proxy.font_scale')\n        text\['enable_background'].setExpression('proxy.background')\n        text\['background_color'].setExpression('proxy.bg_color')\n        text\['background_opacity'].setExpression('proxy.bg_opacity')\n        text\['xpos'].setValue(int(remove\['xpos'].value()))\n        text\['ypos'].setValue(int(shuffle\['ypos'].value())+54)\n        text.setSelected(SELECT_VAL)\n        text.setInput(0, remove)\n\n        # creating merge_text\n        merge_text = nuke.nodes.Merge2()\n        merge_text\['name'].setValue(\"\{0\}Merge_Text_\{1\}\".format(TMP_PREFIX, index))\n        merge_text\['xpos'].setValue(int(shuffle\['xpos'].value()))\n        merge_text\['ypos'].setValue(int(shuffle\['ypos'].value()) + 54)\n        merge_text.setSelected(SELECT_VAL)\n        merge_text.setInput(0, shuffle)\n        merge_text.setInput(1, text)\n\n        # creating grid\n        grid = nuke.nodes.Grid()\n        grid\['name'].setValue(\"\{0\}Grid_\{1\}\".format(TMP_PREFIX, index))\n        grid\['number'].setValue(1)\n        grid\['size'].setExpression('proxy.border')\n        grid\['xpos'].setValue(int(merge_text\['xpos'].value()))\n        grid\['ypos'].setValue(int(merge_text\['ypos'].value()) + 108)\n        grid.setSelected(SELECT_VAL)\n        grid.setInput(0, merge_text)\n\n        # creating transform\n        transform = nuke.nodes.Transform()\n        transform\['name'].setValue(\"\{0\}Transform_\{1\}\".format(TMP_PREFIX, index))\n        k1 = nuke.Int_Knob('index_num', 'index_num' )\n        transform.addKnob(k1)\n        k2 = nuke.Int_Knob('grid_size', 'grid_size' )\n        transform.addKnob(k2)\n        k3 = nuke.Int_Knob('rev_index_num', 'rev_index_num' )\n        transform.addKnob(k3)\n        transform\['index_num'].setValue(index+1)\n        transform\['grid_size'].setExpression(\"proxy.grid_val\")\n        transform\['rev_index_num'].setValue(channel_num - (index))\n        transform\['center'].setExpression(\"\"\"\[python -exec \{\ntn = nuke.thisNode()\nrow = int(tn\['index_num'].value() % tn\['grid_size'].value())\nif row == 0:\n    row = int(tn\['grid_size'].value())\n\}] \[python row]\"\"\", 0)\n        transform\['center'].setExpression(\"\"\"ceil((rev_index_num) / grid_size)\"\"\", 1)\n        transform\['translate'].setExpression(\"input.width*\[value center.0]-input.width\", 0)\n        transform\['translate'].setExpression(\"input.height*(\[value center.1])-input.height\", 1)\n        transform\['xpos'].setValue(int(grid\['xpos'].value()))\n        transform\['ypos'].setValue(int(grid\['ypos'].value()) + 108)\n        transform.setSelected(SELECT_VAL)\n        transform.setInput(0, grid)\n\n        # creating dot\n        corner_dot = nuke.nodes.Dot()\n        corner_dot\['name'].setValue(\"\{0\}Corner_Dot_\{1\}\".format(TMP_PREFIX, index))\n        corner_dot\['xpos'].setValue(int(transform\['xpos'].value())+ 39)\n        corner_dot\['ypos'].setValue(int(transform\['ypos'].value()) + ((Y_DIST*8) * (index+2)))\n        corner_dot.setSelected(SELECT_VAL)\n        corner_dot.setInput(0, transform)\n\n        # creating merge\n        if not index == 0:\n            old_merge = merge\n        merge = nuke.nodes.Merge2()\n        merge\['name'].setValue(\"\{0\}Merge_\{1\}\".format(TMP_PREFIX, index))\n        merge_name = merge\['name'].value()\n        merge\['xpos'].setValue(int(crop_to_format\['xpos'].value()))\n        merge\['ypos'].setValue(int(corner_dot\['ypos'].value()))\n        merge\['label'].setValue(n)\n        merge.setSelected(SELECT_VAL)\n        merge.setInput(1, corner_dot)\n        if index == 0:\n            merge.setInput(0, crop_to_format)\n        else:\n            new_merge = merge\n            new_merge.setInput(0, old_merge)\n\n        # adding checkbox knobs\n        knob = nuke.Boolean_Knob(TMP_PREFIX+n, n)\n        knob.setFlag(nuke.STARTLINE)\n        tg_name = THIS_GROUP\['name'].value()\n        THIS_GROUP.addKnob(knob)\n        THIS_GROUP\[TMP_PREFIX+n].setValue(True)\n\n        # linking merge with checkboxes with expression\n        merge\['disable'].setExpression(\"!\{0\}\{1\}\".format(TMP_PREFIX, n))\n\n        # setting output node position\n        if index == (channel_num-1):\n            end_dot\['xpos'].setValue(int(start_dot\['xpos'].value()))\n            end_dot\['ypos'].setValue(int(new_merge\['ypos'].value())+(Y_DIST*8))\n            end_dot.setSelected(SELECT_VAL)\n            end_dot.setInput(0, new_merge)\n            reformat_to_scale\['xpos'].setValue(int(crop_to_format\['xpos'].value()))\n            reformat_to_scale\['ypos'].setValue(int(end_dot\['ypos'].value())+(Y_DIST*8))\n            output\['xpos'].setValue(int(crop_to_format\['xpos'].value()))\n            output\['ypos'].setValue(int(reformat_to_scale\['ypos'].value())+(Y_DIST*8))" +STARTLINE}
+ addUserKnob {26 space l "" -STARTLINE T "     "}
+ addUserKnob {22 delete l "<b>Delete Layers" -STARTLINE T "TMP_PREFIX = \"tmp_\"\nwith THIS_GROUP:\n    for n in nuke.allNodes():\n        n_name = n\['name'].value()\n        if n_name.startswith(TMP_PREFIX):\n            nuke.delete(n)\nfor k in THIS_GROUP.knobs():\n    if k.startswith(TMP_PREFIX):\n        THIS_GROUP.removeKnob(THIS_GROUP\[k])"}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 400
+  ypos -489
+ }
+ Dot {
+  name START_DOT
+  label "\[value name]"
+  note_font_size 22
+  xpos 434
+  ypos -342
+ }
+set N14f215d0 [stack 0]
+ Remove {
+  name Remove_ALL
+  xpos 400
+  ypos -279
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 black -1 -1 rgba.red 0 0 black -1 -1 rgba.green 0 1 black -1 -1 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle_KEEP_RGB
+  label "\[value in1]"
+  xpos 400
+  ypos -207
+ }
+ Crop {
+  box {0 0 {input.width*proxy.grid_val} {input.height*proxy.grid_val}}
+  reformat true
+  crop false
+  name Crop_TO_FORMAT
+  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+  xpos 400
+  ypos -135
+ }
+set N15f68720 [stack 0]
+ Dot {
+  name END_DOT
+  label "\[value name]\n\n"
+  note_font_size 22
+  selected true
+  xpos 434
+  ypos 7296
+ }
+ Reformat {
+  type scale
+  scale {{format_scale}}
+  name Reformat_TO_SCALE
+  label "\[if \{\[value this.type]==\"scale\"\} \{return \"Scale: \[value this.scale]\"\} \{return \"\"\}]\n"
+  xpos 400
+  ypos 7488
+ }
+ Output {
+  name Output1
+  xpos 400
+  ypos 7680
+ }
+push $N15f68720
+ Viewer {
+  frame_range 1001-1032
+  monitorOutOutputTransform rec709
+  name Viewer1
+  xpos -4330
+  ypos 12039
+ }
+push $N14f215d0
+ NoOp {
+  name proxy
+  xpos 180
+  ypos -345
+  addUserKnob {20 User}
+  addUserKnob {7 tcl_test l tcl}
+  tcl_test {{"\[llength \[channels]]"}}
+  addUserKnob {7 aov_num l "AOV NUM" R 0 100}
+  aov_num 36
+  addUserKnob {7 grid_val l GRID_VAL R 0 100}
+  grid_val {{"\[expr \{int( ceil ( (\[numvalue aov_num] /(sqrt( \[numvalue aov_num] )) )) )\} ]"}}
+  addUserKnob {7 scale l SCALE R 0 2}
+  scale {{1/grid_val}}
+  addUserKnob {26 text_settings l "<b>Text Settings"}
+  addUserKnob {4 text_pos l "Text Position" M {"Top Left" "Top Right" "Bottom Left" "Bottom Right"}}
+  text_pos "Top Right"
+  addUserKnob {7 font_scale l "Font Scale" R 0 2}
+  font_scale 2
+  addUserKnob {6 background l Background +STARTLINE}
+  addUserKnob {19 bg_color l "BG Color"}
+  addUserKnob {6 bg_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+  addUserKnob {7 bg_opacity l "BG Opacity"}
+  bg_opacity 1
+  addUserKnob {26 grid_settings l "<b>Grid Settings"}
+  addUserKnob {3 rows l Rows}
+  rows 2
+  addUserKnob {3 columns l Columns -STARTLINE}
+  columns {{rows}}
+  addUserKnob {7 resMult l "Resolution Multiplier" R 0 2}
+  resMult 1
+  addUserKnob {7 border l Border R 0 20}
+  border 20
+ }
+end_group
