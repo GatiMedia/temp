@@ -32,14 +32,15 @@ for node in nuke.selectedNodes():
         pass
 
 # Check specific Read node's colrospace
-print (nuke.toNode('render_Comp_Output1')['colorspace'].value())
+
+print (nuke.selectedNode()['colorspace'].value())
 
 ####
 
 for node in nuke.selectedNodes():
     try:
-        node['colorspace'].setValue('ACEScg')
-    except Exception:
+        node['colorspace'].setValue('default (scene_linear)')
+    except:
         pass
     
 ####
@@ -50,7 +51,7 @@ for node in nuke.selectedNodes():
         retime['output.first_lock'].setValue(1)
         retime['output.first'].setValue(1001)
         retime['xpos'].setValue(node['xpos'].value())
-        retime['ypos'].setValue(node['ypos'].value() + 100)
+        retime['ypos'].setValue(node['ypos'].value() + 150)
         retime.setInput(0, node)
     except:
         pass
@@ -61,7 +62,7 @@ for node in nuke.selectedNodes():
     try:
         dot = nuke.nodes.Dot()
         dot['xpos'].setValue(node['xpos'].value() + 35)
-        dot['ypos'].setValue(node['ypos'].value() + 100)
+        dot['ypos'].setValue(node['ypos'].value() + 200)
         dot.setInput(0, node)
     except:
         pass
@@ -104,15 +105,20 @@ setInput()
 
 # Get knob’s value with getValue()
 
-print (nuke.toNode('Blur12')['filter'].getValue())
+print (nuke.toNode('Blur1')['filter'].getValue())
 
 # Get knob’s value with value()
 
-print (nuke.toNode('Blur12')['filter'].value())
+print (nuke.toNode('Blur1')['filter'].value())
 
 # Get knob’s expression value with toScript()
 
-print (nuke.toNode('Blur12')['size'].toScript())
+print (nuke.toNode('Blur1')['size'].toScript())
+
+
+# Set Expression value #
+
+nuke.toNode('Blur2')['filter'].setExpression('Blur1.filter')
 
 
 # Practice Snippets #
