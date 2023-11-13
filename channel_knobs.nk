@@ -1,0 +1,520 @@
+set cut_paste_input [stack 0]
+version 14.0 v2
+push $cut_paste_input
+Clamp {
+ channels rgba
+ name Clamp1
+ selected true
+ xpos 6340
+ ypos 5823
+}
+EdgeBlur {
+ inputs 0
+ channels alpha
+ name EdgeBlur1
+ label "Size: \[value size]"
+ selected true
+ xpos 7000
+ ypos 5811
+}
+EdgeDetectWrapper {
+ inputs 0
+ channels rgba
+ name EdgeDetect1
+ selected true
+ xpos 7110
+ ypos 5817
+}
+Dilate {
+ inputs 0
+ name Dilate1
+ selected true
+ xpos 7220
+ ypos 5817
+}
+Erode {
+ inputs 0
+ channels all
+ name Erode1
+ selected true
+ xpos 7440
+ ypos 5817
+}
+FilterErode {
+ inputs 0
+ channels all
+ name FilterErode1
+ selected true
+ xpos 7330
+ ypos 5817
+}
+Glow2 {
+ inputs 0
+ channels rgba
+ name Glow1
+ selected true
+ xpos 7550
+ ypos 5823
+}
+Median {
+ inputs 0
+ channels alpha
+ ignore_top_line false
+ name Median1
+ selected true
+ xpos 7660
+ ypos 5817
+}
+Sharpen {
+ inputs 0
+ name Sharpen1
+ label "Size: \[value size]"
+ selected true
+ xpos 7770
+ ypos 5811
+}
+Soften {
+ inputs 0
+ name Soften1
+ label "Size: \[value size]"
+ selected true
+ xpos 7880
+ ypos 5811
+}
+VectorBlur2 {
+ inputs 0
+ name VectorBlur1
+ selected true
+ xpos 8100
+ ypos 5817
+}
+ZDefocus2 {
+ inputs 0
+ legacy_resize_mode false
+ show_legacy_resize_mode false
+ name ZDefocus1
+ label "Size: \[value size]"
+ selected true
+ xpos 7990
+ ypos 5811
+}
+IDistort {
+ inputs 0
+ channels rgb
+ name IDistort1
+ label "Scale: \[value uv_scale]"
+ selected true
+ xpos 8430
+ ypos 5817
+}
+GridWarp3 {
+ inputs 0
+ channels rgb
+ toolbar_visibility_src false
+ source_grid_col   {
+    1 5 5 4 1 0
+    {default }
+    {
+      { {2 0 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+    }
+  }
+ destination_grid_col   {
+    1 5 5 4 1 0
+    {default }
+    {
+      { {2 0 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 0} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 270} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 540} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 810} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 0 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 480 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 960 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1440 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+      { {2 1920 1080} { {2 0 90}  {2 0 -90}  {2 160 0}  {2 -160 0} } } 
+    }
+  }
+ source_grid_transform_center {960 540}
+ destination_grid_transform_center {960 540}
+ name GridWarp3_1
+ selected true
+ xpos 8540
+ ypos 5817
+}
+Premult {
+ inputs 0
+ channels rgba
+ name Premult1
+ selected true
+ xpos 8320
+ ypos 5823
+}
+Keymix {
+ inputs 0
+ name Keymix1
+ selected true
+ xpos 8210
+ ypos 5817
+}
+DirBlurWrapper {
+ inputs 0
+ channels alpha
+ name DirBlurWrapper1
+ selected true
+ xpos 6890
+ ypos 5817
+}
+Convolve2 {
+ inputs 0
+ channels rgba
+ name Convolve1
+ selected true
+ xpos 6670
+ ypos 5823
+}
+Bilateral2 {
+ inputs 0
+ name Bilateral1
+ selected true
+ xpos 6560
+ ypos 5817
+}
+SplineWarp3 {
+ inputs 0
+ channels rgba
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 0}
+    {t x44700000 x44070000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}}}}}
+ toolbar_preview_mode "persistent preview"
+ name SplineWarp3_1
+ label "Out: \[string toupper \[value output_enum]]"
+ selected true
+ xpos 8650
+ ypos 5811
+}
+Text2 {
+ inputs 0
+ font_size_toolbar 100
+ font_width_toolbar 100
+ font_height_toolbar 100
+ output all
+ transforms {{0 2}
+   }
+ center {960 540}
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 960 540 0 0 1 1 0 0 0 0}
+   }
+ name Text1
+ selected true
+ xpos 5790
+ ypos 6033
+}
+FrameBlend {
+ inputs 0
+ channels rgb
+ name FrameBlend1
+ selected true
+ xpos 5900
+ ypos 5823
+}
+Colorspace {
+ inputs 0
+ channels alpha
+ name Colorspace1
+ label "\[value colorspace_in] to \[value colorspace_out]"
+ selected true
+ xpos 6230
+ ypos 5811
+}
+STMap {
+ inputs 0
+ channels rgb
+ name STMap1
+ label "UV: \[value uv]"
+ selected true
+ xpos 8760
+ ypos 5817
+}
+Multiply {
+ inputs 0
+ channels rgb
+ name Multiply1
+ label "Value: \[value value]"
+ selected true
+ xpos 6120
+ ypos 5817
+}
+Merge2 {
+ inputs 0
+ name Merge11
+ selected true
+ xpos 5900
+ ypos 6039
+}
+OCIOColorSpace {
+ inputs 0
+ channels all
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name OCIOColorSpace1
+ label "\[value in_colorspace] to \[value out_colorspace]"
+ selected true
+ xpos 6450
+ ypos 5811
+}
+Defocus {
+ inputs 0
+ channels rgb
+ name Defocus1
+ label "Size: \[value defocus]"
+ selected true
+ xpos 6780
+ ypos 5817
+}
+Ramp {
+ inputs 0
+ output none
+ name Ramp1
+ selected true
+ xpos 5680
+ ypos 6033
+}
+Blur {
+ inputs 0
+ name Blur67
+ label "Size: \[value size]"
+ selected true
+ xpos 5460
+ ypos 5811
+}
+OFlow2 {
+ inputs 0
+ name OFlow1
+ selected true
+ xpos 5570
+ ypos 6255
+}
+Roto {
+ inputs 0
+ output all
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097664}
+    {t x44700000 x44070000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {960 540}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ lifetime_start 1001
+ lifetime_end 1001
+ view {}
+ motionblur_on true
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ channels rgba
+ name Roto1
+ selected true
+ xpos 5460
+ ypos 6033
+}
+RotoPaint {
+ inputs 0
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 0}
+    {t x44700000 x44070000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_source_transform_center {960 540}
+ channels all
+ name RotoPaint1
+ selected true
+ xpos 5570
+ ypos 6039
+}
+Constant {
+ inputs 0
+ channels none
+ name Constant1
+ label "Res: \[value width] * \[value height]"
+ selected true
+ xpos 5570
+ ypos 5763
+}
+Kronos {
+ inputs 0
+ retimedChannels none
+ motionEstimation Regularized
+ name Kronos1
+ selected true
+ xpos 5460
+ ypos 6249
+}
+ColorWheel {
+ inputs 0
+ channels alpha
+ gamma 0.45
+ name ColorWheel1
+ selected true
+ xpos 5680
+ ypos 5793
+}
+StickyNote {
+ inputs 0
+ name StickyNote28
+ label channels
+ note_font "Verdana Bold"
+ note_font_size 61
+ selected true
+ xpos 5470
+ ypos 5628
+}
+Copy {
+ inputs 0
+ from0 rgba.alpha
+ to0 rgba.alpha
+ channels rgb
+ name Copy1
+ selected true
+ xpos 6010
+ ypos 5811
+}
+Glint {
+ inputs 0
+ channels rgb
+ name Glint1
+ selected true
+ xpos 5790
+ ypos 5823
+}
+StickyNote {
+ inputs 0
+ name StickyNote29
+ label output
+ note_font "Verdana Bold"
+ note_font_size 61
+ selected true
+ xpos 5505
+ ypos 5892
+}
+StickyNote {
+ inputs 0
+ name StickyNote30
+ label retimedChannels
+ note_font "Verdana Bold"
+ note_font_size 61
+ selected true
+ xpos 5454
+ ypos 6108
+}
+Shuffle {
+ inputs 0
+ name Shuffle1
+ label "\[string toupper \[value in]]"
+ selected true
+ xpos 5460
+ ypos 6489
+}
+Shuffle2 {
+ inputs 0
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ name Shuffle2
+ selected true
+ xpos 5680
+ ypos 6495
+}
+StickyNote {
+ inputs 0
+ name StickyNote34
+ label Shuffle
+ note_font "Verdana Bold"
+ note_font_size 61
+ selected true
+ xpos 5497
+ ypos 6348
+}
