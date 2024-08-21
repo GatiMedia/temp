@@ -1,0 +1,125 @@
+set cut_paste_input [stack 0]
+version 13.2 v8
+ColorWheel {
+ inputs 0
+ gamma 0.45
+ name ColorWheel1
+ selected true
+ xpos 7550
+ ypos -26601
+}
+Transform {
+ scale 1.1
+ center {{input.width/2} {input.height/2}}
+ shutteroffset centred
+ name Transform1
+ selected true
+ xpos 7550
+ ypos -26482
+}
+Group {
+ name Format_Test
+ label "Bbox: \[value bbox_options]"
+ selected true
+ xpos 7550
+ ypos -26416
+ addUserKnob {20 User}
+ addUserKnob {41 size l "Blur Size" T Blur1.size}
+ addUserKnob {4 bbox_options l "Bbox Options" M {"Adjusted Bbox" "Original Bbox" "Crop to input format" "" "" "" ""}}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 1170
+  ypos -778
+ }
+ Dot {
+  name Dot1
+  note_font_size 22
+  xpos 1204
+  ypos -702
+ }
+set N979acd0 [stack 0]
+ Dot {
+  name Dot3
+  note_font_size 22
+  xpos 1644
+  ypos -702
+ }
+set Nc1eda510 [stack 0]
+ Dot {
+  name Dot8
+  note_font_size 22
+  xpos 2084
+  ypos -702
+ }
+ Crop {
+  box {{input.format.x} {input.format.y} {input.format.r} {input.format.t}}
+  name Crop1
+  label "Box: x:\[value box.x]  y:\[value box.y] r:\[value box.r] t:\[value box.t]"
+  xpos 2050
+  ypos -592
+ }
+push $N979acd0
+ Blur {
+  channels rgba
+  size 300
+  name Blur1
+  label "Size: \[value size]"
+  xpos 1170
+  ypos -592
+ }
+ Dot {
+  name Dot5
+  note_font_size 22
+  xpos 1204
+  ypos -342
+ }
+set N8934f080 [stack 0]
+ Dot {
+  name Dot7
+  note_font_size 22
+  xpos 1534
+  ypos -342
+ }
+set Nb6cbf300 [stack 0]
+ Dot {
+  name Dot6
+  note_font_size 22
+  xpos 1974
+  ypos -342
+ }
+ Reformat {
+  type "to box"
+  box_width {{parent.Crop1.box.r}}
+  box_height {{parent.Crop1.box.t}}
+  box_fixed true
+  name Reformat1
+  label "\[if \{\[value this.type]==\"scale\"\} \{return \"Scale: \[value this.scale]\"\} \{return \"\"\}]"
+  xpos 1940
+  ypos -34
+ }
+push $Nc1eda510
+ Dot {
+  name Dot4
+  note_font_size 22
+  xpos 1644
+  ypos -222
+ }
+push $Nb6cbf300
+ CopyBBox {
+  inputs 2
+  name CopyBBox1
+  xpos 1500
+  ypos -226
+ }
+push $N8934f080
+ Switch {
+  inputs 3
+  which {{parent.bbox_options}}
+  name Switch1
+  label "Which: \[value which]"
+  selected true
+  xpos 1170
+  ypos -40
+    [pasted text truncated for security]
